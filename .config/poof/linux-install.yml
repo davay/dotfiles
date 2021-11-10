@@ -26,7 +26,14 @@
       replace:
         path: /etc/pacman.conf
         regexp: '#Color'
-        replace: "Color\nILoveCandy"
+        replace: "Color"
+      become: yes
+      become_user: root
+
+    - name: Pacman ILoveCandy
+      lineinfile:
+        dest: /etc/pacman.conf
+        line: 'ILoveCandy'
       become: yes
       become_user: root
 
