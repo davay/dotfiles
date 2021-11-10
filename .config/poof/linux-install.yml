@@ -22,7 +22,7 @@
 
     - name: Install pip packages
       pip:
-        name: grip
+        name: grip #mb delete
 
     - name: Enable colors
       replace:
