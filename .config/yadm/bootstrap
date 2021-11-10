@@ -20,8 +20,11 @@ if [[ $system_type = "Darwin" ]]; then
 	fi
 elif [[ $system_type = "Linux" ]]; then # built for manjaro i3 minimal
 	if [[ $(command -v pacman) ]]; then
-		git clone https://github.com/kewlfft/ansible-aur.git ~/.ansible/plugins/modules/aur
 		sudo pacman --noconfirm -S ansible
+		ansible-galaxy collection install kewlfft.aur
 		ansible-playbook ~/.config/poof/linux-install.yml
 	fi
+
+fi
+
 

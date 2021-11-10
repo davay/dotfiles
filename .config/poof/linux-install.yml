@@ -1,12 +1,7 @@
 ---
 - hosts: localhost
-  become: true
-  become_user: davay
 
   tasks:
-    - user:
-        name: davay
-        state: present
 
     - name: Install base packages
       pacman:
@@ -17,18 +12,21 @@
           - pulseaudio
           - pavucontrol
           - yay
+        state: present
+      become: yes
+      become_user: root
 
     - name: Install aur packages
-      aur:
+      kewlfft.aur.aur:
         name: 
           - spotify
-          - 
+          - google-chrome
 
     - name: Enable colors
       replace:
         path: /etc/pacman.conf
         regexp: '#Color'
-        replace: "Color"
+        replace: "Color\nILoveCandy"
       become: yes
       become_user: root
 
