@@ -22,37 +22,6 @@ elif [[ $system_type = "Linux" ]]; then # built for manjaro i3 minimal
 	if [[ $(command -v pacman) ]]; then
 		git clone https://github.com/kewlfft/ansible-aur.git ~/.ansible/plugins/modules/aur
 		sudo pacman --noconfirm -S ansible
-		ansible-playbook ~/deployment/base-install.yml
-		if [[ $HOSTNAME = "da" ]]; then
-			ansible-playbook ~/deployment/home-install.yml
-		fi
+		ansible-playbook ~/.config/poof/linux-install.yml
 	fi
 
-	: 'COMMENTED OUT if empty(glob("~/.vim/autoload/plug.vim"))
-	silent! execute '!curl --create-dirs -fsSLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
-	autocmd VimEnter * silent! PlugInstall
-	endif
-
-	silent! if plug#begin()
-
-	Plug 'airblade/vim-gitgutter'
-	Plug 'c9s/perlomni.vim', { 'for': 'perl' }
-	Plug 'ctrlpvim/ctrlp.vim'
-	Plug 'vim-syntastic/syntastic'
-	Plug 'yggdroot/indentLine'
-
-	if v:version >= 703
-		Plug 'gorodinskiy/vim-coloresque'
-		Plug 'jamessan/vim-gnupg'
-		endif
-		if v:version >= 704
-			Plug 'vim-pandoc/vim-pandoc-syntax'
-			endif
-
-			call plug#end()
-			endif
-
-			if command -v vim >/dev/null 2>&1; then
-				echo "Bootstraping Vim"
-				vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'fi
-				'
