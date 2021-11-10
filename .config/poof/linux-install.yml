@@ -11,6 +11,7 @@
           - kitty
           - python-pip
           - python2-pip
+          - gcc
       become: yes
       become_user: root
 
@@ -19,10 +20,13 @@
         name: 
           - spotify
           - google-chrome
+          - evhz-git
 
     - name: Install pip packages
       pip:
         name: grip #mb delete
+
+    ### System Files ### 
 
     - name: Enable colors
       replace:
@@ -39,5 +43,9 @@
       become: yes
       become_user: root
 
-
-
+    - name: Disable mouse acceleration
+      copy:
+        src: ~/.config/poof/sysfiles/50-mouse-acceleration.conf
+        dest: /etc/X11/xorg.conf.d/50-mouse-acceleration.conf
+      become: yes
+      become_user: root

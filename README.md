@@ -1,5 +1,5 @@
-# Installation
-Manjaro / Arch
+# Poof
+### Manjaro / Arch
 ```yay -S yadm-git && yadm clone https://github.com/davay/dotfiles.git && yadm bootstrap```
-Mac
-```brew install yadm && yadm clone https://github.com/davay/dotfiles.git && yadm bootstrap```
+### Mac
+```PLACEHOLDER```
