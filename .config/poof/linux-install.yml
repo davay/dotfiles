@@ -9,9 +9,8 @@
           - rofi
           - zsh
           - kitty
-          - pulseaudio
-          - pavucontrol
-        state: present
+          - python-pip
+          - python2-pip
       become: yes
       become_user: root
 
@@ -20,6 +19,10 @@
         name: 
           - spotify
           - google-chrome
+
+    - name: Install pip packages
+      pip:
+        name: grip
 
     - name: Enable colors
       replace:
@@ -35,7 +38,6 @@
         line: 'ILoveCandy'
       become: yes
       become_user: root
-
 
 
 
