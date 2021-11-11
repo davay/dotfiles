@@ -102,3 +102,6 @@ source $ZSH/oh-my-zsh.sh
 
 alias sudo="sudo " # enable sudo for aliases
 alias zshconfig="vim ~/.zshrc"
+alias yadmconfig="vim ~/.config/yadm/bootstrap"
+alias i3config="vim ~/.i3/config"
+alias ansibleconfig="vim ~/.config/poof/linux-install.yml"

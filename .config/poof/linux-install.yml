@@ -35,7 +35,7 @@
 
     - name: Install pip packages
       pip:
-        name: grip #mb delete
+        name: grip
 
 
     ### System Files ### 
