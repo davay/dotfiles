@@ -23,6 +23,8 @@ elif [[ $system_type = "Linux" ]]; then # built for manjaro i3 minimal
 		sudo pacman --noconfirm -S ansible
 		ansible-galaxy collection install kewlfft.aur
 		ansible-playbook ~/.config/poof/linux-install.yml
+		yes | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+		chsh -s /bin/zsh
 	fi
 
 fi

@@ -12,6 +12,17 @@
           - python-pip
           - python2-pip
           - gcc
+          - manjaro-settings-manager
+          - firefox
+      become: yes
+      become_user: root
+
+    - name: Remove base packages
+      pacman:
+        name:
+          - bmenu
+          - rxvt-unicode
+        state: removed
       become: yes
       become_user: root
 
@@ -19,12 +30,11 @@
       kewlfft.aur.aur:
         name: 
           - spotify
-          - google-chrome
-          - evhz-git
 
     - name: Install pip packages
       pip:
         name: grip #mb delete
+
 
     ### System Files ### 
 
