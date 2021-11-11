@@ -14,12 +14,14 @@
           - gcc
           - manjaro-settings-manager
           - firefox
+          - github-cli
       become: yes
       become_user: root
 
     - name: Remove base packages
       pacman:
         name:
+          - palemoon-bin
           - bmenu
           - rxvt-unicode
         state: removed
@@ -41,7 +43,7 @@
     - name: Enable colors
       replace:
         path: /etc/pacman.conf
-        regexp: '#Color'
+        regexp: "#Color"
         replace: "Color"
       become: yes
       become_user: root
@@ -49,6 +51,7 @@
     - name: Pacman ILoveCandy
       lineinfile:
         dest: /etc/pacman.conf
+        insertafter: "Color"
         line: 'ILoveCandy'
       become: yes
       become_user: root
