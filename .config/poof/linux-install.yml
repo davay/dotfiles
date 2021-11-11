@@ -15,6 +15,7 @@
           - manjaro-settings-manager
           - firefox
           - github-cli
+          - discord
       become: yes
       become_user: root
 
@@ -23,7 +24,6 @@
         name:
           - palemoon-bin
           - bmenu
-          - rxvt-unicode
         state: removed
       become: yes
       become_user: root
@@ -62,3 +62,11 @@
         dest: /etc/X11/xorg.conf.d/50-mouse-acceleration.conf
       become: yes
       become_user: root
+
+    - name: Disable beep sounds
+      copy:
+        src: ~/.config/poof/sysfiles/nobeep.conf
+        dest: /etc/modprobe.d/nobeep.conf
+      become: yes
+      become_user: root
+          
