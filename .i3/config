@@ -237,10 +237,6 @@ exec_always --no-startup-id fix_xcursor
 
 exec_always --no-startup-id xrandr --output DP-5 --auto --right-of HDMI-0 --rotate left --output HDMI-0 --primary --mode 2560x1080 --rate 74.99; xrandr --output HDMI-0 --pos 0x525
 
-#Keybinding
-exec_always --no-startup-id setxkbmap -option caps:escape
-exec_always --no-startup-id setxkbmap -option altwin:swap_alt_win
-
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
 # https://i3wm.org/docs/userguide.html#xresources

@@ -16,6 +16,7 @@
           - firefox
           - github-cli
           - discord
+          - steam-manjaro
       become: yes
       become_user: root
 
@@ -67,6 +68,13 @@
       copy:
         src: ~/.config/poof/sysfiles/nobeep.conf
         dest: /etc/modprobe.d/nobeep.conf
+      become: yes
+      become_user: root
+    
+    - name: Caps <-> Esc, LWin <-> LAlt
+      copy:
+        src: ~/.config/poof/sysfiles/pc
+        dest: /usr/share/X11/xkb/symbols/pc
       become: yes
       become_user: root
           
