@@ -17,6 +17,7 @@
           - github-cli
           - discord
           - steam-manjaro
+          - python-pywal
       become: yes
       become_user: root
 
@@ -71,10 +72,10 @@
       become: yes
       become_user: root
     
-    - name: Caps <-> Esc, LWin <-> LAlt
+    - name: Set keybindings
       copy:
-        src: ~/.config/poof/sysfiles/pc
-        dest: /usr/share/X11/xkb/symbols/pc
+        src: ~/.config/poof/sysfiles/keyboard
+        dest: /etc/default/keyboard
       become: yes
       become_user: root
           
