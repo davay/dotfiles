@@ -13,11 +13,14 @@
           - python2-pip
           - gcc
           - manjaro-settings-manager
-          - firefox
           - github-cli
           - discord
           - steam-manjaro
           - python-pywal
+          - xarchiver
+          - zip
+          - blueman
+          - pulseaudio-bluetooth
       become: yes
       become_user: root
 
@@ -34,6 +37,7 @@
       kewlfft.aur.aur:
         name: 
           - spotify
+          - google-chrome
 
     - name: Install pip packages
       pip:
