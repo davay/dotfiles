@@ -21,6 +21,7 @@
           - zip
           - blueman
           - pulseaudio-bluetooth
+          - playerctl
       become: yes
       become_user: root
 
@@ -38,6 +39,7 @@
         name: 
           - spotify
           - google-chrome
+          - polybar
 
     - name: Install pip packages
       pip:
