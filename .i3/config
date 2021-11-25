@@ -9,16 +9,15 @@ default_floating_border normal
 font xft:URWGothic-Book 11 
 floating_modifier $mod
 workspace_auto_back_and_forth no
-for_window [urgent=latest] focus 
  
 # i3-gaps settings
 smart_borders on
-smart_gaps on
 gaps inner 14
 gaps outer -2
 gaps top 35
 
 # utilities
+bindsym --release $mod+ctrl+x exec xkill
 bindsym $mod+Shift+x kill 
 bindsym $mod+Return exec kitty
 bindsym $mod+d exec --no-startup-id dmenu_recency
@@ -71,6 +70,9 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
+
+# get window info
+bindsym --release $mod+F1 exec --no-startup-id notify-send "$(xprop | grep -v \"NET_WM_NAME\" | grep \"WM_NAME\|WM_CLASS\")"
 
 # workspace names (also works with unicode)
 set $ws1 1
@@ -126,7 +128,6 @@ bindsym $mod+Shift+r move container to workspace $ws8; workspace $ws8
 bindsym $mod+9 exec --no-startup-id blurlock
 
 # open apps on specific workspaces
-assign [class="(?i)google-chrome"] $ws1
 assign [class="(?i)steam"] $ws3
 assign [class="(?i)franz"] $ws4
 assign [class="(?i)spotify"] $ws5
@@ -145,7 +146,6 @@ assign [class="(?i)tekkengame-win64-shipping.exe"] $ws2
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -bc
 exec --no-startup-id xfce4-power-manager
-exec --no-startup-id start_conky_maia
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id xrandr --output DP-5 --auto --right-of HDMI-0 --rotate left --output HDMI-0 --primary --mode 2560x1080 --rate 74.99; xrandr --output HDMI-0 --pos 0x525
@@ -160,6 +160,7 @@ exec --no-startup-id clipit
 ## Etc
 exec --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id ~/.config/polybar/spotify_scripts/launch_listener.sh
+exec_always --no-startup-id setxkbmap -layout us -option caps:escape,altwin:swap_lalt_lwin
 
 # Set shut down, restart and locking features
 bindsym $mod+0 mode "$mode_system"
