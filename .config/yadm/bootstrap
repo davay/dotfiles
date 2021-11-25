@@ -26,6 +26,8 @@ elif [[ $system_type = "Linux" ]]; then # built for manjaro i3 minimal
 		yes | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 		sudo chsh -s /bin/zsh davay
 		sudo chsh -s /bin/zsh
+		sudo modprobe i2c-dev
+		sudo modprobe i2c-i801
 	fi
 
 fi
