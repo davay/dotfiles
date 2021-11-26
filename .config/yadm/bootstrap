@@ -28,6 +28,8 @@ elif [[ $system_type = "Linux" ]]; then # built for manjaro i3 minimal
 		sudo chsh -s /bin/zsh
 		sudo modprobe i2c-dev
 		sudo modprobe i2c-i801
+		sudo timedatectl set-ntp true
+		sudo systemctl enable teamviewerd
 	fi
 
 fi

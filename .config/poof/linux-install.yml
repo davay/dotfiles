@@ -45,6 +45,7 @@
           - otf-apple-sf-mono
           - otf-font-awesome-5-free
           - otf-ipafont
+          - teamviewer
 
     - name: Install pip packages
       pip:
