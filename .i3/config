@@ -147,6 +147,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -bc
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xautolock -time 10 -locker blurlock
+exec --no-startup-id pulseaudio
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id xrandr --output DP-5 --auto --right-of HDMI-0 --rotate left --output HDMI-0 --primary --mode 2560x1080 --rate 74.99; xrandr --output HDMI-0 --pos 0x525
 

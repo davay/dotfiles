@@ -22,6 +22,7 @@
           - zip
           - blueman
           - pulseaudio-bluetooth
+          - dbus-python
           - playerctl
           - neofetch
           - lolcat
