@@ -189,3 +189,7 @@ mode "$mode_system" {
 bindsym --release $mod+0 exec --no-startup-id amixer -D pulse sset Master toggle
 bindsym --release $mod+equal exec --no-startup-id amixer -D pulse sset Master 5%+
 bindsym --release $mod+minus exec --no-startup-id amixer -D pulse sset Master 5%-
+
+bindsym --release $mod+period exec --no-startup-id playerctl play-pause
+bindsym --release $mod+slash exec --no-startup-id playerctl next
+bindsym --release $mod+comma exec --no-startup-id playerctl previous
