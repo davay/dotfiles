@@ -26,6 +26,7 @@
           - playerctl
           - neofetch
           - lolcat
+          - pavucontrol
       become: yes
       become_user: root
 
