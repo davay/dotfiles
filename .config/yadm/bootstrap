@@ -31,6 +31,8 @@ elif [[ $system_type = "Linux" ]]; then # built for manjaro i3 minimal
 		sudo udevadm control --reload-rules && sudo udevadm trigger
 		sudo timedatectl set-ntp true
 		sudo systemctl enable teamviewerd
+		wpg-install.sh -g
+		wpg -a ~/.config/poof/background/*
 		
 	fi
 
