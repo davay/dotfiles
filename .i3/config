@@ -130,7 +130,7 @@ bindsym $mod+9 exec --no-startup-id blurlock
 # open apps on specific workspaces
 assign [class="(?i)steam"] $ws3
 assign [class="(?i)franz"] $ws4
-assign [class="(?i)spotify"] $ws5
+for_window [class="(?i)spotify"] move to workspace $ws5
 assign [class="(?i)musixmatch"] $ws5
 assign [class="(?i)pavucontrol"] $ws6
 assign [class="(?i)discord"] $ws6
@@ -147,9 +147,13 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -bc
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xautolock -time 10 -locker blurlock
+exec --no-startup-id nvidia-settings -a "[gpu:0]/GpuPowerMizerMode=1"
 exec --no-startup-id pulseaudio
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id xrandr --output DP-5 --auto --right-of HDMI-0 --rotate left --output HDMI-0 --primary --mode 2560x1080 --rate 74.99; xrandr --output HDMI-0 --pos 0x525
+exec --no-startup-id ~/.config/polybar/launch.sh
+exec --no-startup-id ~/.config/polybar/spotify_scripts/launch_listener.sh
+exec_always --no-startup-id setxkbmap -layout us -option caps:escape,altwin:swap_lalt_lwin
 
 ## Tray
 exec --no-startup-id blueman-applet
@@ -158,10 +162,11 @@ exec --no-startup-id pa-applet
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 
-## Etc
-exec --no-startup-id ~/.config/polybar/launch.sh
-exec --no-startup-id ~/.config/polybar/spotify_scripts/launch_listener.sh
-exec_always --no-startup-id setxkbmap -layout us -option caps:escape,altwin:swap_lalt_lwin
+## Apps
+exec --no-startup-id steam
+exec --no-startup-id spotify
+exec --no-startup-id pavucontrol
+exec --no-startup-id discord
 
 # Set shut down, restart and locking features
 bindsym $mod+0 mode "$mode_system"
