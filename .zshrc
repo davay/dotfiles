@@ -109,7 +109,7 @@ alias cdpoof="cd ~/.config/poof/"
 alias neofetch="neofetch | lolcat"
 alias theme="wpg -s \$(wpg -l | fzf) && wal -R && pywal-discord"
 alias addtheme="wpg -a "
-alias spotifytheme="spicetify-cli config current_theme"
-alias spotifycolor="spicetify-cli config color_scheme"
+alias spotifytheme="spicetify config current_theme"
+alias spotifycolor="spicetify config color_scheme"
 
 cat ~/.cache/wal/sequences # fix for kitty color resetting on new window

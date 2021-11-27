@@ -58,6 +58,7 @@
           - spicetify-themes-git
           - betterdiscordctl-git
           - pywal-discord-git
+          - vmware-workstation
 
     - name: Install pip packages
       pip:
@@ -106,6 +107,13 @@
       copy:
         src: ~/.config/poof/sysfiles/60-openrgb.rules
         dest: /etc/udev/rules.d/60-openrgb.rules
+      become: yes
+      become_user: root
+
+    - name: Copy color.ini to Spotify Turntable theme
+      copy:
+        src: ~/.config/poof/sysfiles/color.ini
+        dest: /usr/share/spicetify-cli/Themes/Turntable/color.ini
       become: yes
       become_user: root
 
