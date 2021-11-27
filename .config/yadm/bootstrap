@@ -36,6 +36,8 @@ elif [[ $system_type = "Linux" ]]; then # built for manjaro i3 minimal
 		sudo chmod a+wr /opt/spotify
 		sudo chmod a+wr /opt/spotify/Apps -R
 		sudo cp /usr/share/spicetify-cli/Themes/Turntable/turntable.js /usr/share/spicetify-cli/Extensions/.
+		sudo updatedb
+		betterdiscordctl install
 	fi
 
 fi

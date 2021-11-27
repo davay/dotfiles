@@ -131,8 +131,10 @@ bindsym $mod+9 exec --no-startup-id blurlock
 assign [class="(?i)steam"] $ws3
 assign [class="(?i)franz"] $ws4
 for_window [class="(?i)spotify"] move to workspace $ws5
+for_window [title="(?i)Picture in Picture"] floating disable
 assign [class="(?i)pavucontrol"] $ws5
 assign [class="(?i)discord"] $ws6
+
 
 assign [class="(?i)dota2"] $ws2
 assign [class="(?i)fsd-win64-shipping.exe"] $ws2
