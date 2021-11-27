@@ -113,3 +113,5 @@ alias spotifytheme="spicetify config current_theme"
 alias spotifycolor="spicetify config color_scheme"
 
 cat ~/.cache/wal/sequences # fix for kitty color resetting on new window
+
+eval $(thefuck --alias)

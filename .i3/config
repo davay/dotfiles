@@ -65,11 +65,11 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # move the currently focused window to the scratchpad
-bindsym $mod+Shift+minus move scratchpad
+#bindsym $mod+Shift+minus move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+minus scratchpad show
+#bindsym $mod+minus scratchpad show
 
 # get window info
 bindsym --release $mod+F1 exec --no-startup-id notify-send "$(xprop | grep -v \"NET_WM_NAME\" | grep \"WM_NAME\|WM_CLASS\")"
@@ -145,7 +145,7 @@ assign [class="(?i)tekkengame-win64-shipping.exe"] $ws2
 
 ## Init
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; picom -bc
+exec --no-sttup-id nitrogen --restore; sleep 1; picom -bc
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec --no-startup-id nvidia-settings -a "[gpu:0]/GpuPowerMizerMode=1"
@@ -169,7 +169,7 @@ exec --no-startup-id pavucontrol
 exec --no-startup-id discord
 
 # Set shut down, restart and locking features
-bindsym $mod+0 mode "$mode_system"
+bindsym $mod+Shift+question mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3exit lock, mode "default"
@@ -184,3 +184,8 @@ mode "$mode_system" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
+# Audio control
+bindsym --release $mod+0 exec --no-startup-id amixer -D pulse sset Master toggle
+bindsym --release $mod+equal exec --no-startup-id amixer -D pulse sset Master 5%+
+bindsym --release $mod+minus exec --no-startup-id amixer -D pulse sset Master 5%-

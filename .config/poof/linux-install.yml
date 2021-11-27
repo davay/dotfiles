@@ -28,6 +28,7 @@
           - lolcat
           - pavucontrol
           - xsettingsd
+          - xorg-xev
       become: yes
       become_user: root
 
@@ -59,10 +60,13 @@
           - betterdiscordctl-git
           - pywal-discord-git
           - vmware-workstation
+          - thefuck-git
 
     - name: Install pip packages
       pip:
-        name: grip
+        name: 
+          - grip
+          - pip
 
     ### System Files ### 
 
