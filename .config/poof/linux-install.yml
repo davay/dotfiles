@@ -54,6 +54,9 @@
           - teamviewer
           - wpgtk-git
           - gtk-theme-flat-color-git
+          - pywal-discord-git
+          - spicetify-cli-git
+          - spicetify-themes-git
 
     - name: Install pip packages
       pip:

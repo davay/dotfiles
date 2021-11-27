@@ -108,3 +108,7 @@ alias ansibleconfig="vim ~/.config/poof/linux-install.yml"
 alias cdpoof="cd ~/.config/poof/"
 alias neofetch="neofetch | lolcat"
 alias theme="wpg -s \$(wpg -l | fzf) && ~/.config/polybar/launch.sh"
+alias spotifytheme="spicetify-cli config current_theme"
+alias spotifycolor="spicetify-cli config color_scheme"
+
+cat ~/.cache/wal/sequences # fix for kitty color resetting on new window
