@@ -27,6 +27,7 @@
           - neofetch
           - lolcat
           - pavucontrol
+          - xsettingsd
       become: yes
       become_user: root
 
@@ -51,6 +52,8 @@
           - otf-font-awesome-5-free
           - otf-ipafont
           - teamviewer
+          - wpgtk-git
+          - gtk-theme-flat-color-git
 
     - name: Install pip packages
       pip:

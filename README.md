@@ -5,7 +5,7 @@ A [yadm](https://yadm.io/) + [Ansible](https://docs.ansible.com/ansible/latest/u
 ## Installation
 
 ### Manjaro / Arch
-```sudo pacman --noconfirm -S yay && yay -S yadm-git && yes | yadm clone https://github.com/davay/dotfiles.git```
+```sudo pacman -S --noconfirm yay && yay -S --noconfirm yadm-git && yes | yadm clone https://github.com/davay/dotfiles.git```
 
 ### Mac
 ```brew install yadm && yadm clone https://github.com/davay/dotfiles.git && yadm bootstrap```
