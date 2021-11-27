@@ -1,3 +1,5 @@
 [user]
 	email = davay@devinl.im
 	name = davay
+[credential]
+	helper = store

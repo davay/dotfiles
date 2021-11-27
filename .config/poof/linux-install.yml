@@ -18,6 +18,7 @@
           - steam-manjaro
           - python-pywal
           - xarchiver
+          - jq
           - zip
           - blueman
           - pulseaudio-bluetooth
