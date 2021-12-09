@@ -139,13 +139,14 @@ assign [class="(?i)discord"] $ws6
 assign [class="(?i)dota2"] $ws2
 assign [class="(?i)fsd-win64-shipping.exe"] $ws2
 assign [class="(?i)7daystodie.exe"] $ws2 
-assign [class="(?i)tekkengame-win64-shipping.exe"] $ws2
+for_window [class="(?i)steam_app_389730"] move to workspace $ws2
+assign [class="(?i)steam_app_389730"] $ws2
 
 # Autostart
 
 ## Init
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-sttup-id nitrogen --restore; sleep 1; picom -bc
+exec --no-sttup-id nitrogen --restore; sleep 1; picom -bc; sleep 5; wal -R
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec --no-startup-id nvidia-settings -a "[gpu:0]/GpuPowerMizerMode=1"
@@ -153,7 +154,6 @@ exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id xrandr --output DP-5 --auto --right-of HDMI-0 --rotate left --output HDMI-0 --primary --mode 2560x1080 --rate 74.99; xrandr --output HDMI-0 --pos 0x525
 exec --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id ~/.config/polybar/spotify_scripts/launch_listener.sh
-exec_always --no-startup-id setxkbmap -layout us -option caps:escape,altwin:swap_lalt_lwin
 
 ## Tray
 exec --no-startup-id blueman-applet
