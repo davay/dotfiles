@@ -102,8 +102,8 @@
     
     - name: Set keybindings
       copy:
-        src: ~/.config/poof/sysfiles/keyboard
-        dest: /etc/default/keyboard
+        src: ~/.config/poof/sysfiles/pc
+        dest: /usr/share/X11/xkb/symbols/pc
       become: yes
       become_user: root
         
