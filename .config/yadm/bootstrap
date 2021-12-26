@@ -36,6 +36,7 @@ elif [[ $system_type = "Linux" ]]; then # built for manjaro i3 minimal
 		sudo chmod a+wr /opt/spotify
 		sudo chmod a+wr /opt/spotify/Apps -R
 		sudo updatedb
+		sudo systemctl enable bluetooth.service
 		betterdiscordctl install
 	fi
 
