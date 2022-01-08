@@ -1,0 +1,5 @@
+brew neovim
+brew yabai
+brew yadm
+brew skhd
+brew zsh
