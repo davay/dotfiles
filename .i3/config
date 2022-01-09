@@ -23,7 +23,7 @@ bindsym $mod+Return exec kitty
 bindsym $mod+d exec --no-startup-id dmenu_recency
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
-bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
+bindsym $mod+Shift+s --release exec --no-startup-id i3-scrot -s
 bindsym $mod+grave reload
 bindsym $mod+Shift+grave restart
 
