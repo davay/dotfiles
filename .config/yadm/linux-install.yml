@@ -8,6 +8,7 @@
         name:
           - rofi
           - zsh
+          - nvim
           - kitty
           - python-pip
           - python2-pip
