@@ -3,3 +3,5 @@
 	name = davay
 [credential]
 	helper = store
+[pull]
+	rebase = false
