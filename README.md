@@ -19,4 +19,10 @@ A [yadm](https://yadm.io/) + [Ansible](https://docs.ansible.com/ansible/latest/u
    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/davay/.zprofile
     eval "$(/opt/homebrew/bin/brew shellenv)"
 
-brew install git
+brew install yadm 
+
+yadm clone
+
+yadm bootstrap
+
+ansible > git
