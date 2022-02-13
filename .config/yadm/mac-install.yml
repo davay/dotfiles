@@ -1,0 +1,12 @@
+---
+- name: Mac Init
+  hosts: localhost
+  gather_facts: no
+  vars:
+    homebrew_installed_packages:
+      - nvim
+      - yabai
+      - skhd
+      - zsh
+      - gh       
+      - thefuck

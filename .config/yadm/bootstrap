@@ -10,14 +10,10 @@ yadm submodule update --recursive --init
 system_type=$(uname -s)
 
 if [[ $system_type = "Darwin" ]]; then
-	if ! command -v brew >/dev/null 2>&1; then
-		echo "Installing homebrew"
-		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-	fi
-	if [[ -f $HOME/.Brewfile ]]; then # TODO create bundle
-		echo "Updating homebrew bundle"
-		brew bundle --global
-	fi
+	brew install ansible
+	ansible-galaxy collection install geerlingguy.mac
+	ansible-playbook -v ~/.config/yadm/mac-install.yml -i ~/.config/yadm/inventory
+
 elif [[ $system_type = "Linux" ]]; then # built for manjaro i3 minimal
 	if [[ $(command -v pacman) ]]; then
 		sudo pacman --noconfirm -S ansible
