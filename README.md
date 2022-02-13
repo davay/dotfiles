@@ -13,7 +13,10 @@ A [yadm](https://yadm.io/) + [Ansible](https://docs.ansible.com/ansible/latest/u
 ## TODO
 - mac specific setup -- remember to split .zshrc, see dotfiles_archive
 
+
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/davay/.zprofile
     eval "$(/opt/homebrew/bin/brew shellenv)"
+
+brew install git
