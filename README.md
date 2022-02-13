@@ -12,3 +12,7 @@ A [yadm](https://yadm.io/) + [Ansible](https://docs.ansible.com/ansible/latest/u
 
 ## TODO
 - mac specific setup -- remember to split .zshrc, see dotfiles_archive
+
+
+   echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/davay/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
