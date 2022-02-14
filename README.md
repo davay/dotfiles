@@ -8,21 +8,17 @@ A [yadm](https://yadm.io/) + [Ansible](https://docs.ansible.com/ansible/latest/u
 ```sudo pacman -S --noconfirm yay && yay -S --noconfirm yadm-git && yes | yadm clone https://github.com/davay/dotfiles.git```
 
 ### Mac
-```brew install yadm && yadm clone https://github.com/davay/dotfiles.git && yadm bootstrap```
 
-## TODO
-- mac specific setup -- remember to split .zshrc, see dotfiles_archive
+#### [Disable SIP (for Yabai)](https://github.com/koekeishiya/yabai/wiki/Disabling-System-Integrity-Protection)
 
-
+#### Install Brew
+``` 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/davay/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+```
 
-   echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/davay/.zprofile
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-
-brew install yadm 
-
-yadm clone bootstrap
-
-ansible > git
-
-Disable SIP
+#### yadm + Ansible
+```
+brew install yadm && yadm clone https://github.com/davay/dotfiles.git && yadm bootstrap
+```
