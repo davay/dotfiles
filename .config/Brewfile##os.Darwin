@@ -1,7 +1,0 @@
-brew "nvim" 
-brew "yabai" 
-brew "yadm" 
-brew "skhd" 
-brew "zsh" 
-brew "gh" 
-brew "thefuck"

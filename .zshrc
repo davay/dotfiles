@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/davay/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -99,19 +99,3 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-alias sudo="sudo " # enable sudo for aliases
-alias zshconfig="vim ~/.zshrc"
-alias yadmconfig="vim ~/.config/yadm/bootstrap"
-alias i3config="vim ~/.i3/config"
-alias ansibleconfig="vim ~/.config/poof/linux-install.yml"
-alias cdpoof="cd ~/.config/poof/"
-alias neofetch="neofetch | lolcat"
-alias theme="wpg -s \$(wpg -l | fzf) && wal -R && pywal-discord"
-alias addtheme="wpg -a "
-alias spotifytheme="spicetify config current_theme"
-alias spotifycolor="spicetify config color_scheme"
-
-cat ~/.cache/wal/sequences # fix for kitty color resetting on new window
-
-eval $(thefuck --alias)

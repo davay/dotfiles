@@ -10,9 +10,14 @@ yadm submodule update --recursive --init
 system_type=$(uname -s)
 
 if [[ $system_type = "Darwin" ]]; then
+	# Install packages
 	brew install ansible
-	ansible-galaxy collection install geerlingguy.mac
+	ansible-galaxy install -r ~/.config/yadm/requirements.yml
 	ansible-playbook -v ~/.config/yadm/mac-install.yml -i ~/.config/yadm/inventory
+
+	# Misc
+	yes | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 
 elif [[ $system_type = "Linux" ]]; then # built for manjaro i3 minimal
 	if [[ $(command -v pacman) ]]; then

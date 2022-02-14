@@ -1,12 +1,50 @@
 ---
-- name: Mac Init
+- name: Begin Mac setup
   hosts: localhost
-  gather_facts: no
-  vars:
-    homebrew_installed_packages:
-      - nvim
-      - yabai
-      - skhd
-      - zsh
-      - gh       
-      - thefuck
+  connection: local
+  gather_facts: false
+
+  tasks:
+
+    - name: [Homebrew] Install packages
+      community.general.homebrew:
+        name:
+          - nvim
+          - koekeishiya/formulae/yabai
+          - koekeishiya/formulae/skhd
+          - zsh
+          - gh       
+          - thefuck
+          - python
+        state: present
+        update_homebrew: yes
+     
+    - name: [osx_defaults] Sound effect, Beep -> Blow
+      community.general.osx_defaults:
+        domain: com.apple.systemsound
+        key: com.apple.sound.beep.sound
+        type: string
+        value: /System/Library/Sounds/Blow.aiff
+        state: present
+    
+    - name: [osx_defaults] Disable system Tink sound
+      community.general.osx_defaults:
+        domain: com.apple.systemsound
+        key: com.apple.sound.uiaudio.enabled
+        type: bool
+        value: false
+        state: present
+
+    - name: [osx_defaults] Decrease key repeat initial delay
+      community.general.osx_defaults:
+        key: InitialKeyRepeat
+        type: int
+        value: 10
+        state: present
+
+    - name: [osx_defaults] Decrease delay between key repeats
+      community.general.osx_defaults:
+        key: KeyRepeat
+        type: int
+        value: 1
+        state: present
