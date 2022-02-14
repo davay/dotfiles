@@ -3,10 +3,19 @@
   hosts: localhost
   connection: local
   gather_facts: false
-
+  
+  vars: 
+    ansible_python_interpreter: /usr/bin/python3
+  
+  vars_prompt:
+    - name: mas_email
+      prompt: "Please input Mac App Store email"
+      private: no
+    - name: mas_password
+      prompt: "Please input Mac App Store password"
+      
   tasks:
-
-    - name: "Homebrew: Install packages"
+    - name: "Homebrew: Install packages & taps"
       community.general.homebrew:
         name:
           - nvim
@@ -16,9 +25,29 @@
           - gh       
           - thefuck
           - python
-        state: present
+          - mas
+        state: latest
         update_homebrew: yes
      
+    - name: "Homebrew: Install casks"
+      community.general.homebrew_cask:
+        name:
+          - steam
+        state: latest
+
+    ## 
+    # mas-cli is currently broken for Monterey+Apple Silicon
+    ##
+
+    #- name: "Mac App Store: Sign in"
+    #  command: 'mas signin "{{ mas_email }}" "{{ mas_password }}"'
+
+    #- name: "Mac App Store: Install apps"
+    #  community.general.mas:
+    #    id: 
+    #      - 1548853763 # Singlebox Plus
+    #    state: latest
+       
     - name: "osx_defaults: Change alert sound from Beep to Blow"
       community.general.osx_defaults:
         domain: com.apple.systemsound
@@ -69,10 +98,10 @@
         value: false
         state: present
 
-    ###
+    ##
     # https://apple.stackexchange.com/questions/59556/is-there-a-way-to-completely-disable-dock
-    ###
-
+    ##
+    
     - name: "osx_defaults: Autohide dock"
       community.general.osx_defaults:
         domain: com.apple.dock
@@ -96,7 +125,3 @@
         type: bool
         value: true
         state: present
-
-    ###
-      #
-    ###     
