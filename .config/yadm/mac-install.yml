@@ -6,7 +6,7 @@
 
   tasks:
 
-    - name: [Homebrew] Install packages
+    - name: "Homebrew: Install packages"
       community.general.homebrew:
         name:
           - nvim
@@ -19,7 +19,7 @@
         state: present
         update_homebrew: yes
      
-    - name: [osx_defaults] Sound effect, Beep -> Blow
+    - name: "osx_defaults: Change alert sound from Beep to Blow"
       community.general.osx_defaults:
         domain: com.apple.systemsound
         key: com.apple.sound.beep.sound
@@ -27,24 +27,37 @@
         value: /System/Library/Sounds/Blow.aiff
         state: present
     
-    - name: [osx_defaults] Disable system Tink sound
+    - name: "osx_defaults: Disable system Tink sound"
       community.general.osx_defaults:
         domain: com.apple.systemsound
         key: com.apple.sound.uiaudio.enabled
-        type: bool
-        value: false
+        type: int
+        value: 0
         state: present
 
-    - name: [osx_defaults] Decrease key repeat initial delay
+    - name: "osx_defaults: Decrease key repeat initial delay"
       community.general.osx_defaults:
         key: InitialKeyRepeat
         type: int
-        value: 10
+        value: 14
         state: present
 
-    - name: [osx_defaults] Decrease delay between key repeats
+    - name: "osx_defaults: Decrease delay between key repeats"
       community.general.osx_defaults:
         key: KeyRepeat
         type: int
         value: 1
         state: present
+   
+    - name: "osx_defaults: Reduce alert sound volume"
+      community.general.osx_defaults:
+        domain: NSGlobalDomain
+        key: com.apple.sound.beep.volume
+        type: float
+        
+        # Alert volume conversion:
+        # 75%: 0.7788008
+        # 50%: 0.6065307
+        # 25%: 0.4723665
+        value: 0.6065307
+      

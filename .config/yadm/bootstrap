@@ -18,6 +18,14 @@ if [[ $system_type = "Darwin" ]]; then
 	# Misc
 	yes | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+	# Disable sound effects on boot
+        sudo nvram StartupMute=%01
+
+	# For Yabai
+	sudo nvram boot-args=-arm64e_preview_abi
+
+	# Finishing touch
+	gh auth login
 
 elif [[ $system_type = "Linux" ]]; then # built for manjaro i3 minimal
 	if [[ $(command -v pacman) ]]; then
