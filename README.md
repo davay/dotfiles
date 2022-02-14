@@ -12,14 +12,13 @@ sudo pacman -S --noconfirm yay && yay -S --noconfirm yadm-git && yes | yadm clon
 
 #### 1. Disable SIP [Yabai docs](https://github.com/koekeishiya/yabai/wiki/Disabling-System-Integrity-Protection)
 
-##### Boot into recovery mode
-Press and hold the `power` button on your Mac until “Loading startup options” appears.
+Boot into recovery mode: Press and hold the `power` button on your Mac until “Loading startup options” appears.
 
-##### Disable SIP 
-In the menu bar, choose `Utilities`, then `Terminal`
+Click Options, then click Continue.
+
+In the topbar, choose `Utilities`, then `Terminal`
 ```
 csrutil disable --with kext --with dtrace --with basesystem
-sudo nvram boot-args=-arm64e_preview_abi
 ```
 
 #### 2. Install Brew
