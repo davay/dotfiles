@@ -13,7 +13,7 @@ if [[ $system_type = "Darwin" ]]; then
 	# Install packages
 	brew install ansible
 	ansible-galaxy install -r ~/.config/yadm/requirements.yml
-	ansible-playbook -v ~/.config/yadm/mac-install.yml -i ~/.config/yadm/inventory
+	ansible-playbook ~/.config/yadm/mac-install.yml -i ~/.config/yadm/inventory
 
 	# Misc
 	yes | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -21,9 +21,13 @@ if [[ $system_type = "Darwin" ]]; then
 	# Disable sound effects on boot
         sudo nvram StartupMute=%01
 
-	# For Yabai
+	# Yabai
 	sudo nvram boot-args=-arm64e_preview_abi
-
+	brew services start yabai
+	
+        # Uncomment for Scripting addition, currently not supported for Apple Silicon
+        # sudo sh -c "echo 'davay ALL = (root) NOPASSWD: /usr/local/bin/yabai --load-sa' >> /private/etc/sudoers.d/yabai"
+	
 	# Finishing touch
 	gh auth login
 

@@ -1,5 +1,5 @@
 ---
-- name: Begin Mac setup
+- name: Mac setup
   hosts: localhost
   connection: local
   gather_facts: false
@@ -61,3 +61,42 @@
         # 25%: 0.4723665
         value: 0.6065307
       
+    - name: "osx_defaults: Disable spaces autoreordering"
+      community.general.osx_defaults:
+        domain: com.apple.dock
+        key: mru-spaces
+        type: bool
+        value: false
+        state: present
+
+    ###
+    # https://apple.stackexchange.com/questions/59556/is-there-a-way-to-completely-disable-dock
+    ###
+
+    - name: "osx_defaults: Autohide dock"
+      community.general.osx_defaults:
+        domain: com.apple.dock
+        key: autohide
+        type: bool
+        value: true
+        state: present
+
+    - name: "osx_defaults: Disable dock, use CMD+D to manually hide/unhide"
+      community.general.osx_defaults:
+        domain: com.apple.dock
+        key: autohide-delay
+        type: float
+        value: 1000
+        state: present
+    
+    - name: "osx_defaults: Disable bounce animation for icons in dock"
+      community.general.osx_defaults:
+        domain: com.apple.dock
+        key: no-bouncing
+        type: bool
+        value: true
+        state: present
+
+    ###
+      #
+    ###     
