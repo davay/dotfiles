@@ -21,8 +21,8 @@ A [yadm](https://yadm.io/) + [Ansible](https://docs.ansible.com/ansible/latest/u
 
 brew install yadm 
 
-yadm clone
-
-yadm bootstrap
+yadm clone bootstrap
 
 ansible > git
+
+Disable SIP
