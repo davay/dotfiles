@@ -7,12 +7,12 @@
   vars: 
     ansible_python_interpreter: /usr/bin/python3
   
-  vars_prompt:
-    - name: mas_email
-      prompt: "Please input Mac App Store email"
-      private: no
-    - name: mas_password
-      prompt: "Please input Mac App Store password"
+  #vars_prompt:
+  #  - name: mas_email
+  #    prompt: "Please input Mac App Store email"
+  #    private: no
+  #  - name: mas_password
+  #    prompt: "Please input Mac App Store password"
       
   tasks:
     - name: "Homebrew: Install packages & taps"
@@ -26,6 +26,9 @@
           - thefuck
           - python
           - mas
+          - tree
+          - sl
+          - htop
         state: latest
         update_homebrew: yes
      
@@ -33,6 +36,7 @@
       community.general.homebrew_cask:
         name:
           - steam
+          - discord
         state: latest
 
     ## 
