@@ -8,8 +8,18 @@ A [yadm](https://yadm.io/) + [Ansible](https://docs.ansible.com/ansible/latest/u
 sudo pacman -S --noconfirm yay && yay -S --noconfirm yadm-git && yes | yadm clone https://github.com/davay/dotfiles.git
 ```
 
-### Mac
-#### 1. [Disable SIP (for Yabai)](https://github.com/koekeishiya/yabai/wiki/Disabling-System-Integrity-Protection)
+### Mac (Apple Silicon)
+
+#### 1. Disable SIP [Yabai docs](https://github.com/koekeishiya/yabai/wiki/Disabling-System-Integrity-Protection)
+
+Boot into recovery mode: Press and hold the `power` button on your Mac until “Loading startup options” appears.
+
+Click Options, then click Continue.
+
+In the topbar, choose `Utilities`, then `Terminal`
+```
+csrutil disable --with kext --with dtrace --with basesystem
+```
 
 #### 2. Install Brew
 ``` 
