@@ -1,5 +1,4 @@
-# Poof setup into existence
-
+# Description
 A [yadm](https://yadm.io/) + [Ansible](https://docs.ansible.com/ansible/latest/user_guide/index.html#getting-started) instant setup for fresh OS installs
  
 ## Installation
@@ -10,7 +9,6 @@ sudo pacman -S --noconfirm yay && yay -S --noconfirm yadm-git && yes | yadm clon
 ```
 
 ### Mac
-
 #### 1. [Disable SIP (for Yabai)](https://github.com/koekeishiya/yabai/wiki/Disabling-System-Integrity-Protection)
 
 #### 2. Install Brew
