@@ -19,8 +19,8 @@
       community.general.homebrew:
         name:
           - nvim
-          - koekeishiya/formulae/yabai
-          - koekeishiya/formulae/skhd
+      #    - koekeishiya/formulae/yabai
+      #    - koekeishiya/formulae/skhd
           - zsh
           - gh       
           - thefuck
@@ -29,6 +29,7 @@
           - tree
           - sl
           - htop
+          - fzf
         state: latest
         update_homebrew: yes
      
@@ -38,11 +39,12 @@
           - steam
           - discord
           - spotify
+          - kitty
         state: latest
 
-    ## 
-    # mas-cli is currently broken for Monterey+Apple Silicon
-    ##
+    
+    ### mas-cli is currently broken for Monterey+Apple Silicon
+    
 
     #- name: "Mac App Store: Sign in"
     #  command: 'mas signin "{{ mas_email }}" "{{ mas_password }}"'
@@ -108,10 +110,8 @@
         value: false
         state: present
 
-    ##
-    # https://apple.stackexchange.com/questions/59556/is-there-a-way-to-completely-disable-dock
-    ##
-    
+    ### https://apple.stackexchange.com/questions/59556/is-there-a-way-to-completely-disable-dock
+     
     - name: "osx_defaults: Autohide dock"
       community.general.osx_defaults:
         domain: com.apple.dock
@@ -135,3 +135,5 @@
         type: bool
         value: true
         state: present
+
+    ###
