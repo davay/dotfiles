@@ -37,6 +37,7 @@
         name:
           - steam
           - discord
+          - spotify
         state: latest
 
     ## 
@@ -50,6 +51,11 @@
     #  community.general.mas:
     #    id: 
     #      - 1548853763 # Singlebox Plus
+    #      - # Adguard
+    #      - # Agenda
+    #      - # 1Password 7
+    #      - # Dark Reader for Safari
+    #      - # Vimari 
     #    state: latest
        
     - name: "osx_defaults: Change alert sound from Beep to Blow"
