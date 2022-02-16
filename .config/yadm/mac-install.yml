@@ -61,6 +61,8 @@
     #      - # 1Password 7
     #      - # Dark Reader for Safari
     #      - # Vimari 
+    #      - # Agenda
+    #      - # Structured
     #    state: latest
        
     - name: "osx_defaults: Change alert sound from Beep to Blow"
