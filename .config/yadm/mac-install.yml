@@ -20,7 +20,7 @@
         name:
           - nvim
       #    - koekeishiya/formulae/yabai
-      #    - koekeishiya/formulae/skhd
+          - koekeishiya/formulae/skhd
           - zsh
           - gh       
           - thefuck
@@ -30,6 +30,7 @@
           - sl
           - htop
           - fzf
+          - coreutils
         state: latest
         update_homebrew: yes
      

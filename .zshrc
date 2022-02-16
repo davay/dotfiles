@@ -57,7 +57,6 @@ source $ZSH/oh-my-zsh.sh
 
 alias theme="kitty +kitten themes"
 alias emoji="kitty +kitten choose"
-alias ls="gls --color"
 alias vim="nvim"
 alias sudo="sudo " # enable aliases for sudo
 alias serve="browser-sync start --server --files ."
@@ -65,9 +64,10 @@ alias vimconfig="nvim ~/.config/nvim/init.vim"
 alias zshconfig="nvim ~/.zshrc"
 alias skhdconfig="nvim ~/.config/skhd/skhdrc"
 alias yabaiconfig="nvim ~/.config/yabai/yabairc"
-alias yadmconfig="vim ~/.config/yadm/bootstrap"
-alias ansiblelinuxconfig="vim ~/.config/yadm/linux-install.yml"
-alias ansiblemacconfig="vim ~/.config/yadm/mac-install.yml"
+alias yadmconfig="nvim ~/.config/yadm/bootstrap"
+alias linuxconfig="nvim ~/.config/yadm/linux-install.yml"
+alias kittyconfig="nvim ~/.config/kitty/kitty.conf"
+alias macconfig="nvim ~/.config/yadm/mac-install.yml"
 alias cdyadm="cd ~/.config/yadm/"
 alias neofetch="neofetch | lolcat"
 alias spotifytheme="spicetify config current_theme"
@@ -81,6 +81,9 @@ case `uname` in
 		cat ~/.cache/wal/sequences # fix for kitty color resetting on new window
 		ZSH_DISABLE_COMPFIX=true
 		unsetopt PROMPT_SP	
+	;;
+	Darwin)
+		alias ls="gls --color"
 	;;
 esac
 

@@ -15,7 +15,7 @@ if [[ $system_type = "Darwin" ]]; then
 	ansible-galaxy install -r ~/.config/yadm/requirements.yml
 	ansible-playbook -v ~/.config/yadm/mac-install.yml -i ~/.config/yadm/inventory
 
-	# Misc
+	# Oh-my-zsh
 	yes | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 	# Disable sound effects on boot
@@ -26,6 +26,9 @@ if [[ $system_type = "Darwin" ]]; then
 	brew services start yabai
 	brew services start skhd
 
+	# Fonts
+	cp /Applications/Utilities/Terminal.app/Contents/Resources/Fonts/*.otf ~/Library/Fonts/
+
         # Uncomment for Scripting addition, currently not supported for Apple Silicon
         # sudo sh -c "echo 'davay ALL = (root) NOPASSWD: /usr/local/bin/yabai --load-sa' >> /private/etc/sudoers.d/yabai"
 	
@@ -34,6 +37,7 @@ if [[ $system_type = "Darwin" ]]; then
 
 	# Finishing touch
 	gh auth login
+
 elif [[ $system_type = "Linux" ]]; then # built for manjaro i3 minimal
 	if [[ $(command -v pacman) ]]; then
 		sudo pacman --noconfirm -S ansible
