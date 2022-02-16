@@ -1,14 +1,7 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="darkblood"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -25,11 +18,8 @@ ZSH_THEME="robbyrussell"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -54,17 +44,6 @@ ZSH_THEME="robbyrussell"
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -74,31 +53,35 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+## Global ##
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 alias theme="kitty +kitten themes"
 alias emoji="kitty +kitten choose"
+alias ls="gls --color"
+alias vim="nvim"
+alias sudo="sudo " # enable aliases for sudo
+alias serve="browser-sync start --server --files ."
+alias vimconfig="nvim ~/.config/nvim/init.vim"
+alias zshconfig="nvim ~/.zshrc"
+alias skhdconfig="nvim ~/.config/skhd/skhdrc"
+alias yabaiconfig="nvim ~/.config/yabai/yabairc"
+alias yadmconfig="vim ~/.config/yadm/bootstrap"
+alias ansiblelinuxconfig="vim ~/.config/yadm/linux-install.yml"
+alias ansiblemacconfig="vim ~/.config/yadm/mac-install.yml"
+alias cdyadm="cd ~/.config/yadm/"
+alias neofetch="neofetch | lolcat"
+alias spotifytheme="spicetify config current_theme"
+alias spotifycolor="spicetify config color_scheme"
 
+case `uname` in
+	Linux)
+		alias i3config="vim ~/.i3/config"
+		alias theme="wpg -s \$(wpg -l | fzf) && wal -R && pywal-discord"
+		alias addtheme="wpg -a "
+		cat ~/.cache/wal/sequences # fix for kitty color resetting on new window
+		ZSH_DISABLE_COMPFIX=true
+		unsetopt PROMPT_SP	
+	;;
+esac
+
+eval $(thefuck --alias)
