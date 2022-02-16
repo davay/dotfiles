@@ -59,6 +59,7 @@ alias theme="kitty +kitten themes"
 alias emoji="kitty +kitten choose"
 alias vim="nvim"
 alias sudo="sudo " # enable aliases for sudo
+alias tf="fuck"
 alias serve="browser-sync start --server --files ."
 alias vimconfig="nvim ~/.config/nvim/init.vim"
 alias zshconfig="nvim ~/.zshrc"

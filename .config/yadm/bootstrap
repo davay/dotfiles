@@ -26,8 +26,8 @@ if [[ $system_type = "Darwin" ]]; then
 	brew services start yabai
 	brew services start skhd
 
-	# Fonts
-	cp ~/.config/yadm/fonts/* /Library/Fonts/.
+	# Apple Fonts
+	sudo cp ~/.config/yadm/fonts/* /Library/Fonts/.
 
         # Uncomment for Scripting addition, currently not supported for Apple Silicon
         # sudo sh -c "echo 'davay ALL = (root) NOPASSWD: /usr/local/bin/yabai --load-sa' >> /private/etc/sudoers.d/yabai"

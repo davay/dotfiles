@@ -41,6 +41,7 @@
           - discord
           - spotify
           - kitty
+          - homebrew/cask-fonts/font-fira-code
         state: latest
 
     
