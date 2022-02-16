@@ -35,9 +35,8 @@ yabai -m config right_padding                 6
 yabai -m config window_gap                    4 
 
 # window rules
-yabai -m rule --add app="^Franz$" space=5
-yabai -m rule --add app="^Spotify$" space=3
-yabai -m rule --add app="^Discord$" space=4
+yabai -m rule --add app="^Singlebox Plus$" space=3
+yabai -m rule --add app="^Spotify$" space=4
 yabai -m rule --add app="^System Preferences$" manage=off
 
 # signals
