@@ -97,3 +97,4 @@ hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x70
 
 # Lunarvim
 export PATH="$(pwd)/.local/bin:$PATH"
+export EDITOR='lvim'

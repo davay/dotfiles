@@ -19,7 +19,7 @@ if [[ $system_type = "Darwin" ]]; then
 	yes | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 	# Disable sound effects on boot
-        sudo nvram StartupMute=%01
+  sudo nvram StartupMute=%01
 
 	# Yabai + skhd
 	sudo nvram boot-args=-arm64e_preview_abi
@@ -29,8 +29,8 @@ if [[ $system_type = "Darwin" ]]; then
 	# Apple Fonts
 	sudo cp ~/.config/yadm/fonts/* /Library/Fonts/.
 
-        # Uncomment for Scripting addition, currently buggy for Apple Silicon
-        sudo sh -c "echo 'davay ALL = (root) NOPASSWD: /usr/local/bin/yabai --load-sa' >> /private/etc/sudoers.d/yabai"
+  # Uncomment for Scripting addition, currently buggy for Apple Silicon
+  sudo sh -c "echo 'davay ALL = (root) NOPASSWD: /usr/local/bin/yabai --load-sa' >> /private/etc/sudoers.d/yabai"
 	
 	# LunarVim
 	sh -c "$(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)" 
