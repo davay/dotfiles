@@ -1,5 +1,8 @@
 # open terminal
-cmd - return : open -n /Applications/kitty.app
+shift + cmd - return : open -n /Applications/kitty.app
+
+# open finder
+cmd - e : open -n Finder
 
 # focus window
 alt - x : yabai -m window --focus recent

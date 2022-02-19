@@ -32,6 +32,8 @@
           - fzf
           - coreutils
           - jq
+          - node
+          - lua
         state: latest
         update_homebrew: yes
      

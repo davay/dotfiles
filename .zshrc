@@ -57,22 +57,23 @@ source $ZSH/oh-my-zsh.sh
 
 alias theme="kitty +kitten themes"
 alias emoji="kitty +kitten choose"
-alias vim="nvim"
+alias vim="lvim"
 alias sudo="sudo " # enable aliases for sudo
 alias tf="fuck"
 alias serve="browser-sync start --server --files ."
-alias vimconfig="nvim ~/.config/nvim/init.vim"
-alias zshconfig="nvim ~/.zshrc"
-alias skhdconfig="nvim ~/.config/skhd/skhdrc"
-alias yabaiconfig="nvim ~/.config/yabai/yabairc"
-alias yadmconfig="nvim ~/.config/yadm/bootstrap"
-alias linuxconfig="nvim ~/.config/yadm/linux-install.yml"
-alias kittyconfig="nvim ~/.config/kitty/kitty.conf"
-alias macconfig="nvim ~/.config/yadm/mac-install.yml"
+alias vimconfig="vim ~/.config/nvim/init.vim"
+alias zshconfig="vim ~/.zshrc"
+alias skhdconfig="vim ~/.config/skhd/skhdrc"
+alias yabaiconfig="vim ~/.config/yabai/yabairc"
+alias yadmconfig="vim ~/.config/yadm/bootstrap"
+alias linuxconfig="vim ~/.config/yadm/linux-install.yml"
+alias kittyconfig="vim ~/.config/kitty/kitty.conf"
+alias macconfig="vim ~/.config/yadm/mac-install.yml"
 alias cdyadm="cd ~/.config/yadm/"
 alias neofetch="neofetch | lolcat"
 alias spotifytheme="spicetify config current_theme"
 alias spotifycolor="spicetify config color_scheme"
+alias 😀="sl"
 
 case `uname` in
 	Linux)
@@ -89,3 +90,10 @@ case `uname` in
 esac
 
 eval $(thefuck --alias)
+
+# Swap Caps Lock <-> Escape
+# BAD HACK, runs everytime terminal is opened. Pushed to /dev/null to remove output messages. 
+hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000039, "HIDKeyboardModifierMappingDst":0x700000029},{"HIDKeyboardModifierMappingSrc":0x700000029,"HIDKeyboardModifierMappingDst":0x700000039}]}' > /dev/null 2>&1 
+
+# Lunarvim
+export PATH="$(pwd)/.local/bin:$PATH"

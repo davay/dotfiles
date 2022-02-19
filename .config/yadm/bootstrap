@@ -29,13 +29,13 @@ if [[ $system_type = "Darwin" ]]; then
 	# Apple Fonts
 	sudo cp ~/.config/yadm/fonts/* /Library/Fonts/.
 
-        # Uncomment for Scripting addition, currently not supported for Apple Silicon
-        # sudo sh -c "echo 'davay ALL = (root) NOPASSWD: /usr/local/bin/yabai --load-sa' >> /private/etc/sudoers.d/yabai"
+        # Uncomment for Scripting addition, currently buggy for Apple Silicon
+        sudo sh -c "echo 'davay ALL = (root) NOPASSWD: /usr/local/bin/yabai --load-sa' >> /private/etc/sudoers.d/yabai"
 	
-        # Swap Caps Lock <-> Escape
-	hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000039, "HIDKeyboardModifierMappingDst":0x700000029},{"HIDKeyboardModifierMappingSrc":0x700000029,"HIDKeyboardModifierMappingDst":0x700000039}]}'      
-
-	# Finishing touch
+	# LunarVim
+	sh -c "$(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)" 
+	
+        # Finishing touch
 	gh auth login
 
 elif [[ $system_type = "Linux" ]]; then # built for manjaro i3 minimal
