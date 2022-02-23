@@ -19,7 +19,7 @@
       community.general.homebrew:
         name:
           - nvim
-      #    - koekeishiya/formulae/yabai
+      #   - koekeishiya/formulae/yabai
           - koekeishiya/formulae/skhd
           - zsh
           - gh       
@@ -45,6 +45,7 @@
           - spotify
           - kitty
           - homebrew/cask-fonts/font-fira-code
+          - google-drive
         state: latest
 
     

@@ -37,7 +37,7 @@ shift + alt - left   : yabai -m window --grid 1:2:0:0:1:1
 shift + alt - right  : yabai -m window --grid 1:2:1:0:1:1
 
 # create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
-#shift + cmd - n : yabai -m space --create && \
+# shift + cmd - n : yabai -m space --create && \
 #    		   index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
 #                  yabai -m window --space "${index}" && \
 #                  yabai -m space --focus "${index}"
@@ -66,9 +66,9 @@ cmd + alt - 9 : yabai -m space --focus  9 || skhd -k "ctrl + alt + cmd - 9"
 cmd + alt - 0 : yabai -m space --focus 10 || skhd -k "ctrl + alt + cmd - 0"
 
 # send window to desktop and follow focus
-shift + cmd - x : yabai -m window --space recent && yabai -m space --focus recent
-shift + cmd - z : yabai -m window --space prev && yabai -m space --focus prev
-shift + cmd - c : yabai -m window --space next && yabai -m space --focus next
+# shift + cmd - x : yabai -m window --space recent && yabai -m space --focus recent
+# shift + cmd - z : yabai -m window --space prev && yabai -m space --focus prev # CONFLICTS with redo hotkey
+# shift + cmd - c : yabai -m window --space next && yabai -m space --focus next
 shift + cmd - 1 : yabai -m window --space  1 && yabai -m space --focus 1
 shift + cmd - 2 : yabai -m window --space  2 && yabai -m space --focus 2
 shift + cmd - 3 : yabai -m window --space  3 && yabai -m space --focus 3
@@ -124,10 +124,12 @@ alt - s : yabai -m window --toggle sticky
 alt - o : yabai -m window --toggle topmost
 
 # toggle picture-in-picture
-alt - p : yabai -m window --toggle border && \
-          yabai -m window --toggle pip
+alt - p : yabai -m window --toggle pip
 
 # change layout of desktop
 ctrl + alt - a : yabai -m space --layout bsp
 ctrl + alt - d : yabai -m space --layout float
 ctrl + alt - s : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "float" else "bsp" end') 
+
+# get window title, mapped to grave
+cmd - 0x32 : yabai -m query --windows --window | jq .app | pbcopy
