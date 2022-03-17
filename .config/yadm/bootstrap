@@ -11,9 +11,11 @@ system_type=$(uname -s)
 
 if [[ $system_type = "Darwin" ]]; then
 	# Install packages
+  softwareupdate --install-rosetta | yes A
 	brew install ansible
 	ansible-galaxy install -r ~/.config/yadm/requirements.yml
 	ansible-playbook -v ~/.config/yadm/mac-install.yml -i ~/.config/yadm/inventory
+  mkdir ~/.nvm
 
 	# Oh-my-zsh
 	yes | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -29,7 +31,7 @@ if [[ $system_type = "Darwin" ]]; then
 	# Apple Fonts
 	sudo cp ~/.config/yadm/fonts/* /Library/Fonts/.
 
-  # Uncomment for Scripting addition, currently buggy for Apple Silicon
+  # Yabai scripting addition
   sudo sh -c "echo 'davay ALL = (root) NOPASSWD: /usr/local/bin/yabai --load-sa' >> /private/etc/sudoers.d/yabai"
 	
 	# LunarVim
@@ -37,6 +39,7 @@ if [[ $system_type = "Darwin" ]]; then
 	
         # Finishing touch
 	gh auth login
+  gcloud init
 
 elif [[ $system_type = "Linux" ]]; then # built for manjaro i3 minimal
 	if [[ $(command -v pacman) ]]; then

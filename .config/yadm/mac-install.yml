@@ -33,7 +33,9 @@
           - coreutils
           - jq
           - node
+          - nv
           - lua
+          - moreutils
         state: latest
         update_homebrew: yes
      
@@ -46,6 +48,11 @@
           - kitty
           - homebrew/cask-fonts/font-fira-code
           - google-drive
+          - google-cloud-sdk
+          - visual-studio-code
+          - docker
+          - browserosaurus
+          - whichspace
         state: latest
 
     
@@ -118,6 +125,14 @@
         value: false
         state: present
 
+    - name: "osx_defaults: Disable mouse acceleration"
+      community.general.osx_defaults:
+        domain: .GlobalPreferences
+        key: com.apple.mouse.scaling
+        type: int
+        value: -1
+        state: present
+
     ### https://apple.stackexchange.com/questions/59556/is-there-a-way-to-completely-disable-dock
      
     - name: "osx_defaults: Autohide dock"
@@ -145,3 +160,4 @@
         state: present
 
     ###
+

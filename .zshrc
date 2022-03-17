@@ -74,6 +74,7 @@ alias neofetch="neofetch | lolcat"
 alias spotifytheme="spicetify config current_theme"
 alias spotifycolor="spicetify config color_scheme"
 alias 😀="sl"
+alias python="python3" 
 
 case `uname` in
 	Linux)
@@ -98,3 +99,8 @@ hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x70
 # Lunarvim
 export PATH="$(pwd)/.local/bin:$PATH"
 export EDITOR='lvim'
+
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
