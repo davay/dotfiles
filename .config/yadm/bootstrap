@@ -35,7 +35,7 @@ if [[ $system_type = "Darwin" ]]; then
   sudo sh -c "echo 'davay ALL = (root) NOPASSWD: /usr/local/bin/yabai --load-sa' >> /private/etc/sudoers.d/yabai"
 	
 	# LunarVim
-	sh -c "$(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)" 
+  sh -c "$(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)" 
 	
         # Finishing touch
 	gh auth login

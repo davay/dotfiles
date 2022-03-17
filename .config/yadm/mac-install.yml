@@ -3,26 +3,26 @@
   hosts: localhost
   connection: local
   gather_facts: false
-  
-  vars: 
+
+  vars:
     ansible_python_interpreter: /usr/bin/python3
-  
+
   #vars_prompt:
   #  - name: mas_email
   #    prompt: "Please input Mac App Store email"
   #    private: no
   #  - name: mas_password
   #    prompt: "Please input Mac App Store password"
-      
+
   tasks:
     - name: "Homebrew: Install packages & taps"
       community.general.homebrew:
         name:
           - nvim
-      #   - koekeishiya/formulae/yabai
+          #   - koekeishiya/formulae/yabai
           - koekeishiya/formulae/skhd
           - zsh
-          - gh       
+          - gh
           - thefuck
           - python
           - mas
@@ -38,7 +38,7 @@
           - moreutils
         state: latest
         update_homebrew: yes
-     
+
     - name: "Homebrew: Install casks"
       community.general.homebrew_cask:
         name:
@@ -55,26 +55,24 @@
           - whichspace
         state: latest
 
-    
     ### mas-cli is currently broken for Monterey+Apple Silicon
-    
 
     #- name: "Mac App Store: Sign in"
     #  command: 'mas signin "{{ mas_email }}" "{{ mas_password }}"'
 
     #- name: "Mac App Store: Install apps"
     #  community.general.mas:
-    #    id: 
+    #    id:
     #      - 1548853763 # Singlebox Plus
     #      - # Adguard
     #      - # Agenda
     #      - # 1Password 7
     #      - # Dark Reader for Safari
-    #      - # Vimari 
+    #      - # Vimari
     #      - # Agenda
     #      - # Structured
     #    state: latest
-       
+
     - name: "osx_defaults: Change alert sound from Beep to Blow"
       community.general.osx_defaults:
         domain: com.apple.systemsound
@@ -82,7 +80,7 @@
         type: string
         value: /System/Library/Sounds/Blow.aiff
         state: present
-    
+
     - name: "osx_defaults: Disable system Tink sound"
       community.general.osx_defaults:
         domain: com.apple.systemsound
@@ -104,19 +102,19 @@
         type: int
         value: 1
         state: present
-   
+
     - name: "osx_defaults: Reduce alert sound volume"
       community.general.osx_defaults:
         domain: NSGlobalDomain
         key: com.apple.sound.beep.volume
         type: float
-        
+
         # Alert volume conversion:
         # 75%: 0.7788008
         # 50%: 0.6065307
         # 25%: 0.4723665
         value: 0.6065307
-      
+
     - name: "osx_defaults: Disable spaces autoreordering"
       community.general.osx_defaults:
         domain: com.apple.dock
@@ -134,7 +132,7 @@
         state: present
 
     ### https://apple.stackexchange.com/questions/59556/is-there-a-way-to-completely-disable-dock
-     
+
     - name: "osx_defaults: Autohide dock"
       community.general.osx_defaults:
         domain: com.apple.dock
@@ -150,7 +148,7 @@
         type: float
         value: 1000
         state: present
-    
+
     - name: "osx_defaults: Disable bounce animation for icons in dock"
       community.general.osx_defaults:
         domain: com.apple.dock
@@ -160,4 +158,3 @@
         state: present
 
     ###
-

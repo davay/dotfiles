@@ -10,7 +10,7 @@ an executable
 
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save = false
+lvim.format_on_save = true
 lvim.colorscheme = "onedarker"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
@@ -147,3 +147,4 @@ lvim.plugins = {
 -- }
 
 vim.opt.fileformat = "unix"
+vim.opt.smartindent = true

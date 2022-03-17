@@ -2,7 +2,6 @@
 - hosts: localhost
 
   tasks:
-
     - name: Install base packages
       pacman:
         name:
@@ -44,7 +43,7 @@
 
     - name: Install aur packages
       kewlfft.aur.aur:
-        name: 
+        name:
           - spotify
           - google-chrome
           - polybar
@@ -65,11 +64,11 @@
 
     - name: Install pip packages
       pip:
-        name: 
+        name:
           - grip
           - pip
 
-    ### System Files ### 
+    ### System Files ###
 
     - name: Enable colors
       replace:
@@ -83,7 +82,7 @@
       lineinfile:
         dest: /etc/pacman.conf
         insertafter: "Color"
-        line: 'ILoveCandy'
+        line: "ILoveCandy"
       become: yes
       become_user: root
 
@@ -100,14 +99,14 @@
         dest: /etc/modprobe.d/nobeep.conf
       become: yes
       become_user: root
-    
+
     - name: Set keybindings
       copy:
         src: ~/.config/poof/sysfiles/pc
         dest: /usr/share/X11/xkb/symbols/pc
       become: yes
       become_user: root
-        
+
     - name: Copy udev rules for OpenRGB
       copy:
         src: ~/.config/poof/sysfiles/60-openrgb.rules
@@ -121,4 +120,3 @@
         dest: /usr/share/spicetify-cli/Themes/Turntable/color.ini
       become: yes
       become_user: root
-
