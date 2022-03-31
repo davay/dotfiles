@@ -5,18 +5,10 @@ shift + cmd - space : open -n /Applications/kitty.app
 cmd - e : open -n Finder
 
 # focus window
-alt - x : yabai -m window --focus recent
-alt - h : yabai -m window --focus west
-alt - j : yabai -m window --focus south
-alt - k : yabai -m window --focus north
-alt - l : yabai -m window --focus east
-
-# swap window
-shift + alt - x : yabai -m window --swap recent
-shift + alt - h : yabai -m window --swap west
-shift + alt - j : yabai -m window --swap south
-shift + alt - k : yabai -m window --swap north
-shift + alt - l : yabai -m window --swap east
+cmd - h : yabai -m window --focus west
+cmd - j : yabai -m window --focus south
+cmd - k : yabai -m window --focus north
+cmd - l : yabai -m window --focus east
 
 # move window
 shift + cmd - h : yabai -m window --warp west
@@ -36,34 +28,19 @@ shift + alt - left   : yabai -m window --grid 1:2:0:0:1:1
 # make floatingwindow fill right-half of screen
 shift + alt - right  : yabai -m window --grid 1:2:1:0:1:1
 
-# create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
-# shift + cmd - n : yabai -m space --create && \
-#    		   index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
-#                  yabai -m window --space "${index}" && \
-#                  yabai -m space --focus "${index}"
-
-# create desktop and follow focus - uses jq for parsing json (brew install jq)
-# cmd + alt - n : yabai -m space --create && \
-#                index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
-#                yabai -m space --focus "${index}"
-
-# destroy desktop
-cmd + alt - w : yabai -m space --destroy
-
 # fast focus desktop
-cmd + alt - x : yabai -m space --focus recent
-cmd + alt - z : yabai -m space --focus prev || skhd -k "ctrl + alt + cmd - z"
-cmd + alt - c : yabai -m space --focus next || skhd -k "ctrl + alt + cmd - c"
-cmd + alt - 1 : yabai -m space --focus  1 || skhd -k "ctrl + alt + cmd - 1"
-cmd + alt - 2 : yabai -m space --focus  2 || skhd -k "ctrl + alt + cmd - 2"
-cmd + alt - 3 : yabai -m space --focus  3 || skhd -k "ctrl + alt + cmd - 3"
-cmd + alt - 4 : yabai -m space --focus  4 || skhd -k "ctrl + alt + cmd - 4"
-cmd + alt - 5 : yabai -m space --focus  5 || skhd -k "ctrl + alt + cmd - 5"
-cmd + alt - 6 : yabai -m space --focus  6 || skhd -k "ctrl + alt + cmd - 6"
-cmd + alt - 7 : yabai -m space --focus  7 || skhd -k "ctrl + alt + cmd - 7"
-cmd + alt - 8 : yabai -m space --focus  8 || skhd -k "ctrl + alt + cmd - 8"
-cmd + alt - 9 : yabai -m space --focus  9 || skhd -k "ctrl + alt + cmd - 9"
-cmd + alt - 0 : yabai -m space --focus 10 || skhd -k "ctrl + alt + cmd - 0"
+#cmd + alt - z : yabai -m space --focus prev || skhd -k "ctrl + alt + cmd - z"
+#cmd + alt - c : yabai -m space --focus next || skhd -k "ctrl + alt + cmd - c"
+cmd - 1 : yabai -m space --focus  1 || skhd -k "ctrl + alt + cmd - 1"
+cmd - 2 : yabai -m space --focus  2 || skhd -k "ctrl + alt + cmd - 2"
+cmd - 3 : yabai -m space --focus  3 || skhd -k "ctrl + alt + cmd - 3"
+cmd - 4 : yabai -m space --focus  4 || skhd -k "ctrl + alt + cmd - 4"
+cmd - 5 : yabai -m space --focus  5 || skhd -k "ctrl + alt + cmd - 5"
+cmd - 6 : yabai -m space --focus  6 || skhd -k "ctrl + alt + cmd - 6"
+cmd - 7 : yabai -m space --focus  7 || skhd -k "ctrl + alt + cmd - 7"
+cmd - 8 : yabai -m space --focus  8 || skhd -k "ctrl + alt + cmd - 8"
+cmd - 9 : yabai -m space --focus  9 || skhd -k "ctrl + alt + cmd - 9"
+cmd - 0 : yabai -m space --focus 10 || skhd -k "ctrl + alt + cmd - 0"
 
 # send window to desktop and follow focus
 # shift + cmd - x : yabai -m window --space recent && yabai -m space --focus recent
@@ -132,7 +109,7 @@ ctrl + alt - d : yabai -m space --layout float
 ctrl + alt - s : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "float" else "bsp" end') 
 
 # get window title, mapped to grave
-cmd - 0x32 : yabai -m query --windows --window | jq .app | pbcopy
+cmd + shift - 0x32 : yabai -m query --windows --window | jq .app | pbcopy
 
 # text macros, mostly for Agenda (Markdown) -- WARNING release the alt key asap. Prepend "sleep 0.001 &&" for further buffer.
 alt - 0x1B : osascript -e 'tell application "System Events" to keystroke "[] "'
@@ -140,4 +117,3 @@ alt - 0x1B : osascript -e 'tell application "System Events" to keystroke "[] "'
 # screenshot, -[c]lipboard -[i]nteractive
 cmd + shift - s : screencapture -c -i 
 cmd + alt - s : screencapture -c 
-

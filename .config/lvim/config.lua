@@ -148,3 +148,5 @@ lvim.plugins = {
 
 vim.opt.fileformat = "unix"
 vim.opt.smartindent = true
+vim.opt.clipboard = "unnamedplus"
+vim.opt.wrap = true

@@ -53,6 +53,7 @@
           - docker
           - browserosaurus
           - whichspace
+          - iterm2
         state: latest
 
     ### mas-cli is currently broken for Monterey+Apple Silicon

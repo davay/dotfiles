@@ -50,7 +50,7 @@ yabai -m rule --add app="^Structured$" space=4
 yabai -m rule --add app="^Spotify$" space=5
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^System Information$" manage=off
-
+yabai -m rule --add app="iTerm2" manage=off
 
 # signals
 yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
