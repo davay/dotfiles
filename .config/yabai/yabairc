@@ -34,19 +34,15 @@ yabai -m config right_padding                 6
 yabai -m config window_gap                    4 
 
 # window rules
-yabai -m rule --add app="^Safari$" space=1
-yabai -m rule --add app="^Microsoft Edge$" space=1
-yabai -m rule --add app="^Orion$" space=1
-yabai -m rule --add app="^Google Chrome$" space=1
 yabai -m rule --add app="^Battle.net$" space=2 manage=on
 yabai -m rule --add app="^Steam$" space=2 manage=on
 yabai -m rule --add app="^Microsoft OneNote$" space=2
 yabai -m rule --add app="^Microsoft Outlook$" space=2
-yabai -m rule --add app="^Singlebox Plus$" space=3
-yabai -m rule --add app="^Discord$" space=3
-yabai -m rule --add app="^Microsoft Teams$" space=3
-yabai -m rule --add app="^Agenda$" space=4
-yabai -m rule --add app="^Structured$" space=4
+yabai -m rule --add app="^Agenda$" space=3
+yabai -m rule --add app="^Structured$" space=3
+yabai -m rule --add app="^Singlebox Plus$" space=4
+yabai -m rule --add app="^Discord$" space=4
+yabai -m rule --add app="^Microsoft Teams$" space=4
 yabai -m rule --add app="^Spotify$" space=5
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^System Information$" manage=off
@@ -55,3 +51,6 @@ yabai -m rule --add app="iTerm2" manage=off
 # signals
 yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
 yabai -m signal --add event=application_terminated action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
+
+# auto update from HEAD
+brew install yabai --HEAD

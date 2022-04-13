@@ -54,6 +54,7 @@
           - browserosaurus
           - whichspace
           - iterm2
+          - textexpander
         state: latest
 
     ### mas-cli is currently broken for Monterey+Apple Silicon
@@ -72,6 +73,7 @@
     #      - # Vimari
     #      - # Agenda
     #      - # Structured
+    #      - # Paprika
     #    state: latest
 
     - name: "osx_defaults: Change alert sound from Beep to Blow"
