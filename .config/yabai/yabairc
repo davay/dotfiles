@@ -42,11 +42,10 @@ yabai -m space 1 --label 1
 yabai -m space 2 --label 2
 yabai -m space 3 --label 3
 yabai -m space 4 --label 4
-yabai -m space 5 --label 5
-yabai -m space 6 --label Q
-yabai -m space 7 --label W
-yabai -m space 8 --label E
-yabai -m space 9 --label R
+yabai -m space 5 --label A
+yabai -m space 6 --label B
+yabai -m space 7 --label C
+yabai -m space 8 --label D
 
 # # window rules laptop
 # yabai -m rule --add app="^Safari" space=1 
@@ -72,13 +71,13 @@ yabai -m space 9 --label R
 #yabai -m rule --add app="^Microsoft Edge" space=1
 yabai -m rule --add app="^Battle.net$" space=2 manage=on
 yabai -m rule --add app="^Steam$" space=2 manage=on
-yabai -m rule --add app="^Spotify$" space=6
-yabai -m rule --add app="^Agenda$" space=7
-yabai -m rule --add app="^Singlebox Plus$" space=8
-yabai -m rule --add app="^Microsoft Teams$" space=8
-yabai -m rule --add app="^Discord$" space=8
-yabai -m rule --add app="^Microsoft Outlook$" space=9
-yabai -m rule --add app="^Microsoft OneNote$" space=9
+yabai -m rule --add app="^Spotify$" space=5
+yabai -m rule --add app="^Agenda$" space=6
+yabai -m rule --add app="^Singlebox Plus$" space=7
+yabai -m rule --add app="^Microsoft Teams$" space=7
+yabai -m rule --add app="^Discord$" space=7
+yabai -m rule --add app="^Microsoft Outlook$" space=8
+yabai -m rule --add app="^Microsoft OneNote$" space=8
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^System Information$" manage=off
 yabai -m rule --add app="iTerm2" manage=off
