@@ -19,7 +19,7 @@
       community.general.homebrew:
         name:
           - nvim
-          #   - koekeishiya/formulae/yabai
+          - koekeishiya/formulae/yabai
           - koekeishiya/formulae/skhd
           - zsh
           - gh
@@ -36,6 +36,13 @@
           - nv
           - lua
           - moreutils
+          - gnu-sed
+          - rust
+          - code-minimap
+          - imagemagick
+          - pidof
+          - neofetch
+          - texlive
         state: latest
         update_homebrew: yes
 
@@ -55,8 +62,15 @@
           - whichspace
           - iterm2
           - textexpander
+          - ubersicht
+          - raindropio
         state: latest
 
+    - name: "Pip3: Install packages"
+      ansible.builtin.pip:
+        name:
+          - pywal
+        state: latest
     ### mas-cli is currently broken for Monterey+Apple Silicon
 
     #- name: "Mac App Store: Sign in"
@@ -94,6 +108,7 @@
 
     - name: "osx_defaults: Decrease key repeat initial delay"
       community.general.osx_defaults:
+        domain: NSGlobalDomain
         key: InitialKeyRepeat
         type: int
         value: 14
@@ -101,6 +116,7 @@
 
     - name: "osx_defaults: Decrease delay between key repeats"
       community.general.osx_defaults:
+        domain: NSGlobalDomain
         key: KeyRepeat
         type: int
         value: 1
@@ -120,11 +136,20 @@
 
     - name: "osx_defaults: Disable spaces autoreordering"
       community.general.osx_defaults:
+        domain: NSGlobalDomain
+        key: _HIHideMenuBar
+        type: int
+        value: 1
+        state: present
+
+    - name: "osx_defaults: Autohide menu bar"
+      community.general.osx_defaults:
         domain: com.apple.dock
         key: mru-spaces
         type: bool
         value: false
         state: present
+
 
     - name: "osx_defaults: Disable mouse acceleration"
       community.general.osx_defaults:

@@ -33,15 +33,22 @@ if [[ $system_type = "Darwin" ]]; then
 
   # Yabai scripting addition
   sudo sh -c "echo 'davay ALL = (root) NOPASSWD: /usr/local/bin/yabai --load-sa' >> /private/etc/sudoers.d/yabai"
+
+  # Allow apps from anywhere
+  sudo spctl --master-disable
 	
 	# LunarVim
   sh -c "$(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)" 
+
+# Spicetify 
+  curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-cli/master/install.sh | sh
+  curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-marketplace/main/install.sh | sh
 	
-        # Finishing touch
+  # Finishing touch
 	gh auth login
   gcloud init
 
-elif [[ $system_type = "Linux" ]]; then # built for manjaro i3 minimal
+ elif [[ $system_type = "Linux" ]]; then # built for manjaro i3 minimal
 	if [[ $(command -v pacman) ]]; then
 		sudo pacman --noconfirm -S ansible
 		ansible-galaxy collection install kewlfft.aur

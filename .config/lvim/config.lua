@@ -10,8 +10,8 @@ an executable
 
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save = true
-lvim.colorscheme = "onedarker"
+lvim.format_on_save = false
+lvim.colorscheme = "codemonkey"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
@@ -126,7 +126,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 --     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
 --     command = "shellcheck",
 --     ---@usage arguments to pass to the formatter
---     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
+--     -- these cannot  whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
 --     extra_args = { "--severity", "warning" },
 --   },
 --   {
@@ -139,14 +139,14 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- Additional Plugins
 lvim.plugins = {
   { "folke/tokyonight.nvim" },
-  { "lunarvim/colorschemes" }
+  { "lunarvim/colorschemes" },
+  { "ggandor/lightspeed.nvim",
+     event = "BufRead" },
+  {'wfxr/minimap.vim'},
+  {'tpope/commentary.vim'}
 }
--- Autocommands (https://neovim.io/doc/user/autocmd.html)
--- lvim.autocommands.custom_groups = {
---   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
--- }
 
-vim.opt.fileformat = "unix"
-vim.opt.smartindent = true
-vim.opt.clipboard = "unnamedplus"
-vim.opt.wrap = true
+vim.cmd ("let g:minimap_width = 10")
+vim.cmd ("let g:minimap_auto_start = 1")
+vim.cmd ("let g:minimap_auto_start_win_enter = 1")
+

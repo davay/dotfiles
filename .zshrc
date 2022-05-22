@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="darkblood"
+ZSH_THEME="fletcherm"
 
 zstyle ':omz:update' mode auto      # update automatically without asking
 
@@ -29,16 +29,18 @@ alias vim="lvim"
 alias sudo="sudo " # enable aliases for sudo
 alias tf="fuck"
 alias serve="browser-sync start --server --files ."
-alias vimconfig="vim ~/.config/lvim/config.lua"
-alias zshconfig="vim ~/.zshrc"
-alias skhdconfig="vim ~/.config/skhd/skhdrc"
-alias yabaiconfig="vim ~/.config/yabai/yabairc"
-alias yadmconfig="vim ~/.config/yadm/bootstrap"
-alias linuxconfig="vim ~/.config/yadm/linux-install.yml"
-alias kittyconfig="vim ~/.config/kitty/kitty.conf"
-alias macconfig="vim ~/.config/yadm/mac-install.yml"
+alias vimc="vim ~/.config/lvim/config.lua"
+alias zshc="vim ~/.zshrc"
+alias skhdc="vim ~/.config/skhd/skhdrc"
+alias yabaic="vim ~/.config/yabai/yabairc"
+alias yadmc="vim ~/.config/yadm/bootstrap"
+alias linuxc="vim ~/.config/yadm/linux-install.yml"
+alias kittyc="vim ~/.config/kitty/kitty.conf"
+alias macc="vim ~/.config/yadm/mac-install.yml"
 alias cdyadm="cd ~/.config/yadm/"
-alias neofetch="neofetch | lolcat"
+alias cdwork="cd ~/Work/repos/"
+alias cdrepos="cd ~/Repos/"
+alias neofetch="neofetch"
 alias spotifytheme="spicetify config current_theme"
 alias spotifycolor="spicetify config color_scheme"
 alias 😀="sl"
@@ -71,4 +73,23 @@ export EDITOR='lvim'
 timezsh() {
   shell=${1-$SHELL}
   for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+  
 }
+
+c() {
+  cd "${@}" && ls | gsed '  
+        # on line 8, print the line,
+        8 {
+            # append an ellipsis
+            a[...]
+            # and quit
+            q
+        }
+        # print lines 1-4 verbatim
+        '
+}
+
+# Pywal
+(cat ~/.cache/wal/sequences &)
+source ~/.cache/wal/colors-tty.sh
+export PATH=$PATH:/Users/davay/.spicetify
