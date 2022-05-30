@@ -1,9 +1,6 @@
 # terminal
 cmd + shift - space : open -n /Applications/kitty.app
 
-# close window 
-cmd + shift - q: yabai -m window --close
-
 # focus window
 cmd - h : yabai -m window --focus west
 cmd - j : yabai -m window --focus south

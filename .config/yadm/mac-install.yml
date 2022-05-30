@@ -111,7 +111,7 @@
         domain: NSGlobalDomain
         key: InitialKeyRepeat
         type: int
-        value: 14
+        value: 15
         state: present
 
     - name: "osx_defaults: Decrease delay between key repeats"
@@ -119,7 +119,7 @@
         domain: NSGlobalDomain
         key: KeyRepeat
         type: int
-        value: 1
+        value: 2 
         state: present
 
     - name: "osx_defaults: Reduce alert sound volume"

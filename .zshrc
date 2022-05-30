@@ -40,11 +40,15 @@ alias macc="vim ~/.config/yadm/mac-install.yml"
 alias cdyadm="cd ~/.config/yadm/"
 alias cdwork="cd ~/Work/repos/"
 alias cdrepos="cd ~/Repos/"
+alias cdexr="cd ~/Repos/EditXR/"
 alias neofetch="neofetch"
 alias spotifytheme="spicetify config current_theme"
 alias spotifycolor="spicetify config color_scheme"
 alias 😀="sl"
 alias python="python3" 
+alias pack="tar -zcvf"
+alias unpack="tar -zxvf"
+alias exrdeploy="(cdexr && pack editxr.tgz --exclude=node_modules --exclude=dist --exclude=editxr.tgz * && gcloud builds submit editxr.tgz)"
 
 case `uname` in
 	Linux)
