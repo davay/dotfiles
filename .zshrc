@@ -21,6 +21,9 @@ plugins=(zsh-nvm git)
 
 source $ZSH/oh-my-zsh.sh
 
+# Fix ssh backspace issue with kitty
+[[ "$TERM" == "xterm-kitty" ]] && alias ssh="kitty +kitten ssh"
+
 ## Global ##
 
 alias theme="kitty +kitten themes"
@@ -49,6 +52,7 @@ alias python="python3"
 alias pack="tar -zcvf"
 alias unpack="tar -zxvf"
 alias exrdeploy="(cdexr && pack editxr.tgz --exclude=node_modules --exclude=dist --exclude=editxr.tgz * && gcloud builds submit editxr.tgz)"
+alias sshpi="ssh pi@raspberrypi"
 
 case `uname` in
 	Linux)
@@ -77,7 +81,6 @@ export EDITOR='lvim'
 timezsh() {
   shell=${1-$SHELL}
   for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
-  
 }
 
 c() {
@@ -89,7 +92,7 @@ c() {
             # and quit
             q
         }
-        # print lines 1-4 verbatim
+        # print lines 1-8 verbatim
         '
 }
 

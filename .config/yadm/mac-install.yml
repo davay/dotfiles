@@ -43,6 +43,8 @@
           - pidof
           - neofetch
           - texlive
+          - pandoc
+          - docker
         state: latest
         update_homebrew: yes
 
@@ -59,11 +61,11 @@
           - visual-studio-code
           - docker
           - browserosaurus
-          - whichspace
           - iterm2
           - textexpander
           - ubersicht
           - raindropio
+          - hammerspoon
         state: latest
 
     - name: "Pip3: Install packages"
@@ -90,6 +92,7 @@
     #      - # Paprika
     #    state: latest
 
+          # INSTALL STACKLINE
     - name: "osx_defaults: Change alert sound from Beep to Blow"
       community.general.osx_defaults:
         domain: com.apple.systemsound

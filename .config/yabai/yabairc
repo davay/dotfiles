@@ -30,57 +30,36 @@ yabai -m config mouse_action2                resize
 
 # general space settings
 yabai -m config layout                       bsp
-yabai -m config top_padding                  6
-yabai -m config bottom_padding               6 
-yabai -m config left_padding                 6
-yabai -m config right_padding                6 
-yabai -m config window_gap                   4 
+yabai -m config top_padding                  8
+yabai -m config bottom_padding               8
+yabai -m config left_padding                 12
+yabai -m config right_padding                12
+yabai -m config window_gap                   4
 yabai -m config external_bar                 all:34:0
 
-# labels
-yabai -m space 1 --label 1
-yabai -m space 2 --label 2
-yabai -m space 3 --label 3
-yabai -m space 4 --label 4
-yabai -m space 5 --label Music
-yabai -m space 6 --label Agenda
-yabai -m space 7 --label Comms
-yabai -m space 8 --label Mail
+# specific space settings
+yabai -m config --space 4 layout stack
+yabai -m config --space 5 layout stack
+yabai -m config --space 6 layout stack
 
-# # window rules laptop
-# yabai -m rule --add app="^Safari" space=1 
-# yabai -m rule --add app="^Google Chrome" space=1
-# yabai -m rule --add app="^Microsoft Edge" space=1
-# yabai -m rule --add app="^Battle.net$" space=2 manage=on
-# yabai -m rule --add app="^Steam$" space=2 manage=on
-# yabai -m rule --add app="^Microsoft OneNote$" space=2
-# yabai -m rule --add app="^Microsoft Outlook$" space=2
-# yabai -m rule --add app="^Agenda$" space=3
-# yabai -m rule --add app="^Structured$" space=3
-# yabai -m rule --add app="^Singlebox Plus$" space=4
-# yabai -m rule --add app="^Discord$" space=4
-# yabai -m rule --add app="^Microsoft Teams$" space=4
-# yabai -m rule --add app="^Spotify$" space=5
-# yabai -m rule --add app="^System Preferences$" manage=off
-# yabai -m rule --add app="^System Information$" manage=off
-# yabai -m rule --add app="iTerm2" manage=off
-
-# window rules docked
+# window rules (docked)
 #yabai -m rule --add app="^Safari" space=1
 #yabai -m rule --add app="^Google Chrome" space=1
 #yabai -m rule --add app="^Microsoft Edge" space=1
 yabai -m rule --add app="^Battle.net$" space=2 manage=on
 yabai -m rule --add app="^Steam$" space=2 manage=on
-yabai -m rule --add app="^Spotify$" space=5
-yabai -m rule --add app="^Agenda$" space=6
-yabai -m rule --add app="^Microsoft Teams$" space=7
-yabai -m rule --add app="^Discord$" space=7
-yabai -m rule --add app="^Singlebox Plus$" space=8
-yabai -m rule --add app="^Microsoft Outlook$" space=8
-#yabai -m rule --add app="^Microsoft OneNote$" space=8
+yabai -m rule --add app="^Spotify$" space=4
+yabai -m rule --add app="^Microsoft OneNote$" space=5
+yabai -m rule --add app="^Agenda$" space=5
+yabai -m rule --add app="^Microsoft Teams$" space=6
+yabai -m rule --add app="^Discord$" space=6
+yabai -m rule --add app="^Singlebox Plus$" space=6
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^System Information$" manage=off
+yabai -m rule --add app="^Finder$" sticky=on layer=above manage=off
+
 yabai -m rule --add app="iTerm2" manage=off
+yabai -m rule --add app="Notes" manage=off
 
 # signals
 yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"

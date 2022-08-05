@@ -2,20 +2,18 @@
 cmd + shift - space : open -n /Applications/kitty.app
 
 # focus window
-cmd - h : yabai -m window --focus west
+cmd - h : if [ "$(yabai -m query --spaces --space | jq -r '.type')" = "stack" ]; then (yabai -m window --focus stack.prev || yabai -m window --focus stack.last); else yabai -m window --focus west; fi
 cmd - j : yabai -m window --focus south
 cmd - k : yabai -m window --focus north
-cmd - l : yabai -m window --focus east
+cmd - l : if [ "$(yabai -m query --spaces --space | jq -r '.type')" = "stack" ]; then (yabai -m window --focus stack.next || yabai -m window --focus stack.first); else yabai -m window --focus east; fi
 
 # send window to desktop and follow focus
 cmd + shift - 1 : yabai -m window --space  1 && yabai -m space --focus 1
 cmd + shift - 2 : yabai -m window --space  2 && yabai -m space --focus 2
 cmd + shift - 3 : yabai -m window --space  3 && yabai -m space --focus 3
-cmd + shift - 4 : yabai -m window --space  4 && yabai -m space --focus 4
-alt + shift - 1 : yabai -m window --space  5 && yabai -m space --focus 5
-alt + shift - 2 : yabai -m window --space  6 && yabai -m space --focus 6
-alt + shift - 3 : yabai -m window --space  7 && yabai -m space --focus 7
-alt + shift - 4 : yabai -m window --space  8 && yabai -m space --focus 8
+alt + shift - 1 : yabai -m window --space  4 && yabai -m space --focus 4
+alt + shift - 2 : yabai -m window --space  5 && yabai -m space --focus 5
+alt + shift - 3 : yabai -m window --space  6 && yabai -m space --focus 6
 
 # move window
 cmd + shift - h : yabai -m window --warp west
@@ -65,7 +63,7 @@ alt - t : yabai -m window --toggle float && yabai -m window --grid 4:4:1:1:2:2
 # change layout of desktop
 # ctrl + alt - a : yabai -m space --layout bsp
 # ctrl + alt - d : yabai -m space --layout float
-# ctrl + alt - s : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "float" else "bsp" end') 
+ctrl + alt - s : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "stack" else "bsp" end') 
 
 # get window title, mapped to grave (`)
 cmd + shift - 0x32 : yabai -m query --windows --window | jq .app | pbcopy
@@ -76,7 +74,7 @@ alt - 0x1B : osascript -e 'tell application "System Events" to keystroke "[] "'
 # screenshot, -[c]lipboard -[i]nteractive -[v]ideo -[V]ideo <seconds> -[k]licks 
 cmd + shift - s : screencapture -c -i 
 cmd + alt - s : screencapture -c 
-cmd + shift - v: screencapture -V 15 -k ~/Desktop/"$(date +'%F').mov" &
+cmd + alt - v: screencapture -V 12 -k ~/Desktop/"$(date +'%F_%H%M%S').mov" &
 
 # Apps
 alt - s : open -a 'Safari' -n
