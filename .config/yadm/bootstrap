@@ -27,6 +27,7 @@ if [[ $system_type = "Darwin" ]]; then
 	sudo nvram boot-args=-arm64e_preview_abi
 	brew services start yabai
 	brew services start skhd
+  brew services start sketchybar
 
 	# Apple Fonts
 	sudo cp ~/.config/yadm/fonts/* /Library/Fonts/.
@@ -37,12 +38,19 @@ if [[ $system_type = "Darwin" ]]; then
   # Allow apps from anywhere
   sudo spctl --master-disable
 	
-	# LunarVim
-  sh -c "$(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)" 
+	# AstroVim
+	git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+	nvim +PackerSync
+	# Hacky way of storing custom config because of git submodule bs 
+	cp ~/.config/yadm/sysfiles/init.lua ~/.config/nvim/lua/user/init.lua
+	ln -s ~/.config/nvim/lua/user/init.lua ~/.config/yadm/sysfiles/init.lua
 
-# Spicetify 
+	# Spicetify 
   curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-cli/master/install.sh | sh
   curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-marketplace/main/install.sh | sh
+
+  # nerd-fonts
+  git clone https://github.com/ryanoasis/nerd-fonts.git -C ~/Downloads && ~/Downloads/nerd-fonts/install.sh
 	
   # Finishing touch
 	gh auth login

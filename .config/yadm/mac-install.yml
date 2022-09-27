@@ -45,6 +45,8 @@
           - texlive
           - pandoc
           - docker
+          - FelixKratz/formulae/sketchybar
+          - ical-buddy
         state: latest
         update_homebrew: yes
 
@@ -62,10 +64,11 @@
           - docker
           - browserosaurus
           - iterm2
-          - textexpander
           - ubersicht
           - raindropio
-          - hammerspoon
+          - karabiner-elements
+          - raycast
+          - parallels
         state: latest
 
     - name: "Pip3: Install packages"
@@ -92,15 +95,9 @@
     #      - # Paprika
     #    state: latest
 
-          # INSTALL STACKLINE
-    - name: "osx_defaults: Change alert sound from Beep to Blow"
-      community.general.osx_defaults:
-        domain: com.apple.systemsound
-        key: com.apple.sound.beep.sound
-        type: string
-        value: /System/Library/Sounds/Blow.aiff
-        state: present
+    # INSTALL STACKLINE
 
+    # Mac Defaults
     - name: "osx_defaults: Disable system Tink sound"
       community.general.osx_defaults:
         domain: com.apple.systemsound

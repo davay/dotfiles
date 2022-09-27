@@ -2,27 +2,27 @@
 cmd + shift - space : open -n /Applications/kitty.app
 
 # focus window
-cmd - h : if [ "$(yabai -m query --spaces --space | jq -r '.type')" = "stack" ]; then (yabai -m window --focus stack.prev || yabai -m window --focus stack.last); else yabai -m window --focus west; fi
-cmd - j : yabai -m window --focus south
-cmd - k : yabai -m window --focus north
-cmd - l : if [ "$(yabai -m query --spaces --space | jq -r '.type')" = "stack" ]; then (yabai -m window --focus stack.next || yabai -m window --focus stack.first); else yabai -m window --focus east; fi
+alt - h : if [ "$(yabai -m query --spaces --space | jq -r '.type')" = "stack" ]; then (yabai -m window --focus stack.prev || yabai -m window --focus stack.last); else yabai -m window --focus west; fi
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : if [ "$(yabai -m query --spaces --space | jq -r '.type')" = "stack" ]; then (yabai -m window --focus stack.next || yabai -m window --focus stack.first); else yabai -m window --focus east; fi
 
 # send window to desktop and follow focus
-cmd + shift - 1 : yabai -m window --space  1 && yabai -m space --focus 1
-cmd + shift - 2 : yabai -m window --space  2 && yabai -m space --focus 2
-cmd + shift - 3 : yabai -m window --space  3 && yabai -m space --focus 3
-alt + shift - 1 : yabai -m window --space  4 && yabai -m space --focus 4
-alt + shift - 2 : yabai -m window --space  5 && yabai -m space --focus 5
-alt + shift - 3 : yabai -m window --space  6 && yabai -m space --focus 6
+alt + shift - left : yabai -m window
+alt + shift - 1 : yabai -m window --space  1 && yabai -m space --focus 1
+alt + shift - 2 : yabai -m window --space  2 && yabai -m space --focus 2
+alt + shift - 3 : yabai -m window --space  3 && yabai -m space --focus 3
+alt + shift - 4 : yabai -m window --space  4 && yabai -m space --focus 4
+alt + shift - 5 : yabai -m window --space  5 && yabai -m space --focus 5
 
 # move window
-cmd + shift - h : yabai -m window --warp west
-cmd + shift - j : yabai -m window --warp south
-cmd + shift - k : yabai -m window --warp north
-cmd + shift - l : yabai -m window --warp east
+alt + shift - h : yabai -m window --warp west
+alt + shift - j : yabai -m window --warp south
+alt + shift - k : yabai -m window --warp north
+alt + shift - l : yabai -m window --warp east
 
 # balance size of windows
-cmd + shift - 0 : yabai -m space --balance
+alt + shift - 0 : yabai -m space --balance
 
 # [SIP] fast focus desktop
 #cmd + alt - z : yabai -m space --focus prev || skhd -k "ctrl + alt + cmd - z"
@@ -37,18 +37,14 @@ cmd + shift - 0 : yabai -m space --balance
 #alt - 8 : yabai -m space --focus  8 || skhd -k "ctrl + alt + cmd - 8" alt - 9 : yabai -m space --focus  9 || skhd -k "ctrl + alt + cmd - 9" alt - 0 : yabai -m space --focus 10 || skhd -k "ctrl + alt + cmd - 0" send window to desktop and follow focus shift + cmd - x : yabai -m window --space recent && yabai -m space --focus recent shift + cmd - z : yabai -m window --space prev && yabai -m space --focus prev # CONFLICTS with redo hotkey shift + cmd - c : yabai -m window --space next && yabai -m space --focus next shift + alt - 1 : yabai -m window --space  1 && yabai -m space --focus 1 shift + alt - 2 : yabai -m window --space  2 && yabai -m space --focus 2 shift + alt - 3 : yabai -m window --space  3 && yabai -m space --focus 3 shift + alt - 4 : yabai -m window --space  4 && yabai -m space --focus 4 shift + alt - 5 : yabai -m window --space  5 && yabai -m space --focus 5 shift + alt - q : yabai -m window --space  6 && yabai -m space --focus 6 shift + alt - w : yabai -m window --space  7 && yabai -m space --focus 7 shift + alt - e : yabai -m window --space  8 && yabai -m space --focus 8 shift + alt - r : yabai -m window --space  9 && yabai -m space --focus 9 focus monitor ctrl + alt - x  : yabai -m display --focus recent ctrl + alt - z  : yabai -m display --focus prev ctrl + alt - c  : yabai -m display --focus next ctrl + alt - h  : yabai -m display --focus prev ctrl + alt - l  : yabai -m display --focus next ctrl + alt - 1  : yabai -m display --focus 1
 
 # fast focus monitor
-cmd - left : yabai -m display --focus prev
-cmd - right : yabai -m display --focus next
-
-# send window to monitor and follow focus
-cmd + shift - left  : yabai -m window --display prev && yabai -m display --focus prev
-cmd + shift - right : yabai -m window --display next && yabai -m display --focus next
+alt - left : yabai -m display --focus prev
+alt - right : yabai -m display --focus next
 
 # toggle window fullscreen zoom
 alt - f : yabai -m window --toggle zoom-fullscreen
 
 # toggle window native fullscreen
-cmd + shift - f : yabai -m window --toggle native-fullscreen
+alt + shift - f : yabai -m window --toggle native-fullscreen
 
 # toggle window split type
 alt - z : yabai -m window --toggle split
@@ -63,20 +59,22 @@ alt - t : yabai -m window --toggle float && yabai -m window --grid 4:4:1:1:2:2
 # change layout of desktop
 # ctrl + alt - a : yabai -m space --layout bsp
 # ctrl + alt - d : yabai -m space --layout float
-ctrl + alt - s : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "stack" else "bsp" end') 
+alt - space : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "stack" else "bsp" end') 
 
 # get window title, mapped to grave (`)
-cmd + shift - 0x32 : yabai -m query --windows --window | jq .app | pbcopy
+alt - 0x32 : yabai -m query --windows --window | jq .app | pbcopy
 
 # text macro, mostly for Agenda (Markdown) -- WARNING release the alt key asap. Prepend "sleep 0.001 &&" for further buffer.
 alt - 0x1B : osascript -e 'tell application "System Events" to keystroke "[] "'
 
 # screenshot, -[c]lipboard -[i]nteractive -[v]ideo -[V]ideo <seconds> -[k]licks 
-cmd + shift - s : screencapture -c -i 
-cmd + alt - s : screencapture -c 
-cmd + alt - v: screencapture -V 12 -k ~/Desktop/"$(date +'%F_%H%M%S').mov" &
+alt - s : screencapture -c -i 
+
+## alt+shift-s is used for shottr
+# alt + shift - s : screencapture -c 
+alt - v: screencapture -V 12 -k ~/Desktop/"$(date +'%F_%H%M%S').mov" &
 
 # Apps
-alt - s : open -a 'Safari' -n
+alt - w : open -a 'Microsoft Edge' -n --args https://portal.microsofticm.com/ https://microsoft.visualstudio.com/OSGS/_dashboards/dashboard/585cae25-6b3b-47af-b630-28a877ad2bac https://microsoft.visualstudio.com/OSGS/_dashboards/dashboard/54ece42e-ca17-49bf-9772-7a086d83ee95 https://microsoft.visualstudio.com/OSGS/_boards/board/t/Fraud%20Protection%20Tools/Deliverables%20and%20Task%20Groups/
 alt - n : open -a 'Google Chrome' -n --args --incognito 
 alt - e : open -n Finder
