@@ -20,6 +20,6 @@ if [ $RUNNING -eq 1 ] && [ $PLAYING -eq 1 ]; then
   else
     sketchybar --set $NAME label=" $TRACK -  $ARTIST" --set '/spot.*/' drawing=on
   fi
-else
-  sketchybar --set '/spot.*/' drawing=off
+# else
+#   sketchybar --set '/spot.*/' drawing=off
 fi

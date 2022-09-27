@@ -1,3 +1,5 @@
+#!/usr/bin/env sh
+
 source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
 source "$HOME/.config/sketchybar/icons.sh"  # Loads all defined icons
 
@@ -10,13 +12,13 @@ POPUP_CORNER_RADIUS=11
 SHADOW=on
 
 # Setting up the general bar appearance and default values
-sketchybar --bar height=25 \
+sketchybar --bar height=28 \
     position=top \
-    margin=0 \
+    margin=7 \
     padding_left=10 \
     padding_right=10 \
     color="0x00000000" \
-    y_offset=10 \
+    y_offset=7 \
     shadow=$SHADOW \
     --default drawing=on \
     updates=when_shown \
