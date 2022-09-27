@@ -12,7 +12,7 @@ sudo pacman -S --noconfirm yay && yay -S --noconfirm yadm-git && yes | yadm clon
 
 ### Mac (Apple Silicon)
 
-#### 1. Disable SIP [Yabai docs](https://github.com/koekeishiya/yabai/wiki/Disabling-System-Integrity-Protection)
+#### 1. (OPTIONAL) Disable SIP [Yabai docs](https://github.com/koekeishiya/yabai/wiki/Disabling-System-Integrity-Protection)
 
 Boot into recovery mode: Press and hold the `power` button on your Mac until “Loading startup options” appears.
 
