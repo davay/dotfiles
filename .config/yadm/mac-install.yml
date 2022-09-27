@@ -69,6 +69,7 @@
           - karabiner-elements
           - raycast
           - parallels
+          - sf-symbols
         state: latest
 
     - name: "Pip3: Install packages"
@@ -119,7 +120,7 @@
         domain: NSGlobalDomain
         key: KeyRepeat
         type: int
-        value: 2 
+        value: 2
         state: present
 
     - name: "osx_defaults: Reduce alert sound volume"
@@ -149,7 +150,6 @@
         type: bool
         value: false
         state: present
-
 
     - name: "osx_defaults: Disable mouse acceleration"
       community.general.osx_defaults:
