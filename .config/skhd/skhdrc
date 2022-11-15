@@ -75,6 +75,6 @@ alt - s : screencapture -c -i
 alt - v: screencapture -V 12 -k ~/Desktop/"$(date +'%F_%H%M%S').mov" &
 
 # Apps
-alt - w : open -a 'Microsoft Edge' -n --args https://portal.microsofticm.com/ https://microsoft.visualstudio.com/OSGS/_dashboards/dashboard/585cae25-6b3b-47af-b630-28a877ad2bac https://microsoft.visualstudio.com/OSGS/_dashboards/dashboard/54ece42e-ca17-49bf-9772-7a086d83ee95 https://microsoft.visualstudio.com/OSGS/_boards/board/t/Fraud%20Protection%20Tools/Deliverables%20and%20Task%20Groups/
+alt - w : open -a 'Microsoft Edge' -n --args https://portal.microsofticm.com/ https://microsoft.visualstudio.com/OSGS/_dashboards/dashboard/585cae25-6b3b-47af-b630-28a877ad2bac https://microsoft.visualstudio.com/OSGS/_dashboards/dashboard/54ece42e-ca17-49bf-9772-7a086d83ee95 https://microsoft.visualstudio.com/OSGS/_boards/board/t/Fraud%20Protection%20Tools/Deliverables%20and%20Task%20Groups/ https://microsoft.visualstudio.com/OSGS/_dashboards/dashboard/fd5a5aed-0da0-4b55-ac6c-a0f554c5c372
 alt - n : open -a 'Google Chrome' -n --args --incognito 
 alt - e : open -n Finder

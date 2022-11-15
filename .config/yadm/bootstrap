@@ -41,6 +41,7 @@ if [[ $system_type = "Darwin" ]]; then
 	# AstroVim
 	git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
 	nvim +PackerSync
+
 	# Hacky way of storing custom config because of git submodule bs 
 	cp ~/.config/yadm/sysfiles/init.lua ~/.config/nvim/lua/user/init.lua
 	ln -f ~/.config/nvim/lua/user/init.lua ~/.config/yadm/sysfiles/init.lua

@@ -59,21 +59,19 @@ for i in "${!SPACE_ICONS[@]}"; do
         click_script="$SPACE_CLICK_SCRIPT"
 done
 
-sketchybar --add item separator left \
-    --set separator icon= \
-    icon.font="Hack Nerd Font:Regular:16.0" \
-    background.padding_left=26 \
-    background.padding_right=15 \
-    label.drawing=off \
-    icon.color=$WHITE
-
+# sketchybar --add item separator left \
+#     --set separator icon= \
+#     icon.font="Hack Nerd Font:Regular:16.0" \
+#     background.padding_left=26 \
+#     background.padding_right=15 \
+#     label.drawing=off \
+#     icon.color=$WHITE
+#
 sketchybar --add event window_focus \
     --add item system.yabai left \
     --set system.yabai script="$PLUGIN_DIR/yabai.sh" \
     icon.font="$FONT:Regular:16.0" \
     label.drawing=off \
-    icon.width=30 \
-    icon=$YABAI_GRID \
     icon.color=$GREEN \
     updates=on \
     --subscribe system.yabai window_focus mouse.clicked \

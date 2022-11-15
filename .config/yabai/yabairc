@@ -35,7 +35,7 @@ yabai -m config bottom_padding               8
 yabai -m config left_padding                 8
 yabai -m config right_padding                8
 yabai -m config window_gap                   4
-yabai -m config external_bar                 all:32:0
+# yabai -m config external_bar                 all:32:0
 
 # specific space settings
 # yabai -m config --space 4 layout stack
@@ -48,11 +48,14 @@ yabai -m config external_bar                 all:32:0
 #yabai -m rule --add app="^Microsoft Edge" space=1
 yabai -m rule --add app="^Agenda$" space=3
 yabai -m rule --add app="^Microsoft Teams$" space=3
-yabai -m rule --add app="^Spotify$" space=4
+yabai -m rule --add app="^Spotify$" space=3
+yabai -m rule --add app="^Scrintal$" space=3
+yabai -m rule --add app="^Discord$" space=4
 yabai -m rule --add app="^Singlebox Plus$" space=4
 yabai -m rule --add app="^Microsoft Outlook$" space=4
 yabai -m rule --add app="^Microsoft OneNote$" space=4
 yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^System Information$" manage=off
 yabai -m rule --add app="^Finder$" sticky=on layer=above manage=off
 yabai -m rule --add app="^iTerm2$" manage=off
@@ -61,7 +64,6 @@ yabai -m rule --add app="^Notes$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Browserosaurus$" manage=off
 yabai -m rule --add app="Break Time" manage=off
-
 
 # signals
 yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
