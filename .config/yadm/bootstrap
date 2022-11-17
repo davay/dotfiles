@@ -28,7 +28,7 @@ sudo spctl --master-disable
 	
 # AstroVim
 git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
-nvim +PackerSync
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 # Hacky way of storing custom nvim config because of git submodule bs 
 cp ~/.config/yadm/sysfiles/init.lua ~/.config/nvim/lua/user/init.lua
