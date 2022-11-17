@@ -53,17 +53,16 @@
           - steam
           - discord
           - spotify
-          - homebrew/cask-fonts/font-fira-code
           - google-drive
           - google-cloud-sdk
           - visual-studio-code
+          - fleet
           - docker
-          - browserosaurus
-          - iterm2
           - raindropio
           - karabiner-elements
           - raycast
           - sf-symbols
+          - linearmouse
         state: latest
 
     - name: "Pip3: Install packages"
