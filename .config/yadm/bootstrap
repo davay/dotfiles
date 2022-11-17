@@ -7,7 +7,7 @@ echo "Init submodules"
 yadm submodule update --recursive --init
 
 # Rosetta
-softwareupdate --install-rosetta
+yes A | softwareupdate --install-rosetta
 
 # Ansible
 brew install ansible
