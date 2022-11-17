@@ -3,80 +3,37 @@
 # Because Git submodule commands cannot operate without a work tree, they must
 # be run from within $HOME (assuming this is the root of your dotfiles)
 cd $HOME
-
 echo "Init submodules"
 yadm submodule update --recursive --init
 
-system_type=$(uname -s)
+# Rosetta
+softwareupdate --install-rosetta | yes A
 
-if [[ $system_type = "Darwin" ]]; then
-	# Install packages
-  softwareupdate --install-rosetta | yes A
-	brew install ansible
-	ansible-galaxy install -r ~/.config/yadm/requirements.yml
-	ansible-playbook -v ~/.config/yadm/mac-install.yml -i ~/.config/yadm/inventory
-  mkdir ~/.nvm
+# Ansible
+brew install ansible
+ansible-galaxy install -r ~/.config/yadm/requirements.yml
+ansible-playbook -v ~/.config/yadm/mac-install.yml -i ~/.config/yadm/inventory
 
-	# Oh-my-zsh
-	yes | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# Oh-my-zsh
+yes | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-	# Disable sound effects on boot
-  sudo nvram StartupMute=%01
+# Disable sound effects on boot
+sudo nvram StartupMute=%01
 
-	# Yabai + skhd
-	sudo nvram boot-args=-arm64e_preview_abi
-	brew services start yabai
-	brew services start skhd
-  brew services start sketchybar
+# Fonts
+sudo cp ~/.config/yadm/fonts/* /Library/Fonts/.
 
-	# Apple Fonts
-	sudo cp ~/.config/yadm/fonts/* /Library/Fonts/.
-
-  # Yabai scripting addition
-  sudo sh -c "echo 'davay ALL = (root) NOPASSWD: /usr/local/bin/yabai --load-sa' >> /private/etc/sudoers.d/yabai"
-
-  # Allow apps from anywhere
-  sudo spctl --master-disable
+# Allow apps from anywhere
+sudo spctl --master-disable
 	
-	# AstroVim
-	git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
-	nvim +PackerSync
+# AstroVim
+git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+nvim +PackerSync
 
-	# Hacky way of storing custom config because of git submodule bs 
-	cp ~/.config/yadm/sysfiles/init.lua ~/.config/nvim/lua/user/init.lua
-	ln -f ~/.config/nvim/lua/user/init.lua ~/.config/yadm/sysfiles/init.lua
+# Hacky way of storing custom nvim config because of git submodule bs 
+cp ~/.config/yadm/sysfiles/init.lua ~/.config/nvim/lua/user/init.lua
+ln -f ~/.config/nvim/lua/user/init.lua ~/.config/yadm/sysfiles/init.lua
 
-	# Spicetify 
-  curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-cli/master/install.sh | sh
-  curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-marketplace/main/install.sh | sh
-
-  # nerd-fonts
-  git clone https://github.com/ryanoasis/nerd-fonts.git -C ~/Downloads && ~/Downloads/nerd-fonts/install.sh
-	
-  # Finishing touch
-	gh auth login
-  gcloud init
-
- elif [[ $system_type = "Linux" ]]; then # built for manjaro i3 minimal
-	if [[ $(command -v pacman) ]]; then
-		sudo pacman --noconfirm -S ansible
-		ansible-galaxy collection install kewlfft.aur
-		ansible-playbook -v ~/.config/yadm/linux-install.yml
-		yes | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-		sudo chsh -s /bin/zsh davay
-		sudo chsh -s /bin/zsh
-		sudo modprobe i2c-dev
-		sudo modprobe i2c-piix4
-		sudo udevadm control --reload-rules && sudo udevadm trigger
-		sudo timedatectl set-ntp true
-		sudo systemctl enable teamviewerd
-		wpg-install.sh -g
-		wpg -a ~/.config/yadm/background/*
-		sudo chmod a+wr /opt/spotify
-		sudo chmod a+wr /opt/spotify/Apps -R
-		sudo updatedb
-		sudo systemctl enable bluetooth.service
-		betterdiscordctl install
-	fi
-
-fi
+# Finishing touch
+gh auth login
+gcloud init
