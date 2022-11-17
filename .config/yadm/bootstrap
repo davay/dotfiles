@@ -12,7 +12,7 @@ yes A | softwareupdate --install-rosetta
 # Ansible
 brew install ansible
 ansible-galaxy install -r ~/.config/yadm/requirements.yml
-ansible-playbook -v ~/.config/yadm/mac-install.yml -i ~/.config/yadm/inventory
+ansible-playbook -vvv ~/.config/yadm/mac-install.yml -i ~/.config/yadm/inventory
 
 # Oh-my-zsh
 yes | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
