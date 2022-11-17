@@ -5,7 +5,7 @@
 	helper = store
 [pull]
 	rebase = false
-[filter "lfs"]
+[filter "lfs"] # Whyyyy is this default config here
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
