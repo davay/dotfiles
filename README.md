@@ -15,5 +15,5 @@ NOTE: Main branch is brand new -- Mac only for now. Old combined Linux + Mac set
 ### 2. yadm + Ansible
 
 ```
-brew install yadm && yadm clone https://github.com/davay/dotfiles.git && yadm bootstrap
+brew install yadm && yadm clone https://github.com/davay/dotfiles.git
 ```
