@@ -30,7 +30,6 @@
           - coreutils
           - jq
           - node
-          - nv
           - lua
           - moreutils
           - gnu-sed
