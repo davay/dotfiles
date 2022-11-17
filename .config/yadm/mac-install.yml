@@ -7,13 +7,6 @@
   vars:
     ansible_python_interpreter: /usr/bin/python3
 
-  #vars_prompt:
-  #  - name: mas_email
-  #    prompt: "Please input Mac App Store email"
-  #    private: no
-  #  - name: mas_password
-  #    prompt: "Please input Mac App Store password"
-
   tasks:
     - name: "Homebrew: Install packages & taps"
       community.general.homebrew:
@@ -42,6 +35,7 @@
           - pandoc
           - ripgrep
           - fd
+          - thefuck
         state: latest
         update_homebrew: yes
 
@@ -61,6 +55,7 @@
           - raycast
           - sf-symbols
           - linearmouse
+          - warp
         state: latest
 
     - name: "Pip3: Install packages"
@@ -69,24 +64,18 @@
           - pywal
         state: latest
 
-    #- name: "Mac App Store: Sign in"
-    #  command: 'mas signin "{{ mas_email }}" "{{ mas_password }}"'
+    - name: "Mac App Store: Install apps"
+      community.general.mas:
+        id:
+          - 1548853763 # Singlebox Plus
+          - 1440147259 # Adguard
+          - 1333542190 # 1Password 7
+          - 1438243180 # Dark Reader for Safari
+          - 931571202 # Quickshade
+          - 937984704 # Amphetamine
+          - 1607635845 # Velja
+        state: latest
 
-    #- name: "Mac App Store: Install apps"
-    #  community.general.mas:
-    #    id:
-    #      - 1548853763 # Singlebox Plus
-    #      - # Adguard
-    #      - # Agenda
-    #      - # 1Password 7
-    #      - # Dark Reader for Safari
-    #      - # Vimari
-    #      - # Agenda
-    #      - # quickshade
-    #      - # amphetamine
-    #    state: latest
-
-    # INSTALL STACKLINE
 
     # Mac Defaults
     - name: "osx_defaults: Disable system Tink sound"
@@ -95,6 +84,14 @@
         key: com.apple.sound.uiaudio.enabled
         type: int
         value: 0
+        state: present
+    
+    - name: "osx_defaults: Enable Key Repeat"
+      community.general.osx_defaults:
+        domain: NSGlobalDomain
+        key: ApplePressAndHoldEnabled
+        type: bool
+        value: false
         state: present
 
     - name: "osx_defaults: Decrease key repeat initial delay"

@@ -2,7 +2,7 @@
 
 A [yadm](https://yadm.io/) + [Ansible](https://docs.ansible.com/ansible/latest/user_guide/index.html#getting-started) instant setup for fresh OS installs
 
-NOTE: Main branch is brand new -- Mac only for now. Old combined Linux + Mac setup is in archive branch. No longer using Yabai, Stage Manager is quite nice. 
+NOTE: Main branch is brand new -- Mac only for now. Old combined Linux + Mac setup is in archive branch. No longer using Yabai, Stage Manager + Raycast is quite nice. 
 
 ## Installation
 

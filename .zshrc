@@ -1,5 +1,9 @@
 eval $(thefuck --alias)
 
+# Pywal
+(cat ~/.cache/wal/sequences &)
+source ~/.cache/wal/colors-tty.sh
+
 # General alias
 alias sudo="sudo " # enable aliases for sudo
 alias tf="fuck"
@@ -17,5 +21,24 @@ alias macc="vim ~/.config/yadm/mac-install.yml"
 # cd alias
 alias cdyadm="cd ~/.config/yadm/"
 
-## SSH alias
+# SSH alias
 alias sshpi="ssh pi@raspberrypi"
+
+# Custom functions
+ timezsh() {
+   shell=${1-$SHELL}
+   for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+ }
+
+ c() {
+   cd "${@}" && ls | gsed '  
+         # on line 8, print the line,
+         8 {
+             # append an ellipsis
+             a[...]
+             # and quit
+             q
+         }
+         # print lines 1-8 verbatim
+         '
+ }
