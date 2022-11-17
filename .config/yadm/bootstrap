@@ -31,7 +31,7 @@ git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 # Hacky way of storing custom nvim config because of git submodule bs 
-cp ~/.config/yadm/sysfiles/init.lua ~/.config/nvim/lua/user/init.lua
+mkdir -p ~/.config/nvim/lua/user && cp ~/.config/yadm/sysfiles/init.lua "$_"
 ln -f ~/.config/nvim/lua/user/init.lua ~/.config/yadm/sysfiles/init.lua
 
 # Finishing touch
