@@ -40,7 +40,6 @@
           - neofetch
           - texlive
           - pandoc
-          - docker
           - ripgrep
           - fd
         state: latest
