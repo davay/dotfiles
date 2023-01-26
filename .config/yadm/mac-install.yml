@@ -36,6 +36,8 @@
           - ripgrep
           - fd
           - thefuck
+          - webpack
+          - httpie # CLI
         state: latest
         update_homebrew: yes
 
@@ -56,6 +58,18 @@
           - sf-symbols
           - linearmouse
           - warp
+          - shottr
+          - 1password
+          - rectangle
+          - google-chrome
+          - mullvadvpn
+          - ferdium
+          - figma
+          - he3-app/he3/he3
+          - httpie # GUI
+          - affinity-designer
+          - affinity-photo
+          - affinity-publisher
         state: latest
 
     - name: "Pip3: Install packages"
@@ -67,7 +81,6 @@
     - name: "Mac App Store: Install apps"
       community.general.mas:
         id:
-          - 1548853763 # Singlebox Plus
           - 1440147259 # Adguard
           - 1333542190 # 1Password 7
           - 1438243180 # Dark Reader for Safari

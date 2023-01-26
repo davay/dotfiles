@@ -20,6 +20,8 @@ alias macc="vim ~/.config/yadm/mac-install.yml"
 
 # cd alias
 alias cdyadm="cd ~/.config/yadm/"
+alias cdexr="cd ~/Repos/Personal/EditXR/"
+alias cdrepos="cd ~/Repos/"
 
 # SSH alias
 alias sshpi="ssh pi@raspberrypi"
