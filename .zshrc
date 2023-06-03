@@ -22,14 +22,23 @@ alias macc="vim ~/.config/yadm/mac-install.yml"
 alias cdyadm="cd ~/.config/yadm/"
 alias cdexr="cd ~/Repos/Personal/EditXR/"
 alias cdrepos="cd ~/Repos/"
+alias cdwork="cd ~/Repos/Work/"
+alias cdmangas="cd ~/Mangas/"
 
 # SSH alias
 alias sshpi="ssh pi@raspberrypi"
 
+# git alias
+alias backmerge="currBranch=\$(git rev-parse --abbrev-ref HEAD) && git checkout dev && git pull && git checkout \$currBranch && git merge dev"
+alias clean="git reset --hard && git clean -dfx"
+alias upstream="currBranch=\$(git rev-parse --abbrev-ref HEAD) && git push --set-upstream origin \$currBranch"
+
 # Custom functions
  timezsh() {
    shell=${1-$SHELL}
-   for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+   for i in $(seq 1 10); do 
+    /usr/bin/time $shell -i -c exit;
+   done
  }
 
  c() {
@@ -44,3 +53,7 @@ alias sshpi="ssh pi@raspberrypi"
          # print lines 1-8 verbatim
          '
  }
+
+ rmManga() {
+  ~/.config/yadm/rmManga.exp $1
+}
