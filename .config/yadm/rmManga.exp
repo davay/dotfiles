@@ -1,0 +1,19 @@
+#!/usr/bin/expect -f
+
+cd ~/Mangas
+spawn mangadex-dl -f pdf $argv
+expect eof
+
+set mangaDirectory [exec ls -td * | head -1]
+set resyncDirectory ~/repos/personal/remarkable-cli-tooling
+set remarkableIpAddr [exec arp -a | grep 'remarkable.lan' | awk '{print $2}' | tr -d '()']
+
+cd $mangaDirectory
+
+set mangaFiles [glob *.pdf]
+foreach manga $mangaFiles {
+    spawn $resyncDirectory/resync.py -r $remarkableIpAddr push "$manga"
+    expect "*"
+    send "5fZfFaqnVx\r"
+    expect eof
+}
