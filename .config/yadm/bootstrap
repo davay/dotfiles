@@ -9,7 +9,8 @@ yadm submodule update --recursive --init
 # Rosetta
 yes A | softwareupdate --install-rosetta
 
-# Ansible
+# Brew & Ansible
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install ansible
 ansible-galaxy install -r ~/.config/yadm/requirements.yml
 ansible-playbook -vv ~/.config/yadm/mac-install.yml -i ~/.config/yadm/inventory
@@ -30,7 +31,8 @@ sudo spctl --master-disable
 git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
-# DISABLED - USING DEFAULT ASTROVIM CONFIG -- Hacky way of storing custom nvim (AstroVim) config because of git submodule bs 
+# DISABLED: USING DEFAULT ASTROVIM CONFIG  
+# Hacky way of storing custom nvim (AstroVim) config because of git submodule bs 
 # mkdir -p ~/.config/nvim/lua/user && cp ~/.config/yadm/sysfiles/init.lua "$_"
 # ln -f ~/.config/nvim/lua/user/init.lua ~/.config/yadm/sysfiles/init.lua
 

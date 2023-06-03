@@ -46,11 +46,8 @@
         name:
           - steam
           - discord
-          - spotify
-          - google-drive
           - google-cloud-sdk
           - visual-studio-code
-          - fleet
           - docker
           - raindropio
           - karabiner-elements
@@ -60,16 +57,15 @@
           - warp
           - shottr
           - 1password
-          - rectangle
-          - google-chrome
           - mullvadvpn
-          - ferdium
           - figma
           - he3-app/he3/he3
-          - httpie # GUI
           - affinity-designer
           - affinity-photo
           - affinity-publisher
+          - postman
+          - arc
+          - backblaze
         state: latest
 
     - name: "Pip3: Install packages"
