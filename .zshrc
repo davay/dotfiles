@@ -55,5 +55,5 @@ alias upstream="currBranch=\$(git rev-parse --abbrev-ref HEAD) && git push --set
  }
 
  rmManga() {
-  ~/.config/yadm/rmManga.exp $1
+	 /Users/davay/.config/yadm/rmManga.exp | osascript -e 'tell application "System Events" to keystroke "5fZfFaqnVx" using {control down, shift down}' 
 }
