@@ -80,9 +80,7 @@
           - 1440147259 # Adguard
           - 1333542190 # 1Password 7
           - 1438243180 # Dark Reader for Safari
-          - 931571202 # Quickshade
           - 937984704 # Amphetamine
-          - 1607635845 # Velja
         state: latest
 
 
