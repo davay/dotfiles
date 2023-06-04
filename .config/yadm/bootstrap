@@ -39,6 +39,12 @@ nvim
 # Populate locate db, if after this db is still not crated, try "sudo /usr/libexec/locate.updatedb"
 sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
 
+# Set hostnames
+sudo scutil --set HostName da-mac # Primary hostnmae (e.g. user@hostname)
+sudo scutil --set LocalHostName da-mac # Bonjour local network hostname (e.g. hostname.local)
+sudo scutil --set ComputerName da-mac # Friendly name (e.g. in Finder)
+dscacheutil -flushcache
+
 # Finishing touch
 yadm reset --hard
 gh auth login
