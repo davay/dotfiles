@@ -45,6 +45,11 @@ sudo scutil --set LocalHostName da-mac # Bonjour local network hostname (e.g. ho
 sudo scutil --set ComputerName da-mac # Friendly name (e.g. in Finder)
 dscacheutil -flushcache
 
+# Backblaze
+backblaze_path="/opt/homebrew/Caskroom/backblaze"
+backblaze_version=$(\ls $backblaze_path | sort -V | tail -n 1) # escape alias-ed ls
+open $backblaze_path/$backblaze_version/Backblaze\ Installer.app
+
 # Finishing touch
 yadm reset --hard
 gh auth login

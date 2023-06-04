@@ -51,7 +51,6 @@
           - docker
           - raindropio
           - karabiner-elements
-          - raycast
           - sf-symbols
           - linearmouse
           - warp
@@ -66,6 +65,8 @@
           - postman
           - arc
           - backblaze
+          - parallels
+          - rectangle
         state: latest
 
     - name: "Pip3: Install packages"
