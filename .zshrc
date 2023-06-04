@@ -1,9 +1,5 @@
 eval $(thefuck --alias)
 
-# Pywal
-(cat ~/.cache/wal/sequences &)
-source ~/.cache/wal/colors-tty.sh
-
 # General alias
 alias sudo="sudo " # enable aliases for sudo
 alias tf="fuck"

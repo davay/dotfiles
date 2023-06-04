@@ -26,10 +26,9 @@ sudo cp ~/.config/yadm/fonts/* /Library/Fonts/.
 
 # Allow apps from anywhere
 sudo spctl --master-disable
-	
+
 # AstroVim
 git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
-nvim
 
 # DISABLED: USING DEFAULT ASTROVIM CONFIG  
 # Hacky way of storing custom nvim (AstroVim) config because of git submodule bs 
@@ -54,3 +53,8 @@ open $backblaze_path/$backblaze_version/Backblaze\ Installer.app
 yadm reset --hard
 gh auth login
 gcloud init
+cat << EOF
+-----------------------------------
+END OF INSTALLATION, PLEASE RESTART 
+-----------------------------------
+EOF

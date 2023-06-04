@@ -37,7 +37,6 @@
           - fd
           - thefuck
           - webpack
-          - httpie # CLI
         state: latest
         update_homebrew: yes
 
@@ -69,21 +68,13 @@
           - rectangle
         state: latest
 
-    - name: "Pip3: Install packages"
-      ansible.builtin.pip:
-        name:
-          - pywal
-        state: latest
-
     - name: "Mac App Store: Install apps"
       community.general.mas:
         id:
           - 1440147259 # Adguard
-          - 1333542190 # 1Password 7
           - 1438243180 # Dark Reader for Safari
           - 937984704 # Amphetamine
         state: latest
-
 
     # Mac Defaults
     - name: "osx_defaults: Disable system Tink sound"
