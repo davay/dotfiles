@@ -169,7 +169,7 @@
         domain: com.apple.dock
         key: autohide-time-modifier
         type: float
-        value: 0.15
+        value: 0.20
         state: present
 
     - name: "osx_defaults: Disable bounce animation for icons with notification in dock"
