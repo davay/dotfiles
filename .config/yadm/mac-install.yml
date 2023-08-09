@@ -65,8 +65,17 @@
           - arc
           - backblaze
           - parallels
-          - rectangle
+          - rectangle-pro
+          - atext
+          - dotnet-sdk
+          - raycast
+          - remarkable
         state: latest
+
+    - name: "Cargo: Install Rust Packages"
+      community.general.cargo:
+        name:
+          - wallust
 
     - name: "Mac App Store: Install apps"
       community.general.mas:

@@ -1,4 +1,6 @@
+# Random stuff
 eval $(thefuck --alias)
+export PATH=$PATH:~/.cargo/bin/
 
 # General alias
 alias sudo="sudo " # enable aliases for sudo
@@ -25,7 +27,7 @@ alias cdmangas="cd ~/Mangas/"
 alias sshpi="ssh pi@raspberrypi"
 
 # git alias
-alias backmerge="currBranch=\$(git rev-parse --abbrev-ref HEAD) && git checkout dev && git pull && git checkout \$currBranch && git merge dev"
+alias backmerge="currBranch=\$(git rev-parse --abbrev-ref HEAD) && git checkout develop && git pull && git checkout \$currBranch && git merge develop"
 alias clean="git reset --hard && git clean -dfx"
 alias upstream="currBranch=\$(git rev-parse --abbrev-ref HEAD) && git push --set-upstream origin \$currBranch"
 
