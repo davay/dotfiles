@@ -9,8 +9,7 @@ yadm submodule update --recursive --init
 # Rosetta
 yes A | softwareupdate --install-rosetta
 
-# Brew & Ansible
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# Ansible
 brew install ansible
 ansible-galaxy install -r ~/.config/yadm/requirements.yml
 ansible-playbook -vv ~/.config/yadm/mac-install.yml -i ~/.config/yadm/inventory
