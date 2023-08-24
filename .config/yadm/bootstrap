@@ -44,9 +44,6 @@ sudo scutil --set LocalHostName da-mac # Bonjour local network hostname (e.g. ho
 sudo scutil --set ComputerName da-mac # Friendly name (e.g. in Finder)
 dscacheutil -flushcache
 
-# Microsoft - Install Azure Artifacts credentials provider
-sh -c "$(curl -fsSL https://aka.ms/install-artifacts-credprovider.sh)"
-
 # Backblaze
 backblaze_path="/opt/homebrew/Caskroom/backblaze"
 backblaze_version=$(\ls $backblaze_path | sort -V | tail -n 1) # escape alias-ed ls
