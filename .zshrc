@@ -15,6 +15,9 @@ alias ls="gls --color" # colorful GNU ls
 alias zshc="vim ~/.zshrc"
 alias yadmc="vim ~/.config/yadm/bootstrap"
 alias macc="vim ~/.config/yadm/mac-install.yml"
+alias yabaic="vim ~/.config/yabai/yabairc"
+alias skhdc="vim ~/.config/skhd/skhdrc"
+alias sketchybarc="vim ~/.config/sketchybar/sketchybarrc"
 
 # cd alias
 alias cdyadm="cd ~/.config/yadm/"

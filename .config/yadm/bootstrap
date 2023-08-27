@@ -9,8 +9,7 @@ yadm submodule update --recursive --init
 # Rosetta
 yes A | softwareupdate --install-rosetta
 
-# Brew & Ansible
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# Ansible
 brew install ansible
 ansible-galaxy install -r ~/.config/yadm/requirements.yml
 ansible-playbook -vv ~/.config/yadm/mac-install.yml -i ~/.config/yadm/inventory
@@ -27,13 +26,19 @@ sudo cp ~/.config/yadm/fonts/* /Library/Fonts/.
 # Allow apps from anywhere
 sudo spctl --master-disable
 
+# catpuccin warp themes
+mkdir -p ~/.warp/themes/
+curl --output-dir ~/.warp/themes -LO https://raw.githubusercontent.com/catppuccin/warp/main/dist/catppuccin_latte.yml
+curl --output-dir ~/.warp/themes -LO https://raw.githubusercontent.com/catppuccin/warp/main/dist/catppuccin_frappe.yml
+curl --output-dir ~/.warp/themes -LO https://raw.githubusercontent.com/catppuccin/warp/main/dist/catppuccin_macchiato.yml
+curl --output-dir ~/.warp/themes -LO https://raw.githubusercontent.com/catppuccin/warp/main/dist/catppuccin_mocha.yml
+
 # AstroVim
 git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
 
-# DISABLED: USING DEFAULT ASTROVIM CONFIG  
 # Hacky way of storing custom nvim (AstroVim) config because of git submodule bs 
-# mkdir -p ~/.config/nvim/lua/user && cp ~/.config/yadm/sysfiles/init.lua "$_"
-# ln -f ~/.config/nvim/lua/user/init.lua ~/.config/yadm/sysfiles/init.lua
+mkdir -p ~/.config/nvim/lua/user && cp ~/.config/yadm/sysfiles/init.lua "$_"
+ln -f ~/.config/nvim/lua/user/init.lua ~/.config/yadm/sysfiles/init.lua
 
 # Populate locate db, if after this db is still not crated, try "sudo /usr/libexec/locate.updatedb"
 sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist

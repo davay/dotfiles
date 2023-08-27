@@ -37,6 +37,11 @@
           - fd
           - thefuck
           - webpack
+          - koekeishiya/formulae/yabai
+          - koekeishiya/formulae/skhd
+          - felixkratz/formulae/sketchybar
+          - pipes-sh
+          - tty-clock
         state: latest
         update_homebrew: yes
 
@@ -107,7 +112,7 @@
         domain: NSGlobalDomain
         key: InitialKeyRepeat
         type: int
-        value: 15
+        value: 10
         state: present
 
     - name: "osx_defaults: Decrease delay between key repeats"

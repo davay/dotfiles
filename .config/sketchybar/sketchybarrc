@@ -1,0 +1,112 @@
+source "$CONFIG_DIR/colors.sh" # Loads all defined colors
+source "$CONFIG_DIR/icons.sh" # Loads all defined icons
+
+ITEM_DIR="$CONFIG_DIR/items"
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+BRACKET_DIR="$CONFIG_DIR/brackets"
+LABEL_FONT="Comic Code Ligatures"
+ICON_FONT="Hack Nerd Font"
+
+# Unload the macOS on screen indicator overlay for volume change
+launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /dev/null 2>&1 &
+
+# If you are looking for other colors, see the color picker:
+# https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
+bar=(
+  height=40
+  color=$TRANSPARENT
+  shadow=off
+  position=top
+  sticky=on
+  padding_right=10
+  padding_left=10
+  corner_radius=6
+  y_offset=-39
+)
+sketchybar --bar "${bar[@]}"
+
+defaults=(
+  icon.font="$ICON_FONT:Bold:16.0"
+  icon.color=$ICON_COLOR
+  icon.padding_left=6
+  icon.padding_right=6
+  label.font="$LABEL_FONT:Regular:14.0"
+  label.color=$LABEL_COLOR
+  label.padding_left=6
+  label.padding_right=6
+  popup.background.border_width=2
+  popup.background.corner_radius=9
+  popup.background.color=$PRIMARY_1
+  popup.background.border_color=$PRIMARY_1
+  popup.blur_radius=20
+  popup.background.shadow.drawing=on
+  slider.highlight_color=$LABEL_COLOR
+  slider.background.color=$TRANSPARENT_ACCENT
+)
+sketchybar --default "${defaults[@]}"
+
+defaults_bracket=(
+  background.color=$PRIMARY_1
+  background.corner_radius=6
+  background.border_width=2
+  background.border_color=$PRIMARY_1
+  background.height=24
+)
+
+separator=(
+  icon=
+  icon.color=$TRANSPARENT_ACCENT
+  icon.font="$LABEL_FONT:Black:6.0"
+  label.drawing=off
+)
+
+separator_dot=(
+  icon="•"
+  icon.font="$LABEL_FONT:Black:15.0"
+  icon.padding_left=0
+  icon.padding_right=0
+  icon.y_offset=-2
+  label.drawing=off
+)
+
+# left items
+source "$ITEM_DIR/apple.sh"
+sketchybar --add item separator_apple left \
+           --set separator_apple "${separator[@]}"
+
+source "$ITEM_DIR/space.sh"
+sketchybar --add item separator_space left \
+           --set separator_space "${separator[@]}"
+
+source "$ITEM_DIR/cava.sh"
+sketchybar --add item separator_cava left \
+           --set separator_cava "${separator[@]}"
+
+source "$ITEM_DIR/music.sh"
+
+# right items
+source "$ITEM_DIR/datetime.sh"
+sketchybar --add item separator_datetime right \
+           --set separator_datetime "${separator[@]}"
+
+source "$ITEM_DIR/wifi.sh"
+source "$ITEM_DIR/battery.sh"
+source "$ITEM_DIR/volume.sh"
+sketchybar --add item separator_utilities right \
+           --set separator_utilities "${separator[@]}"
+ 
+source "$ITEM_DIR/brew.sh"
+
+# brackets
+source "$BRACKET_DIR/apple.sh"
+source "$BRACKET_DIR/brew.sh"
+source "$BRACKET_DIR/cava.sh"
+source "$BRACKET_DIR/datetime.sh"
+source "$BRACKET_DIR/music.sh"
+source "$BRACKET_DIR/space.sh"
+source "$BRACKET_DIR/utilities.sh"
+
+##### Misc #####
+# The below command is only needed at the end of the initial configuration to
+# force all scripts to run the first time, it should never be run in an item script.
+sketchybar --update
