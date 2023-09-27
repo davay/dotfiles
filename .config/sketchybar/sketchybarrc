@@ -21,7 +21,7 @@ bar=(
   padding_right=10
   padding_left=10
   corner_radius=6
-  y_offset=-39
+  y_offset=-25
 )
 sketchybar --bar "${bar[@]}"
 

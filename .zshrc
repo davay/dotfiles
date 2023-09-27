@@ -20,6 +20,7 @@ alias skhdc="vim ~/.config/skhd/skhdrc"
 alias sketchybarc="vim ~/.config/sketchybar/sketchybarrc"
 
 # cd alias
+alias cdconfig="cd ~/.config"
 alias cdyadm="cd ~/.config/yadm/"
 alias cdexr="cd ~/Repos/Personal/EditXR/"
 alias cdrepos="cd ~/Repos/"

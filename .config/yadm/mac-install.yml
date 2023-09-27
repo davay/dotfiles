@@ -42,6 +42,7 @@
           - felixkratz/formulae/sketchybar
           - pipes-sh
           - tty-clock
+          - jupyterlab
         state: latest
         update_homebrew: yes
 
@@ -75,6 +76,12 @@
           - dotnet-sdk
           - raycast
           - remarkable
+          - iterm2
+          - microsoft-teams
+          - anaconda
+          - r
+          - rstudio
+          - google-drive
         state: latest
 
     - name: "Cargo: Install Rust Packages"

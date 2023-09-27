@@ -56,8 +56,8 @@ alt - p : yabai -m window --toggle pip
 # change layout of desktop
 alt - space : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "stack" else "bsp" end') 
 
-# get window title, mapped to grave (`)
-alt - 0x32 : yabai -m query --windows --window | jq .app | pbcopy
+# get window title, mapped to period, previously mapped to grave at 0x32 (`)
+alt - 0x2F : yabai -m query --windows --window | jq .app | pbcopy
 
 # text macro, mostly for Agenda (Markdown) -- WARNING release the alt key asap. Prepend "sleep 0.001 &&" for further buffer.
 alt - 0x1B : osascript -e 'tell application "System Events" to keystroke "[] "'

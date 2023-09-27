@@ -1,6 +1,9 @@
 STATE="$(echo "$INFO" | jq -r '.state')"
-MEDIA="$(echo "$INFO" | jq -r '.title + " - " + .artist')"
+TITLE="$(echo "$INFO" | jq -r '.title')"
+ARTIST="$(echo "$INFO" | jq -r '.artist')"
 
-if [[ -n "$MEDIA" ]]; then
-    sketchybar --set $NAME label="$MEDIA" label.drawing=on
+if [[ -n "$TITLE" && -n "$ARTIST" ]]; then
+    sketchybar --set $NAME label="$TITLE - $ARTIST" label.drawing=on
+elif [[ -n "$TITLE" ]]; then
+    sketchybar --set $NAME label="$TITLE" label.drawing=on
 fi
