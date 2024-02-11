@@ -43,6 +43,7 @@
           - pipes-sh
           - tty-clock
           - jupyterlab
+          - mdcat
         state: latest
         update_homebrew: yes
 
@@ -76,12 +77,19 @@
           - dotnet-sdk
           - raycast
           - remarkable
-          - iterm2
           - microsoft-teams
           - anaconda
           - r
           - rstudio
           - google-drive
+          - openinterminal
+          - gpg-suite
+          - iterm2
+          - iina
+          - thinkorswim
+          - mysql 
+          - mysqlworkbench
+          - pycharm
         state: latest
 
     - name: "Cargo: Install Rust Packages"
@@ -95,6 +103,9 @@
           - 1440147259 # Adguard
           - 1438243180 # Dark Reader for Safari
           - 937984704 # Amphetamine
+          - 409183694 # Keynote
+          - 409203825 # Numbers
+          - 409201541 # Pages
         state: latest
 
     # Mac Defaults

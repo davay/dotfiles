@@ -3,7 +3,8 @@ sketchybar --add space space_template left \
     drawing=off \
     updates=on \
     script="$PLUGIN_DIR/space.sh" \
-    click_script="$SPACE_CLICK_SCRIPT" \
+    click_script="$PLUGIN_DIR/space_click.sh" \
+    --subscribe space space_change \
     \
     --clone space_1 space_template \
     --set space_1 associated_space=1 drawing=on \

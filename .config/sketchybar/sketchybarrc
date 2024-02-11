@@ -1,6 +1,7 @@
 source "$CONFIG_DIR/colors.sh" # Loads all defined colors
 source "$CONFIG_DIR/icons.sh" # Loads all defined icons
 
+
 ITEM_DIR="$CONFIG_DIR/items"
 PLUGIN_DIR="$CONFIG_DIR/plugins"
 BRACKET_DIR="$CONFIG_DIR/brackets"
@@ -12,6 +13,7 @@ launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /
 
 # If you are looking for other colors, see the color picker:
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
+
 bar=(
   height=40
   color=$TRANSPARENT
@@ -21,7 +23,7 @@ bar=(
   padding_right=10
   padding_left=10
   corner_radius=6
-  y_offset=-25
+  y_offset=$("$CONFIG_DIR"/get_y_offset.sh)
 )
 sketchybar --bar "${bar[@]}"
 

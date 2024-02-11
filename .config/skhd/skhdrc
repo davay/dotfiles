@@ -34,8 +34,12 @@ alt + shift - 7 : yabai -m window --space 7 && yabai -m space --focus 7
 alt + shift - 8 : yabai -m window --space 8 && yabai -m space --focus 8 
 
 # fast focus monitor
-alt - left : yabai -m display --focus 2
-alt - right : yabai -m display --focus 1
+# alt - left : yabai -m display --focus 2
+# alt - right : yabai -m display --focus 1
+
+# move to prev or next space
+alt - left : yabai -m space --focus prev
+alt - right : yabai -m space --focus next
 
 # toggle window fullscreen zoom
 alt - f : yabai -m window --toggle zoom-fullscreen
@@ -54,7 +58,7 @@ alt - t : yabai -m window --toggle float && yabai -m window --grid 4:4:1:1:2:2
 alt - p : yabai -m window --toggle pip
 
 # change layout of desktop
-alt - space : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "stack" else "bsp" end') 
+#alt - space : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "float" else "bsp" end') 
 
 # get window title, mapped to period, previously mapped to grave at 0x32 (`)
 alt - 0x2F : yabai -m query --windows --window | jq .app | pbcopy
@@ -66,6 +70,9 @@ alt - 0x1B : osascript -e 'tell application "System Events" to keystroke "[] "'
 # alt+shift-s is used for shottr
 alt - s : screencapture -c -i 
 alt - v : screencapture -V 12 -k ~/Desktop/"$(date +'%F_%H%M%S').mov" &
+
+# restart yabai 
+alt - y : yabai --restart-service
 
 # Apps
 cmd + shift - space : open -na 'Warp'
