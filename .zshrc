@@ -28,7 +28,11 @@ alias cdexr="cd ~/Repos/Personal/EditXR/"
 alias cdrepos="cd ~/Repos/"
 alias cdwork="cd ~/Repos/Work/"
 alias cdschool="cd ~/Repos/School/"
-alias cdmangas="cd ~/Mangas/"
+alias cdpersonal="cd ~/Repos/Personal/"
+
+# Python alias 
+alias nuke="pip freeze | cut -d "@" -f1 | xargs pip uninstall -y"
+alias freeze="pip list --format=freeze > requirements.txt"
 
 # SSH alias
 alias sshpi="ssh pi@raspberrypi"
@@ -39,6 +43,22 @@ alias sshda="ssh davay@ssh.devinl.im"
 alias backmerge="currBranch=\$(git rev-parse --abbrev-ref HEAD) && git checkout develop && git pull && git checkout \$currBranch && git merge develop"
 alias clean="git reset --hard && git clean -dfx"
 alias upstream="currBranch=\$(git rev-parse --abbrev-ref HEAD) && git push --set-upstream origin \$currBranch"
+
+# gen z alias 
+alias please="sudo"
+alias based="cd ~/"
+alias bet="git add"
+alias fr="git commit"
+alias yoink="git pull"
+alias yeet="git push"
+alias cap="-n"
+alias nocap="-f"
+alias yap="-v"
+alias noyap="-q"
+alias yikes="git clean -dfx"
+alias bigyikes="git reset --hard HEAD"
+alias smash="git merge"
+alias ong="rm -rf"
 
 # Custom functions
  timezsh() {
@@ -63,7 +83,7 @@ alias upstream="currBranch=\$(git rev-parse --abbrev-ref HEAD) && git push --set
 
 rmManga() {
 	 /Users/davay/.config/yadm/rmManga.exp | osascript -e 'tell application "System Events" to keystroke "5fZfFaqnVx" using {control down, shift down}' 
-}
+} # TODO: wtf is this, check previous commits
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

@@ -1,8 +1,13 @@
 # Description
 
-A [yadm](https://yadm.io/) + [Ansible](https://docs.ansible.com/ansible/latest/user_guide/index.html#getting-started) instant setup for fresh OS installs
+A [yadm](https://yadm.io/) + [Ansible](https://docs.ansible.com/ansible/latest/user_guide/index.html#getting-started) instant setup for fresh OS installs. 
 
 NOTE: Main branch is brand new -- Mac only for now. Old combined Linux + Mac setup is in archive branch. Yabai, skhd, and sketchybar are all preinstalled along with configs, but manual setup is required, instructions not here. 
+
+## Screenshot 
+
+![Worfklow Example](/.config/yadm/dotfiles.png)
+
 ## Installation
 
 ### 1. Install Brew

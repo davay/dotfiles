@@ -1,4 +1,4 @@
-# focus windo
+# focus window
 alt - h : if [ "$(yabai -m query --spaces --space | jq -r '.type')" = "stack" ]; then (yabai -m window --focus stack.prev || yabai -m window --focus stack.last); else yabai -m window --focus west; fi
 alt - j : yabai -m window --focus south
 alt - k : yabai -m window --focus north
@@ -10,8 +10,10 @@ alt + shift - j : yabai -m window --warp south
 alt + shift - k : yabai -m window --warp north
 alt + shift - l : yabai -m window --warp east
 
-# balance size of windows
-alt + shift - 0 : yabai -m space --balance
+# [SIP] create and destroy desktops
+alt - d : yabai -m space --create && yabai -m space --focus next
+alt + shift - d : yabai -m space --create && yabai -m window --space next && yabai -m space --focus next
+alt - w : yabai -m space --destroy 
 
 # [SIP] fast focus desktop
 alt - 1 : yabai -m space --focus 1
@@ -38,43 +40,45 @@ alt + shift - 8 : yabai -m window --space 8 && yabai -m space --focus 8
 # alt - right : yabai -m display --focus 1
 
 # move to prev or next space
-alt - left : yabai -m space --focus prev
-alt - right : yabai -m space --focus next
+alt - q : yabai -m space --focus prev
+alt - e : yabai -m space --focus next
 
-# toggle window fullscreen zoom
-alt - f : yabai -m window --toggle zoom-fullscreen
+# toggle (tiling) window fullscreen zoom
+# alt - f : yabai -m window --toggle zoom-fullscreen
 
 # toggle window native fullscreen
-alt + shift - f : yabai -m window --toggle native-fullscreen
+alt - f : yabai -m window --toggle native-fullscreen
 
 # toggle window split type
-alt - z : yabai -m window --toggle split
+# alt - z : yabai -m window --toggle split
 
 # float / unfloat window and restore position
-#alt - t : yabai -m window --toggle float && /tmp/yabai-restore/$(yabai -m query --windows --window | jq -re '.id').restore 2>/dev/null || true
-alt - t : yabai -m window --toggle float && yabai -m window --grid 4:4:1:1:2:2
+# alt - t : yabai -m window --toggle float && /tmp/yabai-restore/$(yabai -m query --windows --window | jq -re '.id').restore 2>/dev/null || true
 
 # [SIP] toggle picture-in-picture
 alt - p : yabai -m window --toggle pip
 
 # change layout of desktop
-#alt - space : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "float" else "bsp" end') 
+# alt - space : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "float" else "bsp" end') 
 
 # get window title, mapped to period, previously mapped to grave at 0x32 (`)
 alt - 0x2F : yabai -m query --windows --window | jq .app | pbcopy
 
 # text macro, mostly for Agenda (Markdown) -- WARNING release the alt key asap. Prepend "sleep 0.001 &&" for further buffer.
-alt - 0x1B : osascript -e 'tell application "System Events" to keystroke "[] "'
+# alt - 0x1B : osascript -e 'tell application "System Events" to keystroke "[] "'
 
 # screenshot, -[c]lipboard -[i]nteractive -[v]ideo -[V]ideo <seconds> -[k]licks 
 # alt+shift-s is used for shottr
 alt - s : screencapture -c -i 
 alt - v : screencapture -V 12 -k ~/Desktop/"$(date +'%F_%H%M%S').mov" &
 
+# restart sketchybar 
+alt - r : brew services restart sketchybar
+
 # restart yabai 
 alt - y : yabai --restart-service
 
 # Apps
-cmd + shift - space : open -na 'Warp'
+alt - space : open -na 'Warp'
 ctrl + alt - n : open -na 'Arc' --args --incognito 
 ctrl + alt - e : open -a 'Finder'

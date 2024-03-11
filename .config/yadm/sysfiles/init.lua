@@ -19,8 +19,15 @@ return {
       "ellisonleao/gruvbox.nvim",
       name = "gruvbox",
       config = function()
-        require("gruvbox").setup {}
+        require("gruvbox").setup({})
       end,
     },
+    {
+      "kylechui/nvim-surround", 
+      tag = "main", -- Use for stability; omit to use `main` branch for the latest features
+      config = function()
+        require("nvim-surround").setup({})
+        end,
+    }
   },
 }
