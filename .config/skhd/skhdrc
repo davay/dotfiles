@@ -57,7 +57,7 @@ alt - z : yabai -m window --toggle split
 alt - t : yabai -m window --toggle float && /tmp/yabai-restore/$(yabai -m query --windows --window | jq -re '.id').restore 2>/dev/null || true
 
 # change layout of desktop
-alt + shift - t : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "float" else "bsp" end') 
+alt + shift - t : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "float" else "bsp" end') && sketchybar -m --trigger tiling_mode_update &> /dev/null
 
 # [SIP] toggle picture-in-picture
 alt - p : yabai -m window --toggle pip

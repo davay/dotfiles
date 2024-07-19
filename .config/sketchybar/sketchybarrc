@@ -80,15 +80,15 @@ source "$ITEM_DIR/space.sh"
 sketchybar --add item separator_space left \
            --set separator_space "${separator[@]}"
 
-source "$ITEM_DIR/tiling_mode.sh"
-sketchybar --add item separator_tiling_mode left \
-           --set separator_tiling_mode "${separator[@]}"
+source "$ITEM_DIR/window_title.sh"
+sketchybar --add item separator_window_title left \
+           --set separator_window_title "${separator[@]}"
 
-source "$ITEM_DIR/cava.sh"
-sketchybar --add item separator_cava left \
-           --set separator_cava "${separator[@]}"
+# source "$ITEM_DIR/cava.sh"
+# sketchybar --add item separator_cava left \
+#            --set separator_cava "${separator[@]}"
 
-source "$ITEM_DIR/music.sh"
+# source "$ITEM_DIR/music.sh"
 
 # right items
 source "$ITEM_DIR/datetime.sh"
@@ -102,16 +102,21 @@ sketchybar --add item separator_utilities right \
            --set separator_utilities "${separator[@]}"
  
 source "$ITEM_DIR/brew.sh"
+sketchybar --add item separator_brew right \
+           --set separator_brew "${separator[@]}"
+
+source "$ITEM_DIR/tiling_mode.sh"
 
 # brackets
 source "$BRACKET_DIR/apple.sh"
 source "$BRACKET_DIR/brew.sh"
-source "$BRACKET_DIR/cava.sh"
+# source "$BRACKET_DIR/cava.sh"
 source "$BRACKET_DIR/datetime.sh"
-source "$BRACKET_DIR/music.sh"
+# source "$BRACKET_DIR/music.sh"
 source "$BRACKET_DIR/space.sh"
 source "$BRACKET_DIR/utilities.sh"
 source "$BRACKET_DIR/tiling_mode.sh"
+source "$BRACKET_DIR/window_title.sh"
 
 ##### Misc #####
 # The below command is only needed at the end of the initial configuration to

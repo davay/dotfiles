@@ -79,3 +79,8 @@ yabai -m signal --add event=application_terminated action="yabai -m query --wind
 ## Use correct sketchybar height regardless of resolution -- automatic resizing
 ## https://github.com/FelixKratz/SketchyBar/discussions/12?sort=new#discussioncomment-6225020 
 yabai -m signal --add event=display_resized action="brew services restart sketchybar"
+
+## for window_title sketchybar widget
+yabai -m signal --add event=window_focused action="sketchybar -m --trigger window_focus &> /dev/null"
+yabai -m signal --add event=window_title_changed action="sketchybar -m --trigger title_change &> /dev/null"
+
