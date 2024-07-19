@@ -24,12 +24,12 @@ yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
 # space settings
-yabai -m config layout                       float
-yabai -m config top_padding                  8
-yabai -m config bottom_padding               8
-yabai -m config left_padding                 8
-yabai -m config right_padding                8
-yabai -m config window_gap                   8
+yabai -m config layout                       bsp # bsp | float
+yabai -m config top_padding                  6
+yabai -m config bottom_padding               6
+yabai -m config left_padding                 6
+yabai -m config right_padding                6
+yabai -m config window_gap                   6
 yabai -m config external_bar                 all:0:0
 
 # mouse settings
@@ -79,6 +79,3 @@ yabai -m signal --add event=application_terminated action="yabai -m query --wind
 ## Use correct sketchybar height regardless of resolution -- automatic resizing
 ## https://github.com/FelixKratz/SketchyBar/discussions/12?sort=new#discussioncomment-6225020 
 yabai -m signal --add event=display_resized action="brew services restart sketchybar"
-
-# auto update from HEAD
-brew install yabai --HEAD

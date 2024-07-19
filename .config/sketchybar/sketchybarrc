@@ -80,6 +80,10 @@ source "$ITEM_DIR/space.sh"
 sketchybar --add item separator_space left \
            --set separator_space "${separator[@]}"
 
+source "$ITEM_DIR/tiling_mode.sh"
+sketchybar --add item separator_tiling_mode left \
+           --set separator_tiling_mode "${separator[@]}"
+
 source "$ITEM_DIR/cava.sh"
 sketchybar --add item separator_cava left \
            --set separator_cava "${separator[@]}"
@@ -107,6 +111,7 @@ source "$BRACKET_DIR/datetime.sh"
 source "$BRACKET_DIR/music.sh"
 source "$BRACKET_DIR/space.sh"
 source "$BRACKET_DIR/utilities.sh"
+source "$BRACKET_DIR/tiling_mode.sh"
 
 ##### Misc #####
 # The below command is only needed at the end of the initial configuration to

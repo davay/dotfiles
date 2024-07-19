@@ -45,6 +45,7 @@
           - jupyterlab
           - mdcat
           - git-lfs
+          - openjdk
         state: latest
         update_homebrew: yes
 
@@ -86,13 +87,12 @@
           - gpg-suite
           - iterm2
           - iina
-          - thinkorswim
-          - mysql 
-          - mysqlworkbench
           - pycharm
-          - chromedriver
           - tableau
-          - ferdium
+          - alt-tab
+          - slack
+          - webcatalog
+          - copilot
         state: latest
 
     - name: "Cargo: Install Rust Packages"

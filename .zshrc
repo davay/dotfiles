@@ -1,6 +1,7 @@
 # Random stuff
 eval $(thefuck --alias)
 export PATH=$PATH:~/.cargo/bin/
+ZSH_THEME=robbyrussell
 
 # General alias
 alias sudo="sudo " # enable aliases for sudo
@@ -23,12 +24,14 @@ alias sketchybarc="vim ~/.config/sketchybar/sketchybarrc"
 
 # cd alias
 alias cdconfig="cd ~/.config"
-alias cdyadm="cd ~/.config/yadm/"
-alias cdexr="cd ~/Repos/Personal/EditXR/"
-alias cdrepos="cd ~/Repos/"
-alias cdwork="cd ~/Repos/Work/"
-alias cdschool="cd ~/Repos/School/"
-alias cdpersonal="cd ~/Repos/Personal/"
+alias cdyadm="cd ~/.config/yadm"
+alias cdexr="cd ~/Repos/Personal/EditXR"
+alias cdrepos="cd ~/Repos"
+alias cdwork="cd ~/Repos/Work"
+alias cdschool="cd ~/Repos/School"
+alias cdpersonal="cd ~/Repos/Personal"
+alias cdsu="cd ~/GDrive/usa/school/su"
+alias cdvim="cd ~/.config/nvim"
 
 # Python alias 
 alias nuke="pip freeze | cut -d "@" -f1 | xargs pip uninstall -y"
@@ -99,4 +102,7 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-conda activate py312
+conda activate py311
+
+# Created by `pipx` on 2024-06-02 07:59:19
+export PATH="$PATH:/Users/davay/.local/bin"
