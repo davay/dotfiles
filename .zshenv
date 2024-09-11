@@ -1,7 +1,6 @@
-#!/bin/bash 
-
-# helpers for skhd
-# alternatively yabairc is a bash file, so i can just pair each function with an event and have skhd sent the event
+# sourced on all invocations of shell, even non-interactive ones
+# using this for SKHD
+# .zshrc is only sourced in interactive shells, so it didn't work
 
 get_last_space() {
   yabai -m query --displays --display | jq '.spaces[-1]' 
@@ -18,6 +17,3 @@ is_last_space() {
 get_layout() {
   yabai -m query --spaces --space | jq -r '.type'
 }
-
-# call the function passed as arg 
-"$@"
