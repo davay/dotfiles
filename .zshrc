@@ -38,9 +38,9 @@ alias nuke="pip freeze | cut -d "@" -f1 | xargs pip uninstall -y"
 alias freeze="pip list --format=freeze > requirements.txt"
 
 # SSH alias
-alias sshpi="ssh pi@raspberrypi"
-#alias sshda="ssh davay@$(ping -c 1 da | grep PING | sed 's/.*(\(.*\)).*/\1/')"
+alias sshpi="ssh pi@pi.devinl.im"
 alias sshda="ssh davay@ssh.devinl.im"
+alias sshhetzner="ssh root@hetzner.devinl.im"
 
 # git alias
 alias backmerge="currBranch=\$(git rev-parse --abbrev-ref HEAD) && git checkout develop && git pull && git checkout \$currBranch && git merge develop"
@@ -106,3 +106,6 @@ conda activate py311
 
 # Created by `pipx` on 2024-06-02 07:59:19
 export PATH="$PATH:/Users/davay/.local/bin"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export PATH="$(gem environment gemdir)/bin:$PATH"
+export SKHD_DIR="$HOME/.config/skhd"

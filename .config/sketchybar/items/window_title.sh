@@ -3,6 +3,7 @@ window_title=(
   icon.drawing=off
 )
 
-sketchybar --add item window_title left \
+sketchybar --add event title_change window_focus \
+  --add item window_title left \
   --set window_title "${window_title[@]}" \
   --subscribe window_title window_focus front_app_switched space_change title_change

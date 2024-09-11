@@ -1,14 +1,25 @@
 [user]
 	name = Devin Lim
 	email = davay@devinl.im
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJu05zJrPH4sSv+TDzfAgUOgK23YXPDLNxFTeHkmIB1E
 [credential]
 	helper = store
 [pull]
 	rebase = false
 [filter "lfs"] # Whyyyy is this default config here
+ # Whyyyy is this default config here
+ # Whyyyy is this default config here
+ # Whyyyy is this default config here
+ # Whyyyy is this default config here
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
 [core]
 	autocrlf = input
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true

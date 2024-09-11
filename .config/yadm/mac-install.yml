@@ -46,6 +46,7 @@
           - mdcat
           - git-lfs
           - openjdk
+          - docker-compose
         state: latest
         update_homebrew: yes
 
@@ -78,7 +79,6 @@
           - atext
           - dotnet-sdk
           - raycast
-          - remarkable
           - microsoft-teams
           - anaconda
           - r
@@ -93,6 +93,8 @@
           - slack
           - webcatalog
           - copilot
+          - altserver
+          - unified-remote
         state: latest
 
     - name: "Cargo: Install Rust Packages"
@@ -110,6 +112,7 @@
           - 409203825 # Numbers
           - 409201541 # Pages
           - 1448648921 # Seashore
+          - 1276493162 # reMarkable
         state: latest
 
     # Mac Defaults

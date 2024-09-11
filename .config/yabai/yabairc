@@ -30,7 +30,7 @@ yabai -m config bottom_padding               6
 yabai -m config left_padding                 6
 yabai -m config right_padding                6
 yabai -m config window_gap                   6
-yabai -m config external_bar                 all:0:0
+yabai -m config external_bar                 all:6:0
 
 # mouse settings
 yabai -m config mouse_follows_focus          off # on | off
@@ -55,22 +55,48 @@ yabai -m config normal_window_opacity        0.95
 
 ## [SIP] requires sip disabled
 yabai -m config window_topmost               off # floating windows always on top
-yabai -m config window_shadow                float # window shadows only on float 
+yabai -m config window_shadow                on # window shadows only on float 
 
 # window rules https://github.com/koekeishiya/yabai/blob/master/doc/yabai.asciidoc#rule
-yabai -m rule --add app="^Music$" display=2
-yabai -m rule --add app="^Microsoft Teams \(work or school\)$" display=2 
-yabai -m rule --add app="^Microsoft Teams classic$" display=2
-yabai -m rule --add app="^Discord$" display=2 
-yabai -m rule --add app="^Singlebox Plus$" display=2 
-yabai -m rule --add app="^Messages$" display=2
-yabai -m rule --add app="^System Preferences$" manage=off 
-yabai -m rule --add app="^System Settings$" manage=off
-yabai -m rule --add app="^System Information$" manage=off
-yabai -m rule --add app="^iTerm2$" manage=off
-yabai -m rule --add app="^Raycast$" manage=off
-yabai -m rule --add app="^Notes$" manage=off
-yabai -m rule --add app="^1Password$" manage=off
+# Right monitor (horizontal)
+yabai -m rule --add app="^(
+  Arc|
+  Books|
+  Safari|
+  Preview|
+  )$" display=1
+
+yabai -m rule --add app="^(
+  Code
+)" display=1 space=2
+
+yabai -m rule --add app="^(
+  Notes|
+  1Password|
+  Calculator
+  )$" display=1 manage=off
+
+# Left monitor (vertical)
+yabai -m rule --add app="^(
+  Music|
+  Microsoft Teams \(work or school\)|
+  Microsoft Teams classic|
+  Discord|
+  Personal|
+  Messages|
+  Agenda|
+  )$" display=2
+
+# Any monitor
+yabai -m rule --add app="^(
+  Raycast|
+  iTerm2|
+  System Preferences|
+  System Settings|
+  System Information
+)$" manage=off
+
+yabai -m rule --add app="^Finder$" title="^Copy$" manage=off 
 
 # signals
 yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
@@ -84,3 +110,33 @@ yabai -m signal --add event=display_resized action="brew services restart sketch
 yabai -m signal --add event=window_focused action="sketchybar -m --trigger window_focus &> /dev/null"
 yabai -m signal --add event=window_title_changed action="sketchybar -m --trigger title_change &> /dev/null"
 
+## setup spaces
+# clear extra spaces (>3) on startup
+for _ in $(yabai -m query --spaces | jq '.[].index | select(. > 3)'); do
+  yabai -m space --destroy 4
+done
+
+function setup_space {
+  local idx="$1"
+  local name="$2"
+  local space=
+  echo "setup space $idx : $name"
+
+  space=$(yabai -m query --spaces --space "$idx")
+  if [ -z "$space" ]; then
+    yabai -m space --create
+  fi
+
+  # assign space to display
+  # https://github.com/koekeishiya/yabai/issues/1225
+  if [ "$idx" -lt "3" ]; then
+    yabai -m space "$idx" --label "$name" --display 1
+  else
+    yabai -m space "$idx" --label "$name" --display 2
+  fi
+}
+
+
+setup_space 1 general
+setup_space 2 work
+setup_space 3 aux

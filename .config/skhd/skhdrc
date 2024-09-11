@@ -1,8 +1,8 @@
 # focus window
-alt - h : if [ "$(yabai -m query --spaces --space | jq -r '.type')" = "stack" ]; then (yabai -m window --focus stack.prev || yabai -m window --focus stack.last); else yabai -m window --focus west; fi
+alt - h : if [ "$($SKHD_DIR/helpers.sh get_layout)" = "stack" ]; then (yabai -m window --focus stack.prev || yabai -m window --focus stack.last); else yabai -m window --focus west; fi
 alt - j : yabai -m window --focus south
 alt - k : yabai -m window --focus north
-alt - l : if [ "$(yabai -m query --spaces --space | jq -r '.type')" = "stack" ]; then (yabai -m window --focus stack.next || yabai -m window --focus stack.first); else yabai -m window --focus east; fi
+alt - l : if [ "$($SKHD_DIR/helpers.sh get_layout)" = "stack" ]; then (yabai -m window --focus stack.next || yabai -m window --focus stack.first); else yabai -m window --focus east; fi
 
 # move window
 alt + shift - h : yabai -m window --warp west
@@ -11,8 +11,8 @@ alt + shift - k : yabai -m window --warp north
 alt + shift - l : yabai -m window --warp east
 
 # [SIP] create and destroy desktops
-alt - d : yabai -m space --create && yabai -m space --focus next
-alt + shift - d : yabai -m space --create && yabai -m window --space next && yabai -m space --focus next
+alt - d : yabai -m space --create && yabai -m space --focus $(get_last_space)
+alt + shift - d : yabai -m space --create && yabai -m window --space $(get_last_space) && yabai -m space --focus $(get_last_space)
 alt - w : yabai -m space --destroy 
 
 # [SIP] fast focus desktop
@@ -34,15 +34,20 @@ alt + shift - 5 : yabai -m window --space 5 && yabai -m space --focus 5
 alt + shift - 6 : yabai -m window --space 6 && yabai -m space --focus 6 
 alt + shift - 7 : yabai -m window --space 7 && yabai -m space --focus 7 
 alt + shift - 8 : yabai -m window --space 8 && yabai -m space --focus 8 
+alt + shift - z : yabai -m window --display next && yabai -m display --focus next
+alt + shift - c : yabai -m window --display prev && yabai -m display --focus prev
+alt + shift - q : if [[ "$($SKHD_DIR/helpers.sh is_first_space)" == "false" ]]; then yabai -m window --space prev && yabai -m space --focus prev && yabai -m window --focus last; fi
+alt + shift - e : if [[ "$($SKHD_DIR/helpers.sh is_last_space)" == "false" ]]; then yabai -m window --space next && yabai -m space --focus next && yabai -m window --focus last; fi
 
 # fast focus monitor
-# alt - left : yabai -m display --focus 2
-# alt - right : yabai -m display --focus 1
+alt - z : yabai -m display --focus next
+alt - c : yabai -m display --focus prev
 
 # move to prev or next space
-alt - tab : yabai -m space --focus recent
-alt - q : yabai -m space --focus prev
-alt - e : yabai -m space --focus next
+# order is swapped because my 2nd monitor is to the left of first monitor (right-to-left), while space goes left-to-right
+alt - tab : yabai -m display --focus recent
+alt - q : if [[ "$($SKHD_DIR/helpers.sh is_first_space)" == "false" ]]; then yabai -m space --focus prev; fi
+alt - e: if [[ "$($SKHD_DIR/helpers.sh is_last_space)" == "false" ]]; then yabai -m space --focus next; fi
 
 # toggle (tiling) window fullscreen zoom
 # alt - f : yabai -m window --toggle zoom-fullscreen
@@ -51,7 +56,7 @@ alt - e : yabai -m space --focus next
 alt - f : yabai -m window --toggle native-fullscreen
 
 # toggle window split type
-alt - z : yabai -m window --toggle split
+alt - x : yabai -m window --toggle split
 
 # float / unfloat window and restore position
 alt - t : yabai -m window --toggle float && /tmp/yabai-restore/$(yabai -m query --windows --window | jq -re '.id').restore 2>/dev/null || true
@@ -65,8 +70,8 @@ alt - p : yabai -m window --toggle pip
 # get window title
 # 0x32 = `
 # 0x2F = .
-# alt - 0x2F : yabai -m query --windows --window | jq .app | pbcopy
-alt - 0x2F : yabai -m query --windows --window | pbcopy
+alt - 0x2F : yabai -m query --windows --window | jq .app | pbcopy
+# alt - 0x2F : yabai -m query --windows --window | pbcopy
 
 # text macro, mostly for Agenda (Markdown) -- WARNING release the alt key asap. Prepend "sleep 0.001 &&" for further buffer.
 # alt - 0x1B : osascript -e 'tell application "System Events" to keystroke "[] "'
@@ -74,7 +79,7 @@ alt - 0x2F : yabai -m query --windows --window | pbcopy
 # screenshot, -[c]lipboard -[i]nteractive -[v]ideo -[V]ideo <seconds> -[k]licks 
 # alt+shift-s is used for shottr
 alt - s : screencapture -c -i 
-alt - v : screencapture -V 12 -k ~/Desktop/"$(date +'%F_%H%M%S').mov" &
+alt - v : screencapture -V 20 -k ~/Desktop/"$(date +'%F_%H%M%S').mov" &
 
 # restart sketchybar 
 alt - r : brew services restart sketchybar

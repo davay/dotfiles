@@ -63,3 +63,7 @@ cat << EOF
 END OF INSTALLATION, PLEASE RESTART 
 -----------------------------------
 EOF
+
+
+# To get AltJit workingg
+# sudo /Applications/Xcode.app/Contents/Developer/usr/bin/python3 -m pip install construct==2.10.69 qh3==0.15.1
