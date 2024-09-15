@@ -40,6 +40,10 @@ return {
     local cmp = require('cmp')
     local cmp_format = require('lsp-zero').cmp_format({ details = false })
     local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+    cmp.event:on(
+      'confirm_done',
+      cmp_autopairs.on_confirm_done()
+    )
     cmp.setup({
       sources = {
         { name = 'nvim_lsp' },
@@ -51,10 +55,6 @@ return {
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
       },
     })
-    cmp.event:on(
-      'confirm_done',
-      cmp_autopairs.on_confirm_done()
-    )
 
     -- format on save
     vim.api.nvim_create_autocmd("BufWritePre", {
