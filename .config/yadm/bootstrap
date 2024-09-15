@@ -33,12 +33,15 @@ curl --output-dir ~/.warp/themes -LO https://raw.githubusercontent.com/catppucci
 curl --output-dir ~/.warp/themes -LO https://raw.githubusercontent.com/catppuccin/warp/main/dist/catppuccin_macchiato.yml
 curl --output-dir ~/.warp/themes -LO https://raw.githubusercontent.com/catppuccin/warp/main/dist/catppuccin_mocha.yml
 
-# AstroVim
-git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+# Install Nix package manager, mostly for lazy-lsp.nvim
+yes | sh <(curl -L https://nixos.org/nix/install)
+
+# AstroVim, no longer used but keeping just in case
+# git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
 
 # Hacky way of storing custom nvim (AstroVim) config because of git submodule bs 
-mkdir -p ~/.config/nvim/lua/user && cp ~/.config/yadm/sysfiles/init.lua "$_"
-ln -f ~/.config/nvim/lua/user/init.lua ~/.config/yadm/sysfiles/init.lua
+# mkdir -p ~/.config/nvim/lua/user && cp ~/.config/yadm/sysfiles/init.lua "$_"
+# ln -f ~/.config/nvim/lua/user/init.lua ~/.config/yadm/sysfiles/init.lua
 
 # Populate locate db, if after this db is still not crated, try "sudo /usr/libexec/locate.updatedb"
 sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
@@ -65,5 +68,5 @@ END OF INSTALLATION, PLEASE RESTART
 EOF
 
 
-# To get AltJit workingg
+# To get Altstore AltJit working
 # sudo /Applications/Xcode.app/Contents/Developer/usr/bin/python3 -m pip install construct==2.10.69 qh3==0.15.1

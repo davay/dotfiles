@@ -98,9 +98,22 @@ yabai -m rule --add app="^(
 
 yabai -m rule --add app="^Finder$" title="^Copy$" manage=off 
 
-# signals
+# focus some window after window/application close or space/display change
+# TODO: There's an annoying bug where if you switch space when your current active window is a youtube video in Arc browser,
+# switching to an empty (no window) space will cause it to trigger PIP and manually switch back. But if you activate PIP manually by switching to some other tab first,
+# this doesn't happen. As far as I can tell, not related to these last 2 events. 
 yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
 yabai -m signal --add event=application_terminated action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
+yabai -m signal --add event=space_changed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse || yabai -m window --focus \$(yabai -m query --windows --space | jq .[-1].id)"
+yabai -m signal --add event=display_changed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse || yabai -m window --focus \$(yabai -m query --windows --space | jq .[-1].id)"
+
+### WIP, there's some annoying behavior when using Arc browser's youtube pip and switching to a blank space
+# yabai -m signal --add event=space_changed action="yabai -m window --focus \$(sleep 0.05 && yabai -m query --windows --space | jq -r 'map(select(.\"is-sticky\" == false))[-1].id')"
+# yabai -m signal --add event=display_changed action="yabai -m window --focus \$(sleep 0.05 && yabai -m query --windows --space | jq -r 'map(select(.\"is-sticky\" == false))[-1].id')"
+#focus_command='window_id=$(sleep 1 && yabai -m query --windows --space | jq -r "map(select(.\"is-sticky\" == false)) | last.id"); [ "$window_id" != "null" ] && yabai -m window --focus "$window_id"'
+#yabai -m signal --add event=space_changed action="$focus_command"
+#yabai -m signal --add event=display_changed action="$focus_command"
+###
 
 ## Use correct sketchybar height regardless of resolution -- automatic resizing
 ## https://github.com/FelixKratz/SketchyBar/discussions/12?sort=new#discussioncomment-6225020 
@@ -135,7 +148,6 @@ function setup_space {
     yabai -m space "$idx" --label "$name" --display 2
   fi
 }
-
 
 setup_space 1 general
 setup_space 2 work

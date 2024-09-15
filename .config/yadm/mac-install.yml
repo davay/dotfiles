@@ -101,6 +101,7 @@
       community.general.cargo:
         name:
           - wallust
+          - tree-sitter-cli # To auto install TS parsers
 
     - name: "Mac App Store: Install apps"
       community.general.mas:

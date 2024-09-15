@@ -13,6 +13,7 @@ alias exrdeploy="(cdexr && pack editxr.tgz --exclude=node_modules --exclude=dist
 alias ls="gls --color" # colorful GNU ls 
 alias r="radian"
 alias router="netstat -nr|grep default" # router ip addr
+alias leetcode="nvim leetcode.nvim"
 
 # Config alias
 alias zshc="vim ~/.zshrc"
@@ -31,7 +32,8 @@ alias cdwork="cd ~/Repos/Work"
 alias cdschool="cd ~/Repos/School"
 alias cdpersonal="cd ~/Repos/Personal"
 alias cdsu="cd ~/GDrive/usa/school/su"
-alias cdvim="cd ~/.config/nvim"
+alias cdnvim="cd ~/.config/nvim"
+alias cdleetcode="cd ~/Repos/Personal/leetcode"
 
 # Python alias 
 alias nuke="pip freeze | cut -d "@" -f1 | xargs pip uninstall -y"

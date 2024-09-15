@@ -1,10 +1,11 @@
 # functions come from .zshenv
+# techincally the $() is not necessary, left in for easier reading
 
 # focus window
-alt - h : if [ "$(get_layout)" = "stack" ]; then (yabai -m window --focus stack.prev || yabai -m window --focus stack.last); else yabai -m window --focus west; fi
+alt - h : if [ $(get_layout) = "stack" ]; then (yabai -m window --focus stack.prev || yabai -m window --focus stack.last); else yabai -m window --focus west; fi
 alt - j : yabai -m window --focus south
 alt - k : yabai -m window --focus north
-alt - l : if [ "$(get_layout)" = "stack" ]; then (yabai -m window --focus stack.next || yabai -m window --focus stack.first); else yabai -m window --focus east; fi
+alt - l : if [ $(get_layout) = "stack" ]; then (yabai -m window --focus stack.next || yabai -m window --focus stack.first); else yabai -m window --focus east; fi
 
 # move window
 alt + shift - h : yabai -m window --warp west
@@ -15,7 +16,7 @@ alt + shift - l : yabai -m window --warp east
 # [SIP] create and destroy desktops
 alt - d : yabai -m space --create && yabai -m space --focus $(get_last_space)
 alt + shift - d : yabai -m space --create && yabai -m window --space $(get_last_space) && yabai -m space --focus $(get_last_space)
-alt - w : yabai -m space --destroy 
+alt - w : yabai -m space --destroy
 
 # [SIP] fast focus desktop
 alt - 1 : yabai -m space --focus 1
@@ -38,8 +39,8 @@ alt + shift - 7 : yabai -m window --space 7 && yabai -m space --focus 7
 alt + shift - 8 : yabai -m window --space 8 && yabai -m space --focus 8 
 alt + shift - z : yabai -m window --display next && yabai -m display --focus next
 alt + shift - c : yabai -m window --display prev && yabai -m display --focus prev
-alt + shift - q : if [[ "$(is_first_space)" == "false" ]]; then yabai -m window --space prev && yabai -m space --focus prev && yabai -m window --focus last; fi
-alt + shift - e : if [[ "$(is_last_space)" == "false" ]]; then yabai -m window --space next && yabai -m space --focus next && yabai -m window --focus last; fi
+alt + shift - q : if [[ $(is_first_space) == "false" ]]; then yabai -m window --space prev && yabai -m space --focus prev && yabai -m window --focus last; fi
+alt + shift - e : if [[ $(is_last_space) == "false" ]]; then yabai -m window --space next && yabai -m space --focus next && yabai -m window --focus last; fi
 
 # fast focus monitor
 alt - z : yabai -m display --focus next
@@ -48,8 +49,8 @@ alt - c : yabai -m display --focus prev
 # move to prev or next space
 # order is swapped because my 2nd monitor is to the left of first monitor (right-to-left), while space goes left-to-right
 alt - tab : yabai -m display --focus recent
-alt - q : if [[ "$(is_first_space)" == "false" ]]; then yabai -m space --focus prev; fi
-alt - e: if [[ "$(is_last_space)" == "false" ]]; then yabai -m space --focus next; fi
+alt - q : if [[ $(is_first_space) == "false" ]]; then yabai -m space --focus prev; fi
+alt - e: if [[ $(is_last_space) == "false" ]]; then yabai -m space --focus next; fi
 
 # toggle (tiling) window fullscreen zoom
 alt - f : yabai -m window --toggle zoom-fullscreen
