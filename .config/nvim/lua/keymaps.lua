@@ -12,3 +12,8 @@ vim.keymap.set('n', '<leader>ff', telescope.find_files, {})
 vim.keymap.set('n', '<leader>fg', telescope.live_grep, {})
 vim.keymap.set('n', '<leader>fb', telescope.buffers, {})
 vim.keymap.set('n', '<leader>fh', telescope.help_tags, {})
+
+-- leetcode
+vim.keymap.set('n', '<leader>lr', ':Leet run<CR>', {})
+vim.keymap.set('n', '<leader>ls', ':Leet submit<CR>', {})
+vim.keymap.set('n', '<leader>lm', ':Leet<CR>', {})

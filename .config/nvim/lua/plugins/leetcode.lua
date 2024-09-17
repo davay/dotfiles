@@ -16,5 +16,13 @@ return {
     storage = {
       home = "/Users/davay/Repos/Personal/leetcode",
     },
+    injector = {
+      ["python3"] = {
+        before = {
+          "# type: ignore",
+          "# flake8: noqa"
+        }
+      }
+    }
   },
 }
