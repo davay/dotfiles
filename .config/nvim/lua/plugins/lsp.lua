@@ -19,7 +19,9 @@ return {
     end)
 
     require("lazy-lsp").setup {
-      excluded_servers = {},
+      excluded_servers = {
+        "ltex", -- ltex-ls linkage error
+      },
       preferred_servers = {
         python = { "ruff_lsp", "pyright" },
       },
@@ -57,10 +59,14 @@ return {
     })
 
     -- format on save
+    local excluded_filetypes = {
+      "json",
+      "markdown",
+    }
     vim.api.nvim_create_autocmd("BufWritePre", {
       pattern = { "*" },
       callback = function()
-        if vim.bo.filetype ~= "json" then
+        if not vim.tbl_contains(excluded_filetypes, vim.bo.filetype) then
           vim.lsp.buf.format({
             async = false -- wait until formatting to complete before saving
           })

@@ -110,3 +110,6 @@ conda activate py311
 export PATH="$PATH:/Users/davay/.local/bin"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="$(gem environment gemdir)/bin:$PATH"
+
+# for image.nvim
+export DYLD_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_LIBRARY_PATH"

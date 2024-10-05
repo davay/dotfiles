@@ -47,6 +47,8 @@
           - git-lfs
           - openjdk
           - docker-compose
+          - jstkdng/programs/ueberzugpp # for image.nvim
+          - luarocks # for image.nvim
         state: latest
         update_homebrew: yes
 
@@ -95,6 +97,7 @@
           - copilot
           - altserver
           - unified-remote
+          - quarto
         state: latest
 
     - name: "Cargo: Install Rust Packages"

@@ -94,3 +94,4 @@ alt - y : yabai --restart-service
 shift + cmd - space : open -a 'Warp'
 ctrl + alt - n : open -na 'Arc' --args --incognito 
 ctrl + alt - e : open -a 'Finder'
+alt - m : open -a 'Reminders'
