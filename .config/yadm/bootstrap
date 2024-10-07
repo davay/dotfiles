@@ -57,7 +57,6 @@ open $backblaze_path/$backblaze_version/Backblaze\ Installer.app
 sudo /Applications/Xcode.app/Contents/Developer/usr/bin/python3 -m pip install construct==2.10.69 qh3==0.15.1
 
 # Finishing touch
-yadm reset --hard
 gh auth login
 cat << EOF
 -----------------------------------
