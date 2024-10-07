@@ -37,12 +37,10 @@
           - fd
           - thefuck
           - webpack
-          - koekeishiya/formulae/yabai
-          - koekeishiya/formulae/skhd
+          # - koekeishiya/formulae/yabai
+          # - koekeishiya/formulae/skhd
           - felixkratz/formulae/sketchybar
           - pipes-sh
-          - tty-clock
-          - jupyterlab
           - mdcat
           - git-lfs
           - openjdk
