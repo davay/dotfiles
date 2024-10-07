@@ -8,7 +8,12 @@
     ansible_python_interpreter: /usr/bin/python3
 
   tasks:
-    - name: "Homebrew: Install packages & taps"
+    - name: "Homebrew: Add taps"
+      community.general.homebrew_tap:
+        name:
+          - felixkratz/formulae
+
+    - name: "Homebrew: Install packages"
       community.general.homebrew:
         name:
           - nvim
@@ -45,8 +50,7 @@
           - git-lfs
           - openjdk
           - docker-compose
-          - jstkdng/programs/ueberzugpp # for image.nvim
-          - luarocks # for image.nvim
+          - luarocks
         state: latest
         update_homebrew: yes
 
@@ -58,7 +62,6 @@
           - google-cloud-sdk
           - visual-studio-code
           - docker
-          - raindropio
           - karabiner-elements
           - sf-symbols
           - linearmouse
@@ -103,18 +106,18 @@
           - wallust
           - tree-sitter-cli # To auto install TS parsers
 
-    # - name: "Mac App Store: Install apps"
-    #   community.general.mas:
-    #     id:
-    #       - 1440147259 # Adguard
-    #       - 1438243180 # Dark Reader for Safari
-    #       - 937984704 # Amphetamine
-    #       - 409183694 # Keynote
-    #       - 409203825 # Numbers
-    #       - 409201541 # Pages
-    #       - 1448648921 # Seashore
-    #       - 1276493162 # reMarkable
-    #     state: latest
+    - name: "Mac App Store: Install apps"
+      community.general.mas:
+        id:
+          - 1440147259 # Adguard
+          - 1438243180 # Dark Reader for Safari
+          - 937984704 # Amphetamine
+          - 409183694 # Keynote
+          - 409203825 # Numbers
+          - 409201541 # Pages
+          - 1448648921 # Seashore
+          - 1276493162 # reMarkable
+        state: latest
 
     # Mac Defaults
     - name: "osx_defaults: Disable system Tink sound"
