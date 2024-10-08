@@ -30,7 +30,7 @@ brew install yadm && yadm clone https://github.com/davay/dotfiles.git
 
 - Google Drive: Select "Mirror Files"
 
-- System Settings: Unselect all keyboard shortcuts
+- Settings - Keyboard: Unselect all keyboard shortcuts
 
 - Raycast: Import config
 
@@ -44,4 +44,4 @@ brew install yadm && yadm clone https://github.com/davay/dotfiles.git
 
 - Calendar: Add accounts
 
-- System Settings: Change password (iykyk)
+- Settings - Touch ID & Password: Change password (iykyk) and use Apple Watch to unlock
