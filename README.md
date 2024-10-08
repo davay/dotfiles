@@ -45,3 +45,5 @@ brew install yadm && yadm clone https://github.com/davay/dotfiles.git
 - Calendar: Add accounts
 
 - Settings - Touch ID & Password: Change password (iykyk) and use Apple Watch to unlock
+
+- Settings - Privacy & Security: Allow apps from anywhere

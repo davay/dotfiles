@@ -21,9 +21,11 @@ sudo nvram StartupMute=%01
 # Fonts
 sudo cp ~/.config/yadm/fonts/* /Library/Fonts/.
 
-# Allow apps from anywhere
-# DOESNT SEEM TO WORK ANYMORE, MUST BE THROUGH UI
-# sudo spctl --master-disable
+# Create the option to allow apps from anywhere in settings
+# ""|| true" so script doesn't exit, 
+# Since this always throws an error saying:
+# "Globally disabling the assessment system needs to be confirmed in System Settings."
+sudo spctl --global-disable || true
 
 # catpuccin warp themes
 mkdir -p ~/.warp/themes/
