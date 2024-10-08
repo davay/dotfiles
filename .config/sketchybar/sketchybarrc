@@ -8,8 +8,7 @@ BRACKET_DIR="$CONFIG_DIR/brackets"
 LABEL_FONT="Comic Code Ligatures"
 ICON_FONT="Hack Nerd Font"
 
-# Unload the macOS on screen indicator overlay for volume change
-launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /dev/null 2>&1 &
+# Unload the macOS on screen indicator overlay for volume change launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /dev/null 2>&1 &
 
 # If you are looking for other colors, see the color picker:
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
@@ -80,15 +79,15 @@ source "$ITEM_DIR/space.sh"
 sketchybar --add item separator_space left \
            --set separator_space "${separator[@]}"
 
-source "$ITEM_DIR/window_title.sh"
-sketchybar --add item separator_window_title left \
-           --set separator_window_title "${separator[@]}"
+# source "$ITEM_DIR/window_title.sh"
+# sketchybar --add item separator_window_title left \
+#           --set separator_window_title "${separator[@]}"
 
-# source "$ITEM_DIR/cava.sh"
-# sketchybar --add item separator_cava left \
-#            --set separator_cava "${separator[@]}"
+source "$ITEM_DIR/cava.sh"
+sketchybar --add item separator_cava left \
+           --set separator_cava "${separator[@]}"
 
-# source "$ITEM_DIR/music.sh"
+source "$ITEM_DIR/music.sh"
 
 # right items
 source "$ITEM_DIR/datetime.sh"
@@ -105,18 +104,18 @@ source "$ITEM_DIR/brew.sh"
 sketchybar --add item separator_brew right \
            --set separator_brew "${separator[@]}"
 
-source "$ITEM_DIR/tiling_mode.sh"
+# source "$ITEM_DIR/tiling_mode.sh"
 
 # brackets
 source "$BRACKET_DIR/apple.sh"
 source "$BRACKET_DIR/brew.sh"
-# source "$BRACKET_DIR/cava.sh"
+source "$BRACKET_DIR/cava.sh"
+source "$BRACKET_DIR/music.sh"
 source "$BRACKET_DIR/datetime.sh"
-# source "$BRACKET_DIR/music.sh"
 source "$BRACKET_DIR/space.sh"
 source "$BRACKET_DIR/utilities.sh"
-source "$BRACKET_DIR/tiling_mode.sh"
-source "$BRACKET_DIR/window_title.sh"
+#source "$BRACKET_DIR/tiling_mode.sh"
+#source "$BRACKET_DIR/window_title.sh"
 
 ##### Misc #####
 # The below command is only needed at the end of the initial configuration to

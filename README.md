@@ -43,3 +43,5 @@ brew install yadm && yadm clone https://github.com/davay/dotfiles.git
 - 1Password: Enable SSH agent, set hotkey
 
 - Calendar: Add accounts
+
+- System Settings: Change password (iykyk)

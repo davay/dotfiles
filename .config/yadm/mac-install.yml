@@ -51,6 +51,7 @@
           - openjdk
           - docker-compose
           - luarocks
+          - cava
         state: latest
         update_homebrew: yes
 
@@ -99,6 +100,7 @@
           - unified-remote
           - quarto
           - reader
+          - background-music
         state: latest
 
     - name: "Homebrew: Start Services"
