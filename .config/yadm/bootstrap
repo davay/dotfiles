@@ -15,10 +15,6 @@ brew install ansible
 ansible-galaxy install -r ~/.config/yadm/requirements.yml
 ansible-playbook -vv ~/.config/yadm/mac-install.yml -i ~/.config/yadm/inventory --ask-become-pass
 
-# Oh-my-zsh
-# TODO: don't do this, just copy .oh-my-zsh, but because its a submodule we should make a fork
-# yes | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 # Disable sound effects on boot
 sudo nvram StartupMute=%01
 
