@@ -21,3 +21,25 @@ NOTE: Main branch is brand new -- Mac only for now. Old combined Linux + Mac set
 ```
 brew install yadm && yadm clone https://github.com/davay/dotfiles.git
 ```
+
+### 3. Manual Steps
+
+- Rectangle Pro: Select "Sync configuration over iCloud"
+
+- Finder: Select "Sync Desktop & Documents folders"
+
+- Google Drive: Select "Mirror Files"
+
+- System Settings: Unselect all keyboard shortcuts
+
+- Raycast: Import config
+
+- Shottr: Input License, set hotkey
+
+- Backblaze: Inherit backup state
+
+- Warp: Theme, font, and quake mode (30%w, 80%h)
+
+- 1Password: Enable SSH agent, set hotkey
+
+- Calendar: Add accounts

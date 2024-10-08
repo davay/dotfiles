@@ -10,7 +10,7 @@
   "lsp-zero.nvim": { "branch": "v4.x", "commit": "0dfe4fe80c2d08f2e88415266f56ef630d458e34" },
   "lualine.nvim": { "branch": "master", "commit": "b431d228b7bbcdaea818bdc3e25b8cdbe861f056" },
   "magick.nvim": { "branch": "master", "commit": "e0474189d5492bb7ec751788d1c85ea167989d32" },
-  "molten-nvim": { "branch": "main", "commit": "f2e9ba9d229fbc847b7f19da68744954513aff11" },
+  "molten-nvim": { "branch": "main", "commit": "047bf41c7cdb66c75de07e22babe8961857def76" },
   "neo-tree.nvim": { "branch": "v3.x", "commit": "a77af2e764c5ed4038d27d1c463fa49cd4794e07" },
   "nui.nvim": { "branch": "main", "commit": "b58e2bfda5cea347c9d58b7f11cf3012c7b3953f" },
   "nvim-autopairs": { "branch": "master", "commit": "ee297f215e95a60b01fde33275cc3c820eddeebe" },

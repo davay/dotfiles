@@ -31,7 +31,7 @@ alias cdrepos="cd ~/Repos"
 alias cdwork="cd ~/Repos/Work"
 alias cdschool="cd ~/Repos/School"
 alias cdpersonal="cd ~/Repos/Personal"
-alias cdsu="cd ~/GDrive/usa/school/su"
+alias cdsu="cd ~/Drive/usa/school/su"
 alias cdnvim="cd ~/.config/nvim"
 alias cdleetcode="cd ~/Repos/Personal/leetcode"
 

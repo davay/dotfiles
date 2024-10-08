@@ -98,7 +98,14 @@
           - altserver
           - unified-remote
           - quarto
+          - reader
         state: latest
+
+    - name: "Homebrew: Start Services"
+      community.general.homebrew_services:
+        name: 
+          - sketchybar
+        state: present
 
     - name: "Cargo: Install Rust Packages"
       community.general.cargo:
