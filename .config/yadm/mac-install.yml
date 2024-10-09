@@ -52,6 +52,7 @@
           - docker-compose
           - luarocks
           - cava
+          - powerlevel10k
         state: latest
         update_homebrew: yes
 
@@ -101,6 +102,7 @@
           - quarto
           - reader
           - background-music
+          - wezterm
         state: latest
 
     - name: "Homebrew: Start Services"
