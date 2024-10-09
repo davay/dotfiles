@@ -17,9 +17,7 @@ ansible-playbook -vv ~/.config/yadm/mac-install.yml -i ~/.config/yadm/inventory 
 
 # Import defaults, I don't think just backing them up works
 for plist in ~/.config/yadm/plist/*.plist; do
-    # Check if file exists (this prevents errors if no .plist files are found)
     if [ -f "$plist" ]; then
-        # Extract the filename without path and extension
         filename=$(basename "$plist")
         domain="${filename%.*}"
         defaults import "$domain" "$plist"
