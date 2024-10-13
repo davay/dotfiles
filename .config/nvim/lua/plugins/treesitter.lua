@@ -7,7 +7,7 @@ return {
   },
   config = function()
     require('treesitter-context').setup({
-      mode = 'topline'
+      mode = 'cursor' -- cursor or topline
     })
 
     require 'nvim-treesitter.configs'.setup({

@@ -21,6 +21,15 @@ return {
       -- this will make it so the output shows up below the \`\`\` cell delimiter
       vim.g.molten_virt_lines_off_by_1 = true
 
+      -- different highlight for output border depending on state (running/done/err)
+      vim.g.molten_use_border_highlights = true
+
+      -- How quickly ui will update, default is 500, lower is snappier
+      vim.g.molten_tick_rate = 250
+
+      -- Disable MoltenCell highlighting
+      vim.api.nvim_set_hl(0, "MoltenCell", {})
+
       -- This is needed so vim.fn.MoltenAvailableKernels doesn't return blank
       vim.api.nvim_create_autocmd("BufEnter", {
         pattern = { "*.md", "*.ipynb" },
