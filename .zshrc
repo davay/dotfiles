@@ -9,6 +9,9 @@ fi
 eval $(thefuck --alias)
 export PATH=$PATH:~/.cargo/bin/
 
+# ls colors
+export LS_COLORS="ln=1;32:ex=1;32:di=1;94:ow=1;7;94"
+
 # General alias
 alias sudo="sudo " # enable aliases for sudo
 alias tf="fuck"
@@ -18,6 +21,10 @@ alias unpack="tar -zxvf"
 alias exrdeploy="(cdexr && pack editxr.tgz --exclude=node_modules --exclude=dist --exclude=editxr.tgz * && gcloud builds submit editxr.tgz)"
 # alias ls="gls --color" # colorful GNU ls 
 alias ls="lsd"
+alias l="ls"
+alias la="ls -a"
+alias ll="ls -lt"
+alias lt="ls --tree"
 alias r="radian"
 alias router="netstat -nr|grep default" # router ip addr
 alias leetcode="nvim leetcode.nvim"
@@ -74,6 +81,8 @@ alias bigyikes="git reset --hard HEAD"
 alias smash="git merge"
 alias ong="rm -rf"
 
+# custom scripts 
+alias colortest="~/.config/yadm/scripts/colortest.sh"
 # Custom functions
  timezsh() {
    shell=${1-$SHELL}

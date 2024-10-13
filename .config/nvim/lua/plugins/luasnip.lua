@@ -13,7 +13,8 @@ return {
     loader.lazy_load()
 
     local ls = require("luasnip")
-    ls.filetype_extend("markdown", { "python" })
+    ls.filetype_extend("markdown", { "python", "pydoc" })
+    ls.filetype_extend("python", { "pydoc" })
     ls.setup({
       link_children = true,
       link_roots = false,

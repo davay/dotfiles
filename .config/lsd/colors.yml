@@ -1,0 +1,22 @@
+user: 0
+group: 0
+permission:
+  read: 10
+  write: 12
+  exec: 9
+date:
+  hour-old: 3
+  day-old: 3
+  older: 7
+size:
+  none: 9
+  small: 9
+  medium: 9
+  large: 9
+inode:
+  valid: 0
+  invalid: 0
+links:
+  valid: 0
+  invalid: 0
+tree-edge: 0
