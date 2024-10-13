@@ -53,6 +53,7 @@
           - luarocks
           - cava
           - powerlevel10k
+          - lsd
         state: latest
         update_homebrew: yes
 
@@ -103,6 +104,7 @@
           - reader
           - background-music
           - wezterm
+          - craft
         state: latest
 
     - name: "Homebrew: Start Services"

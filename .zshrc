@@ -16,7 +16,8 @@ alias vim="nvim"
 alias pack="tar -zcvf"
 alias unpack="tar -zxvf"
 alias exrdeploy="(cdexr && pack editxr.tgz --exclude=node_modules --exclude=dist --exclude=editxr.tgz * && gcloud builds submit editxr.tgz)"
-alias ls="gls --color" # colorful GNU ls 
+# alias ls="gls --color" # colorful GNU ls 
+alias ls="lsd"
 alias r="radian"
 alias router="netstat -nr|grep default" # router ip addr
 alias leetcode="nvim leetcode.nvim"
@@ -28,6 +29,7 @@ alias macc="vim ~/.config/yadm/mac-install.yml"
 alias yabaic="vim ~/.config/yabai/yabairc"
 alias skhdc="vim ~/.config/skhd/skhdrc"
 alias sketchybarc="vim ~/.config/sketchybar/sketchybarrc"
+alias wezc="vim ~/.wezterm.lua"
 
 # cd alias
 alias cdconfig="cd ~/.config"
@@ -122,7 +124,7 @@ export PATH="$(gem environment gemdir)/bin:$PATH"
 export DYLD_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_LIBRARY_PATH"
 
 # powerlevel10k
-source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+# source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

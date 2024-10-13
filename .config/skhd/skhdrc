@@ -46,7 +46,7 @@ alt + shift - e : if [[ $(is_last_space) == "false" ]]; then yabai -m window --s
 alt - z : yabai -m display --focus next
 alt - c : yabai -m display --focus prev
 
-# move to prev or next space
+# [SIP] move to prev or next space
 # order is swapped because my 2nd monitor is to the left of first monitor (right-to-left), while space goes left-to-right
 alt - tab : yabai -m display --focus recent
 alt - q : if [[ $(is_first_space) == "false" ]]; then yabai -m space --focus prev; fi

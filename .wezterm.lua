@@ -8,13 +8,13 @@ config.color_scheme = 'Gruvbox Material (Gogh)'
 config.font = wezterm.font('Liga SFMono Nerd Font', { weight = "Regular" })
 config.font_size = 13
 config.front_end = 'WebGpu'
-config.freetype_load_target = "Light"
-config.freetype_render_target = 'Light'
+config.freetype_load_target = "Normal"
+config.freetype_render_target = 'Normal'
 config.freetype_load_flags = 'NO_HINTING'
 config.dpi = 144
 config.enable_scroll_bar = true
 config.bold_brightens_ansi_colors = 'No'
-config.cell_width = 1
+config.cell_width = 0.9
 
 -- Command Palette
 config.command_palette_rows = 7
@@ -55,6 +55,16 @@ config.keys = {
     key = 'w',
     mods = 'CMD',
     action = wezterm.action.CloseCurrentPane { confirm = true },
+  },
+  {
+    key = '[',
+    mods = 'CMD',
+    action = wezterm.action.ActivatePaneDirection 'Prev',
+  },
+  {
+    key = ']',
+    mods = 'CMD',
+    action = wezterm.action.ActivatePaneDirection 'Next',
   },
 }
 
