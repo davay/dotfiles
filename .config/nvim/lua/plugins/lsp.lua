@@ -6,13 +6,19 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/nvim-cmp",
     "windwp/nvim-autopairs",
-    'saadparwaiz1/cmp_luasnip',
+    "saadparwaiz1/cmp_luasnip",
+    "RRethy/vim-illuminate",
   },
   config = function()
     local lsp_zero = require("lsp-zero")
 
     lsp_zero.on_attach(function(client, bufnr)
-      -- see :help lsp-zero-keybindings to learn the available actions
+      -- For vim-illuminate
+      vim.api.nvim_set_hl(0, "IlluminatedWordText", { link = "CursorLine" })
+      vim.api.nvim_set_hl(0, "IlluminatedWordRead", { link = "CursorLine" })
+      vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = "CursorLine" })
+
+      -- See :h lsp-zero-keybindings
       lsp_zero.default_keymaps({
         buffer = bufnr,
         preserve_mappings = false
