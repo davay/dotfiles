@@ -5,7 +5,8 @@ return {
     { "VonHeikemen/lsp-zero.nvim", branch = "v4.x" },
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/nvim-cmp",
-    "windwp/nvim-autopairs"
+    "windwp/nvim-autopairs",
+    'saadparwaiz1/cmp_luasnip',
   },
   config = function()
     local lsp_zero = require("lsp-zero")
@@ -47,9 +48,15 @@ return {
       cmp_autopairs.on_confirm_done()
     )
     cmp.setup({
+      snippet = {
+        expand = function(args)
+          require('luasnip').lsp_expand(args.body)
+        end
+      },
       sources = {
         { name = 'nvim_lsp' },
         { name = 'buffer' },
+        { name = 'luasnip' },
       },
       formatting = cmp_format,
       mapping = cmp.mapping.preset.insert {

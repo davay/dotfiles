@@ -1,0 +1,11 @@
+{
+  "Code block": {
+    "prefix": "block",
+    "body": [
+      "```${1|python,lua,|}",
+      "$0",
+      "```"
+    ],
+    "description": "Create a code block with language options"
+  }
+}

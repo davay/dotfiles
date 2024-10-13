@@ -52,8 +52,37 @@ local searching_google_in_normal =
 [[:lua vim.fn.system({'open', 'https://google.com/search?q=' .. vim.fn.expand("<cword>")})<CR>]]
 local searching_google_in_visual =
 [[<ESC>gv"gy<ESC>:lua vim.fn.system({'open', 'https://google.com/search?q=' .. vim.fn.getreg('g')})<CR>]]
-vim.api.nvim_set_keymap("n", "<leader>g", searching_google_in_normal, { silent = true, noremap = true })
-vim.api.nvim_set_keymap("v", "<leader>g", searching_google_in_visual, { silent = true, noremap = true })
+vim.keymap.set("n", "<leader>g", searching_google_in_normal, { silent = true, noremap = true })
+vim.keymap.set("v", "<leader>g", searching_google_in_visual, { silent = true, noremap = true })
 
 -- neotree
 vim.api.nvim_set_keymap('n', '<leader>n', ':Neotree action=show toggle<CR>', { noremap = true, silent = true })
+
+----
+-- treesitter keymaps in plugins/treesitter.lua
+----
+
+local ls = require("luasnip")
+vim.keymap.set({ "i", "x" }, "<C-j>", function()
+  if ls.expand_or_jumpable() then
+    ls.expand_or_jump()
+  end
+end, { silent = true, desc = "expand snippet or jump to the next snippet node" })
+
+vim.keymap.set({ "i", "x" }, "<C-k>", function()
+  if ls.jumpable(-1) then
+    ls.jump(-1)
+  end
+end, { silent = true, desc = "previous spot in the snippet" })
+
+vim.keymap.set({ "i", "x" }, "<C-l>", function()
+  if ls.choice_active() then
+    ls.change_choice(1)
+  end
+end, { silent = true, desc = "next snippet choice" })
+
+vim.keymap.set({ "i", "x" }, "<C-h>", function()
+  if ls.choice_active() then
+    ls.change_choice(-1)
+  end
+end, { silent = true, desc = "previous snippet choice" })
