@@ -142,30 +142,13 @@ vim.api.nvim_set_keymap('n', '<leader>/', ':lua _G.show_lsp_zero_keybindings()<C
 vim.keymap.set('n', '<leader>e', ':Oil<CR>', { silent = true, noremap = true })
 
 -- raycast
--- Function to get visual selection
-function get_visual_selection()
-  local s_start = vim.fn.getpos("'<")
-  local s_end = vim.fn.getpos("'>")
-  local n_lines = math.abs(s_end[2] - s_start[2]) + 1
-  local lines = vim.api.nvim_buf_get_lines(0, s_start[2] - 1, s_end[2], false)
-  lines[1] = string.sub(lines[1], s_start[3], -1)
-  if n_lines == 1 then
-    lines[n_lines] = string.sub(lines[n_lines], 1, s_end[3] - s_start[3] + 1)
-  else
-    lines[n_lines] = string.sub(lines[n_lines], 1, s_end[3])
-  end
-  return table.concat(lines, '\n')
-end
-
--- Function to send code to Raycast
-function send_to_raycast()
-  local code = get_visual_selection()
-  code = vim.fn.shellescape(code)
-  local cmd = string.format("open 'raycast://ai-commands/explain-code-step-by-step-args?arguments=%s'", code)
-  vim.fn.system(cmd)
-end
-
--- Set the keybinding
 vim.api.nvim_set_keymap('v', '<leader>a',
   '"+y<ESC>:lua vim.fn.system("open \'raycast://ai-commands/explain-code-step-by-step-clipboard\'")<CR>',
   { noremap = true, silent = true })
+
+-- codewindow
+local codewindow = require('codewindow')
+vim.keymap.set('n', '<leader>mo', codewindow.open_minimap, { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>mc', codewindow.close_minimap, { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>mf', codewindow.toggle_focus, { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>mm', codewindow.toggle_minimap, { noremap = true, silent = true })
