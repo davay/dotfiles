@@ -1,6 +1,10 @@
 return {
   "kawre/leetcode.nvim",
   build = ":TSUpdate html",
+  cond = function()
+    local filename = vim.fn.expand('%:t') -- Get current buffer's filename
+    return filename == "leetcode.nvim"
+  end,
   dependencies = {
     "nvim-telescope/telescope.nvim",
     "nvim-lua/plenary.nvim", -- required by telescope

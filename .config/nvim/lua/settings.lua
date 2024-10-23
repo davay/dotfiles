@@ -50,3 +50,48 @@ vim.lsp.handlers['textDocument/hover'] = function(_, result, ctx, config)
   end
   return vim.lsp.util.open_floating_preview(markdown_lines, 'markdown', config)
 end
+
+---- Custom Functions
+
+
+-- Function to list all highlight groups
+local function list_highlight_groups()
+  -- Get all highlight groups
+  local highlights = vim.api.nvim_get_hl(0, {})
+
+  -- Create a sorted list of highlight group names
+  local highlight_names = {}
+  for name, _ in pairs(highlights) do
+    table.insert(highlight_names, name)
+  end
+  table.sort(highlight_names)
+
+  -- Create a new buffer for displaying the highlights
+  local buf = vim.api.nvim_create_buf(false, true)
+  vim.api.nvim_buf_set_option(buf, 'buftype', 'nofile')
+  vim.api.nvim_buf_set_option(buf, 'bufhidden', 'wipe')
+
+  -- Format and display each highlight group
+  local lines = {}
+  for _, name in ipairs(highlight_names) do
+    local hl = highlights[name]
+    local attrs = {}
+
+    if hl.fg then table.insert(attrs, string.format("fg=#%06x", hl.fg)) end
+    if hl.bg then table.insert(attrs, string.format("bg=#%06x", hl.bg)) end
+    if hl.bold then table.insert(attrs, "bold") end
+    if hl.italic then table.insert(attrs, "italic") end
+    if hl.underline then table.insert(attrs, "underline") end
+
+    table.insert(lines, string.format("%s: %s", name, table.concat(attrs, ", ")))
+  end
+
+  vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+
+  -- Open the buffer in a new window
+  vim.cmd.vsplit()
+  vim.api.nvim_win_set_buf(vim.api.nvim_get_current_win(), buf)
+end
+
+-- Command to call the function
+vim.api.nvim_create_user_command('ListHighlights', list_highlight_groups, {})

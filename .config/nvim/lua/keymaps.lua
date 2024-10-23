@@ -5,6 +5,7 @@
 -- - Nvim-cmp
 -- - mini.surround
 -- - whichkey
+-- - mini.diff
 --]]
 
 -- set space as leader
@@ -148,7 +149,7 @@ local show_lsp_zero_keybindings = function()
   vim.keymap.set('n', '<Esc>', ':close<CR>', { buffer = buf, desc = "Keybind Help: Close", silent = true })
 end
 
-vim.keymap.set('n', '<leader>/', show_lsp_zero_keybindings,
+vim.keymap.set('n', '<leader>.', show_lsp_zero_keybindings,
   { desc = "Keybind Help: Open", silent = true })
 
 -- grug-far
@@ -194,7 +195,19 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("n", "<leader>jR", ':MoltenRestart!<CR>',
       { desc = "Molten: Restart Kernel and Clear All", silent = true })
     ---- if you work with html outputs:
-    vim.keymap.set("n", "<leader>jo", ":MoltenOpenInBrowser<CR>",
+    vim.keymap.set("n", "<leader>jh", ":MoltenOpenInBrowser<CR>",
       { desc = "Molten: Open in Browser", silent = true })
+
+    -- markdown-preview
+    vim.keymap.set("n", "<leader>jo", ":MarkdownPreviewToggle<CR>", { desc = "Markdown Preview", silent = true })
   end
 })
+
+-- flash
+local flash = require("flash")
+vim.keymap.set({ "n", "x", "o" }, "S", function() flash.treesitter() end,
+  { desc = "Flash: Treesitter", silent = true })
+vim.keymap.set("o", "r", function() flash.remote() end, { desc = "Flash: Remote", silent = true })
+vim.keymap.set({ "o", "x" }, "R", function() flash.treesitter_search() end,
+  { desc = "Flash: Treesitter Search", silent = true })
+vim.keymap.set("c", "<c-s>", function() flash.toggle() end, { desc = "Flash: Toggle Search", silent = true })

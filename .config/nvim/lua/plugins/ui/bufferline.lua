@@ -2,6 +2,10 @@ return {
   'akinsho/bufferline.nvim',
   version = "*",
   dependencies = 'nvim-tree/nvim-web-devicons',
+  cond = function()
+    local filename = vim.fn.expand('%:t') -- Get current buffer's filename
+    return filename ~= "leetcode.nvim"
+  end,
   config = function()
     local bufferline = require("bufferline")
     bufferline.setup({

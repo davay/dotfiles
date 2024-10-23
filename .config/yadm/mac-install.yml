@@ -55,6 +55,7 @@
           - powerlevel10k
           - lsd
           - bat
+          - oven-sh/bun/bun
         state: latest
         update_homebrew: yes
 

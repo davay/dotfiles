@@ -10,7 +10,7 @@ return {
       component_separators = { left = '', right = '' },
       section_separators = { left = '', right = '' },
       disabled_filetypes = {
-        statusline = { 'Outline', 'qf', 'neo-tree', 'oil', 'TelescopePrompt' },
+        statusline = { 'Outline', 'qf', 'neo-tree', 'oil', 'TelescopePrompt', 'leetcode.nvim' },
         winbar = {},
       },
       ignore_focus = {},

@@ -29,7 +29,8 @@ done
 sudo nvram StartupMute=%01
 
 # Fonts
-sudo cp ~/.config/yadm/fonts/* /Library/Fonts/.
+# sudo cp ~/.config/yadm/fonts/* /Library/Fonts/.
+brew search '/font-.*-nerd-font/' | awk '{ print $1 }' | xargs -I{} brew install --cask {} || true
 
 # Create the option to allow apps from anywhere in settings
 # ""|| true" so script doesn't exit, 
@@ -39,10 +40,10 @@ sudo spctl --global-disable || true
 
 # catpuccin warp themes
 mkdir -p ~/.warp/themes/
-curl --output-dir ~/.warp/themes -LO https://raw.githubusercontent.com/catppuccin/warp/main/dist/catppuccin_latte.yml
-curl --output-dir ~/.warp/themes -LO https://raw.githubusercontent.com/catppuccin/warp/main/dist/catppuccin_frappe.yml
-curl --output-dir ~/.warp/themes -LO https://raw.githubusercontent.com/catppuccin/warp/main/dist/catppuccin_macchiato.yml
-curl --output-dir ~/.warp/themes -LO https://raw.githubusercontent.com/catppuccin/warp/main/dist/catppuccin_mocha.yml
+curl --output-dir ~/.warp/themes -LO https://raw.githubusercontent.com/catppuccin/warp/refs/heads/main/themes/catppuccin_latte.yml
+curl --output-dir ~/.warp/themes -LO https://raw.githubusercontent.com/catppuccin/warp/refs/heads/main/themes/catppuccin_frappe.yml
+curl --output-dir ~/.warp/themes -LO https://raw.githubusercontent.com/catppuccin/warp/refs/heads/main/themes/catppuccin_macchiato.yml
+curl --output-dir ~/.warp/themes -LO https://raw.githubusercontent.com/catppuccin/warp/refs/heads/main/themes/catppuccin_mocha.yml
 
 # Install Nix package manager, mostly for lazy-lsp.nvim
 yes | curl -L https://nixos.org/nix/install | sh
