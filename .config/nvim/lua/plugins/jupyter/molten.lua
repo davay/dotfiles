@@ -2,6 +2,7 @@ return {
   {
     "benlubas/molten-nvim",
     dependencies = { "3rd/image.nvim" },
+    ft = "markdown",
     build = ":UpdateRemotePlugins",
     init = function()
       -- I find auto open annoying, keep in mind setting this option will require setting

@@ -28,6 +28,7 @@ alias lt="ls --tree"
 alias r="radian"
 alias router="netstat -nr|grep default" # router ip addr
 alias leetcode="nvim leetcode.nvim"
+alias cat="bat"
 
 # Config alias
 alias zshc="vim ~/.zshrc"

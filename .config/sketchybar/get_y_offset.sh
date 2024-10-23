@@ -6,5 +6,5 @@ airplay=$(system_profiler SPDisplaysDataType | grep -c AirPlay)
 if [[ $count -eq 3 ]] || ([[ $count -eq 2 ]] && [[ $airplay -eq 0 ]]); then
   echo "-24"
 else 
-  echo "-38"
+  echo "-42"
 fi

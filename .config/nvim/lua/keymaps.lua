@@ -1,114 +1,126 @@
+--[[
+-- NOTE:
+-- Not all keymaps are listed here.
+-- Plugins that set their own keymaps for global buffers are:
+-- - Nvim-cmp
+-- - mini.surround
+-- - whichkey
+--]]
+
 -- set space as leader
 vim.g.mapleader = ' '
 
+-- general vim hotkeys
+
+vim.keymap.set('i', '<S-Tab>', '<C-d>', { desc = "Vim: Inverse Tab Indent", silent = true })
+
+---- use tab to switch to next/prev pane
+vim.keymap.set('n', '<Tab>', '<C-w>w', { desc = "Vim: Next Pane", silent = true })
+vim.keymap.set('n', '<S-Tab>', '<C-w>W', { desc = "Vim: Prev Pane", silent = true })
+
+---- toggle between current and previous buffer (backspace)
+vim.keymap.set('n', '<bs>', '<c-^>zz', { desc = "Vim: Toggle Buffer", silent = true })
+
+---- unload current buffer
+vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { desc = "Vim: Delete Buffer", silent = true })
+
+---- switch to next/prev buffer
+vim.keymap.set('n', '<leader>bf', ':bnext<CR>', { desc = "Vim: Next Buffer", silent = true })
+vim.keymap.set('n', '<leader>bb', ':bprev<CR>', { desc = "Vim: Prev Buffer", silent = true })
+
+---- make new panes
+vim.keymap.set('n', '<leader>d', '<C-w>v', { desc = "Vim: Split Vertical", silent = true })
+vim.keymap.set('n', '<leader>D', '<C-w>s', { desc = "Vim: Split Horizontal", silent = true })
+
+---- faster scroll
+vim.keymap.set('n', 'J', '3j', { desc = "Vim: Fast Scroll Down - 3*j", silent = true })
+vim.keymap.set('n', 'K', '3k', { desc = "Vim: Fast Scroll Up - 3*k", silent = true })
+---- search google
+-- local searching_google_in_normal =
+-- [[:lua vim.fn.system({'open', 'https://google.com/search?q=' .. vim.fn.expand("<cword>")})<CR>]]
+-- local searching_google_in_visual =
+-- [[<ESC>gv"gy<ESC>:lua vim.fn.system({'open', 'https://google.com/search?q=' .. vim.fn.getreg('g')})<CR>]]
+-- vim.keymap.set("n", "<leader>g", searching_google_in_normal, { silent = true })
+-- vim.keymap.set("v", "<leader>g", searching_google_in_visual, { silent = true })
+
 -- todo-comments
 local todo = require('todo-comments')
-vim.keymap.set("n", "<leader>t", function() todo.jump_next() end, { desc = "Next todo comment" })
-vim.keymap.set("n", "<leader>T", function() todo.jump_prev() end, { desc = "Previous todo comment" })
+vim.keymap.set("n", "<leader>t", function() todo.jump_next() end, { desc = "TODO: Next Comment" })
+vim.keymap.set("n", "<leader>T", function() todo.jump_prev() end, { desc = "TODO: Previous Comment" })
 
 -- telescope
-local telescope = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', telescope.find_files, {})
-vim.keymap.set('n', '<leader>fg', telescope.live_grep, {})
-vim.keymap.set('n', '<leader>fb', telescope.buffers, {})
-vim.keymap.set('n', '<leader>fh', telescope.help_tags, {})
+local telescope = require('telescope.builtin') -- Create a function with your preferred options
+
+vim.keymap.set('n', '<leader>ff', telescope.find_files, { desc = "Telescope: Find Files", silent = true })
+vim.keymap.set('n', '<leader>fg', telescope.live_grep, { desc = "Telescope: Live Grep", silent = true })
+vim.keymap.set('n', '<leader>fb', telescope.buffers, { desc = "Telescope: Buffers", silent = true })
+vim.keymap.set('n', '<leader>fh', telescope.help_tags, { desc = "Telescope: Help Tags", silent = true })
+vim.keymap.set('n', '<leader>fm', telescope.man_pages, { desc = "Telescope: Man Pages", silent = true })
+vim.keymap.set('n', '<leader>fc', function() telescope.colorscheme({ enable_preview = true }) end,
+  { desc = "Telescope: Colorscheme", silent = true })
+vim.keymap.set('n', '<leader>fr', telescope.lsp_references,
+  { desc = "Telescope: LSP References", silent = true })
+vim.keymap.set('n', '<leader>fo', telescope.lsp_outgoing_calls,
+  { desc = "Telescope: LSP Outgoing Calls", silent = true })
+vim.keymap.set('n', '<leader>fi', telescope.lsp_incoming_calls,
+  { desc = "Telescope: LSP Incoming Calls", silent = true })
 
 -- leetcode
-vim.keymap.set('n', '<leader>lr', ':Leet run<CR>', {})
-vim.keymap.set('n', '<leader>ls', ':Leet submit<CR>', {})
-vim.keymap.set('n', '<leader>lm', ':Leet<CR>', {})
-vim.keymap.set('n', '<leader>lc', ':Leet console<CR>', {})
-
-
--- quarto & molten for jupyter
-local runner = require("quarto.runner")
-vim.keymap.set("n", "<leader>rc", runner.run_cell, { desc = "run cell", silent = true })
-vim.keymap.set("n", "<leader>ra", runner.run_above, { desc = "run cell and above", silent = true })
-vim.keymap.set("n", "<leader>rA", runner.run_all, { desc = "run all cells", silent = true })
-vim.keymap.set("n", "<leader>rl", runner.run_line, { desc = "run line", silent = true })
-vim.keymap.set("v", "<leader>r", runner.run_range, { desc = "run visual range", silent = true })
-vim.keymap.set("n", "<leader>[", ':MoltenPrev<CR>', { desc = "jump to prev cell", silent = true })
-vim.keymap.set("n", "<leader>]", ':MoltenNext<CR>', { desc = "jump to next cell", silent = true })
-vim.keymap.set("n", "<leader>mr", ':MoltenRestart<CR>', { desc = "restart kernel", silent = true })
-vim.keymap.set("n", "<leader>rr", ':MoltenRestart!<CR>', { desc = "restart kernel and clear all", silent = true })
--- if you work with html outputs:
-vim.keymap.set("n", "<localleader>mx", ":MoltenOpenInBrowser<CR>", { desc = "open output in browser", silent = true })
+vim.keymap.set('n', '<leader>lr', ':Leet run<CR>', { desc = "Leetcode: Run", silent = true })
+vim.keymap.set('n', '<leader>ls', ':Leet submit<CR>', { desc = "Leetcode: Submit", silent = true })
+vim.keymap.set('n', '<leader>lm', ':Leet<CR>', { desc = "Leetcode: Menu", silent = true })
+vim.keymap.set('n', '<leader>lc', ':Leet console<CR>', { desc = "Leetcode: Console", silent = true })
 
 -- outline
-vim.keymap.set("n", "<leader>o", ":Outline!<CR>", { desc = "Toggle Outline" })
-
--- use tab to switch to next pane
-vim.api.nvim_set_keymap('n', '<Tab>', '<C-w>w', { noremap = true, silent = true })
-
--- toggle between current and previous buffer (backspace)
-vim.api.nvim_set_keymap('n', '<bs>', '<c-^>zz', { noremap = true, silent = true })
-
--- make new panes
-vim.api.nvim_set_keymap('n', '<leader>d', '<C-w>v', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>D', '<C-w>s', { noremap = true, silent = true })
-
--- search google
-local searching_google_in_normal =
-[[:lua vim.fn.system({'open', 'https://google.com/search?q=' .. vim.fn.expand("<cword>")})<CR>]]
-local searching_google_in_visual =
-[[<ESC>gv"gy<ESC>:lua vim.fn.system({'open', 'https://google.com/search?q=' .. vim.fn.getreg('g')})<CR>]]
-vim.keymap.set("n", "<leader>g", searching_google_in_normal, { silent = true, noremap = true })
-vim.keymap.set("v", "<leader>g", searching_google_in_visual, { silent = true, noremap = true })
+vim.keymap.set("n", "<leader>o", ":Outline<CR>", { desc = "Outline: Toggle", silent = true })
 
 -- neotree
-vim.api.nvim_set_keymap('n', '<leader>n', ':Neotree action=show toggle<CR>', { noremap = true, silent = true })
-
-----
--- treesitter keymaps in plugins/treesitter.lua
-----
-
--- luasnip
-local ls = require("luasnip")
-vim.keymap.set({ "i", "x" }, "<C-j>", function()
-  if ls.expand_or_jumpable() then
-    ls.expand_or_jump()
-  end
-end, { silent = true, desc = "expand snippet or jump to the next snippet node" })
-
-vim.keymap.set({ "i", "x" }, "<C-k>", function()
-  if ls.jumpable(-1) then
-    ls.jump(-1)
-  end
-end, { silent = true, desc = "previous spot in the snippet" })
-
-vim.keymap.set({ "i", "x" }, "<C-l>", function()
-  if ls.choice_active() then
-    ls.change_choice(1)
-  end
-end, { silent = true, desc = "next snippet choice" })
-
-vim.keymap.set({ "i", "x" }, "<C-h>", function()
-  if ls.choice_active() then
-    ls.change_choice(-1)
-  end
-end, { silent = true, desc = "previous snippet choice" })
-
+vim.keymap.set('n', '<leader>n', ':Neotree action=focus reveal=true toggle<CR>',
+  { desc = "Neotree: Toggle", silent = true }) -- action=focus/show
 
 -- lsp
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(event)
+    local function map(mode, lhs, rhs, desc)
+      vim.keymap.set(mode, lhs, rhs, { buffer = event.buf, desc = desc })
+    end
+
+    map('n', '<C-k>', vim.lsp.buf.hover, 'LSP: Hover Documentation')
+    map('n', 'gd', vim.lsp.buf.definition, 'LSP: Go to Definition')
+    map('n', 'gD', vim.lsp.buf.declaration, 'LSP: Go to Declaration')
+    map('n', 'gi', vim.lsp.buf.implementation, 'LSP: Go to Implementation')
+    map('n', 'go', vim.lsp.buf.type_definition, 'LSP: Go to Type Definition')
+    map('n', 'gr', vim.lsp.buf.references, 'LSP: Find References')
+    map('n', 'gs', vim.lsp.buf.signature_help, 'LSP: Show Signature Help')
+    map('n', '<F2>', vim.lsp.buf.rename, 'LSP: Rename')
+    map({ 'n', 'x' }, '<F3>', function()
+      vim.notify("Formatting..")
+      vim.lsp.buf.format({ async = true })
+    end, 'LSP: Format')
+    map('n', '<F4>', vim.lsp.buf.code_action, 'LSP: Code Action')
+  end
+})
+
+---- Toggle diagnostics
 vim.keymap.set('n', '<leader>dd', function()
   vim.diagnostic.enable(not vim.diagnostic.is_enabled())
-end, { silent = true, noremap = true, desc = "toggle lsp diagnostics" })
+end, { silent = true, desc = "LSP: Toggle Diagnostics" })
 
--- floating keybinding help for lsp
-_G.show_lsp_zero_keybindings = function()
+---- floating keybinding help for lsp
+local show_lsp_zero_keybindings = function()
   local keybindings = {
-    { key = "K",  desc = "Hover Documentation" },
-    { key = "gd", desc = "Go to Definition" },
-    { key = "gD", desc = "Go to Declaration" },
-    { key = "gi", desc = "Go to Implementation" },
-    { key = "go", desc = "Go to Type Definition" },
-    { key = "gr", desc = "List References" },
-    { key = "gs", desc = "Display Signature" },
-    { key = "F2", desc = "Rename" },
-    { key = "F3", desc = "Format" },
-    { key = "F4", desc = "Code Action" },
-    { key = "[d", desc = "Previous Diagnostic" },
-    { key = "]d", desc = "Next Diagnostic" },
+    { key = "<C-k>", desc = "Hover Documentation" },
+    { key = "gd",    desc = "Go to Definition" },
+    { key = "gD",    desc = "Go to Declaration" },
+    { key = "gi",    desc = "Go to Implementation" },
+    { key = "go",    desc = "Go to Type Definition" },
+    { key = "gr",    desc = "List References" },
+    { key = "gs",    desc = "Show Signature" },
+    { key = "F2",    desc = "Rename" },
+    { key = "F3",    desc = "Format" },
+    { key = "F4",    desc = "Code Action" },
+    { key = "[d",    desc = "Previous Diagnostic" },
+    { key = "]d",    desc = "Next Diagnostic" },
   }
 
   local lines = { "LSP-Zero Keybindings:" }
@@ -121,7 +133,7 @@ _G.show_lsp_zero_keybindings = function()
 
   local width = 40
   local height = #lines
-  local win = vim.api.nvim_open_win(buf, true, {
+  vim.api.nvim_open_win(buf, true, {
     relative = "editor",
     width = width,
     height = height,
@@ -132,23 +144,57 @@ _G.show_lsp_zero_keybindings = function()
   })
 
   -- Close the window when pressing 'q' or '<Esc>'
-  vim.api.nvim_buf_set_keymap(buf, 'n', 'q', ':close<CR>', { noremap = true, silent = true })
-  vim.api.nvim_buf_set_keymap(buf, 'n', '<Esc>', ':close<CR>', { noremap = true, silent = true })
+  vim.keymap.set('n', 'q', ':close<CR>', { buffer = buf, desc = "Keybind Help: Close", silent = true })
+  vim.keymap.set('n', '<Esc>', ':close<CR>', { buffer = buf, desc = "Keybind Help: Close", silent = true })
 end
 
-vim.api.nvim_set_keymap('n', '<leader>/', ':lua _G.show_lsp_zero_keybindings()<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>/', show_lsp_zero_keybindings,
+  { desc = "Keybind Help: Open", silent = true })
 
--- oil
-vim.keymap.set('n', '<leader>e', ':Oil<CR>', { silent = true, noremap = true })
+-- grug-far
+vim.keymap.set('n', '<leader>g', ':GrugFar<CR>', { desc = "GrugFar", silent = true })
 
 -- raycast
-vim.api.nvim_set_keymap('v', '<leader>a',
+vim.keymap.set('v', '<leader>a',
   '"+y<ESC>:lua vim.fn.system("open \'raycast://ai-commands/explain-code-step-by-step-clipboard\'")<CR>',
-  { noremap = true, silent = true })
+  { desc = "Raycast: Explain Code", silent = true })
 
 -- codewindow
 local codewindow = require('codewindow')
-vim.keymap.set('n', '<leader>mo', codewindow.open_minimap, { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>mc', codewindow.close_minimap, { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>mf', codewindow.toggle_focus, { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>mm', codewindow.toggle_minimap, { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>mf', codewindow.toggle_focus, { desc = "Codewindow: Focus", silent = true })
+vim.keymap.set('n', '<leader>mm', codewindow.toggle_minimap,
+  { desc = "Codewindow: Toggle", silent = true })
+
+-- jupyter stuff; treesitter textobjects, molten, quarto
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    ---- treesitter
+    vim.keymap.set("n", "]]", ":TSTextobjectGotoNextStart @code_cell.inner | norm! zz<CR>",
+      { desc = "TS: Next Code Block", silent = true, buffer = true })
+    vim.keymap.set("n", "[[", ":TSTextobjectGotoPreviousStart @code_cell.inner | norm! zz<CR>",
+      { desc = "TS: Prev Code Block", silent = true, buffer = true })
+    vim.keymap.set({ "x", "o" }, "ib", ":<C-u>TSTextobjectSelect @code_cell.inner<CR>",
+      { desc = "TS: Select Inner Block", silent = true, buffer = true })
+    vim.keymap.set({ "x", "o" }, "ab", ":<C-u>TSTextobjectSelect @code_cell.outer<CR>",
+      { desc = "TS: Select Around Block", silent = true, buffer = true })
+
+    -- quarto
+    local runner = require("quarto.runner")
+    vim.keymap.set("n", "<leader>jc", runner.run_cell, { desc = "Quarto: Run Cell", silent = true })
+    vim.keymap.set("n", "<leader>ja", runner.run_above,
+      { desc = "Quarto: Run Cell and Above", silent = true })
+    vim.keymap.set("n", "<leader>jA", runner.run_all, { desc = "Quarto: Run All Cells", silent = true })
+    vim.keymap.set("n", "<leader>jl", runner.run_line, { desc = "Quarto: Run Line", silent = true })
+    vim.keymap.set("v", "<leader>j", runner.run_range, { desc = "Quarto: Run Visual Range", silent = true })
+
+    -- molten
+    vim.keymap.set("n", "<leader>jr", ':MoltenRestart<CR>',
+      { desc = "Molten: Restart Kernel", silent = true })
+    vim.keymap.set("n", "<leader>jR", ':MoltenRestart!<CR>',
+      { desc = "Molten: Restart Kernel and Clear All", silent = true })
+    ---- if you work with html outputs:
+    vim.keymap.set("n", "<leader>jo", ":MoltenOpenInBrowser<CR>",
+      { desc = "Molten: Open in Browser", silent = true })
+  end
+})

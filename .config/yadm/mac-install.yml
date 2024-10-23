@@ -54,6 +54,7 @@
           - cava
           - powerlevel10k
           - lsd
+          - bat
         state: latest
         update_homebrew: yes
 
@@ -105,6 +106,7 @@
           - background-music
           - wezterm
           - craft
+          - zoom
         state: latest
 
     - name: "Homebrew: Start Services"
