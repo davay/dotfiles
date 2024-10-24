@@ -56,6 +56,7 @@
           - lsd
           - bat
           - oven-sh/bun/bun
+          - jesseduffield/lazygit/lazygit
         state: latest
         update_homebrew: yes
 
@@ -108,6 +109,7 @@
           - wezterm
           - craft
           - zoom
+          - 1password-cli
         state: latest
 
     - name: "Homebrew: Start Services"

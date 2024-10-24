@@ -34,8 +34,9 @@ vim.keymap.set('n', '<leader>d', '<C-w>v', { desc = "Vim: Split Vertical", silen
 vim.keymap.set('n', '<leader>D', '<C-w>s', { desc = "Vim: Split Horizontal", silent = true })
 
 ---- faster scroll
-vim.keymap.set('n', 'J', '3j', { desc = "Vim: Fast Scroll Down - 3*j", silent = true })
-vim.keymap.set('n', 'K', '3k', { desc = "Vim: Fast Scroll Up - 3*k", silent = true })
+vim.keymap.set({ 'n', 'v', 'o' }, 'J', '3j', { desc = "Vim: Fast Scroll Down - 3*j", remap = true, silent = true })
+vim.keymap.set({ 'n', 'v', 'o' }, 'K', '3k', { desc = "Vim: Fast Scroll Up - 3*k", remap = true, silent = true })
+
 ---- search google
 -- local searching_google_in_normal =
 -- [[:lua vim.fn.system({'open', 'https://google.com/search?q=' .. vim.fn.expand("<cword>")})<CR>]]
@@ -65,6 +66,8 @@ vim.keymap.set('n', '<leader>fo', telescope.lsp_outgoing_calls,
   { desc = "Telescope: LSP Outgoing Calls", silent = true })
 vim.keymap.set('n', '<leader>fi', telescope.lsp_incoming_calls,
   { desc = "Telescope: LSP Incoming Calls", silent = true })
+vim.keymap.set('n', '<leader>fu', "<cmd>Telescope undo<cr>",
+  { desc = "Telescope: Undo", silent = true })
 
 -- leetcode
 vim.keymap.set('n', '<leader>lr', ':Leet run<CR>', { desc = "Leetcode: Run", silent = true })
@@ -155,11 +158,6 @@ vim.keymap.set('n', '<leader>.', show_lsp_zero_keybindings,
 -- grug-far
 vim.keymap.set('n', '<leader>g', ':GrugFar<CR>', { desc = "GrugFar", silent = true })
 
--- raycast
-vim.keymap.set('v', '<leader>a',
-  '"+y<ESC>:lua vim.fn.system("open \'raycast://ai-commands/explain-code-step-by-step-clipboard\'")<CR>',
-  { desc = "Raycast: Explain Code", silent = true })
-
 -- codewindow
 local codewindow = require('codewindow')
 vim.keymap.set('n', '<leader>mf', codewindow.toggle_focus, { desc = "Codewindow: Focus", silent = true })
@@ -205,9 +203,30 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- flash
 local flash = require("flash")
+vim.keymap.set({ "n", "x", "o" }, "s", function() flash.jump() end,
+  { desc = "Flash: Treesitter", silent = true })
 vim.keymap.set({ "n", "x", "o" }, "S", function() flash.treesitter() end,
   { desc = "Flash: Treesitter", silent = true })
 vim.keymap.set("o", "r", function() flash.remote() end, { desc = "Flash: Remote", silent = true })
 vim.keymap.set({ "o", "x" }, "R", function() flash.treesitter_search() end,
   { desc = "Flash: Treesitter Search", silent = true })
 vim.keymap.set("c", "<c-s>", function() flash.toggle() end, { desc = "Flash: Toggle Search", silent = true })
+
+-- raycast
+vim.keymap.set('v', '<leader>r',
+  '"+y<ESC>:lua vim.fn.system("open \'raycast://ai-commands/explain-code-step-by-step-clipboard\'")<CR>',
+  { desc = "Raycast: Explain Code", silent = true })
+
+-- codecompanion
+local codecompanion = require("codecompanion")
+vim.keymap.set({ "n", "v" }, "<leader>a", "<cmd>CodeCompanionChat Toggle<cr>",
+  { desc = "CodeCompanion: Toggle", silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>ca", "<cmd>CodeCompanionActions<cr>",
+  { desc = "CodeCompanion: Actions", silent = true })
+vim.keymap.set("v", "<leader>cc", "<cmd>CodeCompanionChat Add<cr>",
+  { desc = "CodeCompanion: Add to Chat", silent = true })
+vim.keymap.set("v", "<leader>ce", function()
+  codecompanion.prompt("explain")
+end, { desc = "CodeCompanion: Explain Code", silent = true })
+-- Expand 'cc' into 'CodeCompanion' in the command line
+vim.cmd([[cab cc CodeCompanion]])

@@ -5,9 +5,6 @@ return {
     modes = {
       search = {
         enabled = true,
-        highlight = {
-          backdrop = true
-        }
       }
     },
     label = {

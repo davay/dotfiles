@@ -5,9 +5,9 @@ return {
     'echasnovski/mini.icons' },
   opts = {
     heading = {
-      border = true,
+      -- border = true,
       -- Always use virtual lines for heading borders instead of attempting to use empty lines
-      border_virtual = true,
+      -- border_virtual = true,
     },
     code = {
       enabled = true,

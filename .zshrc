@@ -65,6 +65,7 @@ alias sshhetzner="ssh root@hetzner.devinl.im"
 alias backmerge="currBranch=\$(git rev-parse --abbrev-ref HEAD) && git checkout develop && git pull && git checkout \$currBranch && git merge develop"
 alias clean="git reset --hard && git clean -dfx"
 alias upstream="currBranch=\$(git rev-parse --abbrev-ref HEAD) && git push --set-upstream origin \$currBranch"
+alias gg="lazygit"
 
 # gen z alias 
 alias please="sudo"
