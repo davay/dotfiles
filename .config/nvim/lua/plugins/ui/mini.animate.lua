@@ -6,7 +6,7 @@ return {
     local fast_scrolled = false
     for _, scroll in ipairs({ "Up", "Down" }) do
       local key = "<ScrollWheel" .. scroll .. ">"
-      vim.keymap.set({ "n", "i" }, key, function()
+      vim.keymap.set({ "n", "v", "i" }, key, function()
         fast_scrolled = true
         return key
       end, { expr = true })
@@ -21,7 +21,7 @@ return {
       { 'K', '3k' }
     }) do
       local key, action = unpack(mapping)
-      vim.keymap.set("n", key, function()
+      vim.keymap.set({ "n", "v" }, key, function()
         fast_scrolled = true
         return action
       end, { expr = true })
