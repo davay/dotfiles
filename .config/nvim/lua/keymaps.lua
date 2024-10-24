@@ -192,12 +192,63 @@ vim.api.nvim_create_autocmd("FileType", {
       { desc = "Molten: Restart Kernel", silent = true })
     vim.keymap.set("n", "<leader>jR", ':MoltenRestart!<CR>',
       { desc = "Molten: Restart Kernel and Clear All", silent = true })
-    ---- if you work with html outputs:
-    vim.keymap.set("n", "<leader>jh", ":MoltenOpenInBrowser<CR>",
-      { desc = "Molten: Open in Browser", silent = true })
 
     -- markdown-preview
     vim.keymap.set("n", "<leader>jo", ":MarkdownPreviewToggle<CR>", { desc = "Markdown Preview", silent = true })
+
+    -- jupyter (cli)
+    local function convert_and_open_notebook(use_pretty_style)
+      local current_file = vim.fn.expand('%:p')
+      if not current_file:match('%.ipynb$') then
+        vim.notify('Current file is not a Jupyter notebook', vim.log.levels.ERROR)
+        return
+      end
+
+      local open_cmd = vim.fn.has('mac') == 1 and 'open' or 'xdg-open'
+      local html_file = vim.fn.expand('%:p:r') .. '.html'
+
+      local convert_cmd = string.format('jupyter nbconvert %s --to html', current_file)
+      if use_pretty_style then
+        convert_cmd = convert_cmd .. ' --HTMLExporter.theme=light'
+      end
+
+      local convert_result = vim.fn.system(convert_cmd)
+      if vim.v.shell_error ~= 0 then
+        vim.notify('Failed to convert notebook: ' .. convert_result, vim.log.levels.ERROR)
+        return
+      end
+
+      if use_pretty_style then
+        local css_inject_cmd = string.format([[
+          sed -i.bak '/<\/head>/i\
+          <style>\
+            .jp-RenderedHTMLCommon code { background-color: rgba(128,128,128,0.1); padding: 2px 4px; border-radius: 3px; }\
+            .jp-RenderedHTMLCommon pre { background-color: rgba(128,128,128,0.1); padding: 1em; border-radius: 5px; margin: 0; width: 100%%; box-sizing: border-box; }\
+          </style>' %s
+        ]], html_file)
+        vim.fn.system(css_inject_cmd)
+      end
+
+      local open_result = vim.fn.system(string.format('%s %s', open_cmd, html_file))
+      if vim.v.shell_error ~= 0 then
+        vim.notify('Failed to open browser: ' .. open_result, vim.log.levels.ERROR)
+        return
+      end
+
+      vim.notify('Notebook converted and opened in browser', vim.log.levels.INFO)
+    end
+
+    local function open_html_in_browser()
+      convert_and_open_notebook(false)
+    end
+
+    local function open_pretty_html_in_browser()
+      convert_and_open_notebook(true)
+    end
+
+    vim.keymap.set('n', '<leader>jh', open_html_in_browser, { desc = "Jupyter: Open in Browser", silent = true })
+    vim.keymap.set('n', '<leader>jp', open_pretty_html_in_browser,
+      { desc = "Jupyter: Open in Browser (Pretty)", silent = true })
   end
 })
 
