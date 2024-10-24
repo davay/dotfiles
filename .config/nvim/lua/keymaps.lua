@@ -207,11 +207,13 @@ vim.api.nvim_create_autocmd("FileType", {
       local open_cmd = vim.fn.has('mac') == 1 and 'open' or 'xdg-open'
       local html_file = vim.fn.expand('%:p:r') .. '.html'
 
-      local convert_cmd = string.format('jupyter nbconvert %s --to html', current_file)
+      local convert_cmd
       if use_pretty_style then
-        convert_cmd = convert_cmd .. ' --HTMLExporter.theme=light'
+        convert_cmd = string.format('jt -t gruvboxl && jupyter nbconvert %s --to html --template lab', current_file)
+      else
+        convert_cmd = string.format('jt -r || jupyter nbconvert %s --to html --template lab',
+          current_file)
       end
-
       local convert_result = vim.fn.system(convert_cmd)
       if vim.v.shell_error ~= 0 then
         vim.notify('Failed to convert notebook: ' .. convert_result, vim.log.levels.ERROR)

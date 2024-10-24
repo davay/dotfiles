@@ -63,7 +63,7 @@ backblaze_version=$(\ls $backblaze_path | sort -V | tail -n 1) # escape alias-ed
 open $backblaze_path/$backblaze_version/Backblaze\ Installer.app
 
 # Conda
-conda create -n py311 python=3.11 -c conda-forge pynvim jupyter_client numpy pandas ruff-lsp
+conda create -n py311 python=3.11 -c conda-forge pynvim jupyter_client numpy pandas ruff-lsp jupyterthemes
 
 # To get Altstore AltJit working
 # sudo /Applications/Xcode.app/Contents/Developer/usr/bin/python3 -m pip install construct==2.10.69 qh3==0.15.1
