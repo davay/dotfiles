@@ -224,8 +224,9 @@ vim.api.nvim_create_autocmd("FileType", {
           <style>\
             .jp-RenderedHTMLCommon code { background-color: rgba(128,128,128,0.1); padding: 2px 4px; border-radius: 3px; }\
             .jp-RenderedHTMLCommon pre { background-color: rgba(128,128,128,0.1); padding: 1em; border-radius: 5px; margin: 0; width: 100%%; box-sizing: border-box; }\
-          </style>' %s
-        ]], html_file)
+          </style>' %s && rm %s.bak
+        ]], html_file, html_file)
+
         vim.fn.system(css_inject_cmd)
       end
 
