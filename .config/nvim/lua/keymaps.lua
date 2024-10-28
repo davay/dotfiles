@@ -188,10 +188,12 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("v", "<leader>j", runner.run_range, { desc = "Quarto: Run Visual Range", silent = true })
 
     -- molten
-    vim.keymap.set("n", "<leader>jr", ':MoltenRestart<CR>',
+    vim.keymap.set("n", "<leader>jR", ':MoltenRestart<CR>',
       { desc = "Molten: Restart Kernel", silent = true })
-    vim.keymap.set("n", "<leader>jR", ':MoltenRestart!<CR>',
+    vim.keymap.set("n", "<leader>jr", ':MoltenRestart!<CR>',
       { desc = "Molten: Restart Kernel and Clear All", silent = true })
+    vim.keymap.set("n", "<leader>je", ':noautocmd MoltenEnterOutput<CR>',
+      { desc = "Molten: Enter Output", silent = true })
 
     -- markdown-preview
     vim.keymap.set("n", "<leader>jo", ":MarkdownPreviewToggle<CR>", { desc = "Markdown Preview", silent = true })

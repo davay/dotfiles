@@ -1,0 +1,76 @@
+# Random stuff
+export PATH=$PATH:~/.cargo/bin/
+
+# ls colors
+export LS_COLORS="ln=1;32:ex=1;32:di=1;94:ow=1;7;94"
+
+# General alias
+alias sudo="sudo " # enable aliases for sudo
+alias vim="nvim"
+alias pack="tar -zcvf"
+alias unpack="tar -zxvf"
+alias ls="lsd"
+alias l="ls"
+alias la="ls -a"
+alias ll="ls -lt"
+alias lt="ls --tree"
+alias cat="bat"
+
+# Config alias
+alias zshc="vim ~/.zshrc"
+
+# cd alias
+alias cdconfig="cd ~/.config"
+alias cdh="cd ~"
+
+# Python alias 
+alias nuke="pip freeze | cut -d "@" -f1 | xargs pip uninstall -y"
+alias freeze="pip list --format=freeze > requirements.txt"
+
+# SSH alias
+alias sshpi="ssh pi@pi.devinl.im"
+alias sshda="ssh davay@ssh.devinl.im"
+alias sshhetzner="ssh root@hetzner.devinl.im"
+
+# git alias
+alias backmerge="currBranch=\$(git rev-parse --abbrev-ref HEAD) && git checkout develop && git pull && git checkout \$currBranch && git merge develop"
+alias clean="git reset --hard && git clean -dfx"
+alias upstream="currBranch=\$(git rev-parse --abbrev-ref HEAD) && git push --set-upstream origin \$currBranch"
+alias lg="lazygit"
+
+# gen z alias 
+alias please="sudo"
+alias based="cd ~/"
+alias bet="git add"
+alias fr="git commit"
+alias yoink="git pull"
+alias yeet="git push"
+alias cap="-n"
+alias nocap="-f"
+alias yap="-v"
+alias noyap="-q"
+alias yikes="git clean -dfx"
+alias bigyikes="git reset --hard HEAD"
+alias smash="git merge"
+alias ong="rm -rf"
+
+# Custom functions
+timezsh() {
+ shell=${1-$SHELL}
+ for i in $(seq 1 10); do 
+  /usr/bin/time $shell -i -c exit;
+ done
+}
+
+c() {
+ cd "${@}" && ls | gsed '  
+       # on line 8, print the line,
+       8 {
+           # append an ellipsis
+           a[...]
+           # and quit
+           q
+       }
+       # print lines 1-8 verbatim
+       '
+}

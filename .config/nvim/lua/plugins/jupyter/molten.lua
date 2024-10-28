@@ -10,7 +10,7 @@ return {
       vim.g.molten_auto_open_output = false
 
       -- image.nvim or wezterm (install wezterm.nvim)
-      vim.g.molten_image_provider = "wezterm"
+      vim.g.molten_image_provider = "none"
 
       -- optional, I like wrapping. works for virt text and the output window
       vim.g.molten_wrap_output = true
@@ -27,6 +27,8 @@ return {
 
       -- How quickly ui will update, default is 500, lower is snappier
       vim.g.molten_tick_rate = 250
+
+      vim.g.molten_enter_output_behavior = "open_and_enter"
 
       -- Disable MoltenCell highlighting
       vim.api.nvim_set_hl(0, "MoltenCell", {})
