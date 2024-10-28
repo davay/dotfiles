@@ -54,7 +54,6 @@ return {
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-cmdline',
-      -- 'jmbuhr/otter.nvim'
     },
     config = function()
       local lsp_zero = require('lsp-zero')
@@ -114,7 +113,6 @@ return {
           { name = 'buffer' },
           { name = 'luasnip' },
           { name = 'path' },
-          -- { name = 'otter.nvim' },
         },
         formatting = cmp_format,
         experimental = {
