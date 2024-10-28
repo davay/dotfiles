@@ -37,6 +37,9 @@ vim.keymap.set('n', '<leader>D', '<C-w>s', { desc = "Vim: Split Horizontal", sil
 vim.keymap.set({ 'n', 'v', 'o' }, 'J', '3j', { desc = "Vim: Fast Scroll Down - 3*j", remap = true, silent = true })
 vim.keymap.set({ 'n', 'v', 'o' }, 'K', '3k', { desc = "Vim: Fast Scroll Up - 3*k", remap = true, silent = true })
 
+---- keep scrolling down if reach eof, mostly to see jupyter virtual text if codeblock is at eof
+vim.keymap.set('n', 'j', "line('.') == line('$') ? '<C-e>' : 'j'", { remap = true, expr = true })
+
 ---- search google
 -- local searching_google_in_normal =
 -- [[:lua vim.fn.system({'open', 'https://google.com/search?q=' .. vim.fn.expand("<cword>")})<CR>]]
