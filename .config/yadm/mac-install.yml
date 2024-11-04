@@ -114,6 +114,7 @@
           - 1password-cli
           - bettertouchtool
           - bambu-studio
+          - keyclu
         state: latest
 
     - name: "Homebrew: Start Services"

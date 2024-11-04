@@ -1591,3 +1591,58 @@
 2024/11/03 21:34:53:084|ASL|The Mac is running on battery power.|
 2024/11/03 21:35:53:063|ASL|The Mac is running on battery power.|
 2024/11/03 21:36:53:055|ASL|The Mac is running on battery power.|
+2024/11/03 21:37:53:050|ASL|The Mac is running on battery power.|
+2024/11/03 21:38:53:062|ASL|The Mac is running on battery power.|
+2024/11/03 21:39:53:063|ASL|The Mac is running on battery power.|
+2024/11/03 21:40:53:048|ASL|The Mac is running on battery power.|
+2024/11/03 21:41:53:055|ASL|The Mac is running on battery power.|
+2024/11/03 21:42:53:048|ASL|The Mac is running on battery power.|
+2024/11/03 21:43:53:055|ASL|The Mac is running on battery power.|
+2024/11/03 21:44:53:092|ASL|The Mac is running on battery power.|
+2024/11/03 21:45:53:060|ASL|The Mac is running on battery power.|
+2024/11/03 21:46:53:049|ASL|The Mac is running on battery power.|
+2024/11/03 21:47:53:060|ASL|The Mac is running on battery power.|
+2024/11/03 21:48:20:200|SWI|PID MISMATCH FIX|
+2024/11/03 21:48:53:065|ASL|The Mac is running on battery power.|
+2024/11/03 21:49:53:062|ASL|The Mac is running on battery power.|
+2024/11/03 21:50:53:063|ASL|The Mac is running on battery power.|
+2024/11/03 21:51:53:054|ASL|The Mac is running on battery power.|
+2024/11/03 21:52:41:208|SWI|PID MISMATCH FIX|
+2024/11/03 21:52:53:053|ASL|The Mac is running on battery power.|
+2024/11/03 21:53:53:061|ASL|The Mac is running on battery power.|
+2024/11/03 21:54:12:130|SWI|PID MISMATCH FIX|
+2024/11/03 21:54:53:053|ASL|The Mac is running on battery power.|
+2024/11/03 21:55:05:586|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 21:55:07:735|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 21:55:08:228|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 21:55:09:349|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 21:55:10:401|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 21:55:12:157|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 21:55:13:099|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 21:55:14:215|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 21:55:53:065|ASL|The Mac is running on battery power.|
+2024/11/03 21:56:53:065|ASL|The Mac is running on battery power.|
+2024/11/03 21:57:51:620|SEC|SecureInputActive com.apple.systempreferences 98022|
+2024/11/03 21:57:53:068|ASL|The Mac is running on battery power.|
+2024/11/03 21:58:00:619|SEC|SecureInputDisabled com.apple.systempreferences|
+2024/11/03 21:58:07:412|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 21:58:53:061|ASL|The Mac is running on battery power.|
+2024/11/03 21:59:53:046|ASL|The Mac is running on battery power.|
+2024/11/03 22:00:10:002|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 22:00:18:890|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 22:00:53:058|ASL|The Mac is running on battery power.|
+2024/11/03 22:01:53:068|ASL|The Mac is running on battery power.|
+2024/11/03 22:02:53:054|ASL|The Mac is running on battery power.|
+2024/11/03 22:03:53:060|ASL|The Mac is running on battery power.|
+2024/11/03 22:04:53:080|ASL|The Mac is running on battery power.|
+2024/11/03 22:05:53:061|ASL|The Mac is running on battery power.|
+2024/11/03 22:06:53:063|ASL|The Mac is running on battery power.|
+2024/11/03 22:07:08:995|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 22:07:20:395|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 22:07:53:055|ASL|The Mac is running on battery power.|
+2024/11/03 22:08:52:167|SWI|PID MISMATCH FIX|
+2024/11/03 22:08:53:053|ASL|The Mac is running on battery power.|
+2024/11/03 22:09:53:069|ASL|The Mac is running on battery power.|
+2024/11/03 22:10:53:060|ASL|The Mac is running on battery power.|
+2024/11/03 22:11:53:064|ASL|The Mac is running on battery power.|
+2024/11/03 22:12:53:055|ASL|The Mac is running on battery power.|
