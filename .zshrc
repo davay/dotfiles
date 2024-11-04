@@ -11,6 +11,11 @@ source ~/.zshrc_portable
 alias router="netstat -nr|grep default" # router ip addr
 alias leetcode="nvim leetcode.nvim"
 alias exrdeploy="(cexr && pack editxr.tgz --exclude=node_modules --exclude=dist --exclude=editxr.tgz * && gcloud builds submit editxr.tgz)"
+alias man="batman"
+alias less="batpipe"
+alias watch="batwatch"
+alias diff="batdiff"
+alias rg="batgrep"
 
 # Config alias
 alias yadmc="vim ~/.config/yadm/bootstrap"

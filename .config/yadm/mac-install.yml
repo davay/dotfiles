@@ -55,6 +55,7 @@
           - powerlevel10k
           - lsd
           - bat
+          - bat-extras
           - oven-sh/bun/bun
           - jesseduffield/lazygit/lazygit
           - saulpw/vd/visidata

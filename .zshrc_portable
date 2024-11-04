@@ -15,7 +15,6 @@ alias la="ls -a"
 alias ll="ls -lt"
 alias lt="ls --tree"
 alias cat="bat"
-alias x="xsv"
 
 # Config alias
 alias zshc="vim ~/.zshrc"
@@ -50,8 +49,8 @@ alias cap="-n"
 alias nocap="-f"
 alias yap="-v"
 alias noyap="-q"
-alias yikes="git clean -dfx"
-alias bigyikes="git reset --hard HEAD"
+alias yikes="git reset --hard HEAD"
+alias bigyikes="git clean -dfx && git reset --hard HEAD"
 alias smash="git merge"
 alias ong="rm -rf"
 
@@ -67,7 +66,6 @@ c() {
   cd "$@" && ls
 }
 
-XSV_PATH=$(whereis xsv | awk '{print $2}')
-xsv() {
-  "$XSV_PATH" "$@" | "$XSV_PATH" table
+x() {
+  xsv "$@" | sed 's/,,/,-,/g' | xsv fmt -t '\t' | bat -l tsv
 }
