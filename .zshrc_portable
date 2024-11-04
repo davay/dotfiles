@@ -84,18 +84,10 @@ c() {
 # - when 2 missing values are adjacent
 # - when missing value is at the beginning
 # - when missing value is at the end
-# x() {
-#   xsv "$@" | \
-#     sed -e ':a' -e 's/,,/,-,/g' -e 'ta' \
-#     -e 's/^,/-,/' \
-#     -e 's/,$/,-/' | \
-#     xsv fmt -t '-' | bat -l tsv
-# }
-
 x() {
   xsv "$@" | \
-    sed -e ':a' -e 's/,,/,-,/g' -e 'ta' \
-    -e 's/^,/-,/' \
-    -e 's/,$/,-/' | \
+    sed -e ':a' -e 's/,,/,…,/g' -e 'ta' \
+    -e 's/^,/…,/' \
+    -e 's/,$/,…/' | \
     bat -l csv
 }
