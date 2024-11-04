@@ -9,7 +9,22 @@ return {
           quiet = false,           -- not recommended to change
           lsp_format = 'fallback', -- not recommended to change
         },
-        format_on_save = {},       -- enables format_on_save with default options
+
+        format_on_save = function(bufnr)
+          if vim.b[bufnr].disable_autoformat then
+            return
+          end
+          return {} -- enables format_on_save with defaults
+        end,
+
+        vim.api.nvim_create_user_command("ToggleFormat", function()
+          local bufnr = vim.api.nvim_get_current_buf()
+          vim.b[bufnr].disable_autoformat = not vim.b[bufnr].disable_autoformat
+          vim.notify("Conform: Format-on-save is " .. (vim.b[bufnr].disable_autoformat and "disabled" or "enabled"))
+        end, {
+          desc = "Toggle format-on-save",
+        }),
+
         formatters_by_ft = {
           markdown = { 'injected' },
           python = {

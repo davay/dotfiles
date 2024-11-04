@@ -108,6 +108,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end
 })
 
+vim.keymap.set('n', '<F5>', ':ToggleFormat<CR>', { silent = true, desc = "Conform: Toggle Format-on-save" })
+
 ---- Toggle diagnostics
 vim.keymap.set('n', '<leader>dd', function()
   vim.diagnostic.enable(not vim.diagnostic.is_enabled())

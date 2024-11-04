@@ -15,6 +15,7 @@ alias la="ls -a"
 alias ll="ls -lt"
 alias lt="ls --tree"
 alias cat="bat"
+alias v="vd --theme=ascii8"
 
 # Config alias
 alias zshc="vim ~/.zshrc"
@@ -37,6 +38,9 @@ alias backmerge="currBranch=\$(git rev-parse --abbrev-ref HEAD) && git checkout 
 alias clean="git reset --hard && git clean -dfx"
 alias upstream="currBranch=\$(git rev-parse --abbrev-ref HEAD) && git push --set-upstream origin \$currBranch"
 alias lg="lazygit"
+alias fork="gh repo fork --clone=true"
+alias branch="git checkout -b"
+alias commit="git commit -am"
 
 # gen z alias 
 alias please="sudo"
