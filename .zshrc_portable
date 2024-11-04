@@ -7,6 +7,7 @@ export LS_COLORS="ln=1;32:ex=1;32:di=1;94:ow=1;7;94"
 # General alias
 alias sudo="sudo " # enable aliases for sudo
 alias vim="nvim"
+alias v="vim"
 alias pack="tar -zcvf"
 alias unpack="tar -zxvf"
 alias ls="lsd"
@@ -15,7 +16,7 @@ alias la="ls -a"
 alias ll="ls -lt"
 alias lt="ls --tree"
 alias cat="bat"
-alias v="vd --theme=ascii8"
+alias vd="vd --theme=ascii8"
 
 # Config alias
 alias zshc="vim ~/.zshrc"
@@ -23,6 +24,7 @@ alias zshc="vim ~/.zshrc"
 # cd alias
 alias cconfig="c ~/.config"
 alias ch="c ~"
+alias cnvim="c ~/.config/nvim/lua"
 
 # Python alias 
 alias nuke="pip freeze | cut -d "@" -f1 | xargs pip uninstall -y"
@@ -39,8 +41,11 @@ alias clean="git reset --hard && git clean -dfx"
 alias upstream="currBranch=\$(git rev-parse --abbrev-ref HEAD) && git push --set-upstream origin \$currBranch"
 alias lg="lazygit"
 alias fork="gh repo fork --clone=true"
+alias clone="git clone"
+alias checkout="git checkout"
 alias branch="git checkout -b"
 alias commit="git commit -am"
+alias status="git status"
 
 # gen z alias 
 alias please="sudo"

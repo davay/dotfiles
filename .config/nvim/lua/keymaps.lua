@@ -6,6 +6,11 @@
 -- - mini.surround
 -- - whichkey
 -- - mini.diff
+--
+-- Other plugins with their own buffers and keymaps:
+-- - GrugFar
+-- - Outline
+-- - ??? Many more
 --]]
 
 -- set space as leader
@@ -13,6 +18,15 @@ vim.g.mapleader = ' '
 
 -- general vim hotkeys
 
+---- always close no matter how many buffers (e.g., for neo-tree and outline)
+vim.keymap.set('c', 'q<CR>', 'qa<CR>', { desc = "Alias q to qa" })
+vim.keymap.set('c', 'wq<CR>', 'wqa<CR>', { desc = "Alias wq to wqa" })
+vim.keymap.set('c', 'x<CR>', 'xa<CR>', { desc = "Alias x to xa" })
+vim.keymap.set('c', 'q!<CR>', 'qa!<CR>', { desc = "Alias q! to qa!" })
+vim.keymap.set('c', 'wq!<CR>', 'wqa!<CR>', { desc = "Alias wq! to wqa!" })
+vim.keymap.set('c', 'x!<CR>', 'xa!<CR>', { desc = "Alias x! to xa!" })
+
+---- inverse tab indent
 vim.keymap.set('i', '<S-Tab>', '<C-d>', { desc = "Vim: Inverse Tab Indent", silent = true })
 
 ---- use tab to switch to next/prev pane
@@ -20,7 +34,14 @@ vim.keymap.set('n', '<Tab>', '<C-w>w', { desc = "Vim: Next Pane", silent = true 
 vim.keymap.set('n', '<S-Tab>', '<C-w>W', { desc = "Vim: Prev Pane", silent = true })
 
 ---- toggle between current and previous buffer (backspace)
-vim.keymap.set('n', '<bs>', '<c-^>zz', { desc = "Vim: Toggle Buffer", silent = true })
+vim.keymap.set('n', '<bs>',
+  function()
+    if not vim.tbl_contains({ 'neo-tree', 'Outline', 'qf' }, vim.bo.filetype) then
+      vim.cmd('normal! <c-^>zz')
+    end
+  end,
+  { desc = "Vim: Toggle Buffer", silent = true }
+)
 
 ---- unload current buffer
 vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { desc = "Vim: Delete Buffer", silent = true })
@@ -38,7 +59,12 @@ vim.keymap.set({ 'n', 'v', 'o' }, 'J', '3j', { desc = "Vim: Fast Scroll Down - 3
 vim.keymap.set({ 'n', 'v', 'o' }, 'K', '3k', { desc = "Vim: Fast Scroll Up - 3*k", remap = true, silent = true })
 
 ---- keep scrolling down if reach eof, mostly to see jupyter virtual text if codeblock is at eof
-vim.keymap.set('n', 'j', "line('.') == line('$') ? '<C-e>' : 'j'", { remap = true, expr = true })
+vim.keymap.set('n', 'j', function()
+  if not vim.tbl_contains({ 'neo-tree', 'Outline', 'qf' }, vim.bo.filetype) then
+    return vim.fn.line('.') == vim.fn.line('$') and '<C-e>' or 'j'
+  end
+  return 'j'
+end, { expr = true })
 
 ---- search google
 -- local searching_google_in_normal =
@@ -78,12 +104,15 @@ vim.keymap.set('n', '<leader>ls', ':Leet submit<CR>', { desc = "Leetcode: Submit
 vim.keymap.set('n', '<leader>lm', ':Leet<CR>', { desc = "Leetcode: Menu", silent = true })
 vim.keymap.set('n', '<leader>lc', ':Leet console<CR>', { desc = "Leetcode: Console", silent = true })
 
--- outline
-vim.keymap.set("n", "<leader>o", ":Outline<CR>", { desc = "Outline: Toggle", silent = true })
-
 -- neotree
 vim.keymap.set('n', '<leader>n', ':Neotree action=focus reveal=true toggle<CR>',
   { desc = "Neotree: Toggle", silent = true }) -- action=focus/show
+-- ---- using neotree in place of outline
+-- vim.keymap.set('n', '<leader>o', ':Neotree source=document_symbols position=right action=focus reveal=true toggle<CR>',
+--   { desc = "Neotree: Toggle Document Symbols", silent = true })
+
+-- outline
+vim.keymap.set('n', '<leader>o', ':Outline<CR>', { silent = true, desc = "Outline: Toggle" })
 
 -- lsp
 vim.api.nvim_create_autocmd('LspAttach', {

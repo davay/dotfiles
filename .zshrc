@@ -34,7 +34,6 @@ alias cwork="c ~/Repos/Work"
 alias cschool="c ~/Repos/School"
 alias cpersonal="c ~/Repos/Personal"
 alias csu="c ~/Drive/usa/school/su"
-alias cnvim="c ~/.config/nvim"
 alias cleetcode="c ~/Repos/Personal/leetcode"
 
 # SSH alias
