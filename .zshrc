@@ -10,7 +10,7 @@ source ~/.zshrc_portable
 # General alias
 alias router="netstat -nr|grep default" # router ip addr
 alias leetcode="nvim leetcode.nvim"
-alias exrdeploy="(cdexr && pack editxr.tgz --exclude=node_modules --exclude=dist --exclude=editxr.tgz * && gcloud builds submit editxr.tgz)"
+alias exrdeploy="(cexr && pack editxr.tgz --exclude=node_modules --exclude=dist --exclude=editxr.tgz * && gcloud builds submit editxr.tgz)"
 
 # Config alias
 alias yadmc="vim ~/.config/yadm/bootstrap"
@@ -19,17 +19,18 @@ alias yabaic="vim ~/.config/yabai/yabairc"
 alias skhdc="vim ~/.config/skhd/skhdrc"
 alias sketchybarc="vim ~/.config/sketchybar/sketchybarrc"
 alias wezc="vim ~/.wezterm.lua"
+alias zshpc="vim ~/.zshrc_portable"
 
 # cd alias 
-alias cdyadm="cd ~/.config/yadm"
-alias cdexr="cd ~/Repos/Personal/EditXR"
-alias cdrepos="cd ~/Repos"
-alias cdwork="cd ~/Repos/Work"
-alias cdschool="cd ~/Repos/School"
-alias cdpersonal="cd ~/Repos/Personal"
-alias cdsu="cd ~/Drive/usa/school/su"
-alias cdnvim="cd ~/.config/nvim"
-alias cdleetcode="cd ~/Repos/Personal/leetcode"
+alias cyadm="c ~/.config/yadm"
+alias cexr="c ~/Repos/Personal/EditXR"
+alias crepos="c ~/Repos"
+alias cwork="c ~/Repos/Work"
+alias cschool="c ~/Repos/School"
+alias cpersonal="c ~/Repos/Personal"
+alias csu="c ~/Drive/usa/school/su"
+alias cnvim="c ~/.config/nvim"
+alias cleetcode="c ~/Repos/Personal/leetcode"
 
 # SSH alias
 alias synchetzner="syncssh root@hetzner.devinl.im"

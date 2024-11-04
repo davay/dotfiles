@@ -1,0 +1,1593 @@
+2024/11/03 20:29:51:437|SYS|Running on macOS: 15.0.1|
+2024/11/03 20:29:51:437|SYS|BTT Version: 4.851|
+2024/11/03 20:29:51:437|SYS|Device: MacBookPro18,2|
+2024/11/03 20:29:51:466|usage|loading todays usage|
+2024/11/03 20:29:51:467|ASL|0 elapsed 0.037345|
+2024/11/03 20:29:51:467|LAUNCH|DIDLaunch START NSConcreteNotification 0x6000023806a0 {name = NSApplicationDidFinishLaunchingNotification; object = <BTTApplication: 0x1478067c0>; userInfo = {
+    NSApplicationLaunchIsDefaultLaunchKey = 1;
+}}|
+2024/11/03 20:29:51:490|ASL|1 elapsed 0.060218|
+2024/11/03 20:29:51:490|ASL|2 elapsed 0.060254|
+2024/11/03 20:29:51:490|ASL|3 elapsed 0.060385|
+2024/11/03 20:29:51:490|ASL|4 elapsed 0.060549|
+2024/11/03 20:29:51:492|ASL|5 elapsed 0.062174|
+2024/11/03 20:29:51:492|ASL|6 elapsed 0.062230|
+2024/11/03 20:29:51:492|INIT|START PREVIOUSLYININIT|
+2024/11/03 20:29:51:492|ASL|sub 0 elapsed 0.000001 - prev|
+2024/11/03 20:29:51:503|ASL|sub 1 elapsed 0.011247 - prev|
+2024/11/03 20:29:51:504|ASL|sub 2 elapsed 0.011636 - prev|
+2024/11/03 20:29:51:504|ASL|sub 3 elapsed 0.011874 - prev|
+2024/11/03 20:29:51:505|ASL|sub 4 elapsed 0.012771 - prevk|
+2024/11/03 20:29:51:505|short|init|
+2024/11/03 20:29:51:505|ASL|Hyper key used 0|
+2024/11/03 20:29:51:737|xw|last used store: (null), newStore: btt_data_store.version_4_851_build_2024110301|
+2024/11/03 20:29:51:751|migrate|fixing uuids2|
+2024/11/03 20:29:51:753|LIC|idate 2024-11-04 04:29:51 +0000|
+2024/11/03 20:29:51:754|ASL|sub 5 elapsed 0.261494 - prevke|
+2024/11/03 20:29:51:754|INIT|FINISH PREVIOUSLYININIT|
+2024/11/03 20:29:51:754|ASL|7 elapsed 0.323782|
+2024/11/03 20:29:51:754|ASL|8 elapsed 0.324336|
+2024/11/03 20:29:51:755|ASL|9 elapsed 0.325122|
+2024/11/03 20:29:51:755|ASL|10 elapsed 0.325261|
+2024/11/03 20:29:51:755|xw|error loading master preset|
+2024/11/03 20:29:51:757|ASL|saving|
+2024/11/03 20:29:51:773|ASL|adding Global|
+2024/11/03 20:29:51:774|ASL|adding lastUsed|
+2024/11/03 20:29:51:774|ASL|adding Finder|
+2024/11/03 20:29:51:774|ASL|11 elapsed 0.344512|
+2024/11/03 20:29:51:775|ASL|12 elapsed 0.345231|
+2024/11/03 20:29:51:775|ASL|disablign app nap|
+2024/11/03 20:29:51:775|ASL|disabling app nap done|
+2024/11/03 20:29:51:775|ASL|13 elapsed 0.345270|
+2024/11/03 20:29:51:775|ASL|14 elapsed 0.345589|
+2024/11/03 20:29:51:776|ASL|15 elapsed 0.345886|
+2024/11/03 20:29:51:779|ASL|16 elapsed 0.348816|
+2024/11/03 20:29:51:779|ASL|17 elapsed 0.348849|
+2024/11/03 20:29:51:779|ASL|18 elapsed 0.349022|
+2024/11/03 20:29:51:779|ASL|19 elapsed 0.349050|
+2024/11/03 20:29:51:779|ASL|20 elapsed 0.349136|
+2024/11/03 20:29:51:779|ASL|saving|
+2024/11/03 20:29:51:780|ASL|21 elapsed 0.349971|
+2024/11/03 20:29:51:780|ASL|22 elapsed 0.349990|
+2024/11/03 20:29:51:781|ASL|23 elapsed 0.350707|
+2024/11/03 20:29:51:781|ASL|24 elapsed 0.351171|
+2024/11/03 20:29:51:782|ASL|25 elapsed 0.352114|
+2024/11/03 20:29:51:783|ASL|26 elapsed 0.352676|
+2024/11/03 20:29:51:793|ASL|27 elapsed 0.362661|
+2024/11/03 20:29:51:796|xw|not trusted|
+2024/11/03 20:29:51:796|short|call sharedInstance3|
+2024/11/03 20:29:53:139|ASL|The Mac is running on battery power.|
+2024/11/03 20:29:53:171|TB|touchbar screen size {1085, 30}|
+2024/11/03 20:29:53:173|ASL|28 elapsed 1.743173|
+2024/11/03 20:29:53:174|ASL|29 elapsed 1.743792|
+2024/11/03 20:29:53:174|ASL|30 elapsed 1.743813|
+2024/11/03 20:29:53:174|ASL|31 elapsed 1.743821|
+2024/11/03 20:29:53:175|ASL|32 elapsed 1.744897|
+2024/11/03 20:29:53:175|ASL|33 elapsed 1.745446|
+2024/11/03 20:29:53:176|ASL|34 elapsed 1.745957|
+2024/11/03 20:29:53:176|START|TB VISIBLE 0|
+2024/11/03 20:29:53:176|START|TB FORCED HIDDEN 0|
+2024/11/03 20:29:53:176|ASL|35 elapsed 1.745988|
+2024/11/03 20:29:53:181|ASL|36 elapsed 1.751525|
+2024/11/03 20:29:53:182|ASL|37 elapsed 1.751894|
+2024/11/03 20:29:53:182|ASL|38 elapsed 1.752216|
+2024/11/03 20:29:53:182|LAUNCH|DIDLaunch END frontmostApp: org.pqrs.Karabiner-Elements.Settings, touchpadMode 0, windowSnappingDisabled 0, singleFingerScrollingDisabled 0, mmScrollingUsed 0, tpScrollingUsed 0, tpPinchUsed 0, tpRotateUsed 0|
+2024/11/03 20:29:53:182|ASL|39 elapsed 1.752498|
+2024/11/03 20:29:53:183|ASL|40 elapsed 1.752735|
+2024/11/03 20:29:53:849|PERM|Can record screen 0|
+2024/11/03 20:29:53:873|M|mt_stop2|
+2024/11/03 20:29:53:873|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 20:29:53:873|SLEEP|FORCESHOWAFTERSLEEP2|
+2024/11/03 20:29:53:873|TB|Force show Touch Bar|
+2024/11/03 20:29:54:057|BTT|mt device 0x0200000000000033,0x69 - 105 - internal 1 - force 1|
+2024/11/03 20:29:54:058|M|register touchbar mbp trackpad|
+2024/11/03 20:29:54:059|SLEEP|FORCESHOWAFTERSLEEP3B|
+2024/11/03 20:29:54:059|TB|Force show Touch Bar|
+2024/11/03 20:29:54:920|SNAPAREA|step1, 0 displays- match mode 0 - searching Built-in Retina Display|
+2024/11/03 20:29:54:920|SNAPAREA|step2, 0 displays|
+2024/11/03 20:29:54:920|SNAPAREA|step3, 0 displays|
+2024/11/03 20:29:54:920|SNAPAREA|step4, 0 displays|
+2024/11/03 20:29:54:920|SNAPAREA|did not recognize display 1 41041 | {{0, 0}, {1728, 1117}} | 4251086178|
+2024/11/03 20:29:54:921|SNAP|Did recognize 41041 4251086178 dragpoints: 0 - 0|
+2024/11/03 20:29:58:787|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 20:30:00:213|M|mt_stop11|
+2024/11/03 20:30:00:213|M|unregister tb trackpad|
+2024/11/03 20:30:00:230|BTT|mt device 0x0200000000000033,0x69 - 105 - internal 1 - force 1|
+2024/11/03 20:30:00:231|M|register touchbar mbp trackpad|
+2024/11/03 20:30:03:094|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 20:30:04:927|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 20:30:05:017|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 20:30:06:266|M|mt_stop11|
+2024/11/03 20:30:06:270|M|unregister tb trackpad|
+2024/11/03 20:30:06:277|BTT|mt device 0x0200000000000033,0x69 - 105 - internal 1 - force 1|
+2024/11/03 20:30:06:277|M|register touchbar mbp trackpad|
+2024/11/03 20:30:06:278|STDEV||
+2024/11/03 20:30:08:777|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 20:30:09:918|SEC|SecureInputActive com.apple.systempreferences 26730|
+2024/11/03 20:30:12:033|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 20:30:12:085|SEC|SecureInputDisabled com.apple.systempreferences|
+2024/11/03 20:30:24:754|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 20:30:25:936|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 20:30:28:105|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 20:30:43:977|TERMINATE|SHOULDTERMINATE|
+2024/11/03 20:30:44:091|ASL|terminate reply 1|
+2024/11/03 20:30:46:455|SYS|Running on macOS: 15.0.1|
+2024/11/03 20:30:46:455|SYS|BTT Version: 4.851|
+2024/11/03 20:30:46:455|SYS|Device: MacBookPro18,2|
+2024/11/03 20:30:46:484|usage|loading todays usage|
+2024/11/03 20:30:46:484|ASL|0 elapsed 0.035824|
+2024/11/03 20:30:46:484|LAUNCH|DIDLaunch START NSConcreteNotification 0x600002ba8940 {name = NSApplicationDidFinishLaunchingNotification; object = <BTTApplication: 0x129605b50>; userInfo = {
+    NSApplicationLaunchIsDefaultLaunchKey = 1;
+}}|
+2024/11/03 20:30:46:498|ASL|1 elapsed 0.049189|
+2024/11/03 20:30:46:498|ASL|2 elapsed 0.049213|
+2024/11/03 20:30:46:498|ASL|3 elapsed 0.049334|
+2024/11/03 20:30:46:498|ASL|4 elapsed 0.049401|
+2024/11/03 20:30:46:499|ASL|5 elapsed 0.051002|
+2024/11/03 20:30:46:499|ASL|6 elapsed 0.051045|
+2024/11/03 20:30:46:499|INIT|START PREVIOUSLYININIT|
+2024/11/03 20:30:46:499|ASL|sub 0 elapsed 0.000000 - prev|
+2024/11/03 20:30:46:510|ASL|sub 1 elapsed 0.010804 - prev|
+2024/11/03 20:30:46:511|ASL|sub 2 elapsed 0.011182 - prev|
+2024/11/03 20:30:46:511|ASL|sub 3 elapsed 0.011459 - prev|
+2024/11/03 20:30:46:512|ASL|sub 4 elapsed 0.012070 - prevk|
+2024/11/03 20:30:46:512|short|init|
+2024/11/03 20:30:46:512|ASL|Hyper key used 0|
+2024/11/03 20:30:46:831|ASL|No numeric part found in the filename.|
+2024/11/03 20:30:46:831|ASL|No numeric part found in the filename.|
+2024/11/03 20:30:46:831|ASL|Extracted build number: 2024110301|
+2024/11/03 20:30:46:831|STORE|The store already exists in udefs|
+2024/11/03 20:30:46:831|xw|the new store already exists btt_data_store.version_4_851_build_2024110301|
+2024/11/03 20:30:46:837|ASL|saving|
+2024/11/03 20:30:46:839|ASL|saving|
+2024/11/03 20:30:46:839|migrate|fixing uuids2|
+2024/11/03 20:30:46:840|LIC|idate 2024-11-04 04:29:51 +0000|
+2024/11/03 20:30:46:841|ASL|sub 5 elapsed 0.341245 - prevke|
+2024/11/03 20:30:46:841|INIT|FINISH PREVIOUSLYININIT|
+2024/11/03 20:30:46:841|ASL|7 elapsed 0.392343|
+2024/11/03 20:30:46:841|ASL|8 elapsed 0.392892|
+2024/11/03 20:30:46:842|ASL|9 elapsed 0.393887|
+2024/11/03 20:30:46:842|ASL|10 elapsed 0.394039|
+2024/11/03 20:30:46:844|ASL|11 elapsed 0.395474|
+2024/11/03 20:30:46:844|ASL|12 elapsed 0.396013|
+2024/11/03 20:30:46:844|ASL|disablign app nap|
+2024/11/03 20:30:46:844|ASL|disabling app nap done|
+2024/11/03 20:30:46:844|ASL|13 elapsed 0.396050|
+2024/11/03 20:30:46:844|ASL|14 elapsed 0.396062|
+2024/11/03 20:30:46:845|ASL|15 elapsed 0.396109|
+2024/11/03 20:30:46:847|ASL|16 elapsed 0.398275|
+2024/11/03 20:30:46:847|ASL|17 elapsed 0.398305|
+2024/11/03 20:30:46:847|ASL|18 elapsed 0.398491|
+2024/11/03 20:30:46:847|ASL|19 elapsed 0.398505|
+2024/11/03 20:30:46:847|ASL|20 elapsed 0.398569|
+2024/11/03 20:30:46:847|ASL|21 elapsed 0.398585|
+2024/11/03 20:30:46:847|ASL|22 elapsed 0.398593|
+2024/11/03 20:30:46:847|ASL|23 elapsed 0.398986|
+2024/11/03 20:30:46:847|ASL|24 elapsed 0.399004|
+2024/11/03 20:30:46:848|ASL|25 elapsed 0.399451|
+2024/11/03 20:30:46:848|ASL|26 elapsed 0.399598|
+2024/11/03 20:30:46:855|ASL|27 elapsed 0.406899|
+2024/11/03 20:30:46:858|xw|is trusted|
+2024/11/03 20:30:46:897|short|call sharedInstance3|
+2024/11/03 20:30:46:945|ASL|The Mac is running on battery power.|
+2024/11/03 20:30:46:968|TB|touchbar screen size {1085, 30}|
+2024/11/03 20:30:46:969|PREFS|showPrefsAtNextLaunch|
+2024/11/03 20:30:46:969|PREFS|showing prefs (null)|
+2024/11/03 20:30:46:993|ASL|prepare <NSStoryboardSegue:0x600002530750 identifier='(null)', source='<BTTMainUIStructureVC: 0x600001086be0>', destination='<BTTAppListVC: 0x600001482760>'>|
+2024/11/03 20:30:46:995|ASL|Warning: Column selection is not supported in view-based table and outline views (<BTTPreferencesTableView: 0x129913000>).|
+2024/11/03 20:30:46:996|ASL|view did load BTTAppListVC|
+2024/11/03 20:30:46:996|ASL|previously selected 0|
+2024/11/03 20:30:46:996|ASL|previously selected 0|
+2024/11/03 20:30:46:997|ASL|prepare <NSStoryboardSegue:0x60000252c660 identifier='EmbedTopMenuVC', source='<BTTMainUIStructureVC: 0x600001086be0>', destination='<BTTTopMenuVC: 0x1297a05c0>'>|
+2024/11/03 20:30:47:019|ASL|view did load BTTTopMenuVC|
+2024/11/03 20:30:47:022|ASL|window did load BTTRootPreferencesWC|
+2024/11/03 20:30:47:022|ASL|did set <BTTPrefsMenuContentContainerVC: 0x600001a86620> BTTPrefsMenuContentContainerVC|
+2024/11/03 20:30:47:022|ASL|did set <BTTMainUIStructureVC: 0x600001086be0> BTTMainUIStructureVC|
+2024/11/03 20:30:47:022|ASL|did set <BTTLevel3VC: 0x12963fde0> BTTLevel3VC|
+2024/11/03 20:30:47:022|ASL|did set <BTTLevel1VC: 0x600001480d20> BTTLevel1VC|
+2024/11/03 20:30:47:022|ASL|did set <BTTMainSplitViewController: 0x600001086d80> BTTMainSplitViewController|
+2024/11/03 20:30:47:022|ASL|did set <BTTConfigurationVC: 0x12963fc60> BTTConfigurationVC|
+2024/11/03 20:30:47:022|ASL|did set <BTTConfigurationVC: 0x1296377d0> BTTConfigurationVC|
+2024/11/03 20:30:47:022|ASL|did set <BTTOutlineModeVC: 0x6000014822b0> BTTOutlineModeVC|
+2024/11/03 20:30:47:022|ASL|did set <BTTTopMenuVC: 0x1297a05c0> BTTTopMenuVC|
+2024/11/03 20:30:47:029|LIC|ADD REGISTER MENU ITEM|
+2024/11/03 20:30:47:106|ASL|previously selected 12|
+2024/11/03 20:30:47:107|ASL|no overall selected|
+2024/11/03 20:30:47:111|ASL|28 elapsed 0.662842|
+2024/11/03 20:30:47:111|ASL|29 elapsed 0.662870|
+2024/11/03 20:30:47:111|ASL|30 elapsed 0.662880|
+2024/11/03 20:30:47:111|ASL|31 elapsed 0.662887|
+2024/11/03 20:30:47:112|ASL|32 elapsed 0.663292|
+2024/11/03 20:30:47:112|LIC|trial|
+2024/11/03 20:30:47:113|ASL|33 elapsed 0.664107|
+2024/11/03 20:30:47:113|ASL|34 elapsed 0.664761|
+2024/11/03 20:30:47:113|START|TB VISIBLE 1|
+2024/11/03 20:30:47:113|START|TB FORCED HIDDEN 0|
+2024/11/03 20:30:47:113|ASL|35 elapsed 0.664803|
+2024/11/03 20:30:47:119|ASL|36 elapsed 0.670658|
+2024/11/03 20:30:47:119|ASL|37 elapsed 0.670988|
+2024/11/03 20:30:47:119|ASL|38 elapsed 0.671013|
+2024/11/03 20:30:47:119|LAUNCH|DIDLaunch END frontmostApp: com.apple.systempreferences, touchpadMode 0, windowSnappingDisabled 0, singleFingerScrollingDisabled 0, mmScrollingUsed 0, tpScrollingUsed 0, tpPinchUsed 0, tpRotateUsed 0|
+2024/11/03 20:30:47:120|ASL|39 elapsed 0.671073|
+2024/11/03 20:30:47:123|ASL|40 elapsed 0.674263|
+2024/11/03 20:30:47:149|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 20:30:48:006|LIC|ADD REGISTER MENU ITEM|
+2024/11/03 20:30:48:024|BTT|NOT handling reopen due to BTT start|
+2024/11/03 20:30:48:059|PERM|Can record screen 0|
+2024/11/03 20:30:48:063|SLEEP|FORCESHOWAFTERSLEEP2|
+2024/11/03 20:30:48:067|TB|Force show Touch Bar|
+2024/11/03 20:30:48:130|ASL|did load level 3|
+2024/11/03 20:30:48:159|M|mt_stop2|
+2024/11/03 20:30:48:159|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 20:30:48:277|SLEEP|FORCESHOWAFTERSLEEP3A|
+2024/11/03 20:30:48:279|TB|Force show Touch Bar|
+2024/11/03 20:30:48:280|NEWUI|Loading Config Debounced|
+2024/11/03 20:30:48:282|UI|Level 1 Focused|
+2024/11/03 20:30:48:283|BTT|mt device 0x0200000000000033,0x69 - 105 - internal 1 - force 1|
+2024/11/03 20:30:48:284|M|register touchbar mbp trackpad|
+2024/11/03 20:30:48:284|STDEV||
+2024/11/03 20:30:48:296|FORM|2UUID (null) == 521C6921-B5B5-4716-9715-F6758841BF72 editing 0 == 0|
+2024/11/03 20:30:48:301|NEWUI|Loading Config Debounced|
+2024/11/03 20:30:48:301|FORM|1UUID (null) == (null) editing 0 == 0|
+2024/11/03 20:30:49:142|SNAPAREA|step1, 0 displays- match mode 0 - searching Built-in Retina Display|
+2024/11/03 20:30:49:146|SNAPAREA|return existing (updated)|
+2024/11/03 20:30:49:146|SNAP|Did recognize 41041 4251086178 dragpoints: 0 - 0|
+2024/11/03 20:30:50:651|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 20:30:50:653|NEWUI|Opening Settings BTTSettingsSimple|
+2024/11/03 20:30:50:654|ASL|animate new settings segue|
+2024/11/03 20:30:50:655|ASL|Could not find image named 'background'.|
+2024/11/03 20:30:50:709|ASL|language en-US|
+2024/11/03 20:30:50:820|NEWUI|Opening Settings BTTSettingsSimple|
+2024/11/03 20:30:50:887|ASL|animate new settings segue|
+2024/11/03 20:30:50:938|ASL|language en-US|
+2024/11/03 20:30:53:059|ASL|The Mac is running on battery power.|
+2024/11/03 20:30:55:238|ASL|animate new settings segue|
+2024/11/03 20:31:00:767|sync|using icloud drive|
+2024/11/03 20:31:00:768|sync|modelurl file:///Applications/BetterTouchTool.app/Contents/Resources/BetterTouchTool_DataModel.momd/|
+2024/11/03 20:31:01:404|sync|using icloud drive|
+2024/11/03 20:31:01:404|sync|modelurl file:///Applications/BetterTouchTool.app/Contents/Resources/BetterTouchTool_DataModel.momd/|
+2024/11/03 20:31:02:669|sync|res (null)|
+2024/11/03 20:31:12:416|ASL|animate new settings segue|
+2024/11/03 20:31:12:471|ASL|language en-US|
+2024/11/03 20:31:13:307|ASL|animate new settings segue|
+2024/11/03 20:31:25:501|ASL|animate new settings segue|
+2024/11/03 20:31:25:569|ASL|language en-US|
+2024/11/03 20:31:44:961|xw|should relaunch|
+2024/11/03 20:31:44:961|xw|BTTRelaunch found|
+2024/11/03 20:31:44:961|xw|BTTRelaunch call seems successfull|
+2024/11/03 20:31:44:974|TERMINATE|SHOULDTERMINATE|
+2024/11/03 20:31:45:076|ASL|terminate reply 1|
+2024/11/03 20:31:45:399|SYS|Running on macOS: 15.0.1|
+2024/11/03 20:31:45:399|SYS|BTT Version: 4.851|
+2024/11/03 20:31:45:399|SYS|Device: MacBookPro18,2|
+2024/11/03 20:31:45:433|usage|loading todays usage|
+2024/11/03 20:31:45:433|ASL|0 elapsed 0.041491|
+2024/11/03 20:31:45:433|LAUNCH|DIDLaunch START NSConcreteNotification 0x60000250ea40 {name = NSApplicationDidFinishLaunchingNotification; object = <BTTApplication: 0x120e05af0>; userInfo = {
+    NSApplicationLaunchIsDefaultLaunchKey = 1;
+}}|
+2024/11/03 20:31:45:449|ASL|1 elapsed 0.056849|
+2024/11/03 20:31:45:449|ASL|2 elapsed 0.056888|
+2024/11/03 20:31:45:449|ASL|3 elapsed 0.057017|
+2024/11/03 20:31:45:449|ASL|4 elapsed 0.057091|
+2024/11/03 20:31:45:450|ASL|5 elapsed 0.058700|
+2024/11/03 20:31:45:450|ASL|6 elapsed 0.058753|
+2024/11/03 20:31:45:451|INIT|START PREVIOUSLYININIT|
+2024/11/03 20:31:45:451|ASL|sub 0 elapsed 0.000000 - prev|
+2024/11/03 20:31:45:462|ASL|sub 1 elapsed 0.011333 - prev|
+2024/11/03 20:31:45:462|ASL|sub 2 elapsed 0.011770 - prev|
+2024/11/03 20:31:45:463|ASL|sub 3 elapsed 0.012076 - prev|
+2024/11/03 20:31:45:463|ASL|sub 4 elapsed 0.012747 - prevk|
+2024/11/03 20:31:45:463|short|init|
+2024/11/03 20:31:45:463|ASL|Hyper key used 0|
+2024/11/03 20:31:45:781|ASL|No numeric part found in the filename.|
+2024/11/03 20:31:45:781|ASL|No numeric part found in the filename.|
+2024/11/03 20:31:45:782|ASL|Extracted build number: 2024110301|
+2024/11/03 20:31:45:782|STORE|The store already exists in udefs|
+2024/11/03 20:31:45:782|xw|the new store already exists btt_data_store.version_4_851_build_2024110301|
+2024/11/03 20:31:45:787|migrate|fixing uuids2|
+2024/11/03 20:31:45:788|LIC|idate 2024-11-04 04:29:51 +0000|
+2024/11/03 20:31:45:789|ASL|sub 5 elapsed 0.338245 - prevke|
+2024/11/03 20:31:45:789|INIT|FINISH PREVIOUSLYININIT|
+2024/11/03 20:31:45:789|ASL|7 elapsed 0.397054|
+2024/11/03 20:31:45:789|LIC|closing previous instance of BetterTouchTool relaunch|
+2024/11/03 20:31:45:789|ASL|8 elapsed 0.397743|
+2024/11/03 20:31:45:790|ASL|9 elapsed 0.397890|
+2024/11/03 20:31:45:790|ASL|10 elapsed 0.398088|
+2024/11/03 20:31:45:791|ASL|11 elapsed 0.399666|
+2024/11/03 20:31:45:792|ASL|12 elapsed 0.400303|
+2024/11/03 20:31:45:792|ASL|disablign app nap|
+2024/11/03 20:31:45:792|ASL|disabling app nap done|
+2024/11/03 20:31:45:792|ASL|13 elapsed 0.400343|
+2024/11/03 20:31:45:792|ASL|14 elapsed 0.400354|
+2024/11/03 20:31:45:792|ASL|15 elapsed 0.400407|
+2024/11/03 20:31:45:797|ASL|16 elapsed 0.405305|
+2024/11/03 20:31:45:797|ASL|17 elapsed 0.405337|
+2024/11/03 20:31:45:797|ASL|18 elapsed 0.405574|
+2024/11/03 20:31:45:797|ASL|19 elapsed 0.405592|
+2024/11/03 20:31:45:797|ASL|20 elapsed 0.405695|
+2024/11/03 20:31:45:797|ASL|21 elapsed 0.405720|
+2024/11/03 20:31:45:797|ASL|22 elapsed 0.405728|
+2024/11/03 20:31:45:798|ASL|23 elapsed 0.406228|
+2024/11/03 20:31:45:798|ASL|24 elapsed 0.406246|
+2024/11/03 20:31:45:798|ASL|25 elapsed 0.406281|
+2024/11/03 20:31:45:798|ASL|26 elapsed 0.406389|
+2024/11/03 20:31:45:875|ASL|27 elapsed 0.483082|
+2024/11/03 20:31:45:878|xw|is trusted|
+2024/11/03 20:31:45:906|short|call sharedInstance3|
+2024/11/03 20:31:45:956|ASL|The Mac is running on battery power.|
+2024/11/03 20:31:45:980|TB|touchbar screen size {1085, 30}|
+2024/11/03 20:31:45:981|ASL|28 elapsed 0.589353|
+2024/11/03 20:31:45:981|ASL|29 elapsed 0.589384|
+2024/11/03 20:31:45:981|ASL|30 elapsed 0.589400|
+2024/11/03 20:31:45:981|ASL|31 elapsed 0.589408|
+2024/11/03 20:31:45:982|ASL|32 elapsed 0.589834|
+2024/11/03 20:31:45:982|LIC|trial|
+2024/11/03 20:31:45:982|ASL|33 elapsed 0.590505|
+2024/11/03 20:31:45:983|ASL|34 elapsed 0.590980|
+2024/11/03 20:31:45:983|START|TB VISIBLE 0|
+2024/11/03 20:31:45:983|START|TB FORCED HIDDEN 0|
+2024/11/03 20:31:45:983|ASL|35 elapsed 0.591008|
+2024/11/03 20:31:45:988|ASL|36 elapsed 0.595964|
+2024/11/03 20:31:45:988|ASL|37 elapsed 0.596217|
+2024/11/03 20:31:45:988|ASL|38 elapsed 0.596234|
+2024/11/03 20:31:45:988|LAUNCH|DIDLaunch END frontmostApp: com.apple.systempreferences, touchpadMode 0, windowSnappingDisabled 0, singleFingerScrollingDisabled 0, mmScrollingUsed 0, tpScrollingUsed 0, tpPinchUsed 0, tpRotateUsed 0|
+2024/11/03 20:31:45:988|ASL|39 elapsed 0.596271|
+2024/11/03 20:31:45:990|ASL|40 elapsed 0.598330|
+2024/11/03 20:31:46:877|PERM|Can record screen 0|
+2024/11/03 20:31:46:883|SLEEP|FORCESHOWAFTERSLEEP2|
+2024/11/03 20:31:46:883|TB|Force show Touch Bar|
+2024/11/03 20:31:47:055|M|mt_stop2|
+2024/11/03 20:31:47:058|SLEEP|FORCESHOWAFTERSLEEP3B|
+2024/11/03 20:31:47:058|TB|Force show Touch Bar|
+2024/11/03 20:31:47:058|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 20:31:47:062|BTT|mt device 0x0200000000000033,0x69 - 105 - internal 1 - force 1|
+2024/11/03 20:31:47:063|M|register touchbar mbp trackpad|
+2024/11/03 20:31:47:063|STDEV||
+2024/11/03 20:31:47:994|SNAPAREA|step1, 0 displays- match mode 0 - searching Built-in Retina Display|
+2024/11/03 20:31:47:998|SNAPAREA|return existing (updated)|
+2024/11/03 20:31:47:999|SNAP|Did recognize 41041 4251086178 dragpoints: 0 - 0|
+2024/11/03 20:31:48:085|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 20:31:50:075|BTT|NOT handling reopen due to BTT start|
+2024/11/03 20:31:51:130|sync|using icloud drive|
+2024/11/03 20:31:51:130|sync|modelurl file:///Applications/BetterTouchTool.app/Contents/Resources/BetterTouchTool_DataModel.momd/|
+2024/11/03 20:31:51:175|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 20:31:52:285|sync|res (null)|
+2024/11/03 20:31:53:061|ASL|The Mac is running on battery power.|
+2024/11/03 20:32:03:568|sync|became active|
+2024/11/03 20:32:06:291|ASL|saving|
+2024/11/03 20:32:06:294|NAMED|btt_preset_imported_StageMangerShiftClick_v1|
+2024/11/03 20:32:06:297|import|preset imported (null)|
+2024/11/03 20:32:06:297|ASL|already 19|
+2024/11/03 20:32:08:429|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 20:32:08:707|sync|x (null)|
+2024/11/03 20:32:09:504|ASL|did reset after import|
+2024/11/03 20:32:11:157|sync|became active|
+2024/11/03 20:32:11:157|PREFS|applicationShouldHandleReopen|
+2024/11/03 20:32:11:157|PREFS|showing prefs (null)|
+2024/11/03 20:32:11:176|ASL|prepare <NSStoryboardSegue:0x600002b35110 identifier='(null)', source='<BTTMainUIStructureVC: 0x600001e10270>', destination='<BTTAppListVC: 0x600001a10a50>'>|
+2024/11/03 20:32:11:178|ASL|Warning: Column selection is not supported in view-based table and outline views (<BTTPreferencesTableView: 0x11182fc00>).|
+2024/11/03 20:32:11:179|ASL|view did load BTTAppListVC|
+2024/11/03 20:32:11:179|ASL|previously selected 0|
+2024/11/03 20:32:11:179|ASL|previously selected 0|
+2024/11/03 20:32:11:180|ASL|prepare <NSStoryboardSegue:0x600002bb7060 identifier='EmbedTopMenuVC', source='<BTTMainUIStructureVC: 0x600001e10270>', destination='<BTTTopMenuVC: 0x11051fb00>'>|
+2024/11/03 20:32:11:196|ASL|view did load BTTTopMenuVC|
+2024/11/03 20:32:11:222|ASL|window did load BTTRootPreferencesWC|
+2024/11/03 20:32:11:222|ASL|did set <BTTPrefsMenuContentContainerVC: 0x600001408140> BTTPrefsMenuContentContainerVC|
+2024/11/03 20:32:11:222|ASL|did set <BTTMainUIStructureVC: 0x600001e10270> BTTMainUIStructureVC|
+2024/11/03 20:32:11:222|ASL|did set <BTTMainSplitViewController: 0x600001e10410> BTTMainSplitViewController|
+2024/11/03 20:32:11:222|ASL|did set <BTTLevel1VC: 0x600001a10000> BTTLevel1VC|
+2024/11/03 20:32:11:222|ASL|did set <BTTLevel3VC: 0x110509a50> BTTLevel3VC|
+2024/11/03 20:32:11:222|ASL|did set <BTTConfigurationVC: 0x1105098d0> BTTConfigurationVC|
+2024/11/03 20:32:11:222|ASL|did set <BTTConfigurationVC: 0x11050be30> BTTConfigurationVC|
+2024/11/03 20:32:11:222|ASL|did set <BTTOutlineModeVC: 0x600001a105a0> BTTOutlineModeVC|
+2024/11/03 20:32:11:222|ASL|did set <BTTTopMenuVC: 0x11051fb00> BTTTopMenuVC|
+2024/11/03 20:32:11:230|LIC|ADD REGISTER MENU ITEM|
+2024/11/03 20:32:11:236|LIC|ADD REGISTER MENU ITEM|
+2024/11/03 20:32:11:241|ASL|previously selected 12|
+2024/11/03 20:32:11:242|ASL|no overall selected|
+2024/11/03 20:32:11:270|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 20:32:11:287|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 20:32:11:336|LIC|ADD REGISTER MENU ITEM|
+2024/11/03 20:32:11:341|sync|became active|
+2024/11/03 20:32:11:357|NEWUI|Loading Config Debounced|
+2024/11/03 20:32:11:494|ASL|did load level 3|
+2024/11/03 20:32:11:530|UI|Level 1 Focused|
+2024/11/03 20:32:11:536|FORM|2UUID (null) == 521C6921-B5B5-4716-9715-F6758841BF72 editing 0 == 0|
+2024/11/03 20:32:11:673|NEWUI|Loading Config Debounced|
+2024/11/03 20:32:11:673|FORM|1UUID (null) == (null) editing 0 == 0|
+2024/11/03 20:32:13:486|ASL|previously selected 12|
+2024/11/03 20:32:13:488|ASL|no overall selected|
+2024/11/03 20:32:13:488|ASL|internal select item Actions Executed On Trigger - tag: 0|
+2024/11/03 20:32:13:554|NEWUI|Loading Config Debounced|
+2024/11/03 20:32:13:563|ASL|previously selected 12|
+2024/11/03 20:32:13:563|ASL|no overall selected|
+2024/11/03 20:32:13:563|ASL|internal select item Actions Executed On Trigger - tag: 0|
+2024/11/03 20:32:13:625|NEWUI|Loading Config Debounced|
+2024/11/03 20:32:14:695|ASL|previously selected 19|
+2024/11/03 20:32:14:697|ASL|no overall selected|
+2024/11/03 20:32:14:698|ASL|internal select item Actions Executed On Trigger - tag: 0|
+2024/11/03 20:32:14:702|ASL|no overall selected|
+2024/11/03 20:32:14:702|ASL|internal select item Actions Executed On Trigger - tag: 0|
+2024/11/03 20:32:14:765|NEWUI|Loading Config Debounced|
+2024/11/03 20:32:32:976|PREFS|DID SELECT TRIGGER TYPE 19|
+2024/11/03 20:32:32:991|UI|Level 1 Focused|
+2024/11/03 20:32:32:993|FORM|2UUID FA630332-F9CD-4CFC-9147-F2121DC01B93 == 521C6921-B5B5-4716-9715-F6758841BF72 editing 0 == 0|
+2024/11/03 20:32:33:325|FORM|2UUID FA630332-F9CD-4CFC-9147-F2121DC01B93 == FA630332-F9CD-4CFC-9147-F2121DC01B93 editing 0 == 0|
+2024/11/03 20:32:34:052|FORM|2UUID 7D6A21F6-4277-4047-931B-1207D54C3DDD == FA630332-F9CD-4CFC-9147-F2121DC01B93 editing 0 == 0|
+2024/11/03 20:32:34:112|NEWUI|Loading Config Debounced|
+2024/11/03 20:32:34:112|FORM|1UUID 7D6A21F6-4277-4047-931B-1207D54C3DDD == 7D6A21F6-4277-4047-931B-1207D54C3DDD editing 0 == 0|
+2024/11/03 20:32:49:289|ASL| show save buttons|
+2024/11/03 20:32:49:289|FORM|GESTURE SAVE BLOCK CALLED|
+2024/11/03 20:32:49:290|ASL|saving|
+2024/11/03 20:32:49:294|ASL|internal select item Actions Executed On Trigger - tag: 0|
+2024/11/03 20:32:49:616|FORM|SETTING LEVEL 1 TRIGGER|
+2024/11/03 20:32:49:617|FORM|2UUID 7D6A21F6-4277-4047-931B-1207D54C3DDD == 7D6A21F6-4277-4047-931B-1207D54C3DDD editing 0 == 0|
+2024/11/03 20:32:49:711|NEWUI|Loading Config Debounced|
+2024/11/03 20:32:49:711|FORM|1UUID 7D6A21F6-4277-4047-931B-1207D54C3DDD == 7D6A21F6-4277-4047-931B-1207D54C3DDD editing 0 == 0|
+2024/11/03 20:32:50:641|sync|x (null)|
+2024/11/03 20:32:53:059|ASL|The Mac is running on battery power.|
+2024/11/03 20:32:53:326|MOUSE|EXIT|
+2024/11/03 20:33:08:283|ASL| show save buttons|
+2024/11/03 20:33:08:283|FORM|GESTURE SAVE BLOCK CALLED|
+2024/11/03 20:33:08:287|ASL|saving|
+2024/11/03 20:33:08:294|ASL|internal select item Actions Executed On Trigger - tag: 0|
+2024/11/03 20:33:08:623|FORM|SETTING LEVEL 1 TRIGGER|
+2024/11/03 20:33:08:624|FORM|2UUID 7D6A21F6-4277-4047-931B-1207D54C3DDD == 7D6A21F6-4277-4047-931B-1207D54C3DDD editing 0 == 0|
+2024/11/03 20:33:08:706|NEWUI|Loading Config Debounced|
+2024/11/03 20:33:08:706|FORM|1UUID 7D6A21F6-4277-4047-931B-1207D54C3DDD == 7D6A21F6-4277-4047-931B-1207D54C3DDD editing 0 == 0|
+2024/11/03 20:33:11:267|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 20:33:11:292|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 20:33:12:347|LIC|ADD REGISTER MENU ITEM|
+2024/11/03 20:33:12:362|sync|became active|
+2024/11/03 20:33:13:876|WISNA|Focus doesn't match window pid|
+2024/11/03 20:33:14:384|ASL|performing 366|
+2024/11/03 20:33:14:384|ASL|triggering action Empty Placeholder - 7D6A21F6-4277-4047-931B-1207D54C3DDD|
+2024/11/03 20:33:14:385|ASL|performing 204|
+2024/11/03 20:33:14:385|ASL|triggering action Activate/Bring to Front Window Under Cursor - 014E15E5-C0E5-4D2C-B7E6-EB7664AE0DCC|
+2024/11/03 20:33:14:389|ASL|trigger delayed|
+2024/11/03 20:33:14:389|ASL|performing 124|
+2024/11/03 20:33:14:389|ASL|triggering action Trigger Menu Bar Menu-Item - 0CAFFF3E-A3E3-4A77-ABA8-D3C557AD2859|
+2024/11/03 20:33:14:416|ASL|already replied 103|
+2024/11/03 20:33:14:429|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 20:33:14:443|ASL|saving|
+2024/11/03 20:33:14:445|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 20:33:15:842|sync|x (null)|
+2024/11/03 20:33:15:999|ASL|performing 366|
+2024/11/03 20:33:15:999|ASL|triggering action Empty Placeholder - 7D6A21F6-4277-4047-931B-1207D54C3DDD|
+2024/11/03 20:33:15:999|ASL|performing 204|
+2024/11/03 20:33:15:999|ASL|triggering action Activate/Bring to Front Window Under Cursor - 014E15E5-C0E5-4D2C-B7E6-EB7664AE0DCC|
+2024/11/03 20:33:16:002|ASL|trigger delayed|
+2024/11/03 20:33:16:002|ASL|performing 124|
+2024/11/03 20:33:16:002|ASL|triggering action Trigger Menu Bar Menu-Item - 0CAFFF3E-A3E3-4A77-ABA8-D3C557AD2859|
+2024/11/03 20:33:16:018|ASL|already replied 103|
+2024/11/03 20:33:16:878|ASL|performing 366|
+2024/11/03 20:33:16:878|ASL|triggering action Empty Placeholder - 7D6A21F6-4277-4047-931B-1207D54C3DDD|
+2024/11/03 20:33:16:878|ASL|performing 204|
+2024/11/03 20:33:16:878|ASL|triggering action Activate/Bring to Front Window Under Cursor - 014E15E5-C0E5-4D2C-B7E6-EB7664AE0DCC|
+2024/11/03 20:33:16:885|ASL|trigger delayed|
+2024/11/03 20:33:16:885|ASL|performing 124|
+2024/11/03 20:33:16:885|ASL|triggering action Trigger Menu Bar Menu-Item - 0CAFFF3E-A3E3-4A77-ABA8-D3C557AD2859|
+2024/11/03 20:33:16:895|ASL|already replied 103|
+2024/11/03 20:33:20:452|WISNA|Focus doesn't match window pid|
+2024/11/03 20:33:21:005|ASL|performing 366|
+2024/11/03 20:33:21:005|ASL|triggering action Empty Placeholder - 7D6A21F6-4277-4047-931B-1207D54C3DDD|
+2024/11/03 20:33:21:005|ASL|performing 204|
+2024/11/03 20:33:21:005|ASL|triggering action Activate/Bring to Front Window Under Cursor - 014E15E5-C0E5-4D2C-B7E6-EB7664AE0DCC|
+2024/11/03 20:33:21:016|ASL|trigger delayed|
+2024/11/03 20:33:21:016|ASL|performing 124|
+2024/11/03 20:33:21:016|ASL|triggering action Trigger Menu Bar Menu-Item - 0CAFFF3E-A3E3-4A77-ABA8-D3C557AD2859|
+2024/11/03 20:33:21:062|ASL|already replied 103|
+2024/11/03 20:33:22:164|ASL|performing 366|
+2024/11/03 20:33:22:165|ASL|triggering action Empty Placeholder - 7D6A21F6-4277-4047-931B-1207D54C3DDD|
+2024/11/03 20:33:22:165|ASL|performing 204|
+2024/11/03 20:33:22:165|ASL|triggering action Activate/Bring to Front Window Under Cursor - 014E15E5-C0E5-4D2C-B7E6-EB7664AE0DCC|
+2024/11/03 20:33:22:169|ASL|trigger delayed|
+2024/11/03 20:33:22:170|ASL|performing 124|
+2024/11/03 20:33:22:170|ASL|triggering action Trigger Menu Bar Menu-Item - 0CAFFF3E-A3E3-4A77-ABA8-D3C557AD2859|
+2024/11/03 20:33:22:198|ASL|already replied 103|
+2024/11/03 20:33:26:001|ASL|+[IMKClient subclass]: chose IMKClient_Legacy|
+2024/11/03 20:33:26:001|ASL|+[IMKInputSession subclass]: chose IMKInputSession_Legacy|
+2024/11/03 20:33:26:010|LIC|ADD REGISTER MENU ITEM|
+2024/11/03 20:33:26:019|sync|became active|
+2024/11/03 20:33:26:048|ASL|_TIPropertyValueIsValid called with 16 on nil context!|
+2024/11/03 20:33:26:048|ASL|imkxpc_getApplicationProperty:reply: called with incorrect property value 16, bailing.|
+2024/11/03 20:33:26:048|ASL|Text input context does not respond to _valueForTIProperty:|
+2024/11/03 20:33:27:163|FORM|2UUID (null) == 7D6A21F6-4277-4047-931B-1207D54C3DDD editing 0 == 0|
+2024/11/03 20:33:28:832|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 20:33:28:860|ASL|saving|
+2024/11/03 20:33:28:862|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 20:33:30:276|sync|x (null)|
+2024/11/03 20:33:31:898|ASL|performing 366|
+2024/11/03 20:33:31:898|ASL|triggering action Empty Placeholder - 7D6A21F6-4277-4047-931B-1207D54C3DDD|
+2024/11/03 20:33:31:898|ASL|performing 204|
+2024/11/03 20:33:31:898|ASL|triggering action Activate/Bring to Front Window Under Cursor - 014E15E5-C0E5-4D2C-B7E6-EB7664AE0DCC|
+2024/11/03 20:33:31:905|ASL|trigger delayed|
+2024/11/03 20:33:31:906|ASL|performing 124|
+2024/11/03 20:33:31:906|ASL|triggering action Trigger Menu Bar Menu-Item - 0CAFFF3E-A3E3-4A77-ABA8-D3C557AD2859|
+2024/11/03 20:33:31:918|ASL|already replied 103|
+2024/11/03 20:33:32:908|ASL|performing 366|
+2024/11/03 20:33:32:908|ASL|triggering action Empty Placeholder - 7D6A21F6-4277-4047-931B-1207D54C3DDD|
+2024/11/03 20:33:32:908|ASL|performing 204|
+2024/11/03 20:33:32:908|ASL|triggering action Activate/Bring to Front Window Under Cursor - 014E15E5-C0E5-4D2C-B7E6-EB7664AE0DCC|
+2024/11/03 20:33:32:915|ASL|trigger delayed|
+2024/11/03 20:33:32:916|ASL|performing 124|
+2024/11/03 20:33:32:916|ASL|triggering action Trigger Menu Bar Menu-Item - 0CAFFF3E-A3E3-4A77-ABA8-D3C557AD2859|
+2024/11/03 20:33:32:931|ASL|already replied 103|
+2024/11/03 20:33:33:959|SWI|PID MISMATCH FIX|
+2024/11/03 20:33:35:035|ASL|performing 366|
+2024/11/03 20:33:35:035|ASL|triggering action Empty Placeholder - 7D6A21F6-4277-4047-931B-1207D54C3DDD|
+2024/11/03 20:33:35:035|ASL|performing 204|
+2024/11/03 20:33:35:035|ASL|triggering action Activate/Bring to Front Window Under Cursor - 014E15E5-C0E5-4D2C-B7E6-EB7664AE0DCC|
+2024/11/03 20:33:35:040|ASL|trigger delayed|
+2024/11/03 20:33:35:040|ASL|performing 124|
+2024/11/03 20:33:35:040|ASL|triggering action Trigger Menu Bar Menu-Item - 0CAFFF3E-A3E3-4A77-ABA8-D3C557AD2859|
+2024/11/03 20:33:35:054|ASL|already replied 103|
+2024/11/03 20:33:37:153|ASL|performing 366|
+2024/11/03 20:33:37:154|ASL|triggering action Empty Placeholder - 7D6A21F6-4277-4047-931B-1207D54C3DDD|
+2024/11/03 20:33:37:154|ASL|performing 204|
+2024/11/03 20:33:37:154|ASL|triggering action Activate/Bring to Front Window Under Cursor - 014E15E5-C0E5-4D2C-B7E6-EB7664AE0DCC|
+2024/11/03 20:33:37:161|ASL|trigger delayed|
+2024/11/03 20:33:37:161|ASL|performing 124|
+2024/11/03 20:33:37:162|ASL|triggering action Trigger Menu Bar Menu-Item - 0CAFFF3E-A3E3-4A77-ABA8-D3C557AD2859|
+2024/11/03 20:33:37:171|ASL|already replied 103|
+2024/11/03 20:33:39:838|ASL|performing 366|
+2024/11/03 20:33:39:838|ASL|triggering action Empty Placeholder - 7D6A21F6-4277-4047-931B-1207D54C3DDD|
+2024/11/03 20:33:39:838|ASL|performing 204|
+2024/11/03 20:33:39:838|ASL|triggering action Activate/Bring to Front Window Under Cursor - 014E15E5-C0E5-4D2C-B7E6-EB7664AE0DCC|
+2024/11/03 20:33:39:845|ASL|trigger delayed|
+2024/11/03 20:33:39:845|ASL|performing 124|
+2024/11/03 20:33:39:845|ASL|triggering action Trigger Menu Bar Menu-Item - 0CAFFF3E-A3E3-4A77-ABA8-D3C557AD2859|
+2024/11/03 20:33:39:873|ASL|already replied 103|
+2024/11/03 20:33:53:055|ASL|The Mac is running on battery power.|
+2024/11/03 20:34:53:094|ASL|The Mac is running on battery power.|
+2024/11/03 20:35:18:322|sync|became active|
+2024/11/03 20:35:18:348|PREFS|applicationShouldHandleReopen|
+2024/11/03 20:35:18:348|PREFS|showing prefs (null)|
+2024/11/03 20:35:18:362|ASL|prepare <NSStoryboardSegue:0x600002ad1a40 identifier='(null)', source='<BTTMainUIStructureVC: 0x600001e19860>', destination='<BTTAppListVC: 0x600001a08f00>'>|
+2024/11/03 20:35:18:364|ASL|view did load BTTAppListVC|
+2024/11/03 20:35:18:366|ASL|no overall selected|
+2024/11/03 20:35:18:366|ASL|internal select item Actions Executed On Trigger - tag: 0|
+2024/11/03 20:35:18:366|ASL|previously selected 0|
+2024/11/03 20:35:18:366|ASL|previously selected 0|
+2024/11/03 20:35:18:366|ASL|prepare <NSStoryboardSegue:0x600002ae8ba0 identifier='EmbedTopMenuVC', source='<BTTMainUIStructureVC: 0x600001e19860>', destination='<BTTTopMenuVC: 0x1222949e0>'>|
+2024/11/03 20:35:18:372|ASL|view did load BTTTopMenuVC|
+2024/11/03 20:35:18:374|ASL|window did load BTTRootPreferencesWC|
+2024/11/03 20:35:18:374|ASL|did set <BTTPrefsMenuContentContainerVC: 0x6000014a5fe0> BTTPrefsMenuContentContainerVC|
+2024/11/03 20:35:18:374|ASL|did set <BTTMainUIStructureVC: 0x600001e19860> BTTMainUIStructureVC|
+2024/11/03 20:35:18:374|ASL|did set <BTTLevel3VC: 0x1135798b0> BTTLevel3VC|
+2024/11/03 20:35:18:374|ASL|did set <BTTConfigurationVC: 0x1134d75b0> BTTConfigurationVC|
+2024/11/03 20:35:18:374|ASL|did set <BTTLevel1VC: 0x600001a75950> BTTLevel1VC|
+2024/11/03 20:35:18:374|ASL|did set <BTTMainSplitViewController: 0x600001e1bc20> BTTMainSplitViewController|
+2024/11/03 20:35:18:374|ASL|did set <BTTOutlineModeVC: 0x600001a744b0> BTTOutlineModeVC|
+2024/11/03 20:35:18:374|ASL|did set <BTTConfigurationVC: 0x1134f3520> BTTConfigurationVC|
+2024/11/03 20:35:18:374|ASL|did set <BTTTopMenuVC: 0x1222949e0> BTTTopMenuVC|
+2024/11/03 20:35:18:393|LIC|ADD REGISTER MENU ITEM|
+2024/11/03 20:35:18:397|LIC|ADD REGISTER MENU ITEM|
+2024/11/03 20:35:18:400|ASL|previously selected 19|
+2024/11/03 20:35:18:428|ASL|saving|
+2024/11/03 20:35:18:429|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 20:35:18:476|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 20:35:18:515|LIC|ADD REGISTER MENU ITEM|
+2024/11/03 20:35:18:519|sync|became active|
+2024/11/03 20:35:18:528|NEWUI|Loading Config Debounced|
+2024/11/03 20:35:18:528|NEWUI|Loading Config Debounced|
+2024/11/03 20:35:18:528|FORM|1UUID 271DA9F4-77D6-4F9C-A3DE-28CEFB63E87C == (null) editing 0 == 0|
+2024/11/03 20:35:18:687|ASL|did load level 3|
+2024/11/03 20:35:18:714|UI|Level 1 Focused|
+2024/11/03 20:35:18:718|FORM|2UUID E4588ECC-6738-4A82-B4F3-62541E88A883 == 521C6921-B5B5-4716-9715-F6758841BF72 editing 0 == 0|
+2024/11/03 20:35:18:867|NEWUI|Loading Config Debounced|
+2024/11/03 20:35:18:868|FORM|1UUID E4588ECC-6738-4A82-B4F3-62541E88A883 == E4588ECC-6738-4A82-B4F3-62541E88A883 editing 0 == 0|
+2024/11/03 20:35:19:050|FORM|2UUID E4588ECC-6738-4A82-B4F3-62541E88A883 == E4588ECC-6738-4A82-B4F3-62541E88A883 editing 0 == 0|
+2024/11/03 20:35:19:780|sync|x (null)|
+2024/11/03 20:35:24:876|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 20:35:24:877|NEWUI|Opening Settings BTTSettingsSimple|
+2024/11/03 20:35:24:878|ASL|animate new settings segue|
+2024/11/03 20:35:24:879|ASL|Could not find image named 'background'.|
+2024/11/03 20:35:24:931|ASL|language en-US|
+2024/11/03 20:35:25:027|NEWUI|Opening Settings BTTSettingsSimple|
+2024/11/03 20:35:25:062|ASL|animate new settings segue|
+2024/11/03 20:35:25:114|ASL|language en-US|
+2024/11/03 20:35:27:362|ASL|animate new settings segue|
+2024/11/03 20:35:31:853|ASL|animate new settings segue|
+2024/11/03 20:35:31:862|ASL|language en-US|
+2024/11/03 20:35:52:435|xw|should relaunch|
+2024/11/03 20:35:52:435|xw|BTTRelaunch found|
+2024/11/03 20:35:52:435|xw|BTTRelaunch call seems successfull|
+2024/11/03 20:35:52:447|TERMINATE|SHOULDTERMINATE|
+2024/11/03 20:35:52:553|ASL|terminate reply 1|
+2024/11/03 20:35:52:852|SYS|Running on macOS: 15.0.1|
+2024/11/03 20:35:52:852|SYS|BTT Version: 4.851|
+2024/11/03 20:35:52:852|SYS|Device: MacBookPro18,2|
+2024/11/03 20:35:52:877|usage|loading todays usage|
+2024/11/03 20:35:52:877|ASL|0 elapsed 0.032458|
+2024/11/03 20:35:52:877|LAUNCH|DIDLaunch START NSConcreteNotification 0x60000019f740 {name = NSApplicationDidFinishLaunchingNotification; object = <BTTApplication: 0x153e08ed0>; userInfo = {
+    NSApplicationLaunchIsDefaultLaunchKey = 1;
+}}|
+2024/11/03 20:35:52:892|ASL|1 elapsed 0.047364|
+2024/11/03 20:35:52:892|ASL|2 elapsed 0.047399|
+2024/11/03 20:35:52:892|ASL|3 elapsed 0.047549|
+2024/11/03 20:35:52:892|ASL|4 elapsed 0.047620|
+2024/11/03 20:35:52:894|ASL|5 elapsed 0.049159|
+2024/11/03 20:35:52:894|ASL|6 elapsed 0.049197|
+2024/11/03 20:35:52:894|INIT|START PREVIOUSLYININIT|
+2024/11/03 20:35:52:894|ASL|sub 0 elapsed 0.000000 - prev|
+2024/11/03 20:35:52:905|ASL|sub 1 elapsed 0.011063 - prev|
+2024/11/03 20:35:52:905|ASL|sub 2 elapsed 0.011492 - prev|
+2024/11/03 20:35:52:906|ASL|sub 3 elapsed 0.011806 - prev|
+2024/11/03 20:35:52:906|ASL|sub 4 elapsed 0.012497 - prevk|
+2024/11/03 20:35:52:906|short|init|
+2024/11/03 20:35:52:906|ASL|Hyper key used 0|
+2024/11/03 20:35:53:219|ASL|No numeric part found in the filename.|
+2024/11/03 20:35:53:219|ASL|No numeric part found in the filename.|
+2024/11/03 20:35:53:219|ASL|Extracted build number: 2024110301|
+2024/11/03 20:35:53:219|STORE|The store already exists in udefs|
+2024/11/03 20:35:53:219|xw|the new store already exists btt_data_store.version_4_851_build_2024110301|
+2024/11/03 20:35:53:224|migrate|fixing uuids2|
+2024/11/03 20:35:53:226|LIC|idate 2024-11-04 04:29:51 +0000|
+2024/11/03 20:35:53:226|ASL|sub 5 elapsed 0.332357 - prevke|
+2024/11/03 20:35:53:226|INIT|FINISH PREVIOUSLYININIT|
+2024/11/03 20:35:53:226|ASL|7 elapsed 0.381602|
+2024/11/03 20:35:53:227|LIC|closing previous instance of BetterTouchTool relaunch|
+2024/11/03 20:35:53:227|ASL|8 elapsed 0.382196|
+2024/11/03 20:35:53:227|ASL|9 elapsed 0.382293|
+2024/11/03 20:35:53:227|ASL|10 elapsed 0.382447|
+2024/11/03 20:35:53:229|ASL|11 elapsed 0.384184|
+2024/11/03 20:35:53:230|ASL|12 elapsed 0.384917|
+2024/11/03 20:35:53:230|ASL|disablign app nap|
+2024/11/03 20:35:53:230|ASL|disabling app nap done|
+2024/11/03 20:35:53:230|ASL|13 elapsed 0.384957|
+2024/11/03 20:35:53:230|ASL|14 elapsed 0.384969|
+2024/11/03 20:35:53:230|ASL|15 elapsed 0.385022|
+2024/11/03 20:35:53:233|ASL|16 elapsed 0.387788|
+2024/11/03 20:35:53:233|ASL|17 elapsed 0.387821|
+2024/11/03 20:35:53:233|ASL|18 elapsed 0.388026|
+2024/11/03 20:35:53:233|ASL|19 elapsed 0.388046|
+2024/11/03 20:35:53:233|ASL|20 elapsed 0.388124|
+2024/11/03 20:35:53:233|ASL|21 elapsed 0.388147|
+2024/11/03 20:35:53:233|ASL|22 elapsed 0.388155|
+2024/11/03 20:35:53:233|ASL|23 elapsed 0.388601|
+2024/11/03 20:35:53:233|ASL|24 elapsed 0.388620|
+2024/11/03 20:35:53:233|ASL|25 elapsed 0.388656|
+2024/11/03 20:35:53:233|ASL|26 elapsed 0.388761|
+2024/11/03 20:35:53:241|ASL|27 elapsed 0.395950|
+2024/11/03 20:35:53:244|xw|is trusted|
+2024/11/03 20:35:53:272|short|call sharedInstance3|
+2024/11/03 20:35:53:325|ASL|The Mac is running on battery power.|
+2024/11/03 20:35:53:349|TB|touchbar screen size {1085, 30}|
+2024/11/03 20:35:53:350|ASL|28 elapsed 0.505300|
+2024/11/03 20:35:53:350|ASL|29 elapsed 0.505351|
+2024/11/03 20:35:53:350|ASL|30 elapsed 0.505362|
+2024/11/03 20:35:53:350|ASL|31 elapsed 0.505369|
+2024/11/03 20:35:53:351|ASL|32 elapsed 0.505903|
+2024/11/03 20:35:53:351|LIC|trial|
+2024/11/03 20:35:53:351|ASL|33 elapsed 0.506679|
+2024/11/03 20:35:53:352|ASL|34 elapsed 0.507140|
+2024/11/03 20:35:53:352|START|TB VISIBLE 0|
+2024/11/03 20:35:53:352|START|TB FORCED HIDDEN 0|
+2024/11/03 20:35:53:352|ASL|35 elapsed 0.507167|
+2024/11/03 20:35:53:358|ASL|36 elapsed 0.512785|
+2024/11/03 20:35:53:358|ASL|37 elapsed 0.513063|
+2024/11/03 20:35:53:358|ASL|38 elapsed 0.513081|
+2024/11/03 20:35:53:358|LAUNCH|DIDLaunch END frontmostApp: company.thebrowser.Browser, touchpadMode 0, windowSnappingDisabled 0, singleFingerScrollingDisabled 0, mmScrollingUsed 0, tpScrollingUsed 0, tpPinchUsed 0, tpRotateUsed 0|
+2024/11/03 20:35:53:358|ASL|39 elapsed 0.513124|
+2024/11/03 20:35:53:359|ASL|40 elapsed 0.513890|
+2024/11/03 20:35:54:233|PERM|Can record screen 0|
+2024/11/03 20:35:54:238|SLEEP|FORCESHOWAFTERSLEEP2|
+2024/11/03 20:35:54:238|TB|Force show Touch Bar|
+2024/11/03 20:35:54:412|M|mt_stop2|
+2024/11/03 20:35:54:415|SLEEP|FORCESHOWAFTERSLEEP3B|
+2024/11/03 20:35:54:415|TB|Force show Touch Bar|
+2024/11/03 20:35:54:415|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 20:35:54:419|BTT|mt device 0x0200000000000033,0x69 - 105 - internal 1 - force 1|
+2024/11/03 20:35:54:419|M|register touchbar mbp trackpad|
+2024/11/03 20:35:54:420|STDEV||
+2024/11/03 20:35:55:359|SNAPAREA|step1, 0 displays- match mode 0 - searching Built-in Retina Display|
+2024/11/03 20:35:55:362|SNAPAREA|return existing (updated)|
+2024/11/03 20:35:55:362|SNAP|Did recognize 41041 4251086178 dragpoints: 0 - 0|
+2024/11/03 20:35:57:811|ASL|performing 366|
+2024/11/03 20:35:57:811|ASL|triggering action Empty Placeholder - 7D6A21F6-4277-4047-931B-1207D54C3DDD|
+2024/11/03 20:35:57:811|ASL|performing 204|
+2024/11/03 20:35:57:811|ASL|triggering action Activate/Bring to Front Window Under Cursor - 014E15E5-C0E5-4D2C-B7E6-EB7664AE0DCC|
+2024/11/03 20:35:57:829|ASL|trigger delayed|
+2024/11/03 20:35:57:829|ASL|performing 124|
+2024/11/03 20:35:57:829|ASL|triggering action Trigger Menu Bar Menu-Item - 0CAFFF3E-A3E3-4A77-ABA8-D3C557AD2859|
+2024/11/03 20:35:57:849|ASL|already replied 103|
+2024/11/03 20:35:58:410|sync|using icloud drive|
+2024/11/03 20:35:58:410|sync|modelurl file:///Applications/BetterTouchTool.app/Contents/Resources/BetterTouchTool_DataModel.momd/|
+2024/11/03 20:35:59:738|sync|res (null)|
+2024/11/03 20:35:59:903|ASL|performing 366|
+2024/11/03 20:35:59:903|ASL|triggering action Empty Placeholder - 7D6A21F6-4277-4047-931B-1207D54C3DDD|
+2024/11/03 20:35:59:903|ASL|performing 204|
+2024/11/03 20:35:59:903|ASL|triggering action Activate/Bring to Front Window Under Cursor - 014E15E5-C0E5-4D2C-B7E6-EB7664AE0DCC|
+2024/11/03 20:35:59:905|ASL|trigger delayed|
+2024/11/03 20:35:59:905|ASL|performing 124|
+2024/11/03 20:35:59:905|ASL|triggering action Trigger Menu Bar Menu-Item - 0CAFFF3E-A3E3-4A77-ABA8-D3C557AD2859|
+2024/11/03 20:35:59:915|ASL|already replied 103|
+2024/11/03 20:36:08:258|ASL|performing 366|
+2024/11/03 20:36:08:258|ASL|triggering action Empty Placeholder - 7D6A21F6-4277-4047-931B-1207D54C3DDD|
+2024/11/03 20:36:08:258|ASL|performing 204|
+2024/11/03 20:36:08:258|ASL|triggering action Activate/Bring to Front Window Under Cursor - 014E15E5-C0E5-4D2C-B7E6-EB7664AE0DCC|
+2024/11/03 20:36:08:270|ASL|trigger delayed|
+2024/11/03 20:36:08:270|ASL|performing 124|
+2024/11/03 20:36:08:270|ASL|triggering action Trigger Menu Bar Menu-Item - 0CAFFF3E-A3E3-4A77-ABA8-D3C557AD2859|
+2024/11/03 20:36:08:298|ASL|already replied 103|
+2024/11/03 20:36:08:918|ASL|performing 366|
+2024/11/03 20:36:08:918|ASL|triggering action Empty Placeholder - 7D6A21F6-4277-4047-931B-1207D54C3DDD|
+2024/11/03 20:36:08:918|ASL|performing 204|
+2024/11/03 20:36:08:918|ASL|triggering action Activate/Bring to Front Window Under Cursor - 014E15E5-C0E5-4D2C-B7E6-EB7664AE0DCC|
+2024/11/03 20:36:08:926|ASL|trigger delayed|
+2024/11/03 20:36:08:926|ASL|performing 124|
+2024/11/03 20:36:08:926|ASL|triggering action Trigger Menu Bar Menu-Item - 0CAFFF3E-A3E3-4A77-ABA8-D3C557AD2859|
+2024/11/03 20:36:08:937|ASL|already replied 103|
+2024/11/03 20:36:11:776|ASL|performing 366|
+2024/11/03 20:36:11:776|ASL|triggering action Empty Placeholder - 7D6A21F6-4277-4047-931B-1207D54C3DDD|
+2024/11/03 20:36:11:776|ASL|performing 204|
+2024/11/03 20:36:11:776|ASL|triggering action Activate/Bring to Front Window Under Cursor - 014E15E5-C0E5-4D2C-B7E6-EB7664AE0DCC|
+2024/11/03 20:36:11:784|ASL|trigger delayed|
+2024/11/03 20:36:11:785|ASL|performing 124|
+2024/11/03 20:36:11:785|ASL|triggering action Trigger Menu Bar Menu-Item - 0CAFFF3E-A3E3-4A77-ABA8-D3C557AD2859|
+2024/11/03 20:36:11:825|ASL|already replied 103|
+2024/11/03 20:36:12:474|ASL|performing 366|
+2024/11/03 20:36:12:475|ASL|triggering action Empty Placeholder - 7D6A21F6-4277-4047-931B-1207D54C3DDD|
+2024/11/03 20:36:12:475|ASL|performing 204|
+2024/11/03 20:36:12:475|ASL|triggering action Activate/Bring to Front Window Under Cursor - 014E15E5-C0E5-4D2C-B7E6-EB7664AE0DCC|
+2024/11/03 20:36:12:481|ASL|trigger delayed|
+2024/11/03 20:36:12:481|ASL|performing 124|
+2024/11/03 20:36:12:481|ASL|triggering action Trigger Menu Bar Menu-Item - 0CAFFF3E-A3E3-4A77-ABA8-D3C557AD2859|
+2024/11/03 20:36:12:500|ASL|already replied 103|
+2024/11/03 20:36:16:988|ASL|performing 366|
+2024/11/03 20:36:16:988|ASL|triggering action Empty Placeholder - 7D6A21F6-4277-4047-931B-1207D54C3DDD|
+2024/11/03 20:36:16:988|ASL|performing 204|
+2024/11/03 20:36:16:988|ASL|triggering action Activate/Bring to Front Window Under Cursor - 014E15E5-C0E5-4D2C-B7E6-EB7664AE0DCC|
+2024/11/03 20:36:16:996|ASL|trigger delayed|
+2024/11/03 20:36:16:997|ASL|performing 124|
+2024/11/03 20:36:16:997|ASL|triggering action Trigger Menu Bar Menu-Item - 0CAFFF3E-A3E3-4A77-ABA8-D3C557AD2859|
+2024/11/03 20:36:17:005|ASL|already replied 103|
+2024/11/03 20:36:23:757|sync|became active|
+2024/11/03 20:36:23:793|PREFS|applicationShouldHandleReopen|
+2024/11/03 20:36:23:793|PREFS|showing prefs (null)|
+2024/11/03 20:36:23:817|ASL|prepare <NSStoryboardSegue:0x600000ee18c0 identifier='(null)', source='<BTTMainUIStructureVC: 0x600003a9c750>', destination='<BTTAppListVC: 0x600003eac870>'>|
+2024/11/03 20:36:23:820|ASL|Warning: Column selection is not supported in view-based table and outline views (<BTTPreferencesTableView: 0x1560a4200>).|
+2024/11/03 20:36:23:820|ASL|view did load BTTAppListVC|
+2024/11/03 20:36:23:820|ASL|previously selected 0|
+2024/11/03 20:36:23:820|ASL|previously selected 0|
+2024/11/03 20:36:23:821|ASL|prepare <NSStoryboardSegue:0x600000eec750 identifier='EmbedTopMenuVC', source='<BTTMainUIStructureVC: 0x600003a9c750>', destination='<BTTTopMenuVC: 0x15519b740>'>|
+2024/11/03 20:36:23:833|ASL|view did load BTTTopMenuVC|
+2024/11/03 20:36:23:835|ASL|window did load BTTRootPreferencesWC|
+2024/11/03 20:36:23:835|ASL|did set <BTTPrefsMenuContentContainerVC: 0x6000030bed00> BTTPrefsMenuContentContainerVC|
+2024/11/03 20:36:23:835|ASL|did set <BTTMainUIStructureVC: 0x600003a9c750> BTTMainUIStructureVC|
+2024/11/03 20:36:23:835|ASL|did set <BTTLevel1VC: 0x600003e982d0> BTTLevel1VC|
+2024/11/03 20:36:23:835|ASL|did set <BTTConfigurationVC: 0x134314ee0> BTTConfigurationVC|
+2024/11/03 20:36:23:835|ASL|did set <BTTMainSplitViewController: 0x600003a9ca90> BTTMainSplitViewController|
+2024/11/03 20:36:23:835|ASL|did set <BTTLevel3VC: 0x134315060> BTTLevel3VC|
+2024/11/03 20:36:23:835|ASL|did set <BTTConfigurationVC: 0x15501b500> BTTConfigurationVC|
+2024/11/03 20:36:23:835|ASL|did set <BTTOutlineModeVC: 0x600003eba490> BTTOutlineModeVC|
+2024/11/03 20:36:23:835|ASL|did set <BTTTopMenuVC: 0x15519b740> BTTTopMenuVC|
+2024/11/03 20:36:23:872|LIC|ADD REGISTER MENU ITEM|
+2024/11/03 20:36:23:878|LIC|ADD REGISTER MENU ITEM|
+2024/11/03 20:36:23:883|ASL|previously selected 19|
+2024/11/03 20:36:23:921|ASL|saving|
+2024/11/03 20:36:23:924|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 20:36:23:939|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 20:36:23:996|LIC|ADD REGISTER MENU ITEM|
+2024/11/03 20:36:24:002|sync|became active|
+2024/11/03 20:36:24:015|NEWUI|Loading Config Debounced|
+2024/11/03 20:36:24:139|ASL|did load level 3|
+2024/11/03 20:36:24:179|UI|Level 1 Focused|
+2024/11/03 20:36:24:181|FORM|2UUID 07E3C835-BDD9-466B-8030-DB3CB6043382 == 521C6921-B5B5-4716-9715-F6758841BF72 editing 0 == 0|
+2024/11/03 20:36:24:317|NEWUI|Loading Config Debounced|
+2024/11/03 20:36:24:317|FORM|1UUID 07E3C835-BDD9-466B-8030-DB3CB6043382 == 07E3C835-BDD9-466B-8030-DB3CB6043382 editing 0 == 0|
+2024/11/03 20:36:24:486|FORM|2UUID 07E3C835-BDD9-466B-8030-DB3CB6043382 == 07E3C835-BDD9-466B-8030-DB3CB6043382 editing 0 == 0|
+2024/11/03 20:36:25:232|FORM|2UUID 7D6A21F6-4277-4047-931B-1207D54C3DDD == 07E3C835-BDD9-466B-8030-DB3CB6043382 editing 0 == 0|
+2024/11/03 20:36:25:296|NEWUI|Loading Config Debounced|
+2024/11/03 20:36:25:296|FORM|1UUID 7D6A21F6-4277-4047-931B-1207D54C3DDD == 7D6A21F6-4277-4047-931B-1207D54C3DDD editing 0 == 0|
+2024/11/03 20:36:25:323|sync|x (null)|
+2024/11/03 20:36:29:877|UI|Level 3 Focused|
+2024/11/03 20:36:29:952|NEWUI|Loading Config Debounced|
+2024/11/03 20:36:29:952|FORM|1UUID 7D6A21F6-4277-4047-931B-1207D54C3DDD == 7D6A21F6-4277-4047-931B-1207D54C3DDD editing 1 == 0|
+2024/11/03 20:36:30:042|NEWUI|Loading Config Debounced|
+2024/11/03 20:36:30:043|FORM|1UUID 7D6A21F6-4277-4047-931B-1207D54C3DDD == 014E15E5-C0E5-4D2C-B7E6-EB7664AE0DCC editing 1 == 1|
+2024/11/03 20:36:30:167|ASL|Could not find image named 'software_font_underline'.|
+2024/11/03 20:36:30:182|ASL|+[IMKClient subclass]: chose IMKClient_Legacy|
+2024/11/03 20:36:30:842|NEWUI|Loading Config Debounced|
+2024/11/03 20:36:30:843|FORM|1UUID 7D6A21F6-4277-4047-931B-1207D54C3DDD == 0CAFFF3E-A3E3-4A77-ABA8-D3C557AD2859 editing 1 == 1|
+2024/11/03 20:36:30:980|ASL|dealloc called textarea|
+2024/11/03 20:36:36:622|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 20:36:36:641|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 20:36:53:065|ASL|The Mac is running on battery power.|
+2024/11/03 20:37:01:358|SWI|PID MISMATCH FIX|
+2024/11/03 20:37:04:057|ASL|+[IMKInputSession subclass]: chose IMKInputSession_Legacy|
+2024/11/03 20:37:04:065|LIC|ADD REGISTER MENU ITEM|
+2024/11/03 20:37:04:075|sync|became active|
+2024/11/03 20:37:04:090|ASL|_TIPropertyValueIsValid called with 16 on nil context!|
+2024/11/03 20:37:04:090|ASL|imkxpc_getApplicationProperty:reply: called with incorrect property value 16, bailing.|
+2024/11/03 20:37:04:090|ASL|Text input context does not respond to _valueForTIProperty:|
+2024/11/03 20:37:06:807|UI|Level 1 Focused|
+2024/11/03 20:37:06:822|FORM|2UUID (null) == 74B7D6A2-900B-4AE7-B29C-12EE1EB9E277 editing 0 == 1|
+2024/11/03 20:37:06:881|FORM|2UUID (null) == (null) editing 0 == 0|
+2024/11/03 20:37:07:860|FORM|2UUID 7D6A21F6-4277-4047-931B-1207D54C3DDD == (null) editing 0 == 0|
+2024/11/03 20:37:07:922|NEWUI|Loading Config Debounced|
+2024/11/03 20:37:07:922|FORM|1UUID 7D6A21F6-4277-4047-931B-1207D54C3DDD == 7D6A21F6-4277-4047-931B-1207D54C3DDD editing 0 == 0|
+2024/11/03 20:37:21:742|MOUSE|EXIT|
+2024/11/03 20:37:23:937|ASL| show save buttons|
+2024/11/03 20:37:23:937|UI|Level 3 Focused|
+2024/11/03 20:37:23:937|FORM|GESTURE SAVE BLOCK CALLED|
+2024/11/03 20:37:23:938|ASL|saving|
+2024/11/03 20:37:23:944|ASL|internal select item Actions Executed On Trigger - tag: 0|
+2024/11/03 20:37:24:026|NEWUI|Loading Config Debounced|
+2024/11/03 20:37:24:026|FORM|1UUID 7D6A21F6-4277-4047-931B-1207D54C3DDD == 7D6A21F6-4277-4047-931B-1207D54C3DDD editing 1 == 0|
+2024/11/03 20:37:25:301|sync|x (null)|
+2024/11/03 20:37:25:927|UI|Level 1 Focused|
+2024/11/03 20:37:25:941|FORM|2UUID (null) == 014E15E5-C0E5-4D2C-B7E6-EB7664AE0DCC editing 0 == 1|
+2024/11/03 20:37:25:997|FORM|2UUID (null) == (null) editing 0 == 0|
+2024/11/03 20:37:27:159|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 20:37:27:178|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 20:37:49:747|SWI|PID MISMATCH FIX|
+2024/11/03 20:37:53:060|ASL|The Mac is running on battery power.|
+2024/11/03 20:38:53:064|ASL|The Mac is running on battery power.|
+2024/11/03 20:39:53:065|ASL|The Mac is running on battery power.|
+2024/11/03 20:40:53:064|ASL|The Mac is running on battery power.|
+2024/11/03 20:41:01:574|SWI|PID MISMATCH FIX|
+2024/11/03 20:41:17:451|SWI|PID MISMATCH FIX|
+2024/11/03 20:41:53:069|ASL|The Mac is running on battery power.|
+2024/11/03 20:42:53:052|ASL|The Mac is running on battery power.|
+2024/11/03 20:43:53:051|ASL|The Mac is running on battery power.|
+2024/11/03 20:44:53:089|ASL|The Mac is running on battery power.|
+2024/11/03 20:45:53:046|ASL|The Mac is running on battery power.|
+2024/11/03 20:46:53:054|ASL|The Mac is running on battery power.|
+2024/11/03 20:47:44:202|WISNA|Focus doesn't match window pid|
+2024/11/03 20:47:53:066|ASL|The Mac is running on battery power.|
+2024/11/03 20:48:53:062|ASL|The Mac is running on battery power.|
+2024/11/03 20:49:53:066|ASL|The Mac is running on battery power.|
+2024/11/03 20:50:53:056|ASL|The Mac is running on battery power.|
+2024/11/03 20:51:53:049|ASL|The Mac is running on battery power.|
+2024/11/03 20:52:53:059|ASL|The Mac is running on battery power.|
+2024/11/03 20:53:21:247|ASL|performing 366|
+2024/11/03 20:53:21:247|ASL|triggering action Empty Placeholder - 7D6A21F6-4277-4047-931B-1207D54C3DDD|
+2024/11/03 20:53:21:247|ASL|performing 204|
+2024/11/03 20:53:21:247|ASL|triggering action Activate/Bring to Front Window Under Cursor - 014E15E5-C0E5-4D2C-B7E6-EB7664AE0DCC|
+2024/11/03 20:53:21:256|ASL|trigger delayed|
+2024/11/03 20:53:21:256|ASL|performing 124|
+2024/11/03 20:53:21:256|ASL|triggering action Trigger Menu Bar Menu-Item - 0CAFFF3E-A3E3-4A77-ABA8-D3C557AD2859|
+2024/11/03 20:53:21:277|ASL|already replied 103|
+2024/11/03 20:53:53:059|ASL|The Mac is running on battery power.|
+2024/11/03 20:54:53:093|ASL|The Mac is running on battery power.|
+2024/11/03 20:55:06:221|WISNA|Focus doesn't match window pid|
+2024/11/03 20:55:53:061|ASL|The Mac is running on battery power.|
+2024/11/03 20:56:53:067|ASL|The Mac is running on battery power.|
+2024/11/03 20:57:17:370|SWI|PID MISMATCH FIX|
+2024/11/03 20:57:42:156|SWI|PID MISMATCH FIX|
+2024/11/03 20:57:53:067|ASL|The Mac is running on battery power.|
+2024/11/03 20:58:53:061|ASL|The Mac is running on battery power.|
+2024/11/03 20:59:53:062|ASL|The Mac is running on battery power.|
+2024/11/03 21:00:53:067|ASL|The Mac is running on battery power.|
+2024/11/03 21:01:53:053|ASL|The Mac is running on battery power.|
+2024/11/03 21:02:53:057|ASL|The Mac is running on battery power.|
+2024/11/03 21:03:53:058|ASL|The Mac is running on battery power.|
+2024/11/03 21:04:53:095|ASL|The Mac is running on battery power.|
+2024/11/03 21:05:53:058|ASL|The Mac is running on battery power.|
+2024/11/03 21:06:53:064|ASL|The Mac is running on battery power.|
+2024/11/03 21:07:53:058|ASL|The Mac is running on battery power.|
+2024/11/03 21:08:53:064|ASL|The Mac is running on battery power.|
+2024/11/03 21:09:53:058|ASL|The Mac is running on battery power.|
+2024/11/03 21:10:53:056|ASL|The Mac is running on battery power.|
+2024/11/03 21:11:53:055|ASL|The Mac is running on battery power.|
+2024/11/03 21:12:53:060|ASL|The Mac is running on battery power.|
+2024/11/03 21:13:53:068|ASL|The Mac is running on battery power.|
+2024/11/03 21:14:53:100|ASL|The Mac is running on battery power.|
+2024/11/03 21:15:53:066|ASL|The Mac is running on battery power.|
+2024/11/03 21:16:53:054|ASL|The Mac is running on battery power.|
+2024/11/03 21:17:30:218|SWI|PID MISMATCH FIX|
+2024/11/03 21:17:53:062|ASL|The Mac is running on battery power.|
+2024/11/03 21:18:53:065|ASL|The Mac is running on battery power.|
+2024/11/03 21:19:53:059|ASL|The Mac is running on battery power.|
+2024/11/03 21:20:53:058|ASL|The Mac is running on battery power.|
+2024/11/03 21:21:53:058|ASL|The Mac is running on battery power.|
+2024/11/03 21:22:50:233|sync|became active|
+2024/11/03 21:22:50:253|PREFS|applicationShouldHandleReopen|
+2024/11/03 21:22:50:253|PREFS|showing prefs (null)|
+2024/11/03 21:22:50:267|ASL|prepare <NSStoryboardSegue:0x600000e1b6c0 identifier='(null)', source='<BTTMainUIStructureVC: 0x600003afe490>', destination='<BTTAppListVC: 0x600003ea5950>'>|
+2024/11/03 21:22:50:270|ASL|view did load BTTAppListVC|
+2024/11/03 21:22:50:271|ASL|no overall selected|
+2024/11/03 21:22:50:272|ASL|internal select item Actions Executed On Trigger - tag: 0|
+2024/11/03 21:22:50:272|ASL|previously selected 0|
+2024/11/03 21:22:50:272|ASL|previously selected 0|
+2024/11/03 21:22:50:272|ASL|prepare <NSStoryboardSegue:0x600000dfa3a0 identifier='EmbedTopMenuVC', source='<BTTMainUIStructureVC: 0x600003afe490>', destination='<BTTTopMenuVC: 0x1179380a0>'>|
+2024/11/03 21:22:50:278|ASL|view did load BTTTopMenuVC|
+2024/11/03 21:22:50:280|ASL|window did load BTTRootPreferencesWC|
+2024/11/03 21:22:50:280|ASL|did set <BTTPrefsMenuContentContainerVC: 0x6000030ceda0> BTTPrefsMenuContentContainerVC|
+2024/11/03 21:22:50:280|ASL|did set <BTTMainUIStructureVC: 0x600003afe490> BTTMainUIStructureVC|
+2024/11/03 21:22:50:280|ASL|did set <BTTConfigurationVC: 0x155046360> BTTConfigurationVC|
+2024/11/03 21:22:50:280|ASL|did set <BTTMainSplitViewController: 0x600003afe220> BTTMainSplitViewController|
+2024/11/03 21:22:50:280|ASL|did set <BTTLevel1VC: 0x600003e84b40> BTTLevel1VC|
+2024/11/03 21:22:50:280|ASL|did set <BTTLevel3VC: 0x155097260> BTTLevel3VC|
+2024/11/03 21:22:50:280|ASL|did set <BTTConfigurationVC: 0x13431d510> BTTConfigurationVC|
+2024/11/03 21:22:50:280|ASL|did set <BTTOutlineModeVC: 0x600003e98960> BTTOutlineModeVC|
+2024/11/03 21:22:50:280|ASL|did set <BTTTopMenuVC: 0x1179380a0> BTTTopMenuVC|
+2024/11/03 21:22:50:301|LIC|ADD REGISTER MENU ITEM|
+2024/11/03 21:22:50:304|LIC|ADD REGISTER MENU ITEM|
+2024/11/03 21:22:50:308|ASL|previously selected 19|
+2024/11/03 21:22:50:336|ASL|saving|
+2024/11/03 21:22:50:338|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 21:22:50:391|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 21:22:50:431|LIC|ADD REGISTER MENU ITEM|
+2024/11/03 21:22:50:436|sync|became active|
+2024/11/03 21:22:50:451|NEWUI|Loading Config Debounced|
+2024/11/03 21:22:50:451|NEWUI|Loading Config Debounced|
+2024/11/03 21:22:50:451|FORM|1UUID 9D61043E-6590-4722-9E47-2858D8EC7F04 == (null) editing 0 == 0|
+2024/11/03 21:22:50:591|ASL|did load level 3|
+2024/11/03 21:22:50:617|UI|Level 1 Focused|
+2024/11/03 21:22:50:622|FORM|2UUID 89743F18-3A85-4C2E-96B6-F66AF2EEEBFB == 521C6921-B5B5-4716-9715-F6758841BF72 editing 0 == 0|
+2024/11/03 21:22:50:768|NEWUI|Loading Config Debounced|
+2024/11/03 21:22:50:768|FORM|1UUID 89743F18-3A85-4C2E-96B6-F66AF2EEEBFB == 89743F18-3A85-4C2E-96B6-F66AF2EEEBFB editing 0 == 0|
+2024/11/03 21:22:50:939|FORM|2UUID 89743F18-3A85-4C2E-96B6-F66AF2EEEBFB == 89743F18-3A85-4C2E-96B6-F66AF2EEEBFB editing 0 == 0|
+2024/11/03 21:22:51:711|sync|x (null)|
+2024/11/03 21:22:56:215|PREFS|DID SELECT TRIGGER TYPE 12|
+2024/11/03 21:22:56:233|ASL|The Mac is running on battery power.|
+2024/11/03 21:22:56:248|FORM|2UUID (null) == 89743F18-3A85-4C2E-96B6-F66AF2EEEBFB editing 0 == 0|
+2024/11/03 21:22:56:276|FORM|2UUID (null) == (null) editing 0 == 0|
+2024/11/03 21:22:58:082|PREFS|DID SELECT TRIGGER TYPE 21|
+2024/11/03 21:22:58:104|FORM|2UUID (null) == (null) editing 0 == 0|
+2024/11/03 21:23:00:101|PREFS|DID SELECT TRIGGER TYPE 18|
+2024/11/03 21:23:00:128|FORM|2UUID (null) == (null) editing 0 == 0|
+2024/11/03 21:23:09:423|PREFS|DID SELECT TRIGGER TYPE 1|
+2024/11/03 21:23:09:442|FORM|2UUID (null) == (null) editing 0 == 0|
+2024/11/03 21:23:10:761|FORM|2UUID (null) == (null) editing 0 == 0|
+2024/11/03 21:23:11:401|FORM|2UUID (null) == (null) editing 0 == 0|
+2024/11/03 21:23:12:010|FORM|2UUID (null) == (null) editing 0 == 0|
+2024/11/03 21:23:12:522|FORM|2UUID (null) == (null) editing 0 == 0|
+2024/11/03 21:23:12:957|FORM|2UUID (null) == (null) editing 0 == 0|
+2024/11/03 21:23:13:424|FORM|2UUID (null) == (null) editing 0 == 0|
+2024/11/03 21:23:13:826|FORM|2UUID (null) == (null) editing 0 == 0|
+2024/11/03 21:23:14:296|FORM|2UUID (null) == (null) editing 0 == 0|
+2024/11/03 21:23:14:806|FORM|2UUID (null) == (null) editing 0 == 0|
+2024/11/03 21:23:15:762|FORM|2UUID (null) == (null) editing 0 == 0|
+2024/11/03 21:23:16:522|FORM|2UUID (null) == (null) editing 0 == 0|
+2024/11/03 21:23:17:105|FORM|2UUID (null) == (null) editing 0 == 0|
+2024/11/03 21:23:20:042|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 21:23:20:044|NEWUI|Opening Settings BTTSettingsSimple|
+2024/11/03 21:23:20:045|ASL|animate new settings segue|
+2024/11/03 21:23:20:047|ASL|Could not find image named 'background'.|
+2024/11/03 21:23:20:100|ASL|language en-US|
+2024/11/03 21:23:20:195|NEWUI|Opening Settings BTTSettingsSimple|
+2024/11/03 21:23:20:292|ASL|animate new settings segue|
+2024/11/03 21:23:20:346|ASL|language en-US|
+2024/11/03 21:23:20:359|LIC|ADD REGISTER MENU ITEM|
+2024/11/03 21:23:20:492|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 21:23:21:566|ASL|animate new settings segue|
+2024/11/03 21:23:21:577|ASL|language en-US|
+2024/11/03 21:23:28:143|ASL|animate new settings segue|
+2024/11/03 21:23:38:698|ASL|animate new settings segue|
+2024/11/03 21:23:43:242|ASL|animate new settings segue|
+2024/11/03 21:23:43:248|ASL|language en-US|
+2024/11/03 21:23:48:061|ASL|animate new settings segue|
+2024/11/03 21:23:48:556|ASL|animate new settings segue|
+2024/11/03 21:23:53:068|ASL|The Mac is running on battery power.|
+2024/11/03 21:24:00:223|ASL|animate new settings segue|
+2024/11/03 21:24:53:104|ASL|The Mac is running on battery power.|
+2024/11/03 21:25:03:939|ASL|animate new settings segue|
+2024/11/03 21:25:04:945|ASL|animate new settings segue|
+2024/11/03 21:25:05:514|ASL|animate new settings segue|
+2024/11/03 21:25:17:100|ASL|animate new settings segue|
+2024/11/03 21:25:17:707|ASL|animate new settings segue|
+2024/11/03 21:25:18:789|ASL|animate new settings segue|
+2024/11/03 21:25:19:405|ASL|animate new settings segue|
+2024/11/03 21:25:20:522|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 21:25:49:990|sync|became active|
+2024/11/03 21:25:53:067|ASL|The Mac is running on battery power.|
+2024/11/03 21:25:58:796|ASL|animate new settings segue|
+2024/11/03 21:25:58:799|midi|init|
+2024/11/03 21:25:59:415|ASL|Unable to connect to MIDI device <MIKMIDIDevice: 0x600001a78b00> Network:        Entities: {        }: Error Domain=MIKMIDIErrorDomain Code=4 "MIDI Device has no sources." UserInfo={NSLocalizedDescription=MIDI Device has no sources.}|
+2024/11/03 21:25:59:416|ASL|Unable to connect to MIDI device <MIKMIDIDevice: 0x600001a7ffc0> Bluetooth:        Entities: {        }: Error Domain=MIKMIDIErrorDomain Code=4 "MIDI Device has no sources." UserInfo={NSLocalizedDescription=MIDI Device has no sources.}|
+2024/11/03 21:26:00:419|ASL|animate new settings segue|
+2024/11/03 21:26:03:433|ASL|animate new settings segue|
+2024/11/03 21:26:04:924|ASL|animate new settings segue|
+2024/11/03 21:26:05:689|ASL|animate new settings segue|
+2024/11/03 21:26:14:625|ASL|animate new settings segue|
+2024/11/03 21:26:15:278|ASL|animate new settings segue|
+2024/11/03 21:26:16:840|ASL|animate new settings segue|
+2024/11/03 21:26:24:454|ASL|animate new settings segue|
+2024/11/03 21:26:25:281|ASL|animate new settings segue|
+2024/11/03 21:26:30:761|ASL|animate new settings segue|
+2024/11/03 21:26:31:211|ASL|animate new settings segue|
+2024/11/03 21:26:35:989|ASL|animate new settings segue|
+2024/11/03 21:26:36:570|ASL|animate new settings segue|
+2024/11/03 21:26:37:071|ASL|animate new settings segue|
+2024/11/03 21:26:37:767|ASL|animate new settings segue|
+2024/11/03 21:26:40:898|ASL|animate new settings segue|
+2024/11/03 21:26:41:811|ASL|animate new settings segue|
+2024/11/03 21:26:42:639|ASL|animate new settings segue|
+2024/11/03 21:26:43:477|ASL|animate new settings segue|
+2024/11/03 21:26:44:272|ASL|animate new settings segue|
+2024/11/03 21:26:47:693|ASL|animate new settings segue|
+2024/11/03 21:26:53:067|ASL|The Mac is running on battery power.|
+2024/11/03 21:26:55:469|ASL|animate new settings segue|
+2024/11/03 21:27:16:432|ASL|animate new settings segue|
+2024/11/03 21:27:30:142|ASL|animate new settings segue|
+2024/11/03 21:27:53:061|ASL|The Mac is running on battery power.|
+2024/11/03 21:28:52:345|ASL|animate new settings segue|
+2024/11/03 21:28:53:065|ASL|The Mac is running on battery power.|
+2024/11/03 21:28:55:350|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 21:29:26:593|sync|became active|
+2024/11/03 21:29:29:037|ASL|animate new settings segue|
+2024/11/03 21:29:30:099|ASL|animate new settings segue|
+2024/11/03 21:29:31:290|ASL|animate new settings segue|
+2024/11/03 21:29:31:928|ASL|animate new settings segue|
+2024/11/03 21:29:32:315|ASL|animate new settings segue|
+2024/11/03 21:29:32:724|ASL|animate new settings segue|
+2024/11/03 21:29:32:729|ASL|language en-US|
+2024/11/03 21:29:34:358|ASL|animate new settings segue|
+2024/11/03 21:29:34:420|ASL|language en-US|
+2024/11/03 21:29:37:259|ASL|animate new settings segue|
+2024/11/03 21:29:37:682|ASL|animate new settings segue|
+2024/11/03 21:29:39:327|ASL|animate new settings segue|
+2024/11/03 21:29:40:233|ASL|animate new settings segue|
+2024/11/03 21:29:40:727|ASL|animate new settings segue|
+2024/11/03 21:29:51:976|xw|should relaunch|
+2024/11/03 21:29:51:976|xw|BTTRelaunch found|
+2024/11/03 21:29:51:976|xw|BTTRelaunch call seems successfull|
+2024/11/03 21:29:51:988|TERMINATE|SHOULDTERMINATE|
+2024/11/03 21:29:52:093|ASL|terminate reply 1|
+2024/11/03 21:29:52:393|SYS|Running on macOS: 15.0.1|
+2024/11/03 21:29:52:393|SYS|BTT Version: 4.851|
+2024/11/03 21:29:52:393|SYS|Device: MacBookPro18,2|
+2024/11/03 21:29:52:420|usage|loading todays usage|
+2024/11/03 21:29:52:421|ASL|0 elapsed 0.035839|
+2024/11/03 21:29:52:421|LAUNCH|DIDLaunch START NSConcreteNotification 0x6000038f99a0 {name = NSApplicationDidFinishLaunchingNotification; object = <BTTApplication: 0x12fb045e0>; userInfo = {
+    NSApplicationLaunchIsDefaultLaunchKey = 1;
+}}|
+2024/11/03 21:29:52:435|ASL|1 elapsed 0.050463|
+2024/11/03 21:29:52:435|ASL|2 elapsed 0.050498|
+2024/11/03 21:29:52:435|ASL|3 elapsed 0.050631|
+2024/11/03 21:29:52:435|ASL|4 elapsed 0.050705|
+2024/11/03 21:29:52:438|ASL|5 elapsed 0.053503|
+2024/11/03 21:29:52:438|ASL|6 elapsed 0.053575|
+2024/11/03 21:29:52:438|INIT|START PREVIOUSLYININIT|
+2024/11/03 21:29:52:438|ASL|sub 0 elapsed 0.000000 - prev|
+2024/11/03 21:29:52:450|ASL|sub 1 elapsed 0.011746 - prev|
+2024/11/03 21:29:52:450|ASL|sub 2 elapsed 0.012207 - prev|
+2024/11/03 21:29:52:451|ASL|sub 3 elapsed 0.012520 - prev|
+2024/11/03 21:29:52:452|ASL|sub 4 elapsed 0.013744 - prevk|
+2024/11/03 21:29:52:452|short|init|
+2024/11/03 21:29:52:452|ASL|Hyper key used 0|
+2024/11/03 21:29:52:758|ASL|No numeric part found in the filename.|
+2024/11/03 21:29:52:759|ASL|No numeric part found in the filename.|
+2024/11/03 21:29:52:759|ASL|Extracted build number: 2024110301|
+2024/11/03 21:29:52:759|xw|the new store already exists btt_data_store.version_4_851_build_2024110301|
+2024/11/03 21:29:52:771|migrate|fixing uuids2|
+2024/11/03 21:29:52:772|LIC|idate 2024-11-04 04:29:51 +0000|
+2024/11/03 21:29:52:773|ASL|sub 5 elapsed 0.334805 - prevke|
+2024/11/03 21:29:52:773|INIT|FINISH PREVIOUSLYININIT|
+2024/11/03 21:29:52:773|ASL|7 elapsed 0.388431|
+2024/11/03 21:29:52:774|LIC|closing previous instance of BetterTouchTool relaunch|
+2024/11/03 21:29:52:774|ASL|8 elapsed 0.389035|
+2024/11/03 21:29:52:775|ASL|9 elapsed 0.390009|
+2024/11/03 21:29:52:775|ASL|10 elapsed 0.390154|
+2024/11/03 21:29:52:776|ASL|11 elapsed 0.391795|
+2024/11/03 21:29:52:777|ASL|12 elapsed 0.392383|
+2024/11/03 21:29:52:777|ASL|disablign app nap|
+2024/11/03 21:29:52:777|ASL|disabling app nap done|
+2024/11/03 21:29:52:777|ASL|13 elapsed 0.392419|
+2024/11/03 21:29:52:777|ASL|14 elapsed 0.392762|
+2024/11/03 21:29:52:778|ASL|15 elapsed 0.393271|
+2024/11/03 21:29:52:781|ASL|16 elapsed 0.396431|
+2024/11/03 21:29:52:781|ASL|17 elapsed 0.396454|
+2024/11/03 21:29:52:781|ASL|18 elapsed 0.396638|
+2024/11/03 21:29:52:781|ASL|19 elapsed 0.396653|
+2024/11/03 21:29:52:781|ASL|20 elapsed 0.396720|
+2024/11/03 21:29:52:781|ASL|21 elapsed 0.396735|
+2024/11/03 21:29:52:781|ASL|22 elapsed 0.396743|
+2024/11/03 21:29:52:782|ASL|23 elapsed 0.397416|
+2024/11/03 21:29:52:783|ASL|24 elapsed 0.397937|
+2024/11/03 21:29:52:784|ASL|25 elapsed 0.398899|
+2024/11/03 21:29:52:784|ASL|26 elapsed 0.399455|
+2024/11/03 21:29:52:794|ASL|27 elapsed 0.409824|
+2024/11/03 21:29:52:801|xw|is trusted|
+2024/11/03 21:29:52:831|short|call sharedInstance3|
+2024/11/03 21:29:52:883|ASL|The Mac is running on battery power.|
+2024/11/03 21:29:52:907|TB|touchbar screen size {1085, 30}|
+2024/11/03 21:29:52:908|ASL|28 elapsed 0.523299|
+2024/11/03 21:29:52:909|ASL|29 elapsed 0.523979|
+2024/11/03 21:29:52:909|ASL|30 elapsed 0.524001|
+2024/11/03 21:29:52:909|ASL|31 elapsed 0.524013|
+2024/11/03 21:29:52:910|ASL|32 elapsed 0.525451|
+2024/11/03 21:29:52:910|LIC|trial|
+2024/11/03 21:29:52:911|ASL|33 elapsed 0.526668|
+2024/11/03 21:29:52:912|ASL|34 elapsed 0.527140|
+2024/11/03 21:29:52:912|START|TB VISIBLE 0|
+2024/11/03 21:29:52:912|START|TB FORCED HIDDEN 0|
+2024/11/03 21:29:52:912|ASL|35 elapsed 0.527168|
+2024/11/03 21:29:52:918|ASL|36 elapsed 0.533263|
+2024/11/03 21:29:52:918|ASL|37 elapsed 0.533713|
+2024/11/03 21:29:52:919|ASL|38 elapsed 0.534050|
+2024/11/03 21:29:52:919|LAUNCH|DIDLaunch END frontmostApp: company.thebrowser.Browser, touchpadMode 0, windowSnappingDisabled 0, singleFingerScrollingDisabled 0, mmScrollingUsed 0, tpScrollingUsed 0, tpPinchUsed 0, tpRotateUsed 0|
+2024/11/03 21:29:52:919|ASL|39 elapsed 0.534379|
+2024/11/03 21:29:52:919|ASL|40 elapsed 0.534639|
+2024/11/03 21:29:53:906|PERM|Can record screen 0|
+2024/11/03 21:29:53:912|SLEEP|FORCESHOWAFTERSLEEP2|
+2024/11/03 21:29:53:912|TB|Force show Touch Bar|
+2024/11/03 21:29:54:031|ASL|The Mac is running on battery power.|
+2024/11/03 21:29:54:045|M|mt_stop2|
+2024/11/03 21:29:54:045|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 21:29:54:071|SLEEP|FORCESHOWAFTERSLEEP3B|
+2024/11/03 21:29:54:071|TB|Force show Touch Bar|
+2024/11/03 21:29:54:075|BTT|mt device 0x0200000000000033,0x69 - 105 - internal 1 - force 1|
+2024/11/03 21:29:54:075|M|register touchbar mbp trackpad|
+2024/11/03 21:29:55:005|SNAPAREA|step1, 0 displays- match mode 0 - searching Built-in Retina Display|
+2024/11/03 21:29:55:011|SNAPAREA|return existing (updated)|
+2024/11/03 21:29:55:011|SNAP|Did recognize 41041 4251086178 dragpoints: 0 - 0|
+2024/11/03 21:29:58:757|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 21:30:00:258|M|mt_stop11|
+2024/11/03 21:30:00:259|M|unregister tb trackpad|
+2024/11/03 21:30:00:265|BTT|mt device 0x0200000000000033,0x69 - 105 - internal 1 - force 1|
+2024/11/03 21:30:00:265|M|register touchbar mbp trackpad|
+2024/11/03 21:30:03:106|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 21:30:03:113|SEC|SecureInputActive com.apple.systempreferences 82957|
+2024/11/03 21:30:04:788|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 21:30:04:840|SEC|SecureInputDisabled com.apple.systempreferences|
+2024/11/03 21:30:06:105|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 21:30:06:271|M|mt_stop11|
+2024/11/03 21:30:06:271|M|unregister tb trackpad|
+2024/11/03 21:30:06:282|BTT|mt device 0x0200000000000033,0x69 - 105 - internal 1 - force 1|
+2024/11/03 21:30:06:282|M|register touchbar mbp trackpad|
+2024/11/03 21:30:06:282|STDEV||
+2024/11/03 21:30:07:846|SEC|SecureInputActive com.apple.systempreferences 82957|
+2024/11/03 21:30:10:833|SEC|SecureInputDisabled com.apple.systempreferences|
+2024/11/03 21:30:12:012|TERMINATE|SHOULDTERMINATE|
+2024/11/03 21:30:12:122|ASL|terminate reply 1|
+2024/11/03 21:30:15:390|SYS|Running on macOS: 15.0.1|
+2024/11/03 21:30:15:390|SYS|BTT Version: 4.851|
+2024/11/03 21:30:15:390|SYS|Device: MacBookPro18,2|
+2024/11/03 21:30:15:416|usage|loading todays usage|
+2024/11/03 21:30:15:416|ASL|0 elapsed 0.033180|
+2024/11/03 21:30:15:416|LAUNCH|DIDLaunch START NSConcreteNotification 0x600003e78a60 {name = NSApplicationDidFinishLaunchingNotification; object = <BTTApplication: 0x12f70c120>; userInfo = {
+    NSApplicationLaunchIsDefaultLaunchKey = 1;
+}}|
+2024/11/03 21:30:15:429|ASL|1 elapsed 0.046425|
+2024/11/03 21:30:15:429|ASL|2 elapsed 0.046449|
+2024/11/03 21:30:15:429|ASL|3 elapsed 0.046570|
+2024/11/03 21:30:15:429|ASL|4 elapsed 0.046630|
+2024/11/03 21:30:15:431|ASL|5 elapsed 0.048219|
+2024/11/03 21:30:15:431|ASL|6 elapsed 0.048255|
+2024/11/03 21:30:15:431|INIT|START PREVIOUSLYININIT|
+2024/11/03 21:30:15:431|ASL|sub 0 elapsed 0.000001 - prev|
+2024/11/03 21:30:15:442|ASL|sub 1 elapsed 0.011068 - prev|
+2024/11/03 21:30:15:442|ASL|sub 2 elapsed 0.011461 - prev|
+2024/11/03 21:30:15:443|ASL|sub 3 elapsed 0.011744 - prev|
+2024/11/03 21:30:15:443|ASL|sub 4 elapsed 0.012390 - prevk|
+2024/11/03 21:30:15:443|short|init|
+2024/11/03 21:30:15:443|ASL|Hyper key used 0|
+2024/11/03 21:30:15:754|ASL|No numeric part found in the filename.|
+2024/11/03 21:30:15:754|ASL|No numeric part found in the filename.|
+2024/11/03 21:30:15:755|ASL|Extracted build number: 2024110301|
+2024/11/03 21:30:15:755|STORE|The store already exists in udefs|
+2024/11/03 21:30:15:755|xw|the new store already exists btt_data_store.version_4_851_build_2024110301|
+2024/11/03 21:30:15:760|migrate|fixing uuids2|
+2024/11/03 21:30:15:762|LIC|idate 2024-11-04 04:29:51 +0000|
+2024/11/03 21:30:15:762|ASL|sub 5 elapsed 0.331297 - prevke|
+2024/11/03 21:30:15:762|INIT|FINISH PREVIOUSLYININIT|
+2024/11/03 21:30:15:762|ASL|7 elapsed 0.379600|
+2024/11/03 21:30:15:763|ASL|8 elapsed 0.380128|
+2024/11/03 21:30:15:763|ASL|9 elapsed 0.380247|
+2024/11/03 21:30:15:763|ASL|10 elapsed 0.380404|
+2024/11/03 21:30:15:765|ASL|11 elapsed 0.381837|
+2024/11/03 21:30:15:765|ASL|12 elapsed 0.382527|
+2024/11/03 21:30:15:765|ASL|disablign app nap|
+2024/11/03 21:30:15:765|ASL|disabling app nap done|
+2024/11/03 21:30:15:765|ASL|13 elapsed 0.382568|
+2024/11/03 21:30:15:765|ASL|14 elapsed 0.382578|
+2024/11/03 21:30:15:765|ASL|15 elapsed 0.382623|
+2024/11/03 21:30:15:768|ASL|16 elapsed 0.385158|
+2024/11/03 21:30:15:768|ASL|17 elapsed 0.385180|
+2024/11/03 21:30:15:768|ASL|18 elapsed 0.385349|
+2024/11/03 21:30:15:768|ASL|19 elapsed 0.385364|
+2024/11/03 21:30:15:768|ASL|20 elapsed 0.385458|
+2024/11/03 21:30:15:768|ASL|21 elapsed 0.385475|
+2024/11/03 21:30:15:768|ASL|22 elapsed 0.385484|
+2024/11/03 21:30:15:769|ASL|23 elapsed 0.385929|
+2024/11/03 21:30:15:769|ASL|24 elapsed 0.385941|
+2024/11/03 21:30:15:769|ASL|25 elapsed 0.386262|
+2024/11/03 21:30:15:769|ASL|26 elapsed 0.386360|
+2024/11/03 21:30:15:776|ASL|27 elapsed 0.392784|
+2024/11/03 21:30:15:779|xw|is trusted|
+2024/11/03 21:30:15:837|short|call sharedInstance3|
+2024/11/03 21:30:15:889|ASL|The Mac is running on battery power.|
+2024/11/03 21:30:15:911|TB|touchbar screen size {1085, 30}|
+2024/11/03 21:30:15:912|PREFS|showPrefsAtNextLaunch|
+2024/11/03 21:30:15:912|PREFS|showing prefs (null)|
+2024/11/03 21:30:15:938|ASL|prepare <NSStoryboardSegue:0x6000030e15c0 identifier='(null)', source='<BTTMainUIStructureVC: 0x600000553810>', destination='<BTTAppListVC: 0x600000157480>'>|
+2024/11/03 21:30:15:941|ASL|Warning: Column selection is not supported in view-based table and outline views (<BTTPreferencesTableView: 0x12f8a4200>).|
+2024/11/03 21:30:15:941|ASL|view did load BTTAppListVC|
+2024/11/03 21:30:15:942|ASL|previously selected 0|
+2024/11/03 21:30:15:942|ASL|previously selected 0|
+2024/11/03 21:30:15:942|ASL|prepare <NSStoryboardSegue:0x600003022a60 identifier='EmbedTopMenuVC', source='<BTTMainUIStructureVC: 0x600000553810>', destination='<BTTTopMenuVC: 0x1390371d0>'>|
+2024/11/03 21:30:15:962|ASL|view did load BTTTopMenuVC|
+2024/11/03 21:30:15:965|ASL|window did load BTTRootPreferencesWC|
+2024/11/03 21:30:15:965|ASL|did set <BTTPrefsMenuContentContainerVC: 0x600000f78320> BTTPrefsMenuContentContainerVC|
+2024/11/03 21:30:15:965|ASL|did set <BTTMainUIStructureVC: 0x600000553810> BTTMainUIStructureVC|
+2024/11/03 21:30:15:965|ASL|did set <BTTLevel3VC: 0x12f673b90> BTTLevel3VC|
+2024/11/03 21:30:15:965|ASL|did set <BTTLevel1VC: 0x600000156850> BTTLevel1VC|
+2024/11/03 21:30:15:965|ASL|did set <BTTConfigurationVC: 0x12f673a10> BTTConfigurationVC|
+2024/11/03 21:30:15:965|ASL|did set <BTTMainSplitViewController: 0x6000005539b0> BTTMainSplitViewController|
+2024/11/03 21:30:15:965|ASL|did set <BTTConfigurationVC: 0x12f683bd0> BTTConfigurationVC|
+2024/11/03 21:30:15:965|ASL|did set <BTTOutlineModeVC: 0x600000156fd0> BTTOutlineModeVC|
+2024/11/03 21:30:15:965|ASL|did set <BTTTopMenuVC: 0x1390371d0> BTTTopMenuVC|
+2024/11/03 21:30:16:008|LIC|ADD REGISTER MENU ITEM|
+2024/11/03 21:30:16:047|ASL|previously selected 12|
+2024/11/03 21:30:16:048|ASL|no overall selected|
+2024/11/03 21:30:16:053|ASL|28 elapsed 0.670426|
+2024/11/03 21:30:16:053|ASL|29 elapsed 0.670455|
+2024/11/03 21:30:16:053|ASL|30 elapsed 0.670463|
+2024/11/03 21:30:16:053|ASL|31 elapsed 0.670470|
+2024/11/03 21:30:16:054|ASL|32 elapsed 0.670896|
+2024/11/03 21:30:16:054|LIC|trial|
+2024/11/03 21:30:16:054|ASL|33 elapsed 0.671561|
+2024/11/03 21:30:16:055|ASL|34 elapsed 0.672072|
+2024/11/03 21:30:16:055|START|TB VISIBLE 1|
+2024/11/03 21:30:16:055|START|TB FORCED HIDDEN 0|
+2024/11/03 21:30:16:055|ASL|35 elapsed 0.672148|
+2024/11/03 21:30:16:062|ASL|36 elapsed 0.679385|
+2024/11/03 21:30:16:062|ASL|37 elapsed 0.679712|
+2024/11/03 21:30:16:063|ASL|38 elapsed 0.679752|
+2024/11/03 21:30:16:063|LAUNCH|DIDLaunch END frontmostApp: com.apple.systempreferences, touchpadMode 0, windowSnappingDisabled 0, singleFingerScrollingDisabled 0, mmScrollingUsed 0, tpScrollingUsed 0, tpPinchUsed 0, tpRotateUsed 0|
+2024/11/03 21:30:16:063|ASL|39 elapsed 0.679818|
+2024/11/03 21:30:16:063|ASL|40 elapsed 0.680035|
+2024/11/03 21:30:16:090|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 21:30:16:944|LIC|ADD REGISTER MENU ITEM|
+2024/11/03 21:30:16:997|PERM|Can record screen 1|
+2024/11/03 21:30:17:000|SLEEP|FORCESHOWAFTERSLEEP2|
+2024/11/03 21:30:17:004|TB|Force show Touch Bar|
+2024/11/03 21:30:17:065|ASL|did load level 3|
+2024/11/03 21:30:17:094|M|mt_stop2|
+2024/11/03 21:30:17:094|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 21:30:17:201|SLEEP|FORCESHOWAFTERSLEEP3A|
+2024/11/03 21:30:17:203|TB|Force show Touch Bar|
+2024/11/03 21:30:17:204|NEWUI|Loading Config Debounced|
+2024/11/03 21:30:17:205|UI|Level 1 Focused|
+2024/11/03 21:30:17:206|BTT|mt device 0x0200000000000033,0x69 - 105 - internal 1 - force 1|
+2024/11/03 21:30:17:207|M|register touchbar mbp trackpad|
+2024/11/03 21:30:17:207|STDEV||
+2024/11/03 21:30:17:220|FORM|2UUID (null) == 521C6921-B5B5-4716-9715-F6758841BF72 editing 0 == 0|
+2024/11/03 21:30:17:225|NEWUI|Loading Config Debounced|
+2024/11/03 21:30:17:225|FORM|1UUID (null) == (null) editing 0 == 0|
+2024/11/03 21:30:18:079|SNAPAREA|step1, 0 displays- match mode 0 - searching Built-in Retina Display|
+2024/11/03 21:30:18:083|SNAPAREA|return existing (updated)|
+2024/11/03 21:30:18:083|SNAP|Did recognize 41041 4251086178 dragpoints: 0 - 0|
+2024/11/03 21:30:26:248|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 21:30:26:250|NEWUI|Opening Settings BTTSettingsSimple|
+2024/11/03 21:30:26:251|ASL|animate new settings segue|
+2024/11/03 21:30:26:252|ASL|Could not find image named 'background'.|
+2024/11/03 21:30:26:305|ASL|language en-US|
+2024/11/03 21:30:26:413|NEWUI|Opening Settings BTTSettingsSimple|
+2024/11/03 21:30:26:476|ASL|animate new settings segue|
+2024/11/03 21:30:26:528|ASL|language en-US|
+2024/11/03 21:30:36:049|ASL|animate new settings segue|
+2024/11/03 21:30:36:057|ASL|language en-US|
+2024/11/03 21:30:53:059|ASL|The Mac is running on battery power.|
+2024/11/03 21:31:01:530|ASL|animate new settings segue|
+2024/11/03 21:31:01:595|ASL|language en-US|
+2024/11/03 21:31:03:264|LIC|ADD REGISTER MENU ITEM|
+2024/11/03 21:31:04:940|PREFS|DID SELECT TRIGGER TYPE 19|
+2024/11/03 21:31:04:988|FORM|2UUID 7C536FDA-9EB5-47F1-A8C9-CAFEC5C84186 == (null) editing 0 == 0|
+2024/11/03 21:31:05:319|FORM|2UUID 7C536FDA-9EB5-47F1-A8C9-CAFEC5C84186 == 7C536FDA-9EB5-47F1-A8C9-CAFEC5C84186 editing 0 == 0|
+2024/11/03 21:31:07:930|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 21:31:09:367|ASL|animate new settings segue|
+2024/11/03 21:31:09:372|ASL|language en-US|
+2024/11/03 21:31:20:452|ASL|animate new settings segue|
+2024/11/03 21:31:22:376|ASL|animate new settings segue|
+2024/11/03 21:31:23:786|ASL|animate new settings segue|
+2024/11/03 21:31:25:961|ASL|animate new settings segue|
+2024/11/03 21:31:41:203|ASL|animate new settings segue|
+2024/11/03 21:31:42:138|ASL|animate new settings segue|
+2024/11/03 21:31:53:066|ASL|The Mac is running on battery power.|
+2024/11/03 21:31:53:571|ASL|animate new settings segue|
+2024/11/03 21:31:54:862|ASL|animate new settings segue|
+2024/11/03 21:31:56:647|ASL|animate new settings segue|
+2024/11/03 21:31:57:995|ASL|animate new settings segue|
+2024/11/03 21:31:59:180|ASL|animate new settings segue|
+2024/11/03 21:31:59:787|ASL|animate new settings segue|
+2024/11/03 21:32:03:939|ASL|animate new settings segue|
+2024/11/03 21:32:06:154|ASL|animate new settings segue|
+2024/11/03 21:32:07:031|ASL|animate new settings segue|
+2024/11/03 21:32:07:035|midi|init|
+2024/11/03 21:32:07:633|ASL|Unable to connect to MIDI device <MIKMIDIDevice: 0x600002486c40> Network:        Entities: {        }: Error Domain=MIKMIDIErrorDomain Code=4 "MIDI Device has no sources." UserInfo={NSLocalizedDescription=MIDI Device has no sources.}|
+2024/11/03 21:32:07:634|ASL|Unable to connect to MIDI device <MIKMIDIDevice: 0x600002486400> Bluetooth:        Entities: {        }: Error Domain=MIKMIDIErrorDomain Code=4 "MIDI Device has no sources." UserInfo={NSLocalizedDescription=MIDI Device has no sources.}|
+2024/11/03 21:32:07:777|ASL|animate new settings segue|
+2024/11/03 21:32:07:782|ASL|+[IMKClient subclass]: chose IMKClient_Legacy|
+2024/11/03 21:32:12:884|ASL|animate new settings segue|
+2024/11/03 21:32:13:937|ASL|animate new settings segue|
+2024/11/03 21:32:16:298|ASL|animate new settings segue|
+2024/11/03 21:32:18:855|sync|using dropbox|
+2024/11/03 21:32:18:862|ASL|DBSDKReachability Flag Status: R t------ networkStatusForFlags
+|
+2024/11/03 21:32:18:895|sync|modelurl file:///Applications/BetterTouchTool.app/Contents/Resources/BetterTouchTool_DataModel.momd/|
+2024/11/03 21:32:18:925|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 21:32:19:981|ASL|Error merging: Error Domain=CDEErrorDomain Code=1003 "(null)"|
+2024/11/03 21:32:19:982|sync|res Error Domain=CDEErrorDomain Code=1003 "(null)"|
+2024/11/03 21:32:23:834|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 21:32:26:145|sync|became active|
+2024/11/03 21:32:28:671|sync|using icloud drive|
+2024/11/03 21:32:28:672|sync|modelurl file:///Applications/BetterTouchTool.app/Contents/Resources/BetterTouchTool_DataModel.momd/|
+2024/11/03 21:32:29:976|sync|res (null)|
+2024/11/03 21:32:32:020|ASL|animate new settings segue|
+2024/11/03 21:32:32:947|ASL|animate new settings segue|
+2024/11/03 21:32:33:653|ASL|animate new settings segue|
+2024/11/03 21:32:34:168|ASL|animate new settings segue|
+2024/11/03 21:32:34:655|ASL|animate new settings segue|
+2024/11/03 21:32:35:539|ASL|animate new settings segue|
+2024/11/03 21:32:35:898|ASL|animate new settings segue|
+2024/11/03 21:32:46:157|ASL|animate new settings segue|
+2024/11/03 21:32:47:130|ASL|animate new settings segue|
+2024/11/03 21:32:47:975|ASL|animate new settings segue|
+2024/11/03 21:32:48:441|ASL|animate new settings segue|
+2024/11/03 21:32:48:512|ASL|language en-US|
+2024/11/03 21:32:53:062|ASL|The Mac is running on battery power.|
+2024/11/03 21:32:53:884|xw|should relaunch|
+2024/11/03 21:32:53:885|xw|BTTRelaunch found|
+2024/11/03 21:32:53:885|xw|BTTRelaunch call seems successfull|
+2024/11/03 21:32:53:897|TERMINATE|SHOULDTERMINATE|
+2024/11/03 21:32:54:003|ASL|terminate reply 1|
+2024/11/03 21:32:54:304|SYS|Running on macOS: 15.0.1|
+2024/11/03 21:32:54:304|SYS|BTT Version: 4.851|
+2024/11/03 21:32:54:304|SYS|Device: MacBookPro18,2|
+2024/11/03 21:32:54:333|usage|loading todays usage|
+2024/11/03 21:32:54:333|ASL|0 elapsed 0.037477|
+2024/11/03 21:32:54:333|LAUNCH|DIDLaunch START NSConcreteNotification 0x60000242d100 {name = NSApplicationDidFinishLaunchingNotification; object = <BTTApplication: 0x134607db0>; userInfo = {
+    NSApplicationLaunchIsDefaultLaunchKey = 1;
+}}|
+2024/11/03 21:32:54:348|ASL|1 elapsed 0.051949|
+2024/11/03 21:32:54:348|ASL|2 elapsed 0.051984|
+2024/11/03 21:32:54:348|ASL|3 elapsed 0.052107|
+2024/11/03 21:32:54:348|ASL|4 elapsed 0.052180|
+2024/11/03 21:32:54:351|ASL|5 elapsed 0.055411|
+2024/11/03 21:32:54:351|ASL|6 elapsed 0.055474|
+2024/11/03 21:32:54:351|INIT|START PREVIOUSLYININIT|
+2024/11/03 21:32:54:351|ASL|sub 0 elapsed 0.000000 - prev|
+2024/11/03 21:32:54:363|ASL|sub 1 elapsed 0.011440 - prev|
+2024/11/03 21:32:54:363|ASL|sub 2 elapsed 0.011879 - prev|
+2024/11/03 21:32:54:364|ASL|sub 3 elapsed 0.012162 - prev|
+2024/11/03 21:32:54:364|ASL|sub 4 elapsed 0.012858 - prevk|
+2024/11/03 21:32:54:364|short|init|
+2024/11/03 21:32:54:364|ASL|Hyper key used 0|
+2024/11/03 21:32:54:687|ASL|No numeric part found in the filename.|
+2024/11/03 21:32:54:687|ASL|No numeric part found in the filename.|
+2024/11/03 21:32:54:687|ASL|Extracted build number: 2024110301|
+2024/11/03 21:32:54:687|STORE|The store already exists in udefs|
+2024/11/03 21:32:54:687|xw|the new store already exists btt_data_store.version_4_851_build_2024110301|
+2024/11/03 21:32:54:692|migrate|fixing uuids2|
+2024/11/03 21:32:54:694|LIC|idate 2024-11-04 04:29:51 +0000|
+2024/11/03 21:32:54:695|ASL|sub 5 elapsed 0.343335 - prevke|
+2024/11/03 21:32:54:695|INIT|FINISH PREVIOUSLYININIT|
+2024/11/03 21:32:54:695|ASL|7 elapsed 0.398860|
+2024/11/03 21:32:54:695|LIC|closing previous instance of BetterTouchTool relaunch|
+2024/11/03 21:32:54:695|ASL|8 elapsed 0.399461|
+2024/11/03 21:32:54:695|ASL|9 elapsed 0.399567|
+2024/11/03 21:32:54:696|ASL|10 elapsed 0.399720|
+2024/11/03 21:32:54:697|ASL|11 elapsed 0.401219|
+2024/11/03 21:32:54:698|ASL|12 elapsed 0.401975|
+2024/11/03 21:32:54:698|ASL|disablign app nap|
+2024/11/03 21:32:54:698|ASL|disabling app nap done|
+2024/11/03 21:32:54:698|ASL|13 elapsed 0.402015|
+2024/11/03 21:32:54:698|ASL|14 elapsed 0.402026|
+2024/11/03 21:32:54:698|ASL|15 elapsed 0.402077|
+2024/11/03 21:32:54:700|ASL|16 elapsed 0.404503|
+2024/11/03 21:32:54:700|ASL|17 elapsed 0.404527|
+2024/11/03 21:32:54:701|ASL|18 elapsed 0.404710|
+2024/11/03 21:32:54:701|ASL|19 elapsed 0.404725|
+2024/11/03 21:32:54:701|ASL|20 elapsed 0.404794|
+2024/11/03 21:32:54:701|ASL|21 elapsed 0.404808|
+2024/11/03 21:32:54:701|ASL|22 elapsed 0.404816|
+2024/11/03 21:32:54:701|ASL|23 elapsed 0.405293|
+2024/11/03 21:32:54:701|ASL|24 elapsed 0.405304|
+2024/11/03 21:32:54:701|ASL|25 elapsed 0.405334|
+2024/11/03 21:32:54:701|ASL|26 elapsed 0.405433|
+2024/11/03 21:32:54:778|ASL|27 elapsed 0.482105|
+2024/11/03 21:32:54:783|xw|is trusted|
+2024/11/03 21:32:54:813|short|call sharedInstance3|
+2024/11/03 21:32:54:865|ASL|The Mac is running on battery power.|
+2024/11/03 21:32:54:865|ASL|28 elapsed 0.569303|
+2024/11/03 21:32:54:865|ASL|29 elapsed 0.569328|
+2024/11/03 21:32:54:865|ASL|30 elapsed 0.569346|
+2024/11/03 21:32:54:865|ASL|31 elapsed 0.569354|
+2024/11/03 21:32:54:866|ASL|32 elapsed 0.569848|
+2024/11/03 21:32:54:866|LIC|trial|
+2024/11/03 21:32:54:867|ASL|33 elapsed 0.570616|
+2024/11/03 21:32:54:867|ASL|34 elapsed 0.571159|
+2024/11/03 21:32:54:867|START|TB VISIBLE 0|
+2024/11/03 21:32:54:867|START|TB FORCED HIDDEN 0|
+2024/11/03 21:32:54:867|ASL|35 elapsed 0.571190|
+2024/11/03 21:32:54:872|ASL|36 elapsed 0.576354|
+2024/11/03 21:32:54:873|ASL|37 elapsed 0.576600|
+2024/11/03 21:32:54:873|ASL|38 elapsed 0.576616|
+2024/11/03 21:32:54:873|LAUNCH|DIDLaunch END frontmostApp: company.thebrowser.Browser, touchpadMode 0, windowSnappingDisabled 0, singleFingerScrollingDisabled 0, mmScrollingUsed 0, tpScrollingUsed 0, tpPinchUsed 0, tpRotateUsed 0|
+2024/11/03 21:32:54:873|ASL|39 elapsed 0.576653|
+2024/11/03 21:32:54:873|ASL|40 elapsed 0.576667|
+2024/11/03 21:32:55:754|PERM|Can record screen 1|
+2024/11/03 21:32:55:950|M|mt_stop2|
+2024/11/03 21:32:55:950|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 21:32:55:951|BTT|mt device 0x0200000000000033,0x69 - 105 - internal 1 - force 1|
+2024/11/03 21:32:55:952|M|register touchbar mbp trackpad|
+2024/11/03 21:32:55:952|STDEV||
+2024/11/03 21:32:56:878|SNAPAREA|step1, 0 displays- match mode 0 - searching Built-in Retina Display|
+2024/11/03 21:32:56:883|SNAPAREA|return existing (updated)|
+2024/11/03 21:32:56:883|SNAP|Did recognize 41041 4251086178 dragpoints: 0 - 0|
+2024/11/03 21:32:59:032|BTT|NOT handling reopen due to BTT start|
+2024/11/03 21:32:59:946|sync|using icloud drive|
+2024/11/03 21:32:59:946|sync|modelurl file:///Applications/BetterTouchTool.app/Contents/Resources/BetterTouchTool_DataModel.momd/|
+2024/11/03 21:33:01:253|sync|res (null)|
+2024/11/03 21:33:02:373|BTT|NOT handling reopen due to BTT start|
+2024/11/03 21:33:05:405|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 21:33:12:483|ASL|performing 366|
+2024/11/03 21:33:12:483|ASL|triggering action Empty Placeholder - 7D6A21F6-4277-4047-931B-1207D54C3DDD|
+2024/11/03 21:33:12:483|ASL|performing 204|
+2024/11/03 21:33:12:483|ASL|triggering action Activate/Bring to Front Window Under Cursor - 014E15E5-C0E5-4D2C-B7E6-EB7664AE0DCC|
+2024/11/03 21:33:12:490|ASL|trigger delayed|
+2024/11/03 21:33:12:491|ASL|performing 124|
+2024/11/03 21:33:12:491|ASL|triggering action Trigger Menu Bar Menu-Item - 0CAFFF3E-A3E3-4A77-ABA8-D3C557AD2859|
+2024/11/03 21:33:12:507|ASL|already replied 103|
+2024/11/03 21:33:14:345|sync|became active|
+2024/11/03 21:33:14:352|PREFS|applicationShouldHandleReopen|
+2024/11/03 21:33:14:352|PREFS|showing prefs (null)|
+2024/11/03 21:33:14:378|ASL|prepare <NSStoryboardSegue:0x600002b501b0 identifier='(null)', source='<BTTMainUIStructureVC: 0x600001f145b0>', destination='<BTTAppListVC: 0x600001b1edf0>'>|
+2024/11/03 21:33:14:382|ASL|Warning: Column selection is not supported in view-based table and outline views (<BTTPreferencesTableView: 0x14080a600>).|
+2024/11/03 21:33:14:382|ASL|view did load BTTAppListVC|
+2024/11/03 21:33:14:382|ASL|previously selected 0|
+2024/11/03 21:33:14:382|ASL|previously selected 0|
+2024/11/03 21:33:14:383|ASL|prepare <NSStoryboardSegue:0x600002aeafd0 identifier='EmbedTopMenuVC', source='<BTTMainUIStructureVC: 0x600001f145b0>', destination='<BTTTopMenuVC: 0x13466f340>'>|
+2024/11/03 21:33:14:396|ASL|view did load BTTTopMenuVC|
+2024/11/03 21:33:14:423|ASL|window did load BTTRootPreferencesWC|
+2024/11/03 21:33:14:423|ASL|did set <BTTPrefsMenuContentContainerVC: 0x600001535d60> BTTPrefsMenuContentContainerVC|
+2024/11/03 21:33:14:423|ASL|did set <BTTMainUIStructureVC: 0x600001f145b0> BTTMainUIStructureVC|
+2024/11/03 21:33:14:423|ASL|did set <BTTMainSplitViewController: 0x600001f15ee0> BTTMainSplitViewController|
+2024/11/03 21:33:14:423|ASL|did set <BTTConfigurationVC: 0x135a590f0> BTTConfigurationVC|
+2024/11/03 21:33:14:423|ASL|did set <BTTLevel3VC: 0x135a59270> BTTLevel3VC|
+2024/11/03 21:33:14:423|ASL|did set <BTTLevel1VC: 0x600001b08690> BTTLevel1VC|
+2024/11/03 21:33:14:423|ASL|did set <BTTOutlineModeVC: 0x600001b1e940> BTTOutlineModeVC|
+2024/11/03 21:33:14:423|ASL|did set <BTTConfigurationVC: 0x1358aebf0> BTTConfigurationVC|
+2024/11/03 21:33:14:423|ASL|did set <BTTTopMenuVC: 0x13466f340> BTTTopMenuVC|
+2024/11/03 21:33:14:431|LIC|ADD REGISTER MENU ITEM|
+2024/11/03 21:33:14:437|LIC|ADD REGISTER MENU ITEM|
+2024/11/03 21:33:14:440|ASL|previously selected 19|
+2024/11/03 21:33:14:496|ASL|saving|
+2024/11/03 21:33:14:500|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 21:33:14:547|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 21:33:14:604|LIC|ADD REGISTER MENU ITEM|
+2024/11/03 21:33:14:610|sync|became active|
+2024/11/03 21:33:14:630|NEWUI|Loading Config Debounced|
+2024/11/03 21:33:14:710|ASL|did load level 3|
+2024/11/03 21:33:14:739|UI|Level 1 Focused|
+2024/11/03 21:33:14:742|FORM|2UUID 724BD039-FABD-4B58-B8B9-667FC50A411D == 521C6921-B5B5-4716-9715-F6758841BF72 editing 0 == 0|
+2024/11/03 21:33:14:888|NEWUI|Loading Config Debounced|
+2024/11/03 21:33:14:888|FORM|1UUID 724BD039-FABD-4B58-B8B9-667FC50A411D == 724BD039-FABD-4B58-B8B9-667FC50A411D editing 0 == 0|
+2024/11/03 21:33:15:062|FORM|2UUID 724BD039-FABD-4B58-B8B9-667FC50A411D == 724BD039-FABD-4B58-B8B9-667FC50A411D editing 0 == 0|
+2024/11/03 21:33:15:883|sync|x (null)|
+2024/11/03 21:33:16:354|ASL|previously selected 19|
+2024/11/03 21:33:16:416|NEWUI|Loading Config Debounced|
+2024/11/03 21:33:20:005|ASL|previously selected 19|
+2024/11/03 21:33:20:011|ASL|no overall selected|
+2024/11/03 21:33:20:011|ASL|internal select item Actions Executed On Trigger - tag: 0|
+2024/11/03 21:33:20:075|NEWUI|Loading Config Debounced|
+2024/11/03 21:33:20:607|ASL|previously selected 19|
+2024/11/03 21:33:20:611|ASL|no overall selected|
+2024/11/03 21:33:20:611|ASL|internal select item Actions Executed On Trigger - tag: 0|
+2024/11/03 21:33:20:676|NEWUI|Loading Config Debounced|
+2024/11/03 21:33:21:303|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 21:33:21:305|NEWUI|Opening Settings BTTSettingsSimple|
+2024/11/03 21:33:21:306|ASL|animate new settings segue|
+2024/11/03 21:33:21:307|ASL|Could not find image named 'background'.|
+2024/11/03 21:33:21:360|ASL|language en-US|
+2024/11/03 21:33:21:464|NEWUI|Opening Settings BTTSettingsSimple|
+2024/11/03 21:33:21:522|ASL|animate new settings segue|
+2024/11/03 21:33:21:575|ASL|language en-US|
+2024/11/03 21:33:25:269|ASL|animate new settings segue|
+2024/11/03 21:33:25:278|ASL|language en-US|
+2024/11/03 21:33:46:364|ASL|animate new settings segue|
+2024/11/03 21:33:47:035|ASL|animate new settings segue|
+2024/11/03 21:33:47:845|ASL|animate new settings segue|
+2024/11/03 21:33:47:851|ASL|language en-US|
+2024/11/03 21:33:48:515|ASL|animate new settings segue|
+2024/11/03 21:33:49:065|ASL|animate new settings segue|
+2024/11/03 21:33:50:129|ASL|animate new settings segue|
+2024/11/03 21:33:51:008|ASL|animate new settings segue|
+2024/11/03 21:33:51:726|ASL|animate new settings segue|
+2024/11/03 21:33:52:623|ASL|animate new settings segue|
+2024/11/03 21:33:52:627|ASL|language en-US|
+2024/11/03 21:33:53:064|ASL|The Mac is running on battery power.|
+2024/11/03 21:33:55:313|xw|should relaunch|
+2024/11/03 21:33:55:314|xw|BTTRelaunch found|
+2024/11/03 21:33:55:314|xw|BTTRelaunch call seems successfull|
+2024/11/03 21:33:55:326|TERMINATE|SHOULDTERMINATE|
+2024/11/03 21:33:55:433|ASL|terminate reply 1|
+2024/11/03 21:33:55:723|SYS|Running on macOS: 15.0.1|
+2024/11/03 21:33:55:723|SYS|BTT Version: 4.851|
+2024/11/03 21:33:55:723|SYS|Device: MacBookPro18,2|
+2024/11/03 21:33:55:752|usage|loading todays usage|
+2024/11/03 21:33:55:752|ASL|0 elapsed 0.035762|
+2024/11/03 21:33:55:752|LAUNCH|DIDLaunch START NSConcreteNotification 0x60000043aee0 {name = NSApplicationDidFinishLaunchingNotification; object = <BTTApplication: 0x127104ff0>; userInfo = {
+    NSApplicationLaunchIsDefaultLaunchKey = 1;
+}}|
+2024/11/03 21:33:55:766|ASL|1 elapsed 0.050153|
+2024/11/03 21:33:55:766|ASL|2 elapsed 0.050189|
+2024/11/03 21:33:55:767|ASL|3 elapsed 0.050321|
+2024/11/03 21:33:55:767|ASL|4 elapsed 0.050394|
+2024/11/03 21:33:55:769|ASL|5 elapsed 0.052412|
+2024/11/03 21:33:55:769|ASL|6 elapsed 0.052461|
+2024/11/03 21:33:55:769|INIT|START PREVIOUSLYININIT|
+2024/11/03 21:33:55:769|ASL|sub 0 elapsed 0.000000 - prev|
+2024/11/03 21:33:55:780|ASL|sub 1 elapsed 0.011352 - prev|
+2024/11/03 21:33:55:781|ASL|sub 2 elapsed 0.011773 - prev|
+2024/11/03 21:33:55:781|ASL|sub 3 elapsed 0.012059 - prev|
+2024/11/03 21:33:55:781|ASL|sub 4 elapsed 0.012721 - prevk|
+2024/11/03 21:33:55:781|short|init|
+2024/11/03 21:33:55:781|ASL|Hyper key used 0|
+2024/11/03 21:33:56:094|ASL|No numeric part found in the filename.|
+2024/11/03 21:33:56:094|ASL|No numeric part found in the filename.|
+2024/11/03 21:33:56:094|ASL|Extracted build number: 2024110301|
+2024/11/03 21:33:56:095|STORE|The store already exists in udefs|
+2024/11/03 21:33:56:095|xw|the new store already exists btt_data_store.version_4_851_build_2024110301|
+2024/11/03 21:33:56:099|migrate|fixing uuids2|
+2024/11/03 21:33:56:101|LIC|idate 2024-11-04 04:29:51 +0000|
+2024/11/03 21:33:56:102|ASL|sub 5 elapsed 0.333019 - prevke|
+2024/11/03 21:33:56:102|INIT|FINISH PREVIOUSLYININIT|
+2024/11/03 21:33:56:102|ASL|7 elapsed 0.385528|
+2024/11/03 21:33:56:102|LIC|closing previous instance of BetterTouchTool relaunch|
+2024/11/03 21:33:56:102|ASL|8 elapsed 0.386146|
+2024/11/03 21:33:56:103|ASL|9 elapsed 0.386257|
+2024/11/03 21:33:56:103|ASL|10 elapsed 0.386411|
+2024/11/03 21:33:56:104|ASL|11 elapsed 0.387894|
+2024/11/03 21:33:56:105|ASL|12 elapsed 0.388566|
+2024/11/03 21:33:56:105|ASL|disablign app nap|
+2024/11/03 21:33:56:105|ASL|disabling app nap done|
+2024/11/03 21:33:56:105|ASL|13 elapsed 0.388613|
+2024/11/03 21:33:56:105|ASL|14 elapsed 0.388624|
+2024/11/03 21:33:56:105|ASL|15 elapsed 0.388679|
+2024/11/03 21:33:56:107|ASL|16 elapsed 0.391000|
+2024/11/03 21:33:56:107|ASL|17 elapsed 0.391020|
+2024/11/03 21:33:56:107|ASL|18 elapsed 0.391192|
+2024/11/03 21:33:56:107|ASL|19 elapsed 0.391205|
+2024/11/03 21:33:56:108|ASL|20 elapsed 0.391294|
+2024/11/03 21:33:56:108|ASL|21 elapsed 0.391309|
+2024/11/03 21:33:56:108|ASL|22 elapsed 0.391317|
+2024/11/03 21:33:56:108|ASL|23 elapsed 0.391826|
+2024/11/03 21:33:56:108|ASL|24 elapsed 0.391838|
+2024/11/03 21:33:56:108|ASL|25 elapsed 0.391864|
+2024/11/03 21:33:56:108|ASL|26 elapsed 0.391952|
+2024/11/03 21:33:56:115|ASL|27 elapsed 0.398256|
+2024/11/03 21:33:56:118|xw|is trusted|
+2024/11/03 21:33:56:146|short|call sharedInstance3|
+2024/11/03 21:33:56:197|ASL|The Mac is running on battery power.|
+2024/11/03 21:33:56:197|ASL|28 elapsed 0.480845|
+2024/11/03 21:33:56:197|ASL|29 elapsed 0.480872|
+2024/11/03 21:33:56:197|ASL|30 elapsed 0.480882|
+2024/11/03 21:33:56:197|ASL|31 elapsed 0.480890|
+2024/11/03 21:33:56:198|ASL|32 elapsed 0.481330|
+2024/11/03 21:33:56:198|LIC|trial|
+2024/11/03 21:33:56:199|ASL|33 elapsed 0.482675|
+2024/11/03 21:33:56:199|ASL|34 elapsed 0.483190|
+2024/11/03 21:33:56:199|START|TB VISIBLE 0|
+2024/11/03 21:33:56:199|START|TB FORCED HIDDEN 0|
+2024/11/03 21:33:56:199|ASL|35 elapsed 0.483231|
+2024/11/03 21:33:56:205|ASL|36 elapsed 0.488232|
+2024/11/03 21:33:56:205|ASL|37 elapsed 0.488714|
+2024/11/03 21:33:56:205|ASL|38 elapsed 0.488731|
+2024/11/03 21:33:56:205|LAUNCH|DIDLaunch END frontmostApp: company.thebrowser.Browser, touchpadMode 0, windowSnappingDisabled 0, singleFingerScrollingDisabled 0, mmScrollingUsed 0, tpScrollingUsed 0, tpPinchUsed 0, tpRotateUsed 0|
+2024/11/03 21:33:56:205|ASL|39 elapsed 0.488768|
+2024/11/03 21:33:56:205|ASL|40 elapsed 0.488784|
+2024/11/03 21:33:57:084|PERM|Can record screen 1|
+2024/11/03 21:33:57:277|M|mt_stop2|
+2024/11/03 21:33:57:278|TB|PresentationMode appWithControlStrip (null)|
+2024/11/03 21:33:57:279|BTT|mt device 0x0200000000000033,0x69 - 105 - internal 1 - force 1|
+2024/11/03 21:33:57:280|M|register touchbar mbp trackpad|
+2024/11/03 21:33:57:280|STDEV||
+2024/11/03 21:33:58:200|SNAPAREA|step1, 0 displays- match mode 0 - searching Built-in Retina Display|
+2024/11/03 21:33:58:205|SNAPAREA|return existing (updated)|
+2024/11/03 21:33:58:205|SNAP|Did recognize 41041 4251086178 dragpoints: 0 - 0|
+2024/11/03 21:33:58:745|BTT|NOT handling reopen due to BTT start|
+2024/11/03 21:34:00:415|BTT|NOT handling reopen due to BTT start|
+2024/11/03 21:34:01:344|sync|using icloud drive|
+2024/11/03 21:34:01:344|sync|modelurl file:///Applications/BetterTouchTool.app/Contents/Resources/BetterTouchTool_DataModel.momd/|
+2024/11/03 21:34:01:915|SHORTCUT|SHORTCUT FETCH DISABLE 1|
+2024/11/03 21:34:02:629|sync|res (null)|
+2024/11/03 21:34:53:084|ASL|The Mac is running on battery power.|
+2024/11/03 21:35:53:063|ASL|The Mac is running on battery power.|
+2024/11/03 21:36:53:055|ASL|The Mac is running on battery power.|

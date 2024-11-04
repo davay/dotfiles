@@ -20,8 +20,8 @@ alias cat="bat"
 alias zshc="vim ~/.zshrc"
 
 # cd alias
-alias cdconfig="cd ~/.config"
-alias cdh="cd ~"
+alias cconfig="c ~/.config"
+alias ch="c ~"
 
 # Python alias 
 alias nuke="pip freeze | cut -d "@" -f1 | xargs pip uninstall -y"
@@ -40,7 +40,7 @@ alias lg="lazygit"
 
 # gen z alias 
 alias please="sudo"
-alias based="cd ~/"
+alias based="c ~/"
 alias bet="git add"
 alias fr="git commit"
 alias yoink="git pull"
@@ -56,21 +56,16 @@ alias ong="rm -rf"
 
 # Custom functions
 timezsh() {
- shell=${1-$SHELL}
- for i in $(seq 1 10); do 
-  /usr/bin/time $shell -i -c exit;
- done
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do 
+    /usr/bin/time $shell -i -c exit;
+  done
 }
 
 c() {
- cd "${@}" && ls | gsed '  
-       # on line 8, print the line,
-       8 {
-           # append an ellipsis
-           a[...]
-           # and quit
-           q
-       }
-       # print lines 1-8 verbatim
-       '
+  cd "${@}" && ls
+}
+
+xsv() {
+  xsv "$@" | xsv table
 }
