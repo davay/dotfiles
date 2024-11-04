@@ -37,7 +37,6 @@ alias sshhetzner="ssh root@hetzner.devinl.im"
 
 # git alias
 alias backmerge="currBranch=\$(git rev-parse --abbrev-ref HEAD) && git checkout develop && git pull && git checkout \$currBranch && git merge develop"
-alias clean="git reset --hard && git clean -dfx"
 alias upstream="currBranch=\$(git rev-parse --abbrev-ref HEAD) && git push --set-upstream origin \$currBranch"
 alias lg="lazygit"
 alias fork="gh repo fork --clone=true"
@@ -46,22 +45,28 @@ alias checkout="git checkout"
 alias branch="git checkout -b"
 alias commit="git commit -am"
 alias status="git status"
+alias add="git add"
+alias pull="git pull"
+alias push="git push"
+alias clean="git clean -dfx"
 
 # gen z alias 
-alias please="sudo"
-alias based="c ~/"
-alias bet="git add"
-alias fr="git commit"
-alias yoink="git pull"
-alias yeet="git push"
-alias cap="-n"
-alias nocap="-f"
-alias yap="-v"
-alias noyap="-q"
 alias yikes="git reset --hard HEAD"
 alias bigyikes="git clean -dfx && git reset --hard HEAD"
-alias smash="git merge"
-alias ong="rm -rf"
+
+# unused gen z alias
+# alias smash="git merge"
+# alias ong="rm -rf"
+# alias yoink="git pull"
+# alias yeet="git push"
+# alias cap="-n"
+# alias nocap="-f"
+# alias yap="-v"
+# alias noyap="-q"
+# alias please="sudo"
+# alias based="c ~/"
+# alias bet="git add"
+# alias fr="git commit"
 
 # Custom functions
 timezsh() {
