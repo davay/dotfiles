@@ -66,6 +66,22 @@ c() {
   cd "$@" && ls
 }
 
+# Pretty xsv, also replace empty values with -, handle edge cases:
+# - when 2 missing values are adjacent
+# - when missing value is at the beginning
+# - when missing value is at the end
+# x() {
+#   xsv "$@" | \
+#     sed -e ':a' -e 's/,,/,-,/g' -e 'ta' \
+#     -e 's/^,/-,/' \
+#     -e 's/,$/,-/' | \
+#     xsv fmt -t '-' | bat -l tsv
+# }
+
 x() {
-  xsv "$@" | sed 's/,,/,-,/g' | xsv fmt -t '\t' | bat -l tsv
+  xsv "$@" | \
+    sed -e ':a' -e 's/,,/,-,/g' -e 'ta' \
+    -e 's/^,/-,/' \
+    -e 's/,$/,-/' | \
+    bat -l csv
 }
