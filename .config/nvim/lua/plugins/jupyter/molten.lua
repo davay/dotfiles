@@ -10,7 +10,8 @@ return {
       vim.g.molten_auto_open_output = false
 
       -- image.nvim or wezterm (install wezterm.nvim)
-      vim.g.molten_image_provider = "none"
+      -- vim.g.molten_image_provider = "none"
+      vim.g.molten_image_provider = "wezterm"
 
       -- optional, I like wrapping. works for virt text and the output window
       vim.g.molten_wrap_output = true

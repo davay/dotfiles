@@ -13,7 +13,6 @@ return {
         formatters_by_ft = {
           markdown = { 'injected' },
           python = {
-            'ruff_fix',
             'ruff_format',
             'ruff_organize_imports',
           },

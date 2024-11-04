@@ -57,6 +57,8 @@
           - bat
           - oven-sh/bun/bun
           - jesseduffield/lazygit/lazygit
+          - saulpw/vd/visidata
+          - xsv
         state: latest
         update_homebrew: yes
 
@@ -110,6 +112,8 @@
           - craft
           - zoom
           - 1password-cli
+          - bettertouchtool
+          - bambu-studio
         state: latest
 
     - name: "Homebrew: Start Services"

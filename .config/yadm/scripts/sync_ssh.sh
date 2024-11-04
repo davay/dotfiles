@@ -62,28 +62,42 @@ install_zsh() {
 sync_zsh() {
     log "Syncing Zsh configuration..."
     
-    # Create backup of existing config
-    # ssh ${REMOTE_CONNECTION} 'cp ~/.zshrc ~/.zshrc.backup 2>/dev/null || true'
-    
     # Sync .zshrc
     rsync -av ~/.zshrc_portable "${REMOTE_CONNECTION}:~/.zshrc"
     
-    # Sync custom Oh My Zsh files if they exist
-    if [ -d ~/.oh-my-zsh/custom ]; then
-        rsync -av ~/.oh-my-zsh/custom/ "${REMOTE_CONNECTION}:~/.oh-my-zsh/custom/"
-    fi
 }
 
-# Install Neovim on remote
 install_neovim() {
-    log "Installing Neovim..."
+    log "Installing Neovim AppImage..."
     
     ssh "${REMOTE_CONNECTION}" '
-        if ! command -v nvim &> /dev/null; then
-            sudo dnf install -y neovim
+        # Handle dubious ownership error
+        git config --global --add safe.directory "*"
+
+        # Create directory for app images if it doesnt exist
+        mkdir -p ~/.local/bin
+
+        # Download latest stable Neovim AppImage
+        curl -L -o nvim.appimage $(curl -s https://api.github.com/repos/neovim/neovim/releases/latest | grep -o "https.*appimage\"" | tr -d "\"")
+         
+        # Make it executable
+        chmod u+x nvim.appimage
+        
+        # Move to final location
+        mv nvim.appimage ~/.local/bin/nvim
+        
+        # Clean up
+        rm -rf squashfs-root
+        
+        # Add to PATH if not already there
+        if ! grep -q "PATH=\"\$HOME/.local/bin:\$PATH\"" ~/.zshrc; then
+            echo "export PATH=\"\$HOME/.local/bin:\$PATH\"" >> ~/.zshrc
         fi
+        
+        # Create symbolic link for backward compatibility
+        sudo ln -sf ~/.local/bin/nvim /usr/local/bin/nvim 2>/dev/null || true
     '
-}
+  }
 
 # Sync Neovim configuration
 sync_neovim() {

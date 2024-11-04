@@ -1,0 +1,27 @@
+# Use 'i' instead of 'e' to edit 
+TableSheet.unbindkey('i') 
+TableSheet.bindkey('i', 'edit-cell')
+
+# I already use alt + whatever everywhere, need to rebind
+
+# Menu bar items
+TableSheet.unbindkey('Alt+f')  # File Menu
+TableSheet.unbindkey('Alt+e')  # Edit Menu
+TableSheet.unbindkey('Alt+v')  # View Menu
+TableSheet.unbindkey('Alt+c')  # Column Menu
+TableSheet.unbindkey('Alt+r')  # Row Menu
+TableSheet.unbindkey('Alt+d')  # Data Menu
+TableSheet.unbindkey('Alt+p')  # Plot Menu
+TableSheet.unbindkey('Alt+s')  # System Menu
+TableSheet.unbindkey('Alt+h')  # Help Menu
+TableSheet.unbindkey('F1') # Quick Reference
+TableSheet.unbindkey('F2') # Hello World 
+TableSheet.bindkey('F1', 'menu-file')    # File Menu
+TableSheet.bindkey('F2', 'menu-edit')    # Edit Menu
+TableSheet.bindkey('F3', 'menu-view')    # View Menu
+TableSheet.bindkey('F4', 'menu-column')  # Column Menu
+TableSheet.bindkey('F5', 'menu-row')     # Row  Menu
+TableSheet.bindkey('F6', 'menu-data')    # Data Menu
+TableSheet.bindkey('F7', 'menu-plot')    # Plot Menu
+TableSheet.bindkey('F8', 'menu-system')  # System Menu
+TableSheet.bindkey('F9', 'menu-help')    # Help Menu 
