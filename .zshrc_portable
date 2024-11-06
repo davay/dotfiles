@@ -27,8 +27,8 @@ alias ch="c ~"
 alias cnvim="c ~/.config/nvim/lua"
 
 # Python alias 
-alias nuke="pip freeze | cut -d "@" -f1 | xargs pip uninstall -y"
-alias freeze="pip list --format=freeze > requirements.txt"
+alias pipnuke="pip freeze | cut -d "@" -f1 | xargs pip uninstall -y"
+alias pipfreeze="pip list --format=freeze > requirements.txt"
 
 # SSH alias
 alias sshpi="ssh pi@pi.devinl.im"
@@ -49,6 +49,8 @@ alias add="git add"
 alias pull="git pull"
 alias push="git push"
 alias clean="git clean -dfx"
+alias reset="git reset --hard HEAD"
+alias nuke="git clean -dfx && git reset --hard HEAD"
 
 # gen z alias 
 alias yikes="git reset --hard HEAD"

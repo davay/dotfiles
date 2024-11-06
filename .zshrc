@@ -36,6 +36,16 @@ alias cpersonal="c ~/Repos/Personal"
 alias csu="c ~/Drive/usa/school/su"
 alias cleetcode="c ~/Repos/Personal/leetcode"
 
+# yadm alias 
+alias ycommit="yadm commit -am"
+alias ystatus="yadm status"
+alias yadd="yadm add"
+alias ypull="yadm pull"
+alias ypush="yadm push"
+alias yclean="yadm clean -dfx"
+alias yreset="yadm reset --hard HEAD"
+alias ynuke="yadm clean -dfx && yadm reset --hard HEAD"
+
 # SSH alias
 alias synchetzner="syncssh root@hetzner.devinl.im"
 

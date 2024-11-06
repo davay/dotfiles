@@ -7582,3 +7582,5 @@
 2024/11/05 16:45:15:832|ASL|triggering action Trigger Menu Bar Menu-Item - 0CAFFF3E-A3E3-4A77-ABA8-D3C557AD2859|
 2024/11/05 16:45:15:842|ASL|already replied 103|
 2024/11/05 17:00:28:182|SWI|PID MISMATCH FIX|
+2024/11/05 17:05:05:749|SEC|SecureInputActive dev.warp.Warp-Stable 58081|
+2024/11/05 17:05:09:173|SEC|SecureInputDisabled dev.warp.Warp-Stable|
