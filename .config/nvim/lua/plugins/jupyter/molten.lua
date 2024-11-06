@@ -9,9 +9,8 @@ return {
       -- a keybind for `:noautocmd MoltenEnterOutput` to open the output again
       vim.g.molten_auto_open_output = false
 
-      -- image.nvim or wezterm (install wezterm.nvim)
-      -- vim.g.molten_image_provider = "none"
-      vim.g.molten_image_provider = "wezterm"
+      -- none or image.nvim or wezterm (install wezterm.nvim)
+      vim.g.molten_image_provider = "none"
 
       -- optional, I like wrapping. works for virt text and the output window
       vim.g.molten_wrap_output = true

@@ -16,7 +16,7 @@ return {
 
     require("outline").setup({
       outline_items = {
-        show_symbol_details = true, -- BUG: Only works in some languages like Lua, doesn't seem to work in Python
+        show_symbol_details = false, -- BUG: Only works in some languages like Lua, doesn't seem to work in Python
         show_symbol_lineno = true,
         auto_update_events = {
           follow = { 'CursorMoved' },

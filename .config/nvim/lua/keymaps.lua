@@ -17,14 +17,18 @@
 vim.g.mapleader = ' '
 
 -- general vim hotkeys
+---- disable these default hotkeys that I don't use but sometimes misclick
+---- C-o is treated the same as C-O
+---- TIL: <C-I> is the same as tab
+vim.keymap.set('n', '<C-O>', '<nop>')
 
 ---- always close no matter how many buffers (e.g., for neo-tree and outline)
-vim.keymap.set('c', 'q<CR>', 'qa<CR>', { desc = "Alias q to qa" })
-vim.keymap.set('c', 'wq<CR>', 'wqa<CR>', { desc = "Alias wq to wqa" })
-vim.keymap.set('c', 'x<CR>', 'xa<CR>', { desc = "Alias x to xa" })
-vim.keymap.set('c', 'q!<CR>', 'qa!<CR>', { desc = "Alias q! to qa!" })
-vim.keymap.set('c', 'wq!<CR>', 'wqa!<CR>', { desc = "Alias wq! to wqa!" })
-vim.keymap.set('c', 'x!<CR>', 'xa!<CR>', { desc = "Alias x! to xa!" })
+vim.keymap.set('c', 'q<CR>', 'qa<CR>', { desc = "Vim: Alias q to qa" })
+vim.keymap.set('c', 'wq<CR>', 'wqa<CR>', { desc = "Vim: Alias wq to wqa" })
+vim.keymap.set('c', 'x<CR>', 'xa<CR>', { desc = "Vim: Alias x to xa" })
+vim.keymap.set('c', 'q!<CR>', 'qa!<CR>', { desc = "Vim: Alias q! to qa!" })
+vim.keymap.set('c', 'wq!<CR>', 'wqa!<CR>', { desc = "Vim: Alias wq! to wqa!" })
+vim.keymap.set('c', 'x!<CR>', 'xa!<CR>', { desc = "Vim: Alias x! to xa!" })
 
 ---- inverse tab indent
 vim.keymap.set('i', '<S-Tab>', '<C-d>', { desc = "Vim: Inverse Tab Indent", silent = true })
@@ -33,15 +37,17 @@ vim.keymap.set('i', '<S-Tab>', '<C-d>', { desc = "Vim: Inverse Tab Indent", sile
 vim.keymap.set('n', '<Tab>', '<C-w>w', { desc = "Vim: Next Pane", silent = true })
 vim.keymap.set('n', '<S-Tab>', '<C-w>W', { desc = "Vim: Prev Pane", silent = true })
 
+---- shortcut to center
+vim.keymap.set('n', 'Z', 'zz', { desc = "Vim: Center Screen", silent = true })
 ---- toggle between current and previous buffer (backspace)
-vim.keymap.set('n', '<bs>',
-  function()
-    if not vim.tbl_contains({ 'neo-tree', 'Outline', 'qf' }, vim.bo.filetype) then
-      vim.cmd('normal! <c-^>zz')
-    end
-  end,
-  { desc = "Vim: Toggle Buffer", silent = true }
-)
+------ previously:
+------ vim.keymap.set('n', '<bs>', '<c-^>zz', { desc = "Vim: Toggle Buffer", silent = true })
+vim.keymap.set('n', '<bs>', function()
+  if not vim.tbl_contains({ 'neo-tree', 'Outline', 'qf' }, vim.bo.filetype) then
+    vim.cmd.buffer('#')  -- most recent buffer
+    vim.cmd.normal('zz') -- center
+  end
+end, { desc = "Vim: Toggle Buffer", silent = true })
 
 ---- unload current buffer
 vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { desc = "Vim: Delete Buffer", silent = true })
@@ -54,9 +60,12 @@ vim.keymap.set('n', '<leader>bb', ':bprev<CR>', { desc = "Vim: Prev Buffer", sil
 vim.keymap.set('n', '<leader>d', '<C-w>v', { desc = "Vim: Split Vertical", silent = true })
 vim.keymap.set('n', '<leader>D', '<C-w>s', { desc = "Vim: Split Horizontal", silent = true })
 
----- faster scroll
+---- rapid scrolling
+------ remap = true is to allow mini.animate to remap up/down in case it's enabled
+vim.keymap.set({ 'n', 'v', 'o' }, 'H', '3h', { desc = "Vim: Fast Scroll Left - 3*h", remap = true, silent = true })
 vim.keymap.set({ 'n', 'v', 'o' }, 'J', '3j', { desc = "Vim: Fast Scroll Down - 3*j", remap = true, silent = true })
 vim.keymap.set({ 'n', 'v', 'o' }, 'K', '3k', { desc = "Vim: Fast Scroll Up - 3*k", remap = true, silent = true })
+vim.keymap.set({ 'n', 'v', 'o' }, 'L', '3l', { desc = "Vim: Fast Scroll Right - 3*l", remap = true, silent = true })
 
 ---- keep scrolling down if reach eof, mostly to see jupyter virtual text if codeblock is at eof
 vim.keymap.set('n', 'j', function()
@@ -202,6 +211,14 @@ vim.keymap.set('n', '<leader>mm', codewindow.toggle_minimap,
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
   callback = function()
+    ---- insert python codeblock
+    vim.keymap.set({ 'i', 'n' }, '<Leader>jb', function()
+      local pos = vim.api.nvim_win_get_cursor(0)
+      vim.api.nvim_put({ '```python', '', '```' }, 'l', false, true)
+      vim.api.nvim_win_set_cursor(0, { pos[1] + 1, 0 }) -- Move to the middle empty line
+      vim.cmd('startinsert')
+    end, { desc = "Markdown: Insert Python code block" })
+
     ---- treesitter
     vim.keymap.set("n", "]]", ":TSTextobjectGotoNextStart @code_cell.inner | norm! zz<CR>",
       { desc = "TS: Next Code Block", silent = true, buffer = true })
@@ -226,17 +243,22 @@ vim.api.nvim_create_autocmd("FileType", {
       { desc = "Molten: Restart Kernel", silent = true })
     vim.keymap.set("n", "<leader>jr", ':MoltenRestart!<CR>',
       { desc = "Molten: Restart Kernel and Clear All", silent = true })
-    vim.keymap.set("n", "<leader>je", ':noautocmd MoltenEnterOutput<CR>',
-      { desc = "Molten: Enter Output", silent = true })
+    vim.keymap.set("n", "<leader>je", function()
+      if vim.bo.filetype == "molten_output" then
+        vim.cmd("MoltenHideOutput")
+      else
+        vim.cmd("noautocmd MoltenEnterOutput")
+      end
+    end, { desc = "Molten: Toggle Output", silent = true })
 
     -- markdown-preview
-    vim.keymap.set("n", "<leader>jo", ":MarkdownPreviewToggle<CR>", { desc = "Markdown Preview", silent = true })
+    vim.keymap.set("n", "<leader>jo", ":MarkdownPreviewToggle<CR>", { desc = "Markdown: Preview", silent = true })
 
     -- jupyter (cli)
     local function convert_and_open_notebook(use_pretty_style)
       local current_file = vim.fn.expand('%:p')
       if not current_file:match('%.ipynb$') then
-        vim.notify('Current file is not a Jupyter notebook', vim.log.levels.ERROR)
+        vim.notify('Jupyter: Current file is not a Jupyter notebook', vim.log.levels.ERROR)
         return
       end
 
@@ -252,7 +274,7 @@ vim.api.nvim_create_autocmd("FileType", {
       end
       local convert_result = vim.fn.system(convert_cmd)
       if vim.v.shell_error ~= 0 then
-        vim.notify('Failed to convert notebook: ' .. convert_result, vim.log.levels.ERROR)
+        vim.notify('Jupyter: Failed to convert notebook: ' .. convert_result, vim.log.levels.ERROR)
         return
       end
 
@@ -270,11 +292,11 @@ vim.api.nvim_create_autocmd("FileType", {
 
       local open_result = vim.fn.system(string.format('%s %s', open_cmd, html_file))
       if vim.v.shell_error ~= 0 then
-        vim.notify('Failed to open browser: ' .. open_result, vim.log.levels.ERROR)
+        vim.notify('Jupyter: Failed to open browser: ' .. open_result, vim.log.levels.ERROR)
         return
       end
 
-      vim.notify('Notebook converted and opened in browser', vim.log.levels.INFO)
+      vim.notify('Jupyter: Notebook converted and opened in browser', vim.log.levels.INFO)
     end
 
     local function open_html_in_browser()
