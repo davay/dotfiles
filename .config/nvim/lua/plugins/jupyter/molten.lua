@@ -1,16 +1,21 @@
+local is_kitty = os.getenv("KITTY_WINDOW_ID") ~= nil
+local deps = is_kitty and { "3rd/image.nvim" } or {}
+
 return {
   {
     "benlubas/molten-nvim",
-    dependencies = { "3rd/image.nvim" },
+    dependencies = deps,
     ft = "markdown",
     build = ":UpdateRemotePlugins",
+    branch = "push-otzqzrqwlkzu",
     init = function()
       -- I find auto open annoying, keep in mind setting this option will require setting
       -- a keybind for `:noautocmd MoltenEnterOutput` to open the output again
       vim.g.molten_auto_open_output = false
 
       -- none or image.nvim or wezterm (install wezterm.nvim)
-      vim.g.molten_image_provider = "none"
+      -- right now, if kitty use image.nvim, otherwise dont load images
+      vim.g.molten_image_provider = is_kitty and "image.nvim" or "none"
 
       -- optional, I like wrapping. works for virt text and the output window
       vim.g.molten_wrap_output = true

@@ -116,6 +116,8 @@
           - bettertouchtool
           - bambu-studio
           - keyclu
+          - obs
+          - lunar
         state: latest
 
     - name: "Homebrew: Start Services"

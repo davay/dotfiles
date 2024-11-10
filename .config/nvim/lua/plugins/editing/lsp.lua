@@ -81,6 +81,8 @@ return {
 
       require('lazy-lsp').setup {
         excluded_servers = {
+          'bufls', -- 2024-11-10: deprecated, use buf_ls instead, lazy-lsp needs to fix
+          'ruff_lsp', -- 2024-11-10: deprecated, use ruff instead, lazy-lsp needs to fix
           'ltex', -- because of ltex-ls linkage error
         },
         preferred_servers = {

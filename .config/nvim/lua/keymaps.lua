@@ -212,7 +212,7 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
   callback = function()
     ---- insert python codeblock
-    vim.keymap.set({ 'i', 'n' }, '<Leader>jb', function()
+    vim.keymap.set('n', '<Leader>jb', function()
       local pos = vim.api.nvim_win_get_cursor(0)
       vim.api.nvim_put({ '```python', '', '```' }, 'l', false, true)
       vim.api.nvim_win_set_cursor(0, { pos[1] + 1, 0 }) -- Move to the middle empty line
@@ -243,6 +243,7 @@ vim.api.nvim_create_autocmd("FileType", {
       { desc = "Molten: Restart Kernel", silent = true })
     vim.keymap.set("n", "<leader>jr", ':MoltenRestart!<CR>',
       { desc = "Molten: Restart Kernel and Clear All", silent = true })
+    --  enter/exit molten output
     vim.keymap.set("n", "<leader>je", function()
       if vim.bo.filetype == "molten_output" then
         vim.cmd("MoltenHideOutput")
@@ -325,9 +326,9 @@ vim.keymap.set({ "o", "x" }, "R", function() flash.treesitter_search() end,
 vim.keymap.set("c", "<c-s>", function() flash.toggle() end, { desc = "Flash: Toggle Search", silent = true })
 
 -- raycast
-vim.keymap.set('v', '<leader>r',
-  '"+y<ESC>:lua vim.fn.system("open \'raycast://ai-commands/explain-code-step-by-step-clipboard\'")<CR>',
-  { desc = "Raycast: Explain Code", silent = true })
+-- vim.keymap.set('v', '<leader>r',
+--   '"+y<ESC>:lua vim.fn.system("open \'raycast://ai-commands/explain-code-step-by-step-clipboard\'")<CR>',
+--   { desc = "Raycast: Explain Code", silent = true })
 
 -- codecompanion
 local codecompanion = require("codecompanion")
@@ -342,3 +343,9 @@ vim.keymap.set("v", "<leader>ce", function()
 end, { desc = "CodeCompanion: Explain Code", silent = true })
 -- Expand 'cc' into 'CodeCompanion' in the command line
 vim.cmd([[cab cc CodeCompanion]])
+
+-- searchbox
+vim.keymap.set('n', '<leader>r',
+  ":SearchBoxReplace confirm=menu -- <C-r>=expand('<cword>')<CR><CR>",
+  { desc = "Searchbox: Replace Current Word", silent = true })
+vim.keymap.set('x', '<leader>r', ":SearchBoxReplace visual_mode=true<CR>")
