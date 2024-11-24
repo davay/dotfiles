@@ -59,6 +59,7 @@
           - jesseduffield/lazygit/lazygit
           - saulpw/vd/visidata
           - xsv
+          - skim
         state: latest
         update_homebrew: yes
 

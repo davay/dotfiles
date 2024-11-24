@@ -49,3 +49,5 @@ brew install yadm && yadm clone https://github.com/davay/dotfiles.git
 - Settings - Privacy & Security: Allow apps from anywhere
 
 - Yabai + Skhd: Start Service
+
+- Skim: Set headless config to sync with nvim https://github.com/benbrastmckie/.config

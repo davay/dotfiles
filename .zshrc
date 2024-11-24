@@ -16,6 +16,7 @@ alias less="batpipe"
 alias watch="batwatch"
 alias diff="batdiff"
 alias rg="batgrep"
+alias skim='/Applications/Skim.app/Contents/MacOS/Skim'
 
 # Config alias
 alias yadmc="vim ~/.config/yadm/bootstrap"
