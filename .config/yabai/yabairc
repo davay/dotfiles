@@ -1,81 +1,12 @@
 #!/usr/bin/env sh
 
-####################################################################################
-# Currently Yabai is setup to start as float, to be used with stage manager
-# Mostly used for window rules only. Some Window rules settings require SIP disabled
-# Also useful to restart/resize sketchybar on display change
-####################################################################################
-
-# [SIP] automatically load scripting addition, must manually perform visudo step to change hash after every Yabai update (maybe OS update too?)
-# https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition
-
-###
-# After an update, must update sudoers file:
-#   sudo visudo -f /private/etc/sudoers.d/yabai
-# replace the line with the output of below
-#   echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | cut -d " " -f 1) $(which yabai) --load-sa"
-###
-
-yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-sudo yabai --load-sa
-
-top_padding=$(/Users/davay/.config/yabai/get_top_padding.sh)
-
 # space settings
-yabai -m config layout                       bsp # bsp | float
-yabai -m config top_padding                  $top_padding
-yabai -m config bottom_padding               6
-yabai -m config left_padding                 6
-yabai -m config right_padding                6
-yabai -m config window_gap                   6
-yabai -m config external_bar                 all:0:0
+yabai -m config layout                       float
 
 # mouse settings
-yabai -m config mouse_follows_focus          off # on | off
+yabai -m config mouse_follows_focus          on # on | off
 yabai -m config focus_follows_mouse          off # autofocus | autoraise | off
 
-# window settings
-yabai -m config window_placement             second_child
-yabai -m config auto_balance                 on
-yabai -m config split_ratio                  0.50
-
-## border
-yabai -m config window_border off
-yabai -m config window_border_width 4
-yabai -m config active_window_border_color 0xffa05d2c
-yabai -m config normal_window_border_color 0xff3f3f3f
-
-## opacity
-yabai -m config window_opacity               off
-yabai -m config window_opacity_duration      0.25
-yabai -m config active_window_opacity        1.0
-yabai -m config normal_window_opacity        0.95
-
-## [SIP] requires sip disabled
-yabai -m config window_topmost               off # floating windows always on top
-yabai -m config window_shadow                on # window shadows only on float 
-
-# window rules https://github.com/koekeishiya/yabai/blob/master/doc/yabai.asciidoc#rule
-# Right monitor (horizontal)
-yabai -m rule --add app="^(Books|Preview)$" display=1
-
-yabai -m rule --add app="^(Arc|Safari)$" space=1
-
-yabai -m rule --add app="^(Code)" space=2
-
-yabai -m rule --add app="^(Notes|1Password|Calculator)$" display=1 manage=off
-
-# Left monitor (vertical)
-yabai -m rule --add app="^(Craft|Personal)$" space=3
-
-yabai -m rule --add app="^(Music|Messages|Agenda|Discord|Microsoft Teams \(work or school\)|Microsoft Teams classic)$" space=4
-
-# Any monitor
-yabai -m rule --add app="^(Raycast|iTerm2|System Preferences|System Settings|System Information|Reminders)$" manage=off
-
-yabai -m rule --add app="^Finder$" title="^Copy$" manage=off 
-
-# focus some window after window/application close or space/display change
 # TODO: There's an annoying bug where if you switch space when your current active window is a youtube video in Arc browser,
 # switching to an empty (no window) space will cause it to trigger PIP and manually switch back. But if you activate PIP manually by switching to some other tab first,
 # this doesn't happen. As far as I can tell, not related to these last 2 events. 
@@ -84,14 +15,6 @@ yabai -m signal --add event=application_terminated action="yabai -m query --wind
 yabai -m signal --add event=space_changed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse || yabai -m window --focus \$(yabai -m query --windows --space | jq .[-1].id)"
 yabai -m signal --add event=display_changed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse || yabai -m window --focus \$(yabai -m query --windows --space | jq .[-1].id)"
 
-### WIP, there's some annoying behavior when using Arc browser's youtube pip and switching to a blank space
-# yabai -m signal --add event=space_changed action="yabai -m window --focus \$(sleep 0.05 && yabai -m query --windows --space | jq -r 'map(select(.\"is-sticky\" == false))[-1].id')"
-# yabai -m signal --add event=display_changed action="yabai -m window --focus \$(sleep 0.05 && yabai -m query --windows --space | jq -r 'map(select(.\"is-sticky\" == false))[-1].id')"
-#focus_command='window_id=$(sleep 1 && yabai -m query --windows --space | jq -r "map(select(.\"is-sticky\" == false)) | last.id"); [ "$window_id" != "null" ] && yabai -m window --focus "$window_id"'
-#yabai -m signal --add event=space_changed action="$focus_command"
-#yabai -m signal --add event=display_changed action="$focus_command"
-###
-
 ## Use correct sketchybar height regardless of resolution -- automatic resizing
 ## https://github.com/FelixKratz/SketchyBar/discussions/12?sort=new#discussioncomment-6225020 
 yabai -m signal --add event=display_resized action="brew services restart sketchybar"
@@ -99,34 +22,3 @@ yabai -m signal --add event=display_resized action="brew services restart sketch
 ## for window_title sketchybar widget
 yabai -m signal --add event=window_focused action="sketchybar -m --trigger window_focus &> /dev/null"
 yabai -m signal --add event=window_title_changed action="sketchybar -m --trigger title_change &> /dev/null"
-
-## setup spaces
-# clear extra spaces on startup
-for _ in $(yabai -m query --spaces | jq '.[].index | select(. > 4)'); do
-  yabai -m space --destroy 5
-done
-
-function setup_space {
-  local idx="$1"
-  local name="$2"
-  local space=
-  echo "setup space $idx : $name"
-
-  space=$(yabai -m query --spaces --space "$idx")
-  if [ -z "$space" ]; then
-    yabai -m space --create
-  fi
-
-  # assign space to display
-  # https://github.com/koekeishiya/yabai/issues/1225
-  if [ "$idx" -lt "3" ]; then
-    yabai -m space "$idx" --label "$name" --display 1
-  else
-    yabai -m space "$idx" --label "$name" --display 2
-  fi
-}
-
-setup_space 1 general
-setup_space 2 work
-setup_space 3 work
-setup_space 4 misc

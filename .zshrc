@@ -39,6 +39,7 @@ alias cleetcode="c ~/Repos/Personal/leetcode"
 # yadm alias 
 alias ycommit="yadm commit -am"
 alias ystatus="yadm status"
+alias ydiff="yadm diff | prettybat"
 alias yadd="yadm add"
 alias ypull="yadm pull"
 alias ypush="yadm push"

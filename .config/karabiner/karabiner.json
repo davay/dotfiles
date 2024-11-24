@@ -5,6 +5,24 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "Fn + space = emoji menu. (Simplifies default command + control + space)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": { "mandatory": ["fn"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "spacebar",
+                                        "modifiers": ["left_command", "left_control"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Disable Cmd+H Hide (rev 2)",
                         "manipulators": [
                             {

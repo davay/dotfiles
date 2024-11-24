@@ -2,7 +2,7 @@
 
 A [yadm](https://yadm.io/) + [Ansible](https://docs.ansible.com/ansible/latest/user_guide/index.html#getting-started) instant setup for fresh OS installs. 
 
-NOTE: Main branch is brand new -- Mac only for now. Old combined Linux + Mac setup is in archive branch. Yabai, skhd, and sketchybar are all preinstalled along with configs, but manual setup is required, instructions not here. 
+NOTE: Main branch is brand new -- Mac only for now. Old combined Linux + Mac setup is in archive branch. Yabai, skhd, and sketchybar are all preinstalled along with configs, but manual setup is required, instructions not here. Config for SIP-enabled yabai is in yabai.bak + skhd.bak. Otherwise, the configs present are for non-SIP yabai (mostly to focus display)
 
 ## Screenshot 
 
@@ -47,3 +47,5 @@ brew install yadm && yadm clone https://github.com/davay/dotfiles.git
 - Settings - Touch ID & Password: Change password (iykyk) and use Apple Watch to unlock
 
 - Settings - Privacy & Security: Allow apps from anywhere
+
+- Yabai + Skhd: Start Service
