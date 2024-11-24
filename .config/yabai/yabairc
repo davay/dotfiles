@@ -4,7 +4,7 @@
 yabai -m config layout                       float
 
 # mouse settings
-yabai -m config mouse_follows_focus          on # on | off
+yabai -m config mouse_follows_focus          off # on | off
 yabai -m config focus_follows_mouse          off # autofocus | autoraise | off
 
 # TODO: There's an annoying bug where if you switch space when your current active window is a youtube video in Arc browser,

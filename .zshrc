@@ -28,6 +28,7 @@ alias zshpc="vim ~/.zshrc_portable"
 
 # cd alias 
 alias cyadm="c ~/.config/yadm"
+alias csketchybar="c ~/.config/sketchybar/"
 alias cexr="c ~/Repos/Personal/EditXR"
 alias crepos="c ~/Repos"
 alias cwork="c ~/Repos/Work"

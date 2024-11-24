@@ -8,7 +8,7 @@ else
 fi
 
 if [[ ${#DISPLAY_TEXT} -gt 50 ]]; then
-  DISPLAY_TEXT=$(echo "$DISPLAY_TEXT" | cut -c 1-50)
+  DISPLAY_TEXT=$(echo "$DISPLAY_TEXT" | cut -c 1-55)
   sketchybar -m --set window_title label="$DISPLAY_TEXT"…
   exit 0
 fi
