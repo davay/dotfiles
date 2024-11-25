@@ -345,7 +345,19 @@ end, { desc = "CodeCompanion: Explain Code", silent = true })
 vim.cmd([[cab cc CodeCompanion]])
 
 -- searchbox
-vim.keymap.set('n', '<leader>r',
-  ":SearchBoxReplace confirm=menu -- <C-r>=expand('<cword>')<CR><CR>",
+vim.keymap.set('n', '<leader>r', ":SearchBoxReplace confirm=menu -- <C-r>=expand('<cword>')<CR><CR>",
   { desc = "Searchbox: Replace Current Word", silent = true })
-vim.keymap.set('x', '<leader>r', ":SearchBoxReplace visual_mode=true<CR>")
+vim.keymap.set('x', '<leader>r', ":SearchBoxReplace visual_mode=true<CR>", { desc = "Searchbox: Replace", silent = true })
+
+
+-- latex stuff
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "tex",
+  callback = function()
+    vim.keymap.set("n", "<leader>vv", ":VimtexView<CR>", { desc = "Vimtex: View / Forward Search", silent = true })
+    vim.keymap.set("n", "<leader>vt", ":VimtexTocToggle<CR>", { desc = "Vimtex: Toggle TOC", silent = true })
+    vim.keymap.set("n", "<leader>vc", ":VimtexCompile<CR>", { desc = "Vimtex: Compile Continuously", silent = true })
+    vim.keymap.set("n", "<leader>vs", ":VimtexCompile<CR>", { desc = "Vimtex: Stop Compilation", silent = true })
+    vim.keymap.set("n", "<leader>vw", ":VimtexCountWords<CR>", { desc = "Vimtex: Count Words", silent = true })
+  end
+})

@@ -11,6 +11,7 @@
     - name: "Homebrew: Add taps"
       community.general.homebrew_tap:
         name:
+          - koekeishiya/formulae
           - felixkratz/formulae
 
     - name: "Homebrew: Install packages"
@@ -41,9 +42,10 @@
           - fd
           - thefuck
           - webpack
-          - koekeishiya/formulae/yabai
-          - koekeishiya/formulae/skhd
-          - felixkratz/formulae/sketchybar
+          - yabai
+          - skhd
+          - sketchybar
+          - svim
           - pipes-sh
           - mdcat
           - git-lfs
@@ -127,6 +129,10 @@
     - name: "Homebrew: Start Services"
       community.general.homebrew_services:
         name: 
+          # yabai & skhd has their own yabai --start-service, not sure if same
+          # - yabai 
+          # - skhd
+          - svim
           - sketchybar
         state: present
 
@@ -146,6 +152,7 @@
           - 6471380298 # StopTheMadness for Safari
           - 1480933944 # Vimari for Safari
           - 1622835804 # Kagi for Safari
+          - 1552641506 # GhostText for Safari
           - 937984704 # Amphetamine
           - 409183694 # Keynote
           - 409203825 # Numbers
