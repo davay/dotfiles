@@ -14,6 +14,32 @@ return {
       end
     end
 
+    -- Set up an autocommand to open outline when entering a file
+    local outline_group = vim.api.nvim_create_augroup('OutlineAutoOpen', { clear = true })
+    vim.api.nvim_create_autocmd({ 'LspAttach' }, {
+      group = outline_group,
+      callback = function()
+        -- Only open if it's a regular buffer and LSP is attached
+        local bufnr = vim.api.nvim_get_current_buf()
+        local ft = vim.bo[bufnr].filetype
+        local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
+
+        -- Get window width
+        local width = vim.api.nvim_win_get_width(0)
+        local min_width = 160 -- minimum width in columns before showing outline
+
+        -- Skip if window is too narrow, or for special buffers and files without LSP
+        if width < min_width or vim.bo[bufnr].buftype ~= '' or #clients == 0 then
+          return
+        end
+
+        -- Delay the outline opening slightly to ensure LSP is fully ready
+        vim.defer_fn(function()
+          require('outline').open()
+        end, 100)
+      end,
+    })
+
     require("outline").setup({
       outline_items = {
         show_symbol_details = false, -- BUG: Only works in some languages like Lua, doesn't seem to work in Python
@@ -34,10 +60,14 @@ return {
       outline_window = {
         auto_close = false,
         auto_jump = false,
+        position = 'left',
+        width = 40,
+        relative_width = false, -- true == percentage, false == integer #cols
+        focus_on_open = false,
       },
-      symbol_folding = {
-        autofold_depth = 2
-      },
+      -- symbol_folding = {
+      --   autofold_depth = 2
+      -- },
       preview_window = {
         auto_preview = true,
         open_hover_on_preview = false, -- BUG: Doesn't seem to work? I think the hover is behind the preview

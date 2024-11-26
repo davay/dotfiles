@@ -113,9 +113,16 @@ vim.keymap.set('n', '<leader>ls', ':Leet submit<CR>', { desc = "Leetcode: Submit
 vim.keymap.set('n', '<leader>lm', ':Leet<CR>', { desc = "Leetcode: Menu", silent = true })
 vim.keymap.set('n', '<leader>lc', ':Leet console<CR>', { desc = "Leetcode: Console", silent = true })
 
+-- mini.files, as neotree is no longer maintained and looking for maintainers, trying things out
+local MiniFiles = require('mini.files')
+local minifiles_toggle = function(...)
+  if not MiniFiles.close() then MiniFiles.open(...) end
+end
+vim.keymap.set('n', '<leader>n', minifiles_toggle, { desc = "Mini.Files: Toggle", silent = true })
+
 -- neotree
-vim.keymap.set('n', '<leader>n', ':Neotree action=focus reveal=true toggle<CR>',
-  { desc = "Neotree: Toggle", silent = true }) -- action=focus/show
+-- vim.keymap.set('n', '<leader>n', ':Neotree action=focus reveal=true toggle<CR>',
+--   { desc = "Neotree: Toggle", silent = true }) -- action=focus/show
 -- ---- using neotree in place of outline
 -- vim.keymap.set('n', '<leader>o', ':Neotree source=document_symbols position=right action=focus reveal=true toggle<CR>',
 --   { desc = "Neotree: Toggle Document Symbols", silent = true })
@@ -195,7 +202,7 @@ local show_lsp_zero_keybindings = function()
   vim.keymap.set('n', '<Esc>', ':close<CR>', { buffer = buf, desc = "Keybind Help: Close", silent = true })
 end
 
-vim.keymap.set('n', '<leader>.', show_lsp_zero_keybindings,
+vim.keymap.set('n', '<leader>?', show_lsp_zero_keybindings,
   { desc = "Keybind Help: Open", silent = true })
 
 -- grug-far
@@ -326,13 +333,13 @@ vim.keymap.set({ "o", "x" }, "R", function() flash.treesitter_search() end,
 vim.keymap.set("c", "<c-s>", function() flash.toggle() end, { desc = "Flash: Toggle Search", silent = true })
 
 -- raycast
--- vim.keymap.set('v', '<leader>r',
---   '"+y<ESC>:lua vim.fn.system("open \'raycast://ai-commands/explain-code-step-by-step-clipboard\'")<CR>',
---   { desc = "Raycast: Explain Code", silent = true })
+vim.keymap.set('v', '<leader>r',
+  '"+y<ESC>:lua vim.fn.system("open \'raycast://ai-commands/explain-code-step-by-step-clipboard\'")<CR>',
+  { desc = "Raycast: Explain Code", silent = true })
 
 -- codecompanion
 local codecompanion = require("codecompanion")
-vim.keymap.set({ "n", "v" }, "<leader>a", "<cmd>CodeCompanionChat Toggle<cr>",
+vim.keymap.set({ "n", "v" }, "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>",
   { desc = "CodeCompanion: Toggle", silent = true })
 vim.keymap.set({ "n", "v" }, "<leader>ca", "<cmd>CodeCompanionActions<cr>",
   { desc = "CodeCompanion: Actions", silent = true })
@@ -361,3 +368,7 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("n", "<leader>vw", ":VimtexCountWords<CR>", { desc = "Vimtex: Count Words", silent = true })
   end
 })
+
+-- set filetype for ghosttext
+vim.keymap.set('n', '<leader>/', ":set filetype=python<CR>",
+  { desc = "Filetype: Python", silent = true })

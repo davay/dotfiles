@@ -104,7 +104,7 @@ source "$ITEM_DIR/brew.sh"
 sketchybar --add item separator_brew right \
            --set separator_brew "${separator[@]}"
 
-source "$ITEM_DIR/sketchyvim.sh"
+# source "$ITEM_DIR/sketchyvim.sh" # no longer using svim, using kindavim
 
 # source "$ITEM_DIR/tiling_mode.sh"
 
@@ -118,7 +118,7 @@ source "$BRACKET_DIR/window_title.sh"
 
 ## right
 #source "$BRACKET_DIR/tiling_mode.sh"
-source "$BRACKET_DIR/sketchyvim.sh"
+#source "$BRACKET_DIR/sketchyvim.sh" 
 source "$BRACKET_DIR/brew.sh"
 source "$BRACKET_DIR/utilities.sh"
 source "$BRACKET_DIR/datetime.sh"

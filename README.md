@@ -51,3 +51,10 @@ brew install yadm && yadm clone https://github.com/davay/dotfiles.git
 - Yabai + Skhd: Start Service
 
 - Skim: Set headless config to sync with nvim https://github.com/benbrastmckie/.config
+
+### 4. Where are hotkeys set 
+
+| App | Action | Hotkey |
+| --------------- | --------------- | --------------- |
+| 1Password | Show Quick Access | ⌥ . |
+| 1Password | Show 1Password | ⌥  Shift . |

@@ -4,7 +4,7 @@ WINDOW_APP=$(/opt/homebrew/bin/yabai -m query --windows --window | jq -r '.app')
 if [[ $WINDOW_APP = "" ]]; then
   DISPLAY_TEXT="$WINDOW_TITLE"
 else
-  DISPLAY_TEXT="$WINDOW_APP | $WINDOW_TITLE"
+  DISPLAY_TEXT="[$WINDOW_APP] $WINDOW_TITLE"
 fi
 
 if [[ ${#DISPLAY_TEXT} -gt 50 ]]; then

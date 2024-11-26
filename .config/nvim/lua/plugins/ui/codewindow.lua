@@ -4,8 +4,8 @@ return {
     local codewindow = require('codewindow')
     codewindow.setup({
       -- max_minimap_height = 30,
-      minimap_width = 7,
-      auto_enable = false,
+      minimap_width = 8,
+      auto_enable = true,
     })
   end,
 }

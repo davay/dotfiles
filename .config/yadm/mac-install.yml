@@ -45,7 +45,6 @@
           - yabai
           - skhd
           - sketchybar
-          - svim
           - pipes-sh
           - mdcat
           - git-lfs
@@ -124,6 +123,7 @@
           - hstracker
           - mactex
           - zotero
+          - wooshy
         state: latest
 
     - name: "Homebrew: Start Services"
@@ -132,7 +132,6 @@
           # yabai & skhd has their own yabai --start-service, not sure if same
           # - yabai 
           # - skhd
-          - svim
           - sketchybar
         state: present
 
@@ -152,6 +151,7 @@
           - 6471380298 # StopTheMadness for Safari
           - 1480933944 # Vimari for Safari
           - 1622835804 # Kagi for Safari
+          - 1519867270 # RefinedGithub for Safari
           - 1552641506 # GhostText for Safari
           - 937984704 # Amphetamine
           - 409183694 # Keynote
