@@ -122,7 +122,6 @@
           - paparazzi # screenshot safari
           - hstracker
           - mactex
-          - zotero
           - wooshy
         state: latest
 
@@ -149,7 +148,6 @@
           - 1591303229 # Vinegar for Safari
           - 1592917505 # Noir for Safari
           - 6471380298 # StopTheMadness for Safari
-          - 1480933944 # Vimari for Safari
           - 1622835804 # Kagi for Safari
           - 1519867270 # RefinedGithub for Safari
           - 1552641506 # GhostText for Safari

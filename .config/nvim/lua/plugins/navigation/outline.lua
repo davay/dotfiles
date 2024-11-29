@@ -15,6 +15,10 @@ return {
     end
 
     -- Set up an autocommand to open outline when entering a file
+    local ignored_filetypes = {
+      tex = true,
+    }
+
     local outline_group = vim.api.nvim_create_augroup('OutlineAutoOpen', { clear = true })
     vim.api.nvim_create_autocmd({ 'LspAttach' }, {
       group = outline_group,
@@ -26,7 +30,12 @@ return {
 
         -- Get window width
         local width = vim.api.nvim_win_get_width(0)
-        local min_width = 160 -- minimum width in columns before showing outline
+        local min_width = 150 -- minimum width in columns before showing outline
+
+        -- Check if filetype is in ignored list
+        if ignored_filetypes[ft] then
+          return
+        end
 
         -- Skip if window is too narrow, or for special buffers and files without LSP
         if width < min_width or vim.bo[bufnr].buftype ~= '' or #clients == 0 then
@@ -61,7 +70,7 @@ return {
         auto_close = false,
         auto_jump = false,
         position = 'left',
-        width = 40,
+        width = 31,
         relative_width = false, -- true == percentage, false == integer #cols
         focus_on_open = false,
       },
