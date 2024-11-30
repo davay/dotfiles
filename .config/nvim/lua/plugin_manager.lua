@@ -31,6 +31,7 @@ require("lazy").setup({
     { import = "plugins.navigation" },
     { import = "plugins.external" },
     { import = "plugins.latex" },
+    { import = "plugins.markdown" },
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.

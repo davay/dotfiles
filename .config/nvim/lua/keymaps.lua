@@ -44,13 +44,16 @@ vim.keymap.set('n', 'Z', 'zz', { desc = "Vim: Center Screen", silent = true })
 ------ vim.keymap.set('n', '<bs>', '<c-^>zz', { desc = "Vim: Toggle Buffer", silent = true })
 vim.keymap.set('n', '<bs>', function()
   if not vim.tbl_contains({ 'neo-tree', 'Outline', 'qf' }, vim.bo.filetype) then
-    vim.cmd.buffer('#')  -- most recent buffer
+    vim.cmd.buffer('#') -- most recent buffer
     vim.cmd.normal('zz') -- center
   end
 end, { desc = "Vim: Toggle Buffer", silent = true })
 
----- unload current buffer
-vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { desc = "Vim: Delete Buffer", silent = true })
+---- close current tab
+vim.keymap.set('n', '<leader>bt', ':tabclose<CR>', { desc = "Vim: Close Tab", silent = true })
+
+---- close current buffer
+vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { desc = "Vim: Close Buffer", silent = true })
 
 ---- switch to next/prev buffer
 vim.keymap.set('n', '<leader>bf', ':bnext<CR>', { desc = "Vim: Next Buffer", silent = true })
@@ -79,14 +82,14 @@ end, { expr = true })
 -- local searching_google_in_normal =
 -- [[:lua vim.fn.system({'open', 'https://google.com/search?q=' .. vim.fn.expand("<cword>")})<CR>]]
 -- local searching_google_in_visual =
--- [[<ESC>gv"gy<ESC>:lua vim.fn.system({'open', 'https://google.com/search?q=' .. vim.fn.getreg('g')})<CR>]]
+-- [[<ESCd>gv"gy<ESC>:lua vim.fn.system({'open', 'https://google.com/search?q=' .. vim.fn.getreg('g')})<CR>]]
 -- vim.keymap.set("n", "<leader>g", searching_google_in_normal, { silent = true })
 -- vim.keymap.set("v", "<leader>g", searching_google_in_visual, { silent = true })
 
 -- todo-comments
 local todo = require('todo-comments')
-vim.keymap.set("n", "<leader>t", function() todo.jump_next() end, { desc = "TODO: Next Comment" })
-vim.keymap.set("n", "<leader>T", function() todo.jump_prev() end, { desc = "TODO: Previous Comment" })
+vim.keymap.set("n", "<leader>ft", function() todo.jump_next() end, { desc = "TODO: Next Comment" })
+vim.keymap.set("n", "<leader>fT", function() todo.jump_prev() end, { desc = "TODO: Previous Comment" })
 
 -- telescope
 local telescope = require('telescope.builtin') -- Create a function with your preferred options
@@ -106,6 +109,9 @@ vim.keymap.set('n', '<leader>fi', telescope.lsp_incoming_calls,
   { desc = "Telescope: LSP Incoming Calls", silent = true })
 vim.keymap.set('n', '<leader>fu', "<cmd>Telescope undo<cr>",
   { desc = "Telescope: Undo", silent = true })
+
+local telescope_emoji = require('telescope').load_extension 'emoji'
+vim.keymap.set('n', '<leader>fe', telescope_emoji.emoji, { desc = 'Telescope: Emoji' })
 
 -- leetcode
 vim.keymap.set('n', '<leader>lr', ':Leet run<CR>', { desc = "Leetcode: Run", silent = true })
@@ -260,7 +266,8 @@ vim.api.nvim_create_autocmd("FileType", {
     end, { desc = "Molten: Toggle Output", silent = true })
 
     -- markdown-preview
-    vim.keymap.set("n", "<leader>jo", ":MarkdownPreviewToggle<CR>", { desc = "Markdown: Preview", silent = true })
+    vim.keymap.set("n", "<leader>jo", ":MarkdownPreviewToggle<CR>",
+      { desc = "Markdown: Preview", silent = true })
 
     -- jupyter (cli)
     local function convert_and_open_notebook(use_pretty_style)
@@ -275,14 +282,16 @@ vim.api.nvim_create_autocmd("FileType", {
 
       local convert_cmd
       if use_pretty_style then
-        convert_cmd = string.format('jt -t gruvboxl && jupyter nbconvert %s --to html --template lab', current_file)
+        convert_cmd = string.format(
+          'jt -t gruvboxl && jupyter nbconvert %s --to html --template lab', current_file)
       else
         convert_cmd = string.format('jt -r || jupyter nbconvert %s --to html --template lab',
           current_file)
       end
       local convert_result = vim.fn.system(convert_cmd)
       if vim.v.shell_error ~= 0 then
-        vim.notify('Jupyter: Failed to convert notebook: ' .. convert_result, vim.log.levels.ERROR)
+        vim.notify('Jupyter: Failed to convert notebook: ' .. convert_result,
+          vim.log.levels.ERROR)
         return
       end
 
@@ -315,7 +324,8 @@ vim.api.nvim_create_autocmd("FileType", {
       convert_and_open_notebook(true)
     end
 
-    vim.keymap.set('n', '<leader>jh', open_html_in_browser, { desc = "Jupyter: Open in Browser", silent = true })
+    vim.keymap.set('n', '<leader>jh', open_html_in_browser,
+      { desc = "Jupyter: Open in Browser", silent = true })
     vim.keymap.set('n', '<leader>jp', open_pretty_html_in_browser,
       { desc = "Jupyter: Open in Browser (Pretty)", silent = true })
   end
@@ -361,14 +371,22 @@ vim.keymap.set('x', '<leader>r', ":SearchBoxReplace visual_mode=true<CR>", { des
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "tex",
   callback = function()
-    vim.keymap.set("n", "<leader>vv", ":VimtexView<CR>", { desc = "Vimtex: View / Forward Search", silent = true })
+    vim.keymap.set("n", "<leader>vv", ":VimtexView<CR>",
+      { desc = "Vimtex: View / Forward Search", silent = true })
     vim.keymap.set("n", "<leader>vt", ":VimtexTocToggle<CR>", { desc = "Vimtex: Toggle TOC", silent = true })
-    vim.keymap.set("n", "<leader>vc", ":VimtexCompile<CR>", { desc = "Vimtex: Compile Continuously", silent = true })
-    vim.keymap.set("n", "<leader>vs", ":VimtexCompile<CR>", { desc = "Vimtex: Stop Compilation", silent = true })
-    vim.keymap.set("n", "<leader>vw", ":VimtexCountWords<CR>", { desc = "Vimtex: Count Words", silent = true })
+    vim.keymap.set("n", "<leader>vc", ":VimtexCompile<CR>",
+      { desc = "Vimtex: Compile Continuously", silent = true })
+    vim.keymap.set("n", "<leader>vs", ":VimtexCompile<CR>",
+      { desc = "Vimtex: Stop Compilation", silent = true })
+    vim.keymap.set("n", "<leader>vw", ":VimtexCountWords<CR>",
+      { desc = "Vimtex: Count Words", silent = true })
   end
 })
 
--- set filetype for ghosttext
+---- set filetype for ghosttext
 vim.keymap.set('n', '<leader>/', ":set filetype=python<CR>",
   { desc = "Filetype: Python", silent = true })
+
+---- pastify
+vim.keymap.set('v', '<leader>p', ':PastifyAfter<CR>', { desc = "Pastify", silent = true })
+vim.keymap.set('n', '<leader>p', ':PastifyAfter<CR>', { desc = "Pastify", silent = true })

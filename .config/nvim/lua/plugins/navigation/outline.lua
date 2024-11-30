@@ -70,13 +70,13 @@ return {
         auto_close = false,
         auto_jump = false,
         position = 'left',
-        width = 31,
+        width = 29,             -- +6 codewindow == 35 cols used
         relative_width = false, -- true == percentage, false == integer #cols
         focus_on_open = false,
       },
-      -- symbol_folding = {
-      --   autofold_depth = 2
-      -- },
+      symbol_folding = {
+        autofold_depth = 2 -- false to unfold all on open, otherwise integer
+      },
       preview_window = {
         auto_preview = true,
         open_hover_on_preview = false, -- BUG: Doesn't seem to work? I think the hover is behind the preview

@@ -35,15 +35,23 @@ alias sshpi="ssh pi@pi.devinl.im"
 alias sshda="ssh davay@ssh.devinl.im"
 alias sshhetzner="ssh root@hetzner.devinl.im"
 
+# gh alias
+alias create="git remote remove origin && gh repo create --public --source . --remote origin && upstream"
+alias delete="gh repo delete $(basename $PWD)"
+alias fork="gh repo fork --clone=true"
+
 # git alias
 alias backmerge="currBranch=\$(git rev-parse --abbrev-ref HEAD) && git checkout develop && git pull && git checkout \$currBranch && git merge develop"
 alias upstream="currBranch=\$(git rev-parse --abbrev-ref HEAD) && git push --set-upstream origin \$currBranch"
 alias lg="lazygit"
-alias fork="gh repo fork --clone=true"
 alias clone="git clone"
+alias init="git init"
 alias checkout="git checkout"
 alias branch="git checkout -b"
 alias commit="git commit -am"
+alias uncommit="git reset --soft HEAD~1"
+alias unstage="git reset"
+alias reignore="git rm -r --cached . && git add ." # if you updated gitignore after committing
 alias status="git status"
 alias add="git add"
 alias pull="git pull"

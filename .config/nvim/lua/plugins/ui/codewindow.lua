@@ -4,8 +4,9 @@ return {
     local codewindow = require('codewindow')
     codewindow.setup({
       -- max_minimap_height = 30,
-      minimap_width = 9,
+      minimap_width = 6,
       auto_enable = true,
+      screen_bounds = 'background',
     })
   end,
 }

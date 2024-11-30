@@ -13,8 +13,9 @@ return {
       mappings = {
         -- swap, always close explorer after going in
         close = '<Esc>',
-        go_in = 'L',
-        go_in_plus = 'l',
+        go_in = 'l',
+        go_in_plus = '<CR>',
+
       }
     })
   end
