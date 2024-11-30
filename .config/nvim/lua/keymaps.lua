@@ -44,7 +44,7 @@ vim.keymap.set('n', 'Z', 'zz', { desc = "Vim: Center Screen", silent = true })
 ------ vim.keymap.set('n', '<bs>', '<c-^>zz', { desc = "Vim: Toggle Buffer", silent = true })
 vim.keymap.set('n', '<bs>', function()
   if not vim.tbl_contains({ 'neo-tree', 'Outline', 'qf' }, vim.bo.filetype) then
-    vim.cmd.buffer('#') -- most recent buffer
+    vim.cmd.buffer('#')  -- most recent buffer
     vim.cmd.normal('zz') -- center
   end
 end, { desc = "Vim: Toggle Buffer", silent = true })
@@ -88,8 +88,8 @@ end, { expr = true })
 
 -- todo-comments
 local todo = require('todo-comments')
-vim.keymap.set("n", "<leader>ft", function() todo.jump_next() end, { desc = "TODO: Next Comment" })
-vim.keymap.set("n", "<leader>fT", function() todo.jump_prev() end, { desc = "TODO: Previous Comment" })
+vim.keymap.set("n", "]t", function() todo.jump_next() end, { desc = "TODO: Next Comment" })
+vim.keymap.set("n", "[t", function() todo.jump_prev() end, { desc = "TODO: Previous Comment" })
 
 -- telescope
 local telescope = require('telescope.builtin') -- Create a function with your preferred options
