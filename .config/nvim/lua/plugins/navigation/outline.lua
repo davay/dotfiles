@@ -69,13 +69,16 @@ return {
       outline_window = {
         auto_close = false,
         auto_jump = false,
-        position = 'left',
+        position = 'right',
         width = 29,             -- +6 codewindow == 35 cols used
         relative_width = false, -- true == percentage, false == integer #cols
         focus_on_open = false,
       },
       symbol_folding = {
-        autofold_depth = 2 -- false to unfold all on open, otherwise integer
+        autofold_depth = 2, -- false to unfold all on open, otherwise integer; 1 means everything folded by default.
+        auto_unfold = {
+          hovered = false,
+        },
       },
       preview_window = {
         auto_preview = true,

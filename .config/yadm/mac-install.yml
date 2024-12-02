@@ -119,10 +119,10 @@
           - keyclu
           - obs
           - lunar
-          - paparazzi # screenshot safari
           - hstracker
           - mactex
           - wooshy
+          - freecad
         state: latest
 
     - name: "Homebrew: Start Services"
@@ -151,6 +151,7 @@
           - 1622835804 # Kagi for Safari
           - 1519867270 # RefinedGithub for Safari
           - 1552641506 # GhostText for Safari
+          - 1520333300 # Wappalyzer for Safari
           - 937984704 # Amphetamine
           - 409183694 # Keynote
           - 409203825 # Numbers
