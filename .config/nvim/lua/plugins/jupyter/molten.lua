@@ -1,3 +1,4 @@
+-- Required Python packages: pynvim, jupyter_client
 local is_kitty = os.getenv("KITTY_WINDOW_ID") ~= nil
 local deps = is_kitty and { "3rd/image.nvim" } or {}
 

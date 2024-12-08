@@ -4,6 +4,31 @@ export PATH=$PATH:~/.cargo/bin/
 # ls colors
 export LS_COLORS="ln=1;32:ex=1;32:di=1;94:ow=1;7;94"
 
+# Helpers
+declare -A HELP_MESSAGES=(
+    ["backmerge"]="Usage: backmerge <branch>"
+    ["clone"]="Usage: clone <repository-url>"
+    ["checkout"]="Usage: checkout <branch>"
+    ["branch"]="Usage: branch <new-branch-name>"
+    ["commit"]="Usage: commit \"<commit-message>\""
+    ["add"]="Usage: add <dir-or-file>"
+    ["stash"]="Usage: stash \"<stash-message>\""
+)
+
+check_param() {
+  if [[ -n $BASH_VERSION ]]; then # bash
+    caller="${FUNCNAME[1]}"
+  else  # zsh / ksh, use offset:length so it always works
+    # zsh arrays start at 1, with ksh arrays option it starts at 0 https://stackoverflow.com/questions/31426565/get-name-of-calling-function-in-zsh
+    caller="${funcstack[@]:1:1}"
+  fi
+  if [ -z "$1" ]; then
+    echo "${HELP_MESSAGES[$caller]}" >&2
+    return 1
+  fi
+  return 0
+}
+
 # General alias
 alias sudo="sudo " # enable aliases for sudo
 alias vim="nvim"
@@ -41,24 +66,64 @@ alias delete="gh repo delete $(basename $PWD)"
 alias fork="gh repo fork --clone=true"
 
 # git alias
-alias backmerge="currBranch=\$(git rev-parse --abbrev-ref HEAD) && git checkout develop && git pull && git checkout \$currBranch && git merge develop"
-alias upstream="currBranch=\$(git rev-parse --abbrev-ref HEAD) && git push --set-upstream origin \$currBranch"
+## aliases without params
 alias lg="lazygit"
-alias clone="git clone"
 alias init="git init"
-alias checkout="git checkout"
-alias branch="git checkout -b"
-alias commit="git commit -am"
+alias upstream="currBranch=\$(git rev-parse --abbrev-ref HEAD) && git push --set-upstream origin \$currBranch"
 alias uncommit="git reset --soft HEAD~1"
 alias unstage="git reset"
 alias reignore="git rm -r --cached . && git add ." # if you updated gitignore after committing
 alias status="git status"
-alias add="git add"
 alias pull="git pull"
 alias push="git push"
 alias clean="git clean -dfx"
 alias reset="git reset --hard HEAD"
 alias nuke="git clean -dfx && git reset --hard HEAD"
+alias list="git stash list"
+alias show="git stash show -p"
+alias pop="git stash pop"
+alias branches="git branch --all"
+alias commits="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+## aliases requiring params
+backmerge() {
+    check_param "$1" || return 1
+    currBranch=$(git rev-parse --abbrev-ref HEAD)
+    git checkout "$1" && \
+    git pull && \
+    git checkout $currBranch && \
+    git merge "$1"
+}
+
+clone() {
+  check_param "$1" || return 1
+  git clone "$1"
+}
+
+checkout() {
+  check_param "$1" || return 1
+  git checkout "$1"
+}
+
+branch() {
+  check_param "$1" || return 1
+  git checkout -b "$1"
+}
+
+commit() {
+  check_param "$1" || return 1
+  git commit -am "$1"
+}
+
+add() {
+  check_param "$1" || return 1
+  git add "$1"
+}
+
+stash() {
+  check_param "$1" || return 1
+  git stash push --include-untracked -m "$1"
+}
 
 # gen z alias 
 alias yikes="git reset --hard HEAD"

@@ -1,4 +1,4 @@
--- also conda install jupytext
+-- Required Python packages: jupytext
 return {
   "GCBallesteros/jupytext.nvim",
   dependencies = {

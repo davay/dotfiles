@@ -27,12 +27,18 @@ vim.o.smartcase = true  -- ignore uppercase letters unless the search term has a
 vim.o.hlsearch = false  -- disable highlighting of previous search result
 
 ---- Editor
-vim.o.wrap = true
-vim.o.breakindent = true -- wrapped lines are indented to match indentation of original
-vim.o.linebreak = true   -- ensure words arent broken awkwardly
-if vim.fn.has('linebreak') == 1 then
-  vim.o.showbreak = '↳ '
-end
+--- Soft Wrap
+-- vim.o.wrap = true
+-- vim.o.breakindent = true -- wrapped lines are indented to match indentation of original
+-- vim.o.linebreak = true   -- ensure words arent broken awkwardly
+-- if vim.fn.has('linebreak') == 1 then
+--   vim.o.showbreak = '↳ '
+-- end
+
+--- Hard Wrap
+vim.o.textwidth = 80
+vim.o.wrapmargin = 0
+vim.o.linebreak = true
 
 ---- Disable notification "No information available" from lsp-zero when pressing K
 -- https://github.com/neovim/neovim/issues/20457#issuecomment-1266782345
@@ -94,3 +100,33 @@ end
 
 -- Command to call the function
 vim.api.nvim_create_user_command('ListHighlights', list_highlight_groups, {})
+
+-- Big file mode
+local function big_file_mode()
+  vim.notify("Big file detected")
+
+  if vim.fn.exists(':TSBufDisable') == 1 then
+    vim.cmd('TSBufDisable autotag')
+    vim.cmd('TSBufDisable highlight')
+  end
+
+  vim.opt.foldmethod = 'manual'
+  vim.cmd('syntax clear')
+  vim.cmd('syntax off')
+  vim.cmd('filetype off')
+  vim.opt.undofile = false
+  -- vim.opt.swapfile = false -- This is ok, very fast on my mac still
+  vim.opt.loadplugins = false
+  vim.opt.wrap = false
+end
+
+local big_file_group = vim.api.nvim_create_augroup('BigFileDisable', { clear = true })
+vim.api.nvim_create_autocmd({ 'BufReadPre', 'FileReadPre' }, {
+  group = big_file_group,
+  callback = function()
+    local file_size = vim.fn.getfsize(vim.fn.expand('%'))
+    if file_size > 32 * 1024 * 1024 then -- 32 MB
+      big_file_mode()
+    end
+  end,
+})
