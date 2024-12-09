@@ -1,10 +1,32 @@
-# # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# # Initialization code that may require console input (password prompts, [y/n]
-# # confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
+# Oh My Zsh plugins
+# plugins=(
+#   git
+#   )
+source $HOME/.oh-my-zsh/oh-my-zsh.sh
+
+
+# Custom plugins installed using brew or smth
+BREW=$(brew --prefix)
+
+source $BREW/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+ZVM_INIT_MODE=sourcing
+
+source $BREW/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+source $BREW/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# WARNING: BREAKS MOLTEN'S WEZTERM IMAGE OUTPUT -- the highlighting is a color code like ;12;23
+# source $BREW/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Portable aliases; goes after oh-my-zsh so it overrides
 source ~/.zshrc_portable
 
 # General alias
@@ -26,6 +48,7 @@ alias skhdc="vim ~/.config/skhd/skhdrc"
 alias sketchybarc="vim ~/.config/sketchybar/sketchybarrc"
 alias wezc="vim ~/.wezterm.lua"
 alias zshpc="vim ~/.zshrc_portable"
+alias kittyc="vim ~/.config/kitty/kitty.conf"
 
 # cd alias 
 alias cyadm="c ~/.config/yadm"
@@ -80,8 +103,8 @@ export PATH="$(gem environment gemdir)/bin:$PATH"
 # for image.nvim
 export DYLD_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_LIBRARY_PATH"
 
-# # powerlevel10k
-# source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
-#
-# # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# powerlevel10k
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

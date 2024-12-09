@@ -1,19 +1,19 @@
 return {
-  'stevearc/conform.nvim',   -- really I just installed this for jupyter formatting
+  'stevearc/conform.nvim', -- really I just installed this for jupyter formatting
   config = function()
     require('conform').setup({
       default_format_opts = {
         timeout_ms = 1000,
-        async = false,             -- not recommended to change
-        quiet = false,             -- not recommended to change
-        lsp_format = 'fallback',   -- not recommended to change
+        async = false,           -- not recommended to change
+        quiet = false,           -- not recommended to change
+        lsp_format = 'fallback', -- not recommended to change
       },
 
       format_on_save = function(bufnr)
         if vim.b[bufnr].disable_autoformat then
           return
         end
-        return {}   -- enables format_on_save with defaults
+        return {} -- enables format_on_save with defaults
       end,
 
       vim.api.nvim_create_user_command("ToggleFormat", function()
@@ -25,7 +25,7 @@ return {
       }),
 
       formatters_by_ft = {
-        markdown = { 'injected' },
+        markdown = { 'injected', 'prettier' },
         python = {
           'ruff_format',
           'ruff_organize_imports',

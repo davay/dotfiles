@@ -60,7 +60,11 @@
           - jesseduffield/lazygit/lazygit
           - saulpw/vd/visidata
           - xsv
-          - skim
+          - skim # pdf viewer for latex in nvim
+          - zsh-vi-mode # oh-my-zsh
+          - zsh-autosuggestions # oh-my-zsh
+          - zsh-syntax-highlighting # oh-my-zsh
+          - zsh-autocomplete # oh-my-zsh
         state: latest
         update_homebrew: yes
 

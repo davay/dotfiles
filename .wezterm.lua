@@ -15,6 +15,8 @@ config.dpi = 144
 config.enable_scroll_bar = true
 config.bold_brightens_ansi_colors = 'No'
 config.cell_width = 0.9
+config.max_fps = 144
+config.animation_fps = 30
 
 -- Command Palette
 config.command_palette_rows = 7

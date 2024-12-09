@@ -8,11 +8,12 @@ export LS_COLORS="ln=1;32:ex=1;32:di=1;94:ow=1;7;94"
 declare -A HELP_MESSAGES=(
     ["backmerge"]="Usage: backmerge <branch>"
     ["clone"]="Usage: clone <repository-url>"
-    ["checkout"]="Usage: checkout <branch>"
+    ["checkout"]="Usage: checkout <branch; commit_id; integer_commits_ago>"
     ["branch"]="Usage: branch <new-branch-name>"
     ["commit"]="Usage: commit \"<commit-message>\""
     ["add"]="Usage: add <dir-or-file>"
     ["stash"]="Usage: stash \"<stash-message>\""
+    ["show"]="Usage: show <integer_commits_ago>"
 )
 
 check_param() {
@@ -79,11 +80,11 @@ alias push="git push"
 alias clean="git clean -dfx"
 alias reset="git reset --hard HEAD"
 alias nuke="git clean -dfx && git reset --hard HEAD"
-alias list="git stash list"
-alias show="git stash show -p"
+alias liststash="git stash list"
+alias showstash="git stash show -p"
 alias pop="git stash pop"
 alias branches="git branch --all"
-alias commits="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias commits="git --no-pager log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 ## aliases requiring params
 backmerge() {
@@ -102,7 +103,27 @@ clone() {
 
 checkout() {
   check_param "$1" || return 1
-  git checkout "$1"
+  
+  # 1: Check if it's a branch
+  if git rev-parse --verify --quiet "$1" >/dev/null 2>&1; then
+    git checkout "$1"
+    return $?
+  fi
+
+  # 2: Check if it's a valid commit ID
+  if git rev-parse --verify --quiet "$1^{commit}" >/dev/null 2>&1; then
+    git checkout "$1"
+    return $?
+  fi
+
+  # 3: Check if it's a number to go back in history
+  if [[ "$1" =~ ^[0-9]+$ ]]; then
+    git checkout "HEAD~$1"
+    return $?
+  fi
+
+  echo "Error: '$1' is not a valid branch, commit ID, or number of commits to go back"
+  return 1
 }
 
 branch() {
@@ -123,6 +144,11 @@ add() {
 stash() {
   check_param "$1" || return 1
   git stash push --include-untracked -m "$1"
+}
+
+show() {
+  check_param "$1" || return 1
+  git show HEAD~"$1"
 }
 
 # gen z alias 

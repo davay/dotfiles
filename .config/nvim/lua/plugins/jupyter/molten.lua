@@ -1,6 +1,12 @@
 -- Required Python packages: pynvim, jupyter_client
 local is_kitty = os.getenv("KITTY_WINDOW_ID") ~= nil
-local deps = is_kitty and { "3rd/image.nvim" } or {}
+local is_wezterm = os.getenv("WEZTERM_EXECUTABLE") ~= nil
+local deps = {}
+if is_kitty then
+  deps = { "3rd/image.nvim" }
+elseif is_wezterm then
+  deps = { "wezterm.nvim" }
+end
 
 return {
   {
@@ -15,8 +21,14 @@ return {
       vim.g.molten_auto_open_output = false
 
       -- none or image.nvim or wezterm (install wezterm.nvim)
-      -- right now, if kitty use image.nvim, otherwise dont load images
-      vim.g.molten_image_provider = is_kitty and "image.nvim" or "none"
+      -- if kitty/wezterm use image.nvim, otherwise dont load images
+      if is_wezterm then
+        vim.g.molten_image_provider = "wezterm"
+      elseif is_kitty then
+        vim.g.molten_image_provider = "image.nvim"
+      else
+        vim.g.molten_image_provider = "none"
+      end
 
       -- optional, I like wrapping. works for virt text and the output window
       vim.g.molten_wrap_output = true

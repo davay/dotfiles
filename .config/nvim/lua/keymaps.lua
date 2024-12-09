@@ -63,19 +63,21 @@ vim.keymap.set('n', '<leader>bb', ':bprev<CR>', { desc = "Vim: Prev Buffer", sil
 vim.keymap.set('n', '<leader>d', '<C-w>v', { desc = "Vim: Split Vertical", silent = true })
 vim.keymap.set('n', '<leader>D', '<C-w>s', { desc = "Vim: Split Horizontal", silent = true })
 
----- rapid scrolling
------- remap = true is to allow mini.animate to remap up/down in case it's enabled
-vim.keymap.set({ 'n', 'v', 'o' }, 'H', '3h', { desc = "Vim: Fast Scroll Left - 3*h", remap = true, silent = true })
-vim.keymap.set({ 'n', 'v', 'o' }, 'J', '3j', { desc = "Vim: Fast Scroll Down - 3*j", remap = true, silent = true })
-vim.keymap.set({ 'n', 'v', 'o' }, 'K', '3k', { desc = "Vim: Fast Scroll Up - 3*k", remap = true, silent = true })
-vim.keymap.set({ 'n', 'v', 'o' }, 'L', '3l', { desc = "Vim: Fast Scroll Right - 3*l", remap = true, silent = true })
+---- rapid scrolling, also move by visual line than actual line -- good for soft wraps
+------ remap = true to allow mini.animate to remap up/down in case it's enabled
+vim.keymap.set({ "n", "v", "o" }, "j", "gj", { desc = "Vim: Move down 1 visual line", silent = true })
+vim.keymap.set({ "n", "v", "o" }, "k", "gk", { desc = "Vim: Move up 1 visual line", silent = true })
+vim.keymap.set({ "n", "v", "o" }, "H", "3h", { desc = "Vim: Fast Scroll Left - 3*h", silent = true })
+vim.keymap.set({ "n", "v", "o" }, "J", "3gj", { desc = "Vim: Fast Scroll Down - 3*j", silent = true })
+vim.keymap.set({ "n", "v", "o" }, "K", "3gk", { desc = "Vim: Fast Scroll Up - 3*k", silent = true })
+vim.keymap.set({ "n", "v", "o" }, "L", "3l", { desc = "Vim: Fast Scroll Right - 3*l", silent = true })
 
 ---- keep scrolling down if reach eof, mostly to see jupyter virtual text if codeblock is at eof
-vim.keymap.set('n', 'j', function()
-  if not vim.tbl_contains({ 'neo-tree', 'Outline', 'qf' }, vim.bo.filetype) then
-    return vim.fn.line('.') == vim.fn.line('$') and '<C-e>' or 'j'
+vim.keymap.set("n", "j", function()
+  if not vim.tbl_contains({ "neo-tree", "Outline", "qf" }, vim.bo.filetype) then
+    return vim.fn.line(".") == vim.fn.line("$") and "<C-e>" or "j"
   end
-  return 'j'
+  return "j"
 end, { expr = true })
 
 ---- search google
@@ -101,7 +103,9 @@ vim.keymap.set('n', '<leader>fh', telescope.help_tags, { desc = "Telescope: Help
 vim.keymap.set('n', '<leader>fm', telescope.man_pages, { desc = "Telescope: Man Pages", silent = true })
 vim.keymap.set('n', '<leader>fs', function() telescope.colorscheme({ enable_preview = true }) end,
   { desc = "Telescope: Colorscheme", silent = true })
-vim.keymap.set('n', '<leader>fc', function() require('telescope').extensions.conda.conda() end,
+vim.keymap.set('n', '<leader>fc', telescope.git_bcommits,
+  { desc = "Telescope: Git Commits", silent = true })
+vim.keymap.set('n', '<leader>fp', function() require('telescope').extensions.conda.conda() end,
   { desc = "Telescope: Conda", silent = true })
 vim.keymap.set('n', '<leader>fr', telescope.lsp_references,
   { desc = "Telescope: LSP References", silent = true })
@@ -290,12 +294,16 @@ vim.api.nvim_create_autocmd("FileType", {
       { desc = "Molten: Restart Kernel", silent = true })
     vim.keymap.set("n", "<leader>jr", ':MoltenRestart!<CR>',
       { desc = "Molten: Restart Kernel and Clear All", silent = true })
-    --  enter/exit molten output
+    -- enter/exit molten output
+    -- also use q or esc to exit
     vim.keymap.set("n", "<leader>je", function()
       if vim.bo.filetype == "molten_output" then
         vim.cmd("MoltenHideOutput")
       else
         vim.cmd("noautocmd MoltenEnterOutput")
+        vim.keymap.set("n", "q", ":MoltenHideOutput<CR>", { buffer = true, desc = "Molten: Exit Output", silent = true })
+        vim.keymap.set("n", "<Esc>", ":MoltenHideOutput<CR>",
+          { buffer = true, desc = "Molten: Exit Output", silent = true })
       end
     end, { desc = "Molten: Toggle Output", silent = true })
 
@@ -398,7 +406,8 @@ vim.cmd([[cab cc CodeCompanion]])
 -- searchbox
 vim.keymap.set('n', '<leader>r', ":SearchBoxReplace confirm=menu -- <C-r>=expand('<cword>')<CR><CR>",
   { desc = "Searchbox: Replace Current Word", silent = true })
-vim.keymap.set('x', '<leader>r', ":SearchBoxReplace visual_mode=true<CR>", { desc = "Searchbox: Replace", silent = true })
+vim.keymap.set('x', '<leader>r', ":SearchBoxReplace visual_mode=true -- <C-r>=expand('<cword>')<CR><CR>",
+  { desc = "Searchbox: Replace", silent = true })
 
 
 -- latex stuff
@@ -443,3 +452,35 @@ vim.keymap.set("n", '<leader>tv', function() python_repl.toggle_vertical() end,
   { desc = "Python-REPL: Toggle split direction" })
 
 vim.keymap.set("n", '<leader>to', function() python_repl.open_repl() end, { desc = "Python-REPL: Open window split" })
+
+----
+vim.keymap.set('n', '<leader>ws', function() vim.cmd([[%s/.\{90,99} /&↵\r/g | 1]]) end,
+  { desc = "Vim: Hard Wrap", silent = true })
+
+vim.keymap.set('v', '<leader>ws', function()
+  -- Use visual selection marks and force update them
+  vim.cmd('normal! gv')
+  local start_line = vim.fn.line("'<")
+  local end_line = vim.fn.line("'>")
+
+  -- Apply hard wrap to only the selected range
+  vim.cmd(string.format([[%d,%ds/.\{90,99\} /&↵\r/g]], start_line, end_line))
+
+  -- Clear the visual selection
+  vim.cmd('normal! <Esc>')
+end, { desc = "Vim: Hard Wrap Selection", silent = true })
+
+vim.keymap.set('n', '<leader>wl', function() vim.cmd([[%s/↵\n// | 1]]) end, { desc = "Vim: Soft Wrap", silent = true })
+
+vim.keymap.set('v', '<leader>wl', function()
+  -- Use visual selection marks and force update them
+  vim.cmd('normal! gv')
+  local start_line = vim.fn.line("'<")
+  local end_line = vim.fn.line("'>")
+
+  -- Remove wrapping from only the selected range
+  vim.cmd(string.format([[%d,%ds/↵\n//g]], start_line, end_line))
+
+  -- Clear the visual selection
+  vim.cmd('normal! <Esc>')
+end, { desc = "Vim: Soft Wrap Selection", silent = true })

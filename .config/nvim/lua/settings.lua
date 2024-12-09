@@ -28,17 +28,20 @@ vim.o.hlsearch = false  -- disable highlighting of previous search result
 
 ---- Editor
 --- Soft Wrap
--- vim.o.wrap = true
--- vim.o.breakindent = true -- wrapped lines are indented to match indentation of original
--- vim.o.linebreak = true   -- ensure words arent broken awkwardly
--- if vim.fn.has('linebreak') == 1 then
---   vim.o.showbreak = '↳ '
--- end
+vim.o.wrap = true
+vim.o.breakindent = true -- wrapped lines are indented to match indentation of original
+vim.o.linebreak = true   -- ensure words arent broken awkwardly
+if vim.fn.has('linebreak') == 1 then
+  vim.o.showbreak = '↳ '
+end
 
---- Hard Wrap
-vim.o.textwidth = 80
-vim.o.wrapmargin = 0
-vim.o.linebreak = true
+--- mostly for jupyter so image.nvim works without wrap
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.o.wrap = false
+  end,
+})
 
 ---- Disable notification "No information available" from lsp-zero when pressing K
 -- https://github.com/neovim/neovim/issues/20457#issuecomment-1266782345
@@ -57,8 +60,6 @@ vim.lsp.handlers['textDocument/hover'] = function(_, result, ctx, config)
 end
 
 ---- Custom Functions
-
-
 -- Function to list all highlight groups
 local function list_highlight_groups()
   -- Get all highlight groups

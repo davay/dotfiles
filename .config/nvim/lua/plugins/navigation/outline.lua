@@ -75,7 +75,7 @@ return {
         focus_on_open = false,
       },
       symbol_folding = {
-        autofold_depth = 2, -- false to unfold all on open, otherwise integer; 1 means everything folded by default.
+        autofold_depth = 1, -- false to unfold all on open, otherwise integer; 1 means everything folded by default.
         auto_unfold = {
           hovered = false,
         },

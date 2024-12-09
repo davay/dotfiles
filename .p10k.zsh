@@ -38,7 +38,7 @@
   [[ $ZSH_VERSION == (5.<1->*|<6->.*) ]] || return
 
   # Prompt colors.
-  local grey='242'
+  local grey='#FFFFFF'
   local red='#FF5C57'
   local yellow='#F3F99D'
   local blue='#57C7FF'
@@ -63,12 +63,16 @@
   typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
     command_execution_time    # previous command duration
+    anaconda                  # anaconda env
     virtualenv                # python virtual environment
     context                   # user@host
     time                      # current time
     # =========================[ Line #2 ]=========================
     newline                   # \n
   )
+
+  # Set anaconda environment color to a more visible shade
+  typeset -g POWERLEVEL9K_ANACONDA_FOREGROUND=$blue  # This will make it the same blue as your directory
 
   # Basic style options that define the overall prompt look.
   typeset -g POWERLEVEL9K_BACKGROUND=                            # transparent background
