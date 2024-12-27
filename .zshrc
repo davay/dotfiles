@@ -86,7 +86,8 @@ alias colortest="~/.config/yadm/scripts/colortest.sh"
 alias syncssh="~/.config/yadm/scripts/sync_ssh.sh"
 
 # python pacakges required for jupyter
-alias condadeps="conda install pynvim jupyter_client jupytext ipython ipykernel"
+alias condavimdeps="conda install pynvim jupyter_client jupytext ipython ipykernel"
+alias condadsdeps="conda install numpy matplotlib scikit-learn pandas pytorch"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -102,7 +103,7 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-conda activate py311
+conda activate py312
 
 export PATH="$PATH:/Users/davay/.local/bin"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"

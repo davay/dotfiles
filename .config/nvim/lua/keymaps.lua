@@ -55,7 +55,7 @@ vim.keymap.set('n', 'Z', 'zz', { desc = "Vim: Center Screen", silent = true })
 ---- toggle between current and previous buffer (\)
 vim.keymap.set('n', '\\', function()
   if not vim.tbl_contains({ 'neo-tree', 'Outline', 'qf' }, vim.bo.filetype) then
-    vim.cmd.buffer('#') -- most recent buffer
+    vim.cmd.buffer('#')  -- most recent buffer
     vim.cmd.normal('zz') -- center
   end
 end, { desc = "Vim: Toggle Buffer", silent = true })
@@ -306,6 +306,8 @@ vim.api.nvim_create_autocmd("FileType", {
       { desc = "Molten: Restart Kernel", silent = true })
     vim.keymap.set("n", "<leader>jr", '<cmd>MoltenRestart!<CR>',
       { desc = "Molten: Restart Kernel and Clear All", silent = true })
+    vim.keymap.set("n", "<leader>ji", '<cmd>MoltenImagePopup<CR>',
+      { desc = "Molten: Open Image Popup", silent = true })
     -- enter/exit molten output
     -- also use q or esc to exit
     vim.keymap.set("n", "<leader>je", function()

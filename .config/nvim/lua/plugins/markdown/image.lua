@@ -12,7 +12,7 @@ return {
   config = function()
     require("image").setup({
       backend = "kitty", -- kitty or ueberzug
-      max_height = 40,
+      max_height = 33,
       max_height_window_percentage = math.huge,
       max_width_window_percentage = math.huge,
       window_overlap_clear_enabled = false,                                               -- toggles images when windows are overlapped -- disabled so images dont disappear when i use which-key
