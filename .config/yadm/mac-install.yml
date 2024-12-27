@@ -65,6 +65,11 @@
           - zsh-autosuggestions # oh-my-zsh
           - zsh-syntax-highlighting # oh-my-zsh
           - zsh-autocomplete # oh-my-zsh
+          - arduino-cli
+          - platformio
+          - go
+          - ffmpeg
+          - ghostty
         state: latest
         update_homebrew: yes
 
@@ -123,10 +128,15 @@
           - keyclu
           - obs
           - lunar
-          - hstracker
+          - hstracker # hearthstone
           - mactex
+          - kindavim
           - wooshy
-          - freecad
+          - freecad # 3d-printing
+          - kicad # pcb
+          - tuist # Xcode
+          - mimestream # gmail
+          - piphero
         state: latest
 
     - name: "Homebrew: Start Services"
@@ -156,6 +166,7 @@
           - 1519867270 # RefinedGithub for Safari
           - 1552641506 # GhostText for Safari
           - 1520333300 # Wappalyzer for Safari
+          - 6738274497 # Raycast Companion for Safari
           - 937984704 # Amphetamine
           - 409183694 # Keynote
           - 409203825 # Numbers

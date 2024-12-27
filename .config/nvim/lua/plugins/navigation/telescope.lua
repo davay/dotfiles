@@ -4,7 +4,8 @@ return {
     "nvim-lua/plenary.nvim",
     "debugloop/telescope-undo.nvim",
     "xiyaowong/telescope-emoji.nvim",
-    "IllustratedMan-code/telescope-conda.nvim"
+    "IllustratedMan-code/telescope-conda.nvim",
+    "benfowler/telescope-luasnip.nvim"
   },
   opts = {
     extensions = {
@@ -19,5 +20,6 @@ return {
     telescope.load_extension('undo')
     telescope.load_extension('emoji')
     telescope.load_extension('conda')
+    telescope.load_extension('luasnip')
   end
 }

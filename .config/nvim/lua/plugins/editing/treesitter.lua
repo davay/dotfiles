@@ -14,7 +14,7 @@ return {
       -- A list of parser names, or "all" (the listed parsers MUST always be installed)
       -- https://github.com/nvim-treesitter/nvim-treesitter/blob/master/lua/nvim-treesitter/parsers.lua
       ensure_installed = { -- NOTE: Excluding latex, it's handled by vimtex
-        "awk", "c", "cpp", "c_sharp", "csv", "css", "diff", "dockerfile", "gitignore", "go", "html",
+        "arduino", "awk", "c", "cpp", "c_sharp", "csv", "css", "diff", "dockerfile", "gitignore", "go", "html",
         "java", "javascript", "jq", "json", "lua", "markdown", "markdown_inline", "mermaid", "nginx",
         "python", "query", "r", "regex", "rst", "scss", "sql", "tsx", "typescript", "vim",
         "vimdoc", "xml", "yaml"

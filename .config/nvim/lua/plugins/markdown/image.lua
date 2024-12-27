@@ -1,8 +1,10 @@
 return {
   "3rd/image.nvim",
   cond = function()
-    -- Check if KITTY_WINDOW_ID environment variable exists (indicates Kitty terminal)
-    return vim.env.KITTY_WINDOW_ID ~= nil
+    local is_kitty = os.getenv("KITTY_WINDOW_ID") ~= nil
+    local is_ghostty = os.getenv("GHOSTTY_BIN_DIR") ~= nil
+
+    return is_kitty or is_ghostty
   end,
   dependencies = {
     "kiyoon/magick.nvim"
@@ -10,7 +12,7 @@ return {
   config = function()
     require("image").setup({
       backend = "kitty", -- kitty or ueberzug
-      max_height = 50,
+      max_height = 40,
       max_height_window_percentage = math.huge,
       max_width_window_percentage = math.huge,
       window_overlap_clear_enabled = false,                                               -- toggles images when windows are overlapped -- disabled so images dont disappear when i use which-key

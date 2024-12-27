@@ -7,5 +7,42 @@
       "```"
     ],
     "description": "Create a code block with language options"
+  },
+  "Code block slideshow": {
+    "prefix": "slide",
+    "body": [
+      "slideshow={\"slide_type\": \"${1|slide,subslide,fragment,skip,notes|}\"}"
+    ],
+    "description": "Add slideshow metadata to a code block or markdown block"
+  },
+  "Region": {
+    "prefix": "region",
+    "body": [
+      "<!-- #region -->",
+      "${TM_SELECTED_TEXT}$0",
+      "<!-- #endregion -->"
+    ],
+    "description": "Wrap current line in a region"
+  },
+  "data": {
+    "prefix": "data",
+    "body": [
+      ", \"data\": {$1}"
+    ],
+    "description": "Adds data tag for jupyter reveal"
+  },
+  "auto_animate": {
+    "prefix": "aa",
+    "body": [
+      ", \"auto_animate\": \"\""
+    ],
+    "description": "Adds auto_animate tag for jupyter reveal"
+  },
+  "autoslide": {
+    "prefix": "as",
+    "body": [
+      ", \"autoslide\": \"$1\""
+    ],
+    "description": "Adds autoslide tag for jupyter reveal"
   }
 }

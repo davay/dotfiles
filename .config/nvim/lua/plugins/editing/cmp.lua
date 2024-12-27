@@ -28,28 +28,29 @@ return {
     )
 
     cmp.setup({
-      enabled = function()
-        -- disable completion in comments
-        local context = require 'cmp.config.context'
-        -- keep command mode completion enabled when cursor is in a comment
-        if vim.api.nvim_get_mode().mode == 'c' then
-          return true
-        else
-          return not context.in_treesitter_capture("comment")
-              and not context.in_syntax_group("Comment")
-        end
-      end,
+      -- NOTE: right now always enabling so i can add slide metadata to md regions
+      -- enabled = function()
+      --   -- disable completion in comments
+      --   local context = require 'cmp.config.context'
+      --   -- keep command mode completion enabled when cursor is in a comment
+      --   if vim.api.nvim_get_mode().mode == 'c' then
+      --     return true
+      --   else
+      --     return not context.in_treesitter_capture("comment")
+      --         and not context.in_syntax_group("Comment")
+      --   end
+      -- end,
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
         end
       },
       sources = {
-        { name = 'nvim_lsp' },
-        { name = 'buffer' },
-        { name = 'luasnip' },
-        { name = 'path' },
-        { name = 'emoji' },
+        { name = 'luasnip',  priority = 1000 },
+        { name = 'path',     priority = 900 },
+        { name = 'buffer',   priority = 800 },
+        { name = 'nvim_lsp', priority = 700 },
+        { name = 'emoji',    priority = 600 },
       },
       formatting = cmp_format,
       experimental = {

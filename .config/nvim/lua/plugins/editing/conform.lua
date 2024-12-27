@@ -25,7 +25,7 @@ return {
       }),
 
       formatters_by_ft = {
-        markdown = { 'injected', 'prettier' },
+        markdown = { 'injected' },
         python = {
           'ruff_format',
           'ruff_organize_imports',

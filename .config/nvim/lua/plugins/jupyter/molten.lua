@@ -1,8 +1,10 @@
--- Required Python packages: pynvim, jupyter_client
+-- Required Python packages: pynvim, jupyter_client, ipykernel
 local is_kitty = os.getenv("KITTY_WINDOW_ID") ~= nil
 local is_wezterm = os.getenv("WEZTERM_EXECUTABLE") ~= nil
+local is_ghostty = os.getenv("GHOSTTY_BIN_DIR") ~= nil
+
 local deps = {}
-if is_kitty then
+if is_kitty or is_ghostty then
   deps = { "3rd/image.nvim" }
 elseif is_wezterm then
   deps = { "wezterm.nvim" }
@@ -24,7 +26,7 @@ return {
       -- if kitty/wezterm use image.nvim, otherwise dont load images
       if is_wezterm then
         vim.g.molten_image_provider = "wezterm"
-      elseif is_kitty then
+      elseif is_kitty or is_ghostty then
         vim.g.molten_image_provider = "image.nvim"
       else
         vim.g.molten_image_provider = "none"

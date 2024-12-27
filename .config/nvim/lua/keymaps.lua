@@ -22,13 +22,25 @@ vim.g.mapleader = ' '
 ---- TIL: <C-I> is the same as tab
 vim.keymap.set('n', '<C-O>', '<nop>')
 
+---- safer quit
+-- vim.keymap.set('c', 'q<CR>', function()
+--   -- Get the number of listed buffers
+--   local buffer_count = #vim.fn.getbufinfo({ buflisted = 1 })
+--
+--   -- If this is the last buffer, quit
+--   if buffer_count <= 1 then
+--     return 'q<CR>'
+--   else
+--     -- Otherwise delete the buffer
+--     return 'bd!<CR>'
+--   end
+-- end, { expr = true, desc = "Vim: Safer q" })
+
 ---- always close no matter how many buffers (e.g., for neo-tree and outline)
-vim.keymap.set('c', 'q<CR>', 'qa<CR>', { desc = "Vim: Alias q to qa" })
-vim.keymap.set('c', 'wq<CR>', 'wqa<CR>', { desc = "Vim: Alias wq to wqa" })
-vim.keymap.set('c', 'x<CR>', 'xa<CR>', { desc = "Vim: Alias x to xa" })
-vim.keymap.set('c', 'q!<CR>', 'qa!<CR>', { desc = "Vim: Alias q! to qa!" })
-vim.keymap.set('c', 'wq!<CR>', 'wqa!<CR>', { desc = "Vim: Alias wq! to wqa!" })
-vim.keymap.set('c', 'x!<CR>', 'xa!<CR>', { desc = "Vim: Alias x! to xa!" })
+vim.keymap.set('c', 'q<CR>', 'qa<CR>', { desc = "Vim: Alias q to qa", silent = true })
+vim.keymap.set('c', 'q!<CR>', 'qa!<CR>', { desc = "Vim: Alias q! to qa!", silent = true })
+vim.keymap.set('c', 'x<CR>', 'xa<CR>', { desc = "Vim: Alias x to xa", silent = true })
+vim.keymap.set('c', 'x!<CR>', 'xa!<CR>', { desc = "Vim: Alias x! to xa!", silent = true })
 
 ---- inverse tab indent
 vim.keymap.set('i', '<S-Tab>', '<C-d>', { desc = "Vim: Inverse Tab Indent", silent = true })
@@ -39,25 +51,24 @@ vim.keymap.set('n', '<S-Tab>', '<C-w>W', { desc = "Vim: Prev Pane", silent = tru
 
 ---- shortcut to center
 vim.keymap.set('n', 'Z', 'zz', { desc = "Vim: Center Screen", silent = true })
----- toggle between current and previous buffer (backspace)
------- previously:
------- vim.keymap.set('n', '<bs>', '<c-^>zz', { desc = "Vim: Toggle Buffer", silent = true })
-vim.keymap.set('n', '<bs>', function()
+
+---- toggle between current and previous buffer (\)
+vim.keymap.set('n', '\\', function()
   if not vim.tbl_contains({ 'neo-tree', 'Outline', 'qf' }, vim.bo.filetype) then
-    vim.cmd.buffer('#')  -- most recent buffer
+    vim.cmd.buffer('#') -- most recent buffer
     vim.cmd.normal('zz') -- center
   end
 end, { desc = "Vim: Toggle Buffer", silent = true })
 
 ---- close current tab
-vim.keymap.set('n', '<leader>bt', ':tabclose<CR>', { desc = "Vim: Close Tab", silent = true })
+vim.keymap.set('n', '<leader>bt', '<cmd>tabclose<CR>', { desc = "Vim: Close Tab", silent = true })
 
 ---- close current buffer
-vim.keymap.set('n', '<leader>bd', ':bdelete!<CR>', { desc = "Vim: Close Buffer", silent = true })
+vim.keymap.set('n', '<leader>bd', '<cmd>bdelete!<CR>', { desc = "Vim: Close Buffer", silent = true })
 
 ---- switch to next/prev buffer
-vim.keymap.set('n', '<leader>bf', ':bnext<CR>', { desc = "Vim: Next Buffer", silent = true })
-vim.keymap.set('n', '<leader>bb', ':bprev<CR>', { desc = "Vim: Prev Buffer", silent = true })
+vim.keymap.set('n', '<leader>bf', '<cmd>bnext<CR>', { desc = "Vim: Next Buffer", silent = true })
+vim.keymap.set('n', '<leader>bb', '<cmd>bprev<CR>', { desc = "Vim: Prev Buffer", silent = true })
 
 ---- make new panes
 vim.keymap.set('n', '<leader>d', '<C-w>v', { desc = "Vim: Split Vertical", silent = true })
@@ -101,7 +112,8 @@ vim.keymap.set('n', '<leader>fg', telescope.live_grep, { desc = "Telescope: Live
 -- vim.keymap.set('n', '<leader>fb', telescope.buffers, { desc = "Telescope: Buffers", silent = true })
 vim.keymap.set('n', '<leader>fh', telescope.help_tags, { desc = "Telescope: Help Tags", silent = true })
 vim.keymap.set('n', '<leader>fm', telescope.man_pages, { desc = "Telescope: Man Pages", silent = true })
-vim.keymap.set('n', '<leader>fs', function() telescope.colorscheme({ enable_preview = true }) end,
+vim.keymap.set('n', '<leader>fs', "<cmd>Telescope luasnip<CR>", { desc = "Telescope: Snippets", silent = true })
+vim.keymap.set('n', '<leader>fl', function() telescope.colorscheme({ enable_preview = true }) end,
   { desc = "Telescope: Colorscheme", silent = true })
 vim.keymap.set('n', '<leader>fc', telescope.git_bcommits,
   { desc = "Telescope: Git Commits", silent = true })
@@ -124,10 +136,10 @@ local telescope_emoji = require('telescope').load_extension 'emoji'
 vim.keymap.set('n', '<leader>fe', telescope_emoji.emoji, { desc = 'Telescope: Emoji' })
 
 -- leetcode
-vim.keymap.set('n', '<leader>lr', ':Leet run<CR>', { desc = "Leetcode: Run", silent = true })
-vim.keymap.set('n', '<leader>ls', ':Leet submit<CR>', { desc = "Leetcode: Submit", silent = true })
-vim.keymap.set('n', '<leader>lm', ':Leet<CR>', { desc = "Leetcode: Menu", silent = true })
-vim.keymap.set('n', '<leader>lc', ':Leet console<CR>', { desc = "Leetcode: Console", silent = true })
+vim.keymap.set('n', '<leader>lr', '<cmd>Leet run<CR>', { desc = "Leetcode: Run", silent = true })
+vim.keymap.set('n', '<leader>ls', '<cmd>Leet submit<CR>', { desc = "Leetcode: Submit", silent = true })
+vim.keymap.set('n', '<leader>lm', '<cmd>Leet<CR>', { desc = "Leetcode: Menu", silent = true })
+vim.keymap.set('n', '<leader>lc', '<cmd>Leet console<CR>', { desc = "Leetcode: Console", silent = true })
 
 -- mini.files, as neotree is no longer maintained and looking for maintainers, trying things out
 local MiniFiles = require('mini.files')
@@ -172,7 +184,7 @@ vim.api.nvim_create_autocmd('User', {
 --   { desc = "Neotree: Toggle Document Symbols", silent = true })
 
 -- outline
-vim.keymap.set('n', '<leader>o', ':Outline<CR>', { silent = true, desc = "Outline: Toggle" })
+vim.keymap.set('n', '<leader>o', '<cmd>Outline<CR>', { silent = true, desc = "Outline: Toggle" })
 
 -- lsp
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -197,7 +209,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end
 })
 
-vim.keymap.set('n', '<F5>', ':ToggleFormat<CR>', { silent = true, desc = "Conform: Toggle Format-on-save" })
+vim.keymap.set('n', '<F5>', '<cmd>ToggleFormat<CR>', { silent = true, desc = "Conform: Toggle Format-on-save" })
 
 ---- Toggle diagnostics
 vim.keymap.set('n', '<leader>dd', function()
@@ -242,15 +254,15 @@ local show_lsp_zero_keybindings = function()
   })
 
   -- Close the window when pressing 'q' or '<Esc>'
-  vim.keymap.set('n', 'q', ':close<CR>', { buffer = buf, desc = "Keybind Help: Close", silent = true })
-  vim.keymap.set('n', '<Esc>', ':close<CR>', { buffer = buf, desc = "Keybind Help: Close", silent = true })
+  vim.keymap.set('n', 'q', '<cmd>close<CR>', { buffer = buf, desc = "Keybind Help: Close", silent = true })
+  vim.keymap.set('n', '<Esc>', '<cmd>close<CR>', { buffer = buf, desc = "Keybind Help: Close", silent = true })
 end
 
 vim.keymap.set('n', '<leader>?', show_lsp_zero_keybindings,
   { desc = "Keybind Help: Open", silent = true })
 
 -- grug-far
-vim.keymap.set('n', '<leader>g', ':GrugFar<CR>', { desc = "GrugFar", silent = true })
+vim.keymap.set('n', '<leader>g', '<cmd>GrugFar<CR>', { desc = "GrugFar", silent = true })
 
 -- codewindow
 local codewindow = require('codewindow')
@@ -271,13 +283,13 @@ vim.api.nvim_create_autocmd("FileType", {
     end, { desc = "Markdown: Insert Python code block" })
 
     ---- treesitter
-    vim.keymap.set("n", "]]", ":TSTextobjectGotoNextStart @code_cell.inner | norm! zz<CR>",
+    vim.keymap.set("n", "]]", "<cmd>TSTextobjectGotoNextStart @code_cell.inner | norm! zz<CR>",
       { desc = "TS: Next Code Block", silent = true, buffer = true })
-    vim.keymap.set("n", "[[", ":TSTextobjectGotoPreviousStart @code_cell.inner | norm! zz<CR>",
+    vim.keymap.set("n", "[[", "<cmd>TSTextobjectGotoPreviousStart @code_cell.inner | norm! zz<CR>",
       { desc = "TS: Prev Code Block", silent = true, buffer = true })
-    vim.keymap.set({ "x", "o" }, "ib", ":<C-u>TSTextobjectSelect @code_cell.inner<CR>",
+    vim.keymap.set({ "x", "o" }, "ib", "<cmd><C-u>TSTextobjectSelect @code_cell.inner<CR>",
       { desc = "TS: Select Inner Block", silent = true, buffer = true })
-    vim.keymap.set({ "x", "o" }, "ab", ":<C-u>TSTextobjectSelect @code_cell.outer<CR>",
+    vim.keymap.set({ "x", "o" }, "ab", "<cmd><C-u>TSTextobjectSelect @code_cell.outer<CR>",
       { desc = "TS: Select Around Block", silent = true, buffer = true })
 
     -- quarto
@@ -290,9 +302,9 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("v", "<leader>j", runner.run_range, { desc = "Quarto: Run Visual Range", silent = true })
 
     -- molten
-    vim.keymap.set("n", "<leader>jR", ':MoltenRestart<CR>',
+    vim.keymap.set("n", "<leader>jR", '<cmd>MoltenRestart<CR>',
       { desc = "Molten: Restart Kernel", silent = true })
-    vim.keymap.set("n", "<leader>jr", ':MoltenRestart!<CR>',
+    vim.keymap.set("n", "<leader>jr", '<cmd>MoltenRestart!<CR>',
       { desc = "Molten: Restart Kernel and Clear All", silent = true })
     -- enter/exit molten output
     -- also use q or esc to exit
@@ -301,14 +313,15 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.cmd("MoltenHideOutput")
       else
         vim.cmd("noautocmd MoltenEnterOutput")
-        vim.keymap.set("n", "q", ":MoltenHideOutput<CR>", { buffer = true, desc = "Molten: Exit Output", silent = true })
-        vim.keymap.set("n", "<Esc>", ":MoltenHideOutput<CR>",
+        vim.keymap.set("n", "q", "<cmd>MoltenHideOutput<CR>",
+          { buffer = true, desc = "Molten: Exit Output", silent = true })
+        vim.keymap.set("n", "<Esc>", "<cmd>MoltenHideOutput<CR>",
           { buffer = true, desc = "Molten: Exit Output", silent = true })
       end
     end, { desc = "Molten: Toggle Output", silent = true })
 
     -- markdown-preview
-    vim.keymap.set("n", "<leader>jo", ":MarkdownPreviewToggle<CR>",
+    vim.keymap.set("n", "<leader>jo", "<cmd>MarkdownPreviewToggle<CR>",
       { desc = "Markdown: Preview", silent = true })
 
     -- jupyter (cli)
@@ -385,7 +398,7 @@ vim.keymap.set({ "o", "x" }, "R", function() flash.treesitter_search() end,
 vim.keymap.set("c", "<c-s>", function() flash.toggle() end, { desc = "Flash: Toggle Search", silent = true })
 
 -- raycast
-vim.keymap.set('v', '<leader>r',
+vim.keymap.set('v', '<leader>re',
   '"+y<ESC>:lua vim.fn.system("open \'raycast://ai-commands/explain-code-step-by-step-clipboard\'")<CR>',
   { desc = "Raycast: Explain Code", silent = true })
 
@@ -414,14 +427,15 @@ vim.keymap.set('x', '<leader>r', ":SearchBoxReplace visual_mode=true -- <C-r>=ex
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "tex",
   callback = function()
-    vim.keymap.set("n", "<leader>vv", ":VimtexView<CR>",
+    vim.keymap.set("n", "<leader>vv", "<cmd>VimtexView<CR>",
       { desc = "Vimtex: View / Forward Search", silent = true })
-    vim.keymap.set("n", "<leader>vt", ":VimtexTocToggle<CR>", { desc = "Vimtex: Toggle TOC", silent = true })
-    vim.keymap.set("n", "<leader>vc", ":VimtexCompile<CR>",
+    vim.keymap.set("n", "<leader>vt", "<cmd>VimtexTocToggle<CR>",
+      { desc = "Vimtex: Toggle TOC", silent = true })
+    vim.keymap.set("n", "<leader>vc", "<cmd>VimtexCompile<CR>",
       { desc = "Vimtex: Compile Continuously", silent = true })
-    vim.keymap.set("n", "<leader>vs", ":VimtexCompile<CR>",
+    vim.keymap.set("n", "<leader>vs", "<cmd>VimtexCompile<CR>",
       { desc = "Vimtex: Stop Compilation", silent = true })
-    vim.keymap.set("n", "<leader>vw", ":VimtexCountWords<CR>",
+    vim.keymap.set("n", "<leader>vw", "<cmd>VimtexCountWords<CR>",
       { desc = "Vimtex: Count Words", silent = true })
   end
 })
@@ -431,8 +445,8 @@ vim.keymap.set('n', '<leader>/', ":set filetype=python<CR>",
   { desc = "Filetype: Python", silent = true })
 
 ---- pastify
-vim.keymap.set('v', '<leader>p', ':PastifyAfter<CR>', { desc = "Pastify", silent = true })
-vim.keymap.set('n', '<leader>p', ':PastifyAfter<CR>', { desc = "Pastify", silent = true })
+vim.keymap.set('v', '<leader>p', '<cmd>PastifyAfter<CR>', { desc = "Pastify", silent = true })
+vim.keymap.set('n', '<leader>p', '<cmd>PastifyAfter<CR>', { desc = "Pastify", silent = true })
 
 ---- python-repl
 local python_repl = require('nvim-python-repl')
@@ -453,34 +467,78 @@ vim.keymap.set("n", '<leader>tv', function() python_repl.toggle_vertical() end,
 
 vim.keymap.set("n", '<leader>to', function() python_repl.open_repl() end, { desc = "Python-REPL: Open window split" })
 
-----
+-- Wrap
 vim.keymap.set('n', '<leader>ws', function() vim.cmd([[%s/.\{90,99} /&↵\r/g | 1]]) end,
   { desc = "Vim: Hard Wrap", silent = true })
 
 vim.keymap.set('v', '<leader>ws', function()
-  -- Use visual selection marks and force update them
-  vim.cmd('normal! gv')
+  vim.cmd.normal('gv')
   local start_line = vim.fn.line("'<")
   local end_line = vim.fn.line("'>")
-
-  -- Apply hard wrap to only the selected range
-  vim.cmd(string.format([[%d,%ds/.\{90,99\} /&↵\r/g]], start_line, end_line))
-
-  -- Clear the visual selection
-  vim.cmd('normal! <Esc>')
+  local cmd = string.format([[%d,%d s/.\{90,99} /&↵\r/g]], start_line, end_line)
+  vim.cmd(cmd)
+  vim.cmd.normal('<Esc>')
 end, { desc = "Vim: Hard Wrap Selection", silent = true })
 
 vim.keymap.set('n', '<leader>wl', function() vim.cmd([[%s/↵\n// | 1]]) end, { desc = "Vim: Soft Wrap", silent = true })
 
 vim.keymap.set('v', '<leader>wl', function()
-  -- Use visual selection marks and force update them
-  vim.cmd('normal! gv')
+  vim.cmd.normal('gv')
   local start_line = vim.fn.line("'<")
   local end_line = vim.fn.line("'>")
-
-  -- Remove wrapping from only the selected range
   vim.cmd(string.format([[%d,%ds/↵\n//g]], start_line, end_line))
-
-  -- Clear the visual selection
-  vim.cmd('normal! <Esc>')
+  vim.cmd.normal('<Esc>')
 end, { desc = "Vim: Soft Wrap Selection", silent = true })
+
+-- Luasnip
+local ls = require("luasnip")
+vim.keymap.set({ "i", "s" }, "<C-j>", function()
+  if ls.choice_active() then
+    ls.change_choice(1)
+  end
+end, { desc = "Luasnip: Next choice", silent = true })
+
+vim.keymap.set({ "i", "s" }, "<C-k>", function()
+  if ls.choice_active() then
+    ls.change_choice(-1)
+  end
+end, { desc = "Luasnip: Previous choice", silent = true })
+
+-- Arduino
+vim.keymap.set('n', '<leader>aa', '<cmd>ArduinoAttach<CR>', { desc = 'Arduino: Attach' })
+vim.keymap.set('n', '<leader>av', '<cmd>ArduinoVerify<CR>', { desc = 'Arduino: Verify' })
+vim.keymap.set('n', '<leader>au', '<cmd>ArduinoUpload<CR>', { desc = 'Arduino: Upload' })
+vim.keymap.set('n', '<leader>aus', '<cmd>ArduinoUploadAndSerial<CR>', { desc = 'Arduino: Upload and Serial' })
+vim.keymap.set('n', '<leader>as', '<cmd>ArduinoSerial<CR>', { desc = 'Arduino: Serial' })
+vim.keymap.set('n', '<leader>ab', '<cmd>ArduinoChooseBoard<CR>', { desc = 'Arduino: Choose Board' })
+vim.keymap.set('n', '<leader>ap', '<cmd>ArduinoChooseProgrammer<CR>', { desc = 'Arduino: Choose Programmer' })
+vim.keymap.set('n', '<leader>ai', '<cmd>ArduinoInfo<CR>', { desc = 'Arduino: Info' })
+
+-- Function to update sketch.yaml with current board info
+vim.api.nvim_create_user_command('ArduinoUpdateFQBN', function()
+  local handle = io.popen('arduino-cli board list')
+  if handle then
+    local result = handle:read("*a")
+    handle:close()
+
+    -- Match just the port path at the start of the line
+    for line in result:gmatch("[^\r\n]+") do
+      local port = line:match("^(/dev/[%S]+)")
+      local fqbn = line:match("esp32:esp32:esp32_%S+")
+      if port and fqbn then
+        local sketch_yaml = io.open('sketch.yaml', 'w')
+        if sketch_yaml then
+          sketch_yaml:write(string.format("default_fqbn: %s\n", fqbn))
+          sketch_yaml:write(string.format("default_port: %s\n", port))
+          sketch_yaml:close()
+          print("Updated sketch.yaml with FQBN: " .. fqbn .. " and port: " .. port)
+          return
+        end
+      end
+    end
+  end
+  print("Failed to update sketch.yaml")
+end, {})
+
+-- Bind it to a key
+vim.keymap.set('n', '<leader>af', '<cmd>ArduinoUpdateFQBN<CR>', { silent = true })

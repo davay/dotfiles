@@ -4,8 +4,8 @@ return {
   config = function()
     local npairs = require("nvim-autopairs")
     npairs.setup({
-      check_ts = true,
-      enable_check_bracket_line = false,
+      check_ts = false,
+      enable_check_bracket_line = true,
     })
   end
 }

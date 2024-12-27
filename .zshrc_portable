@@ -62,9 +62,10 @@ alias sshda="ssh davay@ssh.devinl.im"
 alias sshhetzner="ssh root@hetzner.devinl.im"
 
 # gh alias
-alias create="git remote remove origin && gh repo create --public --source . --remote origin && upstream"
-alias delete="gh repo delete $(basename $PWD)"
-alias fork="gh repo fork --clone=true"
+alias repocreate="git remote remove origin || gh repo create --public --source . --remote origin && upstream"
+alias repodelete="gh repo delete $(basename $PWD)"
+alias repofork="gh repo fork --clone=true"
+alias prcreate="gh pr create"
 
 # git alias
 ## aliases without params
@@ -80,10 +81,10 @@ alias push="git push"
 alias clean="git clean -dfx"
 alias reset="git reset --hard HEAD"
 alias nuke="git clean -dfx && git reset --hard HEAD"
-alias liststash="git stash list"
-alias showstash="git stash show -p"
-alias pop="git stash pop"
-alias branches="git branch --all"
+alias stashlist="git stash list"
+alias stashshow="git stash show -p"
+alias stashpop="git stash pop"
+alias branches="git --no-pager branch --all"
 alias commits="git --no-pager log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 ## aliases requiring params

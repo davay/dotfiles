@@ -1,1 +1,3 @@
-alt - escape : yabai -m display --focus recent
+cmd - escape : yabai -m display --focus recent
+alt + shift - e : yabai -m window --move rel:25:25
+alt + shift - q : yabai -m window --move rel:-25:-25
