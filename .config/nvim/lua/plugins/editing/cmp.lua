@@ -1,7 +1,6 @@
 return {
   'hrsh7th/nvim-cmp',
   dependencies = {
-    { 'VonHeikemen/lsp-zero.nvim', branch = 'v4.x' },
     'windwp/nvim-autopairs',
     'saadparwaiz1/cmp_luasnip',
     'hrsh7th/cmp-nvim-lsp',
@@ -12,7 +11,6 @@ return {
   },
   config = function()
     local cmp = require('cmp')
-    local cmp_format = require('lsp-zero').cmp_format({ details = false })
     local cmp_autopairs = require('nvim-autopairs.completion.cmp')
     local luasnip = require('luasnip')
     local has_words_before = function()
@@ -52,7 +50,6 @@ return {
         { name = 'nvim_lsp', priority = 700 },
         { name = 'emoji',    priority = 600 },
       },
-      formatting = cmp_format,
       experimental = {
         ghost_text = {
           hl_group = "Comment",

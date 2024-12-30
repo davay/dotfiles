@@ -470,10 +470,10 @@ vim.keymap.set("n", '<leader>tv', function() python_repl.toggle_vertical() end,
 vim.keymap.set("n", '<leader>to', function() python_repl.open_repl() end, { desc = "Python-REPL: Open window split" })
 
 -- Wrap
-vim.keymap.set('n', '<leader>ws', function() vim.cmd([[%s/.\{90,99} /&↵\r/g | 1]]) end,
+vim.keymap.set('n', '<leader>wh', function() vim.cmd([[%s/.\{90,99} /&↵\r/g | 1]]) end,
   { desc = "Vim: Hard Wrap", silent = true })
 
-vim.keymap.set('v', '<leader>ws', function()
+vim.keymap.set('v', '<leader>wh', function()
   vim.cmd.normal('gv')
   local start_line = vim.fn.line("'<")
   local end_line = vim.fn.line("'>")
@@ -482,15 +482,20 @@ vim.keymap.set('v', '<leader>ws', function()
   vim.cmd.normal('<Esc>')
 end, { desc = "Vim: Hard Wrap Selection", silent = true })
 
-vim.keymap.set('n', '<leader>wl', function() vim.cmd([[%s/↵\n// | 1]]) end, { desc = "Vim: Soft Wrap", silent = true })
+vim.keymap.set('n', '<leader>wu', function() vim.cmd([[%s/↵\n// | 1]]) end,
+  { desc = "Vim: Undo Hard Wrap", silent = true })
 
-vim.keymap.set('v', '<leader>wl', function()
+vim.keymap.set('v', '<leader>wu', function()
   vim.cmd.normal('gv')
   local start_line = vim.fn.line("'<")
   local end_line = vim.fn.line("'>")
   vim.cmd(string.format([[%d,%ds/↵\n//g]], start_line, end_line))
   vim.cmd.normal('<Esc>')
-end, { desc = "Vim: Soft Wrap Selection", silent = true })
+end, { desc = "Vim: Undo Hard Wrap Selection", silent = true })
+
+vim.keymap.set('n', '<leader>ws', function()
+  vim.o.wrap = not vim.o.wrap
+end, { desc = 'Toggle Soft Wrap', silent = true })
 
 -- Luasnip
 local ls = require("luasnip")
@@ -510,37 +515,37 @@ end, { desc = "Luasnip: Previous choice", silent = true })
 vim.keymap.set('n', '<leader>aa', '<cmd>ArduinoAttach<CR>', { desc = 'Arduino: Attach' })
 vim.keymap.set('n', '<leader>av', '<cmd>ArduinoVerify<CR>', { desc = 'Arduino: Verify' })
 vim.keymap.set('n', '<leader>au', '<cmd>ArduinoUpload<CR>', { desc = 'Arduino: Upload' })
-vim.keymap.set('n', '<leader>aus', '<cmd>ArduinoUploadAndSerial<CR>', { desc = 'Arduino: Upload and Serial' })
+vim.keymap.set('n', '<leader>aU', '<cmd>ArduinoUploadAndSerial<CR>', { desc = 'Arduino: Upload and Serial' })
 vim.keymap.set('n', '<leader>as', '<cmd>ArduinoSerial<CR>', { desc = 'Arduino: Serial' })
 vim.keymap.set('n', '<leader>ab', '<cmd>ArduinoChooseBoard<CR>', { desc = 'Arduino: Choose Board' })
 vim.keymap.set('n', '<leader>ap', '<cmd>ArduinoChooseProgrammer<CR>', { desc = 'Arduino: Choose Programmer' })
 vim.keymap.set('n', '<leader>ai', '<cmd>ArduinoInfo<CR>', { desc = 'Arduino: Info' })
 
 -- Function to update sketch.yaml with current board info
-vim.api.nvim_create_user_command('ArduinoUpdateFQBN', function()
-  local handle = io.popen('arduino-cli board list')
-  if handle then
-    local result = handle:read("*a")
-    handle:close()
-
-    -- Match just the port path at the start of the line
-    for line in result:gmatch("[^\r\n]+") do
-      local port = line:match("^(/dev/[%S]+)")
-      local fqbn = line:match("esp32:esp32:esp32_%S+")
-      if port and fqbn then
-        local sketch_yaml = io.open('sketch.yaml', 'w')
-        if sketch_yaml then
-          sketch_yaml:write(string.format("default_fqbn: %s\n", fqbn))
-          sketch_yaml:write(string.format("default_port: %s\n", port))
-          sketch_yaml:close()
-          print("Updated sketch.yaml with FQBN: " .. fqbn .. " and port: " .. port)
-          return
-        end
-      end
-    end
-  end
-  print("Failed to update sketch.yaml")
-end, {})
+-- vim.api.nvim_create_user_command('ArduinoUpdateFQBN', function()
+--   local handle = io.popen('arduino-cli board list')
+--   if handle then
+--     local result = handle:read("*a")
+--     handle:close()
+--
+--     -- Match just the port path at the start of the line
+--     for line in result:gmatch("[^\r\n]+") do
+--       local port = line:match("^(/dev/[%S]+)")
+--       local fqbn = line:match("esp32:esp32:esp32_%S+")
+--       if port and fqbn then
+--         local sketch_yaml = io.open('sketch.yaml', 'w')
+--         if sketch_yaml then
+--           sketch_yaml:write(string.format("default_fqbn: %s\n", fqbn))
+--           sketch_yaml:write(string.format("default_port: %s\n", port))
+--           sketch_yaml:close()
+--           print("Updated sketch.yaml with FQBN: " .. fqbn .. " and port: " .. port)
+--           return
+--         end
+--       end
+--     end
+--   end
+--   print("Failed to update sketch.yaml")
+-- end, {})
 
 -- Bind it to a key
 vim.keymap.set('n', '<leader>af', '<cmd>ArduinoUpdateFQBN<CR>', { silent = true })

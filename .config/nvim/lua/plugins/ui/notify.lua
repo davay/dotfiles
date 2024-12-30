@@ -4,7 +4,7 @@ return {
     require("notify").setup {
       render = "compact",
       stages = "fade",
-      timeout = 500,
+      timeout = 300,
     }
     vim.notify = require("notify")
   end

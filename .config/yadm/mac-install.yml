@@ -70,6 +70,7 @@
           - go
           - ffmpeg
           - ghostty
+          # TODO: Serial Studio
         state: latest
         update_homebrew: yes
 
@@ -137,6 +138,7 @@
           - tuist # Xcode
           - mimestream # gmail
           - piphero
+          - embyserver
         state: latest
 
     - name: "Homebrew: Start Services"

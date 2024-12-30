@@ -44,6 +44,42 @@ vidstack() {
         ffmpeg -i "$1" -i "$2" -filter_complex "[0:v][1:v]hstack=inputs=2[v]" -map "[v]" stacked.mp4
     fi
 }
+cpd() {
+    latest_file=$(find ~/Downloads -type f -maxdepth 1 -print0 | xargs -0 ls -t | head -1)
+    
+    if [ -z "$latest_file" ]; then
+        echo "No files found in Downloads directory"
+        return 1
+    fi
+    
+    echo "Most recent file is: $latest_file"
+    echo -n "Do you want to copy this file? (y/n) "
+    read confirm
+    
+    if [[ $confirm =~ ^[Yy]$ ]]; then
+        cp "${latest_file}" "${1:-.}"
+    else
+        echo "Copy cancelled"
+    fi
+}
+mvd() {
+    latest_file=$(find ~/Downloads -type f -maxdepth 1 -print0 | xargs -0 ls -t | head -1)
+    
+    if [ -z "$latest_file" ]; then
+        echo "No files found in Downloads directory"
+        return 1
+    fi
+    
+    echo "Most recent file is: $latest_file"
+    echo -n "Do you want to move this file? (y/n) "
+    read confirm
+    
+    if [[ $confirm =~ ^[Yy]$ ]]; then
+        mv "${latest_file}" "${1:-.}"
+    else
+        echo "Move cancelled"
+    fi
+}
 
 # Config alias
 alias yadmc="vim ~/.config/yadm/bootstrap"
@@ -66,6 +102,8 @@ alias cschool="c ~/Repos/School"
 alias cpersonal="c ~/Repos/Personal"
 alias csu="c ~/Drive/usa/school/su"
 alias cleetcode="c ~/Repos/Personal/leetcode"
+alias cdownloads="c ~/Downloads"
+alias cusa="c ~/Drive/usa/"
 
 # yadm alias 
 alias ycommit="yadm commit -am"
@@ -85,9 +123,14 @@ alias synchetzner="syncssh root@hetzner.devinl.im"
 alias colortest="~/.config/yadm/scripts/colortest.sh"
 alias syncssh="~/.config/yadm/scripts/sync_ssh.sh"
 
-# python pacakges required for jupyter
-alias condavimdeps="conda install pynvim jupyter_client jupytext ipython ipykernel"
+# python pacakges required for jupyter + vim 
+alias condavimdeps="conda install pynvim jupyter_client jupytext ipython ipykernel pylatexenc"
+
+# python packages for general ds work
 alias condadsdeps="conda install numpy matplotlib scikit-learn pandas pytorch"
+
+## sgqlc: graphql client for github auto-readme
+alias condaotherdeps="conda install sgqlc"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -139,3 +182,5 @@ _custom_tab_accept_suggestion() {
 }
 zle -N _custom_tab_accept_suggestion
 bindkey '^I' _custom_tab_accept_suggestion # tab
+
+export HOMEBREW_EDITOR="nvim"

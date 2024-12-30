@@ -14,6 +14,7 @@ declare -A HELP_MESSAGES=(
     ["add"]="Usage: add <dir-or-file>"
     ["stash"]="Usage: stash \"<stash-message>\""
     ["show"]="Usage: show <integer_commits_ago>"
+    ["ammend"]="Usage: ammend \"<commit-message>\""
 )
 
 check_param() {
@@ -71,7 +72,8 @@ alias prcreate="gh pr create"
 ## aliases without params
 alias lg="lazygit"
 alias init="git init"
-alias upstream="currBranch=\$(git rev-parse --abbrev-ref HEAD) && git push --set-upstream origin \$currBranch"
+alias upstreamorigin="currBranch=\$(git rev-parse --abbrev-ref HEAD) && git push --set-upstream origin \$currBranch"
+alias upstreamdavay="currBranch=\$(git rev-parse --abbrev-ref HEAD) && git push --set-upstream davay \$currBranch"
 alias uncommit="git reset --soft HEAD~1"
 alias unstage="git reset"
 alias reignore="git rm -r --cached . && git add ." # if you updated gitignore after committing
@@ -150,6 +152,11 @@ stash() {
 show() {
   check_param "$1" || return 1
   git show HEAD~"$1"
+}
+
+ammend() {
+  check_param "$1" || return 1
+  git commit --amend -m "$1"
 }
 
 # gen z alias 

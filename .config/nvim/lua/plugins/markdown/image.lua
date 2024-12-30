@@ -3,8 +3,9 @@ return {
   cond = function()
     local is_kitty = os.getenv("KITTY_WINDOW_ID") ~= nil
     local is_ghostty = os.getenv("GHOSTTY_BIN_DIR") ~= nil
+    local is_markdown = vim.bo.filetype == "markdown"
 
-    return is_kitty or is_ghostty
+    return (is_kitty or is_ghostty) and is_markdown
   end,
   dependencies = {
     "kiyoon/magick.nvim"

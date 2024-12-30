@@ -3,12 +3,12 @@ return {
   build = ":TSUpdate",
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
-    "nvim-treesitter/nvim-treesitter-context"
+    -- "nvim-treesitter/nvim-treesitter-context"
   },
   config = function()
-    require('treesitter-context').setup({
-      mode = 'topline' -- cursor or topline
-    })
+    -- require('treesitter-context').setup({
+    --   mode = 'topline' -- cursor or topline
+    -- })
 
     require 'nvim-treesitter.configs'.setup({
       -- A list of parser names, or "all" (the listed parsers MUST always be installed)
@@ -43,9 +43,7 @@ return {
         --   end
         -- end,
 
-        -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-        -- Using this option may slow down your editor, and you may see some duplicate highlights.
-        -- Instead of true it can also be a list of languages.
+        -- Setting this to true will run `:h syntax` and tree-sitter at the same time, causing slowdown and duplicate highlights.
         additional_vim_regex_highlighting = false,
       },
 
