@@ -1,3 +1,7 @@
+# powerlevel10k
+[[ ! -f ~/powerlevel10k/powerlevel10k.zsh-theme ]] || source ~/powerlevel10k/powerlevel10k.zsh-theme
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 # Random stuff
 export PATH=$PATH:~/.cargo/bin/
 

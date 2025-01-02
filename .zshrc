@@ -14,4 +14,5 @@ source $HOME/.oh-my-zsh/oh-my-zsh.sh
 source ~/.zshrc_portable
 
 # Local config; splitting it so dotfile copying is easy
-source ~/.zshrc_local
+# Won't exist on servers
+[[ ! -f ~/.zshrc_local ]] | source ~/.zshrc_local
