@@ -165,6 +165,7 @@ source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # # plugin customizations
+BREW=$(brew --prefix)
 source $BREW/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 bindkey "$terminfo[kcbt]" menu-select
 bindkey -M menuselect '^I' menu-complete

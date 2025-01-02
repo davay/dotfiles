@@ -10,12 +10,6 @@ plugins=(
   ) # this one doesnt conflict with autosuggestions, somehow the tab completion wont work with the other one
 source $HOME/.oh-my-zsh/oh-my-zsh.sh
 
-# Custom plugins installed using brew or smth
-BREW=$(brew --prefix)
-
-# WARNING: BREAKS MOLTEN'S WEZTERM IMAGE OUTPUT -- the highlighting is a color code like ;12;23
-# source $BREW/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # Portable config; goes after oh-my-zsh so it overrides
 source ~/.zshrc_portable
 
