@@ -141,50 +141,50 @@ vim.keymap.set('n', '<leader>ls', '<cmd>Leet submit<CR>', { desc = "Leetcode: Su
 vim.keymap.set('n', '<leader>lm', '<cmd>Leet<CR>', { desc = "Leetcode: Menu", silent = true })
 vim.keymap.set('n', '<leader>lc', '<cmd>Leet console<CR>', { desc = "Leetcode: Console", silent = true })
 
--- mini.files, as neotree is no longer maintained and looking for maintainers, trying things out
-local MiniFiles = require('mini.files')
-local minifiles_toggle = function(...)
-  if not MiniFiles.close() then MiniFiles.open(...) end
-end
+---- mini.files
+-- local MiniFiles = require('mini.files')
+-- local minifiles_toggle = function(...)
+--   if not MiniFiles.close() then MiniFiles.open(...) end
+-- end
+--
+-- vim.keymap.set('n', '<leader>n', minifiles_toggle, { desc = "Mini.Files: Toggle", silent = true })
+--
+-- local map_split = function(buf_id, lhs, direction)
+--   local rhs = function()
+--     -- Make new window and set it as target
+--     local cur_target = MiniFiles.get_explorer_state().target_window
+--     local new_target = vim.api.nvim_win_call(cur_target, function()
+--       vim.cmd(direction .. ' split')
+--       return vim.api.nvim_get_current_win()
+--     end)
+--
+--     MiniFiles.set_target_window(new_target)
+--   end
+--
+--   -- Adding `desc` will result into `show_help` entries
+--   local desc = 'Split ' .. direction
+--   vim.keymap.set('n', lhs, rhs, { buffer = buf_id, desc = desc })
+-- end
+--
+-- vim.api.nvim_create_autocmd('User', {
+--   pattern = 'MiniFilesBufferCreate',
+--   callback = function(args)
+--     local buf_id = args.data.buf_id
+--     -- Tweak keys to your liking
+--     map_split(buf_id, '<C-s>', 'belowright horizontal')
+--     map_split(buf_id, '<C-v>', 'belowright vertical')
+--   end,
+-- })
 
-vim.keymap.set('n', '<leader>n', minifiles_toggle, { desc = "Mini.Files: Toggle", silent = true })
-
-local map_split = function(buf_id, lhs, direction)
-  local rhs = function()
-    -- Make new window and set it as target
-    local cur_target = MiniFiles.get_explorer_state().target_window
-    local new_target = vim.api.nvim_win_call(cur_target, function()
-      vim.cmd(direction .. ' split')
-      return vim.api.nvim_get_current_win()
-    end)
-
-    MiniFiles.set_target_window(new_target)
-  end
-
-  -- Adding `desc` will result into `show_help` entries
-  local desc = 'Split ' .. direction
-  vim.keymap.set('n', lhs, rhs, { buffer = buf_id, desc = desc })
-end
-
-vim.api.nvim_create_autocmd('User', {
-  pattern = 'MiniFilesBufferCreate',
-  callback = function(args)
-    local buf_id = args.data.buf_id
-    -- Tweak keys to your liking
-    map_split(buf_id, '<C-s>', 'belowright horizontal')
-    map_split(buf_id, '<C-v>', 'belowright vertical')
-  end,
-})
-
--- neotree
--- vim.keymap.set('n', '<leader>n', ':Neotree action=focus reveal=true toggle<CR>',
---   { desc = "Neotree: Toggle", silent = true }) -- action=focus/show
--- ---- using neotree in place of outline
--- vim.keymap.set('n', '<leader>o', ':Neotree source=document_symbols position=right action=focus reveal=true toggle<CR>',
---   { desc = "Neotree: Toggle Document Symbols", silent = true })
+-- neo-tree
+vim.keymap.set('n', '<leader>n', ':Neotree action=show position=right reveal=true toggle<CR>',
+  { desc = "Neotree: Toggle", silent = true }) -- action=focus/show
+---- using neotree in place of outline
+vim.keymap.set('n', '<leader>o', ':Neotree source=document_symbols position=right action=show reveal=true toggle<CR>',
+  { desc = "Neotree: Toggle Document Symbols", silent = true })
 
 -- outline
-vim.keymap.set('n', '<leader>o', '<cmd>Outline<CR>', { silent = true, desc = "Outline: Toggle" })
+-- vim.keymap.set('n', '<leader>o', '<cmd>Outline<CR>', { silent = true, desc = "Outline: Toggle" })
 
 -- lsp
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -200,16 +200,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('n', 'go', vim.lsp.buf.type_definition, 'LSP: Go to Type Definition')
     map('n', 'gr', vim.lsp.buf.references, 'LSP: Find References')
     map('n', 'gs', vim.lsp.buf.signature_help, 'LSP: Show Signature Help')
-    map('n', '<F2>', vim.lsp.buf.rename, 'LSP: Rename')
-    map({ 'n', 'x' }, '<F3>', function()
+    map('n', 'gn', vim.lsp.buf.rename, 'LSP: Rename')
+    map({ 'n', 'x' }, 'gf', function()
       vim.notify("Formatting..")
       vim.lsp.buf.format({ async = true })
     end, 'LSP: Format')
-    map('n', '<F4>', vim.lsp.buf.code_action, 'LSP: Code Action')
+    map('n', 'gc', vim.lsp.buf.code_action, 'LSP: Code Action')
   end
 })
-
-vim.keymap.set('n', '<F5>', '<cmd>ToggleFormat<CR>', { silent = true, desc = "Conform: Toggle Format-on-save" })
+vim.keymap.set('n', 'gF', '<cmd>ToggleFormat<CR>', { silent = true, desc = "Conform: Toggle Format-on-save" })
 
 ---- Toggle diagnostics
 vim.keymap.set('n', '<leader>dd', function()
@@ -226,14 +225,15 @@ local show_lsp_zero_keybindings = function()
     { key = "go",    desc = "Go to Type Definition" },
     { key = "gr",    desc = "List References" },
     { key = "gs",    desc = "Show Signature" },
-    { key = "F2",    desc = "Rename" },
-    { key = "F3",    desc = "Format" },
-    { key = "F4",    desc = "Code Action" },
+    { key = "gn",    desc = "Rename" },
+    { key = "gf",    desc = "Format" },
+    { key = "gF",    desc = "Toggle Format-on-save" },
+    { key = "gc",    desc = "Code Action" },
     { key = "[d",    desc = "Previous Diagnostic" },
     { key = "]d",    desc = "Next Diagnostic" },
   }
 
-  local lines = { "LSP-Zero Keybindings:" }
+  local lines = { "LSP Keybindings:" }
   for _, binding in ipairs(keybindings) do
     table.insert(lines, string.format("%s: %s", binding.key, binding.desc))
   end

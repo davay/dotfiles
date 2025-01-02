@@ -38,7 +38,7 @@ end
 
 --- mostly for jupyter so image.nvim works without wrap
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "markdown",
+  pattern = { "markdown" },
   callback = function()
     vim.o.wrap = false
   end,
@@ -137,4 +137,3 @@ vim.api.nvim_create_autocmd({ 'BufReadPre', 'FileReadPre' }, {
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
-vim.g.loaded_python3_provider = 0

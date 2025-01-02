@@ -70,7 +70,9 @@
           - go
           - ffmpeg
           - ghostty
-          # TODO: Serial Studio
+          - yazi
+          - mosh
+          - abduco
         state: latest
         update_homebrew: yes
 
@@ -85,7 +87,6 @@
           - karabiner-elements
           - sf-symbols
           - linearmouse
-          - warp
           - shottr
           - 1password
           - mullvadvpn
@@ -120,7 +121,6 @@
           - quarto
           - reader
           - background-music
-          - wezterm
           - craft
           - zoom
           - 1password-cli
@@ -139,6 +139,7 @@
           - mimestream # gmail
           - piphero
           - embyserver
+          - balenaetcher
         state: latest
 
     - name: "Homebrew: Start Services"

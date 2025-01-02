@@ -63,7 +63,7 @@ alias sshda="ssh davay@ssh.devinl.im"
 alias sshhetzner="ssh root@hetzner.devinl.im"
 
 # gh alias
-alias repocreate="git remote remove origin || gh repo create --public --source . --remote origin && upstream"
+alias repocreate="git remote remove origin || gh repo create --public --source . --remote origin && upstreamorigin"
 alias repodelete="gh repo delete $(basename $PWD)"
 alias repofork="gh repo fork --clone=true"
 alias prcreate="gh pr create"
