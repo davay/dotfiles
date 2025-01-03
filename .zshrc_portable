@@ -1,9 +1,10 @@
+# Paths
+export PATH="$HOME/.local/bin:$PATH" # pip?
+export PATH="$HOME/.cargo/bin/:$PATH" # rust
+
 # powerlevel10k
 [[ ! -f ~/powerlevel10k/powerlevel10k.zsh-theme ]] || source ~/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Random stuff
-export PATH=$PATH:~/.cargo/bin/
 
 # ls colors
 export LS_COLORS="ln=1;32:ex=1;32:di=1;94:ow=1;7;94"

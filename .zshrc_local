@@ -150,7 +150,6 @@ unset __conda_setup
 # <<< conda initialize <<<
 conda activate py312
 
-export PATH="$PATH:/Users/davay/.local/bin"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="$(gem environment gemdir)/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"

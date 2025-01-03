@@ -73,6 +73,13 @@ conda create -n py311 python=3.11 -c conda-forge pynvim jupyter_client numpy pan
 # hdiutil attach ~/Downloads/synergy.dmg
 # cp -R /Volumes/Synergy*/Synergy.app /Applications/
 # hdiutil detach /Volumes/Synergy*
+#
+# KDE Connect... hopefully better than synergy
+curl -L -o ~/Downloads/kdeconnect.dmg "https://cdn.kde.org/ci-builds/network/kdeconnect-kde/master/macos-arm64/kdeconnect-kde-master-4652-macos-clang-arm64.dmg" && \
+hdiutil attach ~/Downloads/kdeconnect.dmg && \
+cp -R /Volumes/kdeconnect*/kdeconnect-indicator.app /Applications/ && \
+hdiutil detach /Volumes/kdeconnect*
+
 
 # Finishing touch
 gh auth login
