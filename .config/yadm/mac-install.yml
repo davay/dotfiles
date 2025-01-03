@@ -149,6 +149,7 @@
           # - yabai 
           # - skhd
           - sketchybar
+          - synergy-core
         state: present
 
     - name: "Cargo: Install Rust Packages"
