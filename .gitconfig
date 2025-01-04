@@ -6,12 +6,7 @@
 	helper = store
 [pull]
 	rebase = false
-[filter "lfs"] # Whyyyy is this default config here
- # Whyyyy is this default config here
- # Whyyyy is this default config here
- # Whyyyy is this default config here
- # Whyyyy is this default config here
- # Whyyyy is this default config here
+[filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process

@@ -86,7 +86,6 @@ alias status="git status"
 alias pull="git pull"
 alias push="git push"
 alias clean="git clean -dfx"
-alias reset="git reset --hard HEAD"
 alias nuke="git clean -dfx && git reset --hard HEAD"
 alias stashlist="git stash list"
 alias stashshow="git stash show -p"
@@ -162,6 +161,14 @@ show() {
 ammend() {
   check_param "$1" || return 1
   git commit --amend -m "$1"
+}
+
+reset() {
+    if [ $# -eq 0 ]; then
+        git reset --hard HEAD
+    else
+        git restore --source=HEAD "$@"
+    fi
 }
 
 # gen z alias 

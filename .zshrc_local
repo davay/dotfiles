@@ -5,7 +5,7 @@ alias exrdeploy="(cexr && pack editxr.tgz --exclude=node_modules --exclude=dist 
 alias man="batman"
 alias less="batpipe"
 alias watch="batwatch"
-alias diff="batdiff --staged"
+alias diff="batdiff"
 alias rg="batgrep"
 alias skim="/Applications/Skim.app/Contents/MacOS/Skim"
 present() {

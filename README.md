@@ -48,9 +48,11 @@ brew install yadm && yadm clone https://github.com/davay/dotfiles.git
 
 - Settings - Privacy & Security: Allow apps from anywhere
 
-- Yabai + Skhd: Start Service
+- Yabai + Skhd: Start service (they don't use brew services, do `yabai/skhd --start-service`)
 
 - Skim: Set headless config to sync with nvim https://github.com/benbrastmckie/.config
+
+- This may or may not be needed in the future: https://github.com/luckman212/screencapture-nag-remover
 
 ### 4. Where are hotkeys set 
 
