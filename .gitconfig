@@ -2,8 +2,6 @@
     name = Devin Lim
     email = davay@devinl.im
     signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILBr0MpamPBoVwe/5qIDwes2Z7aAKORlgcqjwy2scgCJ
-[credential]
-    helper = store
 [pull]
     rebase = false
 [filter "lfs"]
