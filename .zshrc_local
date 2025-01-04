@@ -86,8 +86,6 @@ alias yabaic="vim ~/.config/yabai/yabairc"
 alias skhdc="vim ~/.config/skhd/skhdrc"
 alias sketchybarc="vim ~/.config/sketchybar/sketchybarrc"
 alias wezc="vim ~/.wezterm.lua"
-alias zshpc="vim ~/.zshrc_portable"
-alias zshlc="vim ~/.zshrc_local"
 alias kittyc="vim ~/.config/kitty/kitty.conf"
 alias ghosttyc="vim ~/Library/Application\ Support/com.mitchellh.ghostty/config"
 

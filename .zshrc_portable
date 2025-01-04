@@ -52,6 +52,8 @@ alias vd="vd --theme=ascii8"
 
 # Config alias
 alias zshc="vim ~/.zshrc"
+alias zshpc="vim ~/.zshrc_portable"
+alias zshlc="vim ~/.zshrc_local"
 
 # cd alias
 alias cconfig="c ~/.config"
