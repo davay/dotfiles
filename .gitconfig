@@ -1,23 +1,25 @@
 [user]
-	name = Devin Lim
-	email = davay@devinl.im
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILBr0MpamPBoVwe/5qIDwes2Z7aAKORlgcqjwy2scgCJ
+    name = Devin Lim
+    email = davay@devinl.im
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILBr0MpamPBoVwe/5qIDwes2Z7aAKORlgcqjwy2scgCJ
 [credential]
-	helper = store
+    helper = store
 [pull]
-	rebase = false
+    rebase = false
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
 [core]
-	autocrlf = input
+    autocrlf = input
 [gpg]
-	format = ssh
-[gpg "ssh"]
-	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+    format = ssh
+[includeIf "gitdir:/Users/"]
+    path = ~/.gitconfig_mac
+[includeIf "gitdir:/home/"]
+    path = ~/.gitconfig_linux
 [commit]
-	gpgsign = true
+    gpgsign = true
 [tag]
-	gpgsign = true
+    gpgsign = true
