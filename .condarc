@@ -9,3 +9,4 @@ create_default_packages:
   - ipython
   - ipykernel 
   - pylatexenc
+  - ipywidgets

@@ -11,6 +11,7 @@
     required = true
 [core]
     autocrlf = input
+	editor = nvim
 [gpg]
     format = ssh
 [includeIf "gitdir:/Users/"]

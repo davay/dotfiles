@@ -210,10 +210,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 vim.keymap.set('n', 'gF', '<cmd>ToggleFormat<CR>', { silent = true, desc = "Conform: Toggle Format-on-save" })
 
----- Toggle diagnostics
+---- LSP
+-- Toggle diagnostics
 vim.keymap.set('n', '<leader>dd', function()
   vim.diagnostic.enable(not vim.diagnostic.is_enabled())
 end, { silent = true, desc = "LSP: Toggle Diagnostics" })
+-- Toggle autoformat/format-on-save
+vim.keymap.set('n', '<leader>df', '<cmd>ToggleFormat<CR>', { silent = true, desc = "LSP: Toggle Format-on-save" })
 
 ---- floating keybinding help for lsp
 local show_lsp_zero_keybindings = function()

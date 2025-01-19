@@ -20,6 +20,15 @@ return {
         cpp = { 'clangd' }
       },
       configs = {
+        basedpyright = {
+          settings = {
+            basedpyright = {
+              analysis = {
+                typeCheckingMode = "standard"
+              }
+            }
+          }
+        },
         lua_ls = {
           settings = {
             Lua = {

@@ -1,0 +1,11 @@
+# first for soft-Serve
+[[ssh-keys]]
+item = "Git"
+vault = "Personal"
+
+[[ssh-keys]]
+item = "Hetzner"
+vault = "Personal"
+
+[[ssh-keys]]
+vault = "Personal"

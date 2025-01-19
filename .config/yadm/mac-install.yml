@@ -73,6 +73,9 @@
           - yazi
           - mosh
           - abduco
+          - xh
+          - bruno-cli
+          - charmbracelet/tap/mods
         state: latest
         update_homebrew: yes
 
@@ -106,7 +109,6 @@
           - microsoft-teams
           - anaconda
           - google-drive
-          - openinterminal
           - gpg-suite
           - iterm2
           - iina
@@ -140,6 +142,7 @@
           - piphero
           - embyserver
           - balenaetcher
+          - bruno
         state: latest
 
     - name: "Homebrew: Start Services"
