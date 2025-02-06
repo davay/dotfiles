@@ -120,6 +120,10 @@ alias synchetzner="syncssh root@hetzner.devinl.im"
 alias colortest="~/.config/yadm/scripts/colortest.sh"
 alias syncssh="~/.config/yadm/scripts/sync_ssh.sh"
 
+syncvim() {
+ rsync -av ~/.config/nvim $1:
+}
+
 # python pacakges required for jupyter + vim 
 alias condavimdeps="conda install pynvim jupyter_client jupytext ipython ipykernel pylatexenc"
 
@@ -153,7 +157,8 @@ export PATH="$(gem environment gemdir)/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 
 # for image.nvim
-export DYLD_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_LIBRARY_PATH"
+# the old way of exporting DYLD_LIBRARY_PATH breaks importing pyarrow https://github.com/3rd/image.nvim/issues/222
+export DYLD_FALLBACK_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_FALLBACK_LIBRARY_PATH"
 
 # powerlevel10k
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
@@ -185,3 +190,4 @@ bindkey '^I' _custom_tab_accept_suggestion # tab
 
 export HOMEBREW_EDITOR="nvim"
 
+complete -o nospace -C /opt/homebrew/bin/terraform terraform

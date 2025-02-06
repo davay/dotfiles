@@ -13,6 +13,7 @@
         name:
           - koekeishiya/formulae
           - felixkratz/formulae
+          - hashicorp/tap
 
     - name: "Homebrew: Install packages"
       community.general.homebrew:
@@ -76,6 +77,8 @@
           - xh
           - bruno-cli
           - charmbracelet/tap/mods
+          - hashicorp/tap/terraform
+          - ollama
         state: latest
         update_homebrew: yes
 
@@ -143,6 +146,7 @@
           - embyserver
           - balenaetcher
           - bruno
+          - logi-options+
         state: latest
 
     - name: "Homebrew: Start Services"
@@ -152,7 +156,7 @@
           # - yabai 
           # - skhd
           - sketchybar
-          - synergy-core
+          - ollama
         state: present
 
     - name: "Cargo: Install Rust Packages"
@@ -180,6 +184,7 @@
           - 409201541 # Pages
           - 1448648921 # Seashore
           - 1276493162 # reMarkable
+          - 1541862561 # FireShot for Safari
         state: latest
 
     # Mac Defaults

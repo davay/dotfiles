@@ -1,12 +1,11 @@
-channel_priority: strict
 channels:
   - conda-forge
   - defaults
 create_default_packages:
-  - pynvim 
+  - pynvim
   - jupyter_client
-  - jupytext 
+  - jupytext
   - ipython
-  - ipykernel 
+  - ipykernel
   - pylatexenc
   - ipywidgets

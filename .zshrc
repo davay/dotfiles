@@ -16,3 +16,5 @@ source ~/.zshrc_portable
 # Local config; splitting it so dotfile copying is easy
 # Won't exist on servers
 [[ ! -f ~/.zshrc_local ]] || source ~/.zshrc_local
+
+autoload -U +X bashcompinit && bashcompinit

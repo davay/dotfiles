@@ -50,6 +50,8 @@ return {
 
       vim.g.molten_enter_output_behavior = "open_and_enter"
 
+      vim.g.molten_virt_text_max_lines = 50
+
       -- Disable MoltenCell highlighting
       vim.api.nvim_set_hl(0, "MoltenCell", {})
 

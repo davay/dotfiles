@@ -1,9 +1,6 @@
 return {
   "lervag/vimtex",
   lazy = false, -- we don't want to lazy load VimTeX
-  cond = function()
-    return vim.bo.filetype == "latex"
-  end,
   init = function()
     -- https://github.com/benbrastmckie/.config/blob/master/nvim/lua/neotex/plugins/vimtex.lua
     vim.g['vimtex_view_method'] = 'skim'        -- for variant without xdotool to avoid errors in wayland
