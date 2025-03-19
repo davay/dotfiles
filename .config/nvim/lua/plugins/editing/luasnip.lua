@@ -15,6 +15,7 @@ return {
     local ls = require("luasnip")
     ls.filetype_extend("markdown", { "python", "pydoc", "html" })
     ls.filetype_extend("python", { "pydoc" })
+    ls.filetype_extend("typescriptreact", { "html" })
     ls.setup({
       store_selection_keys = "<Tab>", -- for $TM_SELECTED_TEXT so I can wrap
       link_children = true,

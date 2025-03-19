@@ -79,6 +79,8 @@
           - charmbracelet/tap/mods
           - hashicorp/tap/terraform
           - ollama
+          - mutagen-io/mutagen/mutagen
+          - stats
         state: latest
         update_homebrew: yes
 
@@ -147,6 +149,7 @@
           - balenaetcher
           - bruno
           - logi-options+
+          - claude
         state: latest
 
     - name: "Homebrew: Start Services"

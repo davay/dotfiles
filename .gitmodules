@@ -1,3 +1,6 @@
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
+[submodule "Library/Application Support/com.mitchellh.ghostty/ghostty-shaders"]
+	path = Library/Application Support/com.mitchellh.ghostty/ghostty-shaders
+	url = https://github.com/hackr-sh/ghostty-shaders.git

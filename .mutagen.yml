@@ -1,0 +1,10 @@
+sync:
+  defaults:
+    ignore:
+      paths:
+        - "__pycache__"
+        - "venv"
+        - ".venv"
+        - "node_modules"
+        - "*.safetensors"
+        - "*.pt"

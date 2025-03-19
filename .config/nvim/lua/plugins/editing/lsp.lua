@@ -16,8 +16,10 @@ return {
         'tailwindcss',     -- i keep getting errors, i dont use this anyway
       },
       preferred_servers = {
-        python = { 'basedpyright' },
-        cpp = { 'clangd' }
+        python = { 'basedpyright', 'ruff' },
+        cpp = { 'clangd' },
+        typescriptreact = { 'eslint', 'ts_ls' },
+        typescript = { 'eslint', 'ts_ls' }
       },
       configs = {
         basedpyright = {

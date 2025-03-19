@@ -107,6 +107,7 @@ vim.keymap.set("n", "[t", function() todo.jump_prev() end, { desc = "TODO: Previ
 -- telescope
 local telescope = require('telescope.builtin') -- Create a function with your preferred options
 
+vim.keymap.set('n', '<leader>fe', telescope.diagnostics, { desc = "Telescope: Diagnostics", silent = true })
 vim.keymap.set('n', '<leader>ff', telescope.find_files, { desc = "Telescope: Find Files", silent = true })
 vim.keymap.set('n', '<leader>fg', telescope.live_grep, { desc = "Telescope: Live Grep", silent = true })
 -- vim.keymap.set('n', '<leader>fb', telescope.buffers, { desc = "Telescope: Buffers", silent = true })
@@ -131,6 +132,8 @@ vim.keymap.set('n', '<leader>fd', telescope.lsp_document_symbols,
   { desc = "Telescope: Document Symbols", silent = true })
 vim.keymap.set('n', '<leader>fb', telescope.current_buffer_fuzzy_find,
   { desc = "Telescope: Buffer Fuzzy Find", silent = true })
+vim.keymap.set('n', '<leader>fn', '<cmd>SessionSearch<CR>',
+  { desc = "Telescope: Sessions", silent = true })
 
 local telescope_emoji = require('telescope').load_extension 'emoji'
 vim.keymap.set('n', '<leader>fe', telescope_emoji.emoji, { desc = 'Telescope: Emoji' })
@@ -180,11 +183,11 @@ vim.keymap.set('n', '<leader>lc', '<cmd>Leet console<CR>', { desc = "Leetcode: C
 vim.keymap.set('n', '<leader>n', ':Neotree action=show position=right reveal=true toggle<CR>',
   { desc = "Neotree: Toggle", silent = true }) -- action=focus/show
 ---- using neotree in place of outline
-vim.keymap.set('n', '<leader>o', ':Neotree source=document_symbols position=right action=show reveal=true toggle<CR>',
-  { desc = "Neotree: Toggle Document Symbols", silent = true })
+-- vim.keymap.set('n', '<leader>o', ':Neotree source=document_symbols position=right action=show reveal=true toggle<CR>',
+--   { desc = "Neotree: Toggle Document Symbols", silent = true })
 
 -- outline
--- vim.keymap.set('n', '<leader>o', '<cmd>Outline<CR>', { silent = true, desc = "Outline: Toggle" })
+vim.keymap.set('n', '<leader>o', '<cmd>Outline<CR>', { silent = true, desc = "Outline: Toggle" })
 
 -- lsp
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -206,17 +209,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.lsp.buf.format({ async = true })
     end, 'LSP: Format')
     map('n', 'gc', vim.lsp.buf.code_action, 'LSP: Code Action')
+    map('n', 'ge', vim.diagnostic.open_float, 'Diagnostic: Open Float')
+    map('n', 'gt', function()
+      vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+    end, 'Diagnostic: Toggle')
+    map('n', 'gF', '<cmd>ToggleFormat<CR>', 'Conform: Toggle Format-on-save')
   end
 })
-vim.keymap.set('n', 'gF', '<cmd>ToggleFormat<CR>', { silent = true, desc = "Conform: Toggle Format-on-save" })
-
----- LSP
--- Toggle diagnostics
-vim.keymap.set('n', '<leader>dd', function()
-  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
-end, { silent = true, desc = "LSP: Toggle Diagnostics" })
--- Toggle autoformat/format-on-save
-vim.keymap.set('n', '<leader>df', '<cmd>ToggleFormat<CR>', { silent = true, desc = "LSP: Toggle Format-on-save" })
 
 ---- floating keybinding help for lsp
 local show_lsp_zero_keybindings = function()
@@ -232,6 +231,8 @@ local show_lsp_zero_keybindings = function()
     { key = "gf",    desc = "Format" },
     { key = "gF",    desc = "Toggle Format-on-save" },
     { key = "gc",    desc = "Code Action" },
+    { key = "ge",    desc = "Open Diagnostic" },
+    { key = "gt",    desc = "Toggle Diagnostic" },
     { key = "[d",    desc = "Previous Diagnostic" },
     { key = "]d",    desc = "Next Diagnostic" },
   }
@@ -309,8 +310,9 @@ vim.api.nvim_create_autocmd("FileType", {
       { desc = "Molten: Restart Kernel", silent = true })
     vim.keymap.set("n", "<leader>jr", '<cmd>MoltenRestart!<CR>',
       { desc = "Molten: Restart Kernel and Clear All", silent = true })
-    vim.keymap.set("n", "<leader>ji", '<cmd>MoltenImagePopup<CR>',
-      { desc = "Molten: Open Image Popup", silent = true })
+    vim.keymap.set("n", "<leader>ji", '<cmd>MoltenInterrupt<CR>',
+      { desc = "Molten: Interrupt", silent = true })
+
     -- enter/exit molten output
     -- also use q or esc to exit
     vim.keymap.set("n", "<leader>je", function()

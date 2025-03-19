@@ -121,17 +121,21 @@ alias colortest="~/.config/yadm/scripts/colortest.sh"
 alias syncssh="~/.config/yadm/scripts/sync_ssh.sh"
 
 syncvim() {
- rsync -av ~/.config/nvim $1:
+ rsync -av ~/.config/nvim $1:~/.config
+}
+
+syncfile() {
+ rsync -av $1 $2
 }
 
 # python pacakges required for jupyter + vim 
-alias condavimdeps="conda install pynvim jupyter_client jupytext ipython ipykernel pylatexenc"
+alias vimdeps="pip install pynvim jupyter_client jupytext ipython ipykernel pylatexenc ipywidgets tqdm ruff"
 
 # python packages for general ds work
-alias condadsdeps="conda install numpy matplotlib scikit-learn pandas pytorch"
+alias dsdeps="pip install numpy matplotlib scikit-learn pandas pytorch"
 
 ## sgqlc: graphql client for github auto-readme
-alias condaotherdeps="conda install sgqlc"
+alias otherdeps="conda install sgqlc"
 
 ## 1password-cli stuff 
 alias optoken="op read op://Personal/$1/token"
@@ -150,7 +154,7 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-conda activate py312
+conda activate py311
 
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="$(gem environment gemdir)/bin:$PATH"

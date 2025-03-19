@@ -61,7 +61,7 @@ alias ls="lsd"
 alias l="ls"
 alias la="ls -a"
 alias ll="ls -lt"
-alias lt="ls --tree"
+alias lt="ls --tree --depth 2"
 alias cat="bat"
 alias vd="vd --theme=ascii8"
 
@@ -74,10 +74,11 @@ alias zshlc="vim ~/.zshrc_local"
 alias cconfig="c ~/.config"
 alias ch="c ~"
 alias cnvim="c ~/.config/nvim/lua"
+alias cghostty="c ~/Library/Application\ Support/com.mitchellh.ghostty"
 
 # Python alias 
 alias pipnuke="pip freeze | cut -d "@" -f1 | xargs pip uninstall -y"
-alias pipfreeze="pip list --format=freeze > requirements.txt"
+alias pipfreeze="pip freeze > requirements.txt"
 
 # SSH alias
 alias sshpi="ssh pi@pi.devinl.im"
@@ -113,7 +114,7 @@ alias lfsconfig='echo -e "[lfs]\nurl = git@git.devinl.im:$(basename $(git rev-pa
 nuke() {
   git fetch origin && \
   git clean -dfx && \
-  git reset --hard origin $(git symbolic-ref --short HEAD)
+  git reset --hard origin/$(git symbolic-ref --short HEAD)
 }
 
 ## aliases requiring params
@@ -235,7 +236,7 @@ c() {
 # - when missing value is at the beginning
 # - when missing value is at the end
 x() {
-  xsv "$@" | \
+  xsv input "$@" | \
     sed -e ':a' -e 's/,,/,…,/g' -e 'ta' \
     -e 's/^,/…,/' \
     -e 's/,$/,…/' | \

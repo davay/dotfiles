@@ -68,6 +68,11 @@ return {
       -- falls back to a kernel that matches the name of the active venv (if any)
       local imb = function(e) -- init molten buffer
         vim.schedule(function()
+          -- Ensure the file exists and is readable
+          if not e.file or vim.fn.filereadable(e.file) ~= 1 then
+            return
+          end
+          
           local kernels = vim.fn.MoltenAvailableKernels()
 
           local try_kernel_name = function()
@@ -83,24 +88,38 @@ return {
             end
           end
           if kernel_name ~= nil and vim.tbl_contains(kernels, kernel_name) then
-            vim.cmd(("MoltenInit %s"):format(kernel_name))
-            vim.cmd("QuartoActivate")
+            pcall(function()
+              vim.cmd(("MoltenInit %s"):format(kernel_name))
+              vim.cmd("QuartoActivate")
+            end)
           end
-          vim.cmd("MoltenImportOutput")
+          
+          -- Only import output if we're in a valid buffer with a file
+          if vim.api.nvim_buf_is_valid(e.buf) and vim.fn.bufname(e.buf) ~= "" then
+            pcall(function()
+              vim.cmd("MoltenImportOutput")
+            end)
+          end
         end)
       end
 
       -- automatically import output chunks from a jupyter notebook
       vim.api.nvim_create_autocmd("BufAdd", {
         pattern = { "*.ipynb" },
-        callback = imb,
+        callback = function(e)
+          -- Check if the buffer corresponds to a file
+          if e.file and vim.fn.filereadable(e.file) == 1 then
+            imb(e)
+          end
+        end,
       })
 
       -- we have to do this as well so that we catch files opened like nvim ./hi.ipynb
       vim.api.nvim_create_autocmd("BufEnter", {
         pattern = { "*.ipynb" },
         callback = function(e)
-          if vim.api.nvim_get_vvar("vim_did_enter") ~= 1 then
+          -- Check if the buffer corresponds to a file
+          if e.file and vim.fn.filereadable(e.file) == 1 and vim.api.nvim_get_vvar("vim_did_enter") ~= 1 then
             imb(e)
           end
         end,
@@ -109,9 +128,14 @@ return {
       -- automatically export output chunks to a jupyter notebook on write
       vim.api.nvim_create_autocmd("BufWritePost", {
         pattern = { "*.ipynb" },
-        callback = function()
-          if require("molten.status").initialized() == "Molten" then
-            vim.cmd("MoltenExportOutput!")
+        callback = function(e)
+          -- Check if the buffer corresponds to a file
+          if e.file and vim.fn.filereadable(e.file) == 1 then
+            pcall(function()
+              if require("molten.status").initialized() == "Molten" then
+                vim.cmd("MoltenExportOutput!")
+              end
+            end)
           end
         end,
       })

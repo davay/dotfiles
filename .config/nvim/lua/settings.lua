@@ -6,7 +6,18 @@
 vim.o.number = true             -- show line number on left column (gutter)
 vim.o.mouse = 'a'               -- Let's you use mouse to select text
 vim.o.clipboard = "unnamedplus" -- Use system clipboard for copy/pasting
-vim.o.splitright = true         -- vsplit splits to the right, mostly for codecompanion
+vim.g.clipboard = {             -- this lets us copy to clipboard while ssh
+  name = 'OSC 52',
+  copy = {
+    ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+  },
+  paste = {
+    ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+  },
+}
+vim.o.splitright = true -- vsplit splits to the right, mostly for codecompanion
 
 ---- Tab and Spaces
 vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a TAB character
