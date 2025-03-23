@@ -281,7 +281,7 @@ vim.api.nvim_create_autocmd("FileType", {
     ---- insert python codeblock
     vim.keymap.set('n', '<Leader>jb', function()
       local pos = vim.api.nvim_win_get_cursor(0)
-      vim.api.nvim_put({ '```python', '', '```' }, 'l', false, true)
+      vim.api.nvim_put({ '', '```python', '', '```' }, 'l', false, true)
       vim.api.nvim_win_set_cursor(0, { pos[1] + 1, 0 }) -- Move to the middle empty line
       vim.cmd('startinsert')
     end, { desc = "Markdown: Insert Python code block" })

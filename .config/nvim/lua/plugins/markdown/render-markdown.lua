@@ -15,8 +15,8 @@ return {
         end,
       },
       heading = {
-        border = true,
-        
+        border = false,
+
         -- Always use virtual lines for heading borders instead of attempting to use empty lines
         -- border_virtual = true,
       },
@@ -30,7 +30,12 @@ return {
       },
       bullet = {
         highlight = '@markup.list.markdown'
+      },
+      html = {
+        comment = {
+          conceal = false,
+        }
       }
-    },
+    }
   }
 }
