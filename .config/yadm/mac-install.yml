@@ -81,6 +81,9 @@
           - ollama
           - mutagen-io/mutagen/mutagen
           - stats
+          - devutils
+          - uv
+          - pastel
         state: latest
         update_homebrew: yes
 
@@ -99,7 +102,6 @@
           - 1password
           - mullvadvpn
           - figma
-          - he3-app/he3/he3
           - affinity-designer
           - affinity-photo
           - affinity-publisher

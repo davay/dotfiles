@@ -3,12 +3,12 @@ return {
   build = ":TSUpdate",
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
-    -- "nvim-treesitter/nvim-treesitter-context"
+    "nvim-treesitter/nvim-treesitter-context"
   },
   config = function()
-    -- require('treesitter-context').setup({
-    --   mode = 'topline' -- cursor or topline
-    -- })
+    require('treesitter-context').setup({
+      mode = 'topline' -- cursor or topline
+    })
 
     require 'nvim-treesitter.configs'.setup({
       -- A list of parser names, or "all" (the listed parsers MUST always be installed)

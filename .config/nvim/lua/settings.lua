@@ -27,7 +27,7 @@ vim.o.shiftwidth = 2   -- Number of spaces inserted when indenting
 
 ---- Appearance
 vim.o.background = "dark" -- or "light" for light mode
-vim.cmd.colorscheme('gruvbox-material')
+vim.cmd.colorscheme("catppuccin")
 
 vim.api.nvim_set_hl(0, "@markup.raw.block.markdown", { italic = false }) -- in gruvbox everything is italicized in code block, remove it
 vim.o.termguicolors = true

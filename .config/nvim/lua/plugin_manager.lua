@@ -32,10 +32,11 @@ require("lazy").setup({
     { import = "plugins.external" },
     { import = "plugins.latex" },
     { import = "plugins.markdown" },
+    { import = "plugins.themes" },
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { 'gruvbox' } },
+  install = { colorscheme = { "catppuccin" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
