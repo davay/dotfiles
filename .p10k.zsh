@@ -37,25 +37,35 @@
   # Zsh >= 5.1 is required.
   [[ $ZSH_VERSION == (5.<1->*|<6->.*) ]] || return
 
-  # # Prompt colors - Default
-  # local grey='#FFFFFF'
-  # local red='#FF5C57'
-  # local yellow='#F3F99D'
-  # local blue='#57C7FF'
-  # local magenta='#FF6AC1'
-  # local cyan='#9AEDFE'
-  # local white='#F1F1F0'
+  # Prompt colors - Default
+  local grey='#FFFFFF'
+  local red='#FF5C57'
+  local yellow='#F3F99D'
+  local blue='#57C7FF'
+  local magenta='#FF6AC1'
+  local cyan='#9AEDFE'
+  local white='#F1F1F0'
 
-  # Prompt colors - Catppuccin Macchiato
-  local grey='#8087A2'    # Overlay0
-  local red='#ED8796'     # Red
-  local yellow='#EED49F'  # Yellow
-  local blue='#8AADF4'    # Blue
-  local magenta='#C6A0F6' # Mauve
-  local cyan='#8BD5CA'    # Teal
-  local white='#CAD3F5'   # Text
+  # # Gruvbox Dark
+  # local grey='#928374'    # Gruvbox gray
+  # local red='#FB4934'     # Gruvbox bright red
+  # local yellow='#FABD2F'  # Gruvbox bright yellow
+  # local blue='#83A598'    # Gruvbox bright blue
+  # local magenta='#D3869B' # Gruvbox bright magenta/purple
+  # local cyan='#8EC07C'    # Gruvbox bright cyan/aqua
+  # local white='#EBDBB2'   # Gruvbox foreground/light color
 
+  # # Catppuccin Macchiato 
+  # local grey='#363A4F'    # Darker gray like your bar's GREY
+  # local red='#ED8796'     # Keep the Red as is
+  # local yellow='#EED49F'  # Keep the Yellow as is
+  # local blue='#7287FD'    # More saturated blue to match your bar's BLUE
+  # local magenta='#B7BDF8' # Lighter lavender to match PURPLE in bar
+  # local cyan='#8BD5CA'    # Keep Teal as is
+  # local white='#B8C0E0'   # Slightly dimmer to match your bar's WHITE
+  
   # Left prompt segments.
+  
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
     # context                 # user@host

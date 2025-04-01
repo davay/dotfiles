@@ -8,6 +8,9 @@ return {
     vim.g['vimtex_mappings_enabled'] = 0        -- Ignore mappings
     vim.g['vimtex_indent_enabled'] = 0          -- Auto Indent
     vim.g['tex_flavor'] = 'latex'               -- how to read tex files
+    vim.g['vimtex_compiler_latexmk_engines'] = {
+      ['_'] = 'luatex'                          -- default engine
+    }
     vim.g['tex_indent_items'] = 0               -- turn off enumerate indent
     vim.g['tex_indent_brace'] = 0               -- turn off brace indent
     vim.g['vimtex_context_pdf_viewer'] = 'skim' -- external PDF viewer run from vimtex menu command

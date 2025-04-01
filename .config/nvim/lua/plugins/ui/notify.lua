@@ -3,8 +3,9 @@ return {
   config = function()
     require("notify").setup {
       render = "compact",
-      stages = "fade_in_slide_out",
-      timeout = 50,
+      stages = "static",
+      -- stages = "fade_in_slide_out",
+      timeout = 1000,
     }
     vim.notify = require("notify")
   end

@@ -60,6 +60,9 @@ mvd() {
     fi
 }
 
+# for latex 
+export LANG=en_US.UTF-8
+
 # abduco stuff
 alias ab="abduco -e ^q"
 abc() {
@@ -101,6 +104,7 @@ alias csu="c ~/Drive/usa/school/su"
 alias cleetcode="c ~/Repos/Personal/leetcode"
 alias cdownloads="c ~/Downloads"
 alias cusa="c ~/Drive/usa/"
+alias cmutagen="c ~/Mutagen/"
 
 # yadm alias 
 alias ycommit="yadm commit -am"
