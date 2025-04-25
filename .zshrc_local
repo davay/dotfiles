@@ -60,9 +60,6 @@ mvd() {
     fi
 }
 
-# for latex 
-export LANG=en_US.UTF-8
-
 # abduco stuff
 alias ab="abduco -e ^q"
 abc() {

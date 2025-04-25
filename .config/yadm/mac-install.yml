@@ -43,8 +43,8 @@
           - fd
           - thefuck
           - webpack
-          - yabai
-          - skhd
+          # - yabai
+          # - skhd
           - sketchybar
           - pipes-sh
           - mdcat
@@ -147,7 +147,6 @@
           - tuist # Xcode
           - mimestream # gmail
           - piphero
-          - embyserver
           - balenaetcher
           - bruno
           - logi-options+
@@ -161,7 +160,7 @@
           # - yabai 
           # - skhd
           - sketchybar
-          - ollama
+          # - ollama
         state: present
 
     - name: "Cargo: Install Rust Packages"
