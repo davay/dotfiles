@@ -16,8 +16,8 @@ for sid in $(aerospace list-workspaces --all); do
         background.drawing=on \
         background.color=$PRIMARY_1 \
         background.corner_radius=6 \
-        background.border_width=1 \
-        background.border_color=$BAR_BORDER_COLOR \
+        background.border_width=2 \
+        background.border_color=$PRIMARY_2 \
         background.height=24 \
         background.padding_right=10 \
         label="$sid" \

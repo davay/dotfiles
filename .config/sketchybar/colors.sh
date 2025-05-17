@@ -27,7 +27,7 @@ export SHADOW_COLOR=$BLACK
 # Zen Space
 export ACCENT_COLOR=0xff636363  # Accent color (99,99,99)
 export PRIMARY_1=0xffEEEEEE    # Primary (238,238,238)
-export PRIMARY_2=0xffEEEEEE    # Secondary (238,238,238)
+export PRIMARY_2=0xffBBBBBB    # Lighter
 export TRANSPARENT_ACCENT=0xffF0F0F0  # Very light grey transparent accent
 
 # ### GRUVBOX DARK ###

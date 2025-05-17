@@ -35,7 +35,7 @@ defaults=(
   label.color=$LABEL_COLOR
   label.padding_left=6
   label.padding_right=6
-  popup.background.border_width=1
+  popup.background.border_width=2
   popup.background.corner_radius=9
   popup.background.color=$PRIMARY_1
   popup.background.border_color=$BAR_BORDER_COLOR
@@ -49,7 +49,7 @@ sketchybar --default "${defaults[@]}"
 defaults_bracket=(
   background.color=$PRIMARY_1
   background.corner_radius=6
-  background.border_width=1
+  background.border_width=2
   background.border_color=$BAR_BORDER_COLOR
   background.height=24
 )
