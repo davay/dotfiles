@@ -1,3 +1,5 @@
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
+
 # General alias
 alias router="netstat -nr|grep default" # router ip addr
 alias leetcode="nvim leetcode.nvim"
@@ -165,11 +167,15 @@ export PATH="$HOME/go/bin:$PATH"
 # the old way of exporting DYLD_LIBRARY_PATH breaks importing pyarrow https://github.com/3rd/image.nvim/issues/222
 export DYLD_FALLBACK_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_FALLBACK_LIBRARY_PATH"
 
-# powerlevel10k
-source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+### powerlevel10k ###
+# source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+#
+### pure prompt ###
+autoload -U promptinit; promptinit
+prompt pure
 
 # # plugin customizations
 BREW=$(brew --prefix)

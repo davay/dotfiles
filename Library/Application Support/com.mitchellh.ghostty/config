@@ -1,11 +1,20 @@
+
+### General ###
 confirm-close-surface = false
-theme = GruvboxDark
+
+
 font-size = 11.5
 keybind = global:cmd+grave_accent=toggle_quick_terminal
 quick-terminal-position = right
 quick-terminal-screen = macos-menu-bar
-#custom-shader = ghostty-shaders/in-game-crt.glsl
 clipboard-paste-protection = false
 clipboard-read = allow
 clipboard-write = allow
 quick-terminal-autohide = false
+
+### UI ###
+
+# Good dark themes: 'GruvboxDark'
+theme = zenwritten_light
+
+#custom-shader = ghostty-shaders/in-game-crt.glsl

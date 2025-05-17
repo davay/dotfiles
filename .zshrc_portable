@@ -19,11 +19,11 @@ gemini() {
 }
 
 # powerlevel10k
-[[ ! -f ~/powerlevel10k/powerlevel10k.zsh-theme ]] || source ~/powerlevel10k/powerlevel10k.zsh-theme
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/powerlevel10k/powerlevel10k.zsh-theme ]] || source ~/powerlevel10k/powerlevel10k.zsh-theme
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # ls colors
-export LS_COLORS="ln=1;32:ex=1;32:di=1;94:ow=1;7;94"
+# export LS_COLORS="ln=1;32:ex=1;32:di=1;94:ow=1;7;94"
 
 # Helpers
 declare -A HELP_MESSAGES=(

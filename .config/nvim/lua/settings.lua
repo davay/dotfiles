@@ -26,8 +26,9 @@ vim.o.softtabstop = 2  -- Number of spaces inserted instead of a TAB character
 vim.o.shiftwidth = 2   -- Number of spaces inserted when indenting
 
 ---- Appearance
-vim.o.background = "dark" -- or "light" for light mode
-vim.cmd.colorscheme('gruvbox-material')
+vim.o.background = "light" -- or "light" for light mode
+-- also change in lualine.lua and plugin_manager.lua
+vim.cmd.colorscheme('zenwritten')
 
 vim.api.nvim_set_hl(0, "@markup.raw.block.markdown", { italic = false }) -- in gruvbox everything is italicized in code block, remove it
 vim.o.termguicolors = true

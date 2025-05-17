@@ -43,8 +43,8 @@
           - fd
           - thefuck
           - webpack
-          - yabai
-          - skhd
+          # - yabai
+          # - skhd
           - sketchybar
           - pipes-sh
           - mdcat
@@ -84,6 +84,7 @@
           - devutils
           - uv
           - pastel
+          - borders
         state: latest
         update_homebrew: yes
 
@@ -151,6 +152,7 @@
           - bruno
           - logi-options+
           - claude
+          - nikitabobko/tap/aerospace
         state: latest
 
     - name: "Homebrew: Start Services"

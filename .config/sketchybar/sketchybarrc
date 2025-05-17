@@ -35,10 +35,10 @@ defaults=(
   label.color=$LABEL_COLOR
   label.padding_left=6
   label.padding_right=6
-  popup.background.border_width=2
+  popup.background.border_width=1
   popup.background.corner_radius=9
   popup.background.color=$PRIMARY_1
-  popup.background.border_color=$PRIMARY_1
+  popup.background.border_color=$BAR_BORDER_COLOR
   popup.blur_radius=20
   popup.background.shadow.drawing=on
   slider.highlight_color=$LABEL_COLOR
@@ -49,8 +49,8 @@ sketchybar --default "${defaults[@]}"
 defaults_bracket=(
   background.color=$PRIMARY_1
   background.corner_radius=6
-  background.border_width=2
-  background.border_color=$PRIMARY_1
+  background.border_width=1
+  background.border_color=$BAR_BORDER_COLOR
   background.height=24
 )
 
@@ -75,13 +75,17 @@ source "$ITEM_DIR/apple.sh"
 sketchybar --add item separator_apple left \
            --set separator_apple "${separator[@]}"
 
-source "$ITEM_DIR/space.sh"
-sketchybar --add item separator_space left \
-           --set separator_space "${separator[@]}"
+source "$ITEM_DIR/aerospace.sh"
+sketchybar --add item separator_aerospace left \
+           --set separator_aerospace "${separator[@]}"
 
-source "$ITEM_DIR/window_title.sh"
-sketchybar --add item separator_window_title left \
-          --set separator_window_title "${separator[@]}"
+# source "$ITEM_DIR/space.sh"
+# sketchybar --add item separator_space left \
+#            --set separator_space "${separator[@]}"
+
+# source "$ITEM_DIR/window_title.sh"
+# sketchybar --add item separator_window_title left \
+#            --set separator_window_title "${separator[@]}"
 
 # source "$ITEM_DIR/cava.sh"
 # sketchybar --add item separator_cava left \
@@ -111,8 +115,9 @@ sketchybar --add item separator_brew right \
 # brackets
 ## left
 source "$BRACKET_DIR/apple.sh"
-source "$BRACKET_DIR/space.sh"
-source "$BRACKET_DIR/window_title.sh"
+source "$BRACKET_DIR/aerospace.sh"
+#source "$BRACKET_DIR/space.sh"
+#source "$BRACKET_DIR/window_title.sh"
 #source "$BRACKET_DIR/cava.sh"
 #source "$BRACKET_DIR/music.sh"
 
