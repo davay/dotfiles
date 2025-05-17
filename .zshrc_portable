@@ -1,6 +1,7 @@
 # Paths
 export PATH="$HOME/.local/bin:$PATH" # pip?
 export PATH="$HOME/.cargo/bin/:$PATH" # rust
+export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 
 # Tokens and API Keys
 load_gemini_key() {

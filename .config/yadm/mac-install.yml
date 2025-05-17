@@ -43,8 +43,8 @@
           - fd
           - thefuck
           - webpack
-          # - yabai
-          # - skhd
+          - yabai
+          - skhd
           - sketchybar
           - pipes-sh
           - mdcat
@@ -293,4 +293,28 @@
         key: no-bouncing
         type: bool
         value: true
+        state: present
+
+    - name: "osx_defaults: Enable dragging any part of window with ctrl + cmd"
+      community.general.osx_defaults:
+        domain: NSGlobalDomain
+        key: NSWindowShouldDragOnGesture
+        type: bool
+        value: true
+        state: present
+    
+    - name: "osx_defaults: Enable 'Group windows by application', for AeroSpace"
+      community.general.osx_defaults:
+        domain: com.apple.dock
+        key: expose-group-apps
+        type: bool
+        value: true
+        state: present
+    
+    - name: "osx_defaults: Disables 'Displays have separate Spaces', for Aerospace"
+      community.general.osx_defaults:
+        domain: com.apple.spaces
+        key: spans-displays
+        type: bool
+        value: true # yes true disables it
         state: present
