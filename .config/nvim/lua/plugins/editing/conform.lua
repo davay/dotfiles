@@ -30,6 +30,12 @@ return {
           'ruff_format',
           'ruff_organize_imports',
         },
+        javascript = { "biome-check" },
+        javascriptreact = { "biome-check" },
+        typescript = { "biome-check" },
+        typescriptreact = { "biome-check" },
+        json = { "biome-check" },
+        css = { "biome-check" },
       },
       formatters = {
         injected = {

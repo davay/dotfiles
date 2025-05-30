@@ -19,7 +19,7 @@ return {
   opts = {
     options = {
       icons_enabled = true,
-      theme = 'zenwritten',
+      theme = 'gruvbox-material',
       component_separators = { left = '', right = '' },
       section_separators = { left = '', right = '' },
       disabled_filetypes = {

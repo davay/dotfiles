@@ -20,6 +20,7 @@
         name:
           - nvim
           - zsh
+          - fish
           - gh
           - python
           - mas
@@ -43,8 +44,6 @@
           - fd
           - thefuck
           - webpack
-          # - yabai
-          # - skhd
           - sketchybar
           - pipes-sh
           - mdcat
@@ -85,8 +84,22 @@
           - uv
           - pastel
           - borders
+          - gitui
         state: latest
         update_homebrew: yes
+
+    - name: "Add Fish shell to /etc/shells"
+      ansible.builtin.lineinfile:
+        path: /etc/shells
+        line: /opt/homebrew/bin/fish
+        state: present
+      become: yes
+
+    - name: "Change default shell to Fish"
+      ansible.builtin.user:
+        name: "{{ ansible_user_id }}"
+        shell: /opt/homebrew/bin/fish
+      become: yes
 
     - name: "Homebrew: Install casks"
       community.general.homebrew_cask:
@@ -153,6 +166,7 @@
           - logi-options+
           - claude
           - nikitabobko/tap/aerospace
+          - jordanbaird-ice
         state: latest
 
     - name: "Homebrew: Start Services"

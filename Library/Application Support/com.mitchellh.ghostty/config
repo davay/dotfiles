@@ -13,8 +13,7 @@ clipboard-write = allow
 quick-terminal-autohide = false
 
 ### UI ###
-
-# Good dark themes: 'GruvboxDark'
-theme = zenwritten_light
+theme = GruvboxDark
+# theme = zenbones_light
 
 #custom-shader = ghostty-shaders/in-game-crt.glsl

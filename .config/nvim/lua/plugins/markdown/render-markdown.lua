@@ -8,7 +8,7 @@ return {
     ft = "markdown",
     opts = {
       latex = { enabled = false },
-      win_options = { conceallevel = { rendered = 2 } },
+      win_options = { conceallevel = { rendered = 3 } },
       on = {
         attach = function()
           require('nabla').enable_virt({ autogen = true })
@@ -22,7 +22,7 @@ return {
       },
       code = {
         enabled = true,
-        style = 'normal', -- normal/language/full
+        style = 'full', -- normal/language/full
         -- above = '─',
         -- below = '─',
         -- highlight = '', -- HACK: very silly, but I just want the border lines without the actual highlight group since it interferes with vim-illuminate

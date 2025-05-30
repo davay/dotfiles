@@ -90,6 +90,7 @@ alias sketchybarc="vim ~/.config/sketchybar/sketchybarrc"
 alias wezc="vim ~/.wezterm.lua"
 alias kittyc="vim ~/.config/kitty/kitty.conf"
 alias ghosttyc="vim ~/Library/Application\ Support/com.mitchellh.ghostty/config"
+alias aerospacec="vim ~/.config/aerospace/aerospace.toml"
 
 # cd alias 
 alias cyadm="c ~/.config/yadm"
@@ -104,6 +105,7 @@ alias cleetcode="c ~/Repos/Personal/leetcode"
 alias cdownloads="c ~/Downloads"
 alias cusa="c ~/Drive/usa/"
 alias cmutagen="c ~/Mutagen/"
+alias caerospace="c ~/.config/aerospace/"
 
 # yadm alias 
 alias ycommit="yadm commit -am"
@@ -179,13 +181,14 @@ prompt pure
 
 # # plugin customizations
 BREW=$(brew --prefix)
-source $BREW/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+# source $BREW/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 bindkey "$terminfo[kcbt]" menu-select
 bindkey -M menuselect '^I' menu-complete
 bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
 
 source $BREW/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-ZSH_AUTOSUGGEST_STRATEGY=(history)
+ZSH_AUTOSUGGEST_STRATEGY=(completion)
 ZSH_AUTOSUGGEST_HISTORY_IGNORE='(cd|ls|vim|c|l|v) *' # prevent invalid suggestions
 
 # New widget; prioritize autosuggest, otherwise use first item in menu

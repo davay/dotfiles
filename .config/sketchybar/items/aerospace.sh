@@ -21,8 +21,8 @@ for sid in $(aerospace list-workspaces --all); do
         background.height=24 \
         background.padding_right=10 \
         label="$sid" \
-        label.padding_left=10 \
-        label.padding_right=10 \
+        label.padding_left=15 \
+        label.padding_right=15 \
         icon.drawing=off \
         click_script="aerospace workspace $sid" \
         script="$PLUGIN_DIR/aerospace.sh $sid"

@@ -72,7 +72,7 @@ return {
           if not e.file or vim.fn.filereadable(e.file) ~= 1 then
             return
           end
-          
+
           local kernels = vim.fn.MoltenAvailableKernels()
 
           local try_kernel_name = function()
@@ -93,7 +93,7 @@ return {
               vim.cmd("QuartoActivate")
             end)
           end
-          
+
           -- Only import output if we're in a valid buffer with a file
           if vim.api.nvim_buf_is_valid(e.buf) and vim.fn.bufname(e.buf) ~= "" then
             pcall(function()

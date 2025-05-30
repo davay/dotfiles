@@ -1,1 +1,1 @@
-sketchybar --set $NAME label="$(date '+%a, %b %d (W%U) - %H:%M')"
+sketchybar --set $NAME label="$(date '+%a, %b %d (W'$(($(date '+%U') + 1))') - %H:%M')"
