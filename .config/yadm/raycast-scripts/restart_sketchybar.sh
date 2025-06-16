@@ -9,5 +9,5 @@
 # @raycast.icon 🤖
 
 # Documentation:
-# @raycast.description brew services restart sketchybar
-brew services restart sketchybar
+# @raycast.description sketchybar --reload
+sketchybar --reload

@@ -85,6 +85,8 @@
           - pastel
           - borders
           - gitui
+          - mise
+          - xo/xo/usql
         state: latest
         update_homebrew: yes
 
@@ -128,7 +130,6 @@
           - dotnet-sdk
           - raycast
           - microsoft-teams
-          - anaconda
           - google-drive
           - gpg-suite
           - iterm2
@@ -167,17 +168,18 @@
           - claude
           - nikitabobko/tap/aerospace
           - jordanbaird-ice
+          - pixelsnap2
         state: latest
 
-    - name: "Homebrew: Start Services"
-      community.general.homebrew_services:
-        name: 
-          # yabai & skhd has their own yabai --start-service, not sure if same
-          # - yabai 
-          # - skhd
-          - sketchybar
-          # - ollama
-        state: present
+    # - name: "Homebrew: Start Services"
+    #   community.general.homebrew_services:
+    #     name: 
+    #       # yabai & skhd has their own yabai --start-service, not sure if same
+    #       # - yabai 
+    #       # - skhd
+    #       # - sketchybar # started by aerospace
+    #       # - ollama
+    #     state: present
 
     - name: "Cargo: Install Rust Packages"
       community.general.cargo:
@@ -205,6 +207,7 @@
           - 1448648921 # Seashore
           - 1276493162 # reMarkable
           - 1541862561 # FireShot for Safari
+          - 1351639930 # Gifski
         state: latest
 
     # Mac Defaults

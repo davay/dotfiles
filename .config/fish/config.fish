@@ -2,6 +2,9 @@ fish_add_path /opt/homebrew/bin
 fish_add_path ~/.cargo/bin
 fish_add_path /opt/homebrew/opt/ruby/bin
 
+# remove fish greeting
+set fish_greeting
+
 # Core replacements
 alias ls="lsd"
 alias vim="nvim"

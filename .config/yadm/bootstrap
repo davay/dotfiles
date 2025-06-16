@@ -62,18 +62,15 @@ backblaze_path="/opt/homebrew/Caskroom/backblaze"
 backblaze_version=$(\ls $backblaze_path | sort -V | tail -n 1) # escape alias-ed ls
 open $backblaze_path/$backblaze_version/Backblaze\ Installer.app
 
-# Conda
 conda create -n py311 python=3.11 -c conda-forge pynvim jupyter_client numpy pandas ruff-lsp jupyterthemes altair
 
 # To get Altstore AltJit working
 # sudo /Applications/Xcode.app/Contents/Developer/usr/bin/python3 -m pip install construct==2.10.69 qh3==0.15.1
-
-# Synergy 3... sigh no brew 
-# curl -L -o ~/Downloads/synergy.dmg "https://symless.com/synergy/synergy/api/download/synergy-3.2.1-macos-arm64.dmg"
-# hdiutil attach ~/Downloads/synergy.dmg
-# cp -R /Volumes/Synergy*/Synergy.app /Applications/
-# hdiutil detach /Volumes/Synergy*
 #
+
+# no longer using conda, now using mise
+mise install
+
 # KDE Connect... hopefully better than synergy
 curl -L -o ~/Downloads/kdeconnect.dmg "https://cdn.kde.org/ci-builds/network/kdeconnect-kde/master/macos-arm64/kdeconnect-kde-master-4652-macos-clang-arm64.dmg" && \
 hdiutil attach ~/Downloads/kdeconnect.dmg && \

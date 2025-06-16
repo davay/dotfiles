@@ -172,24 +172,22 @@ F1 = 'secondary'
 F2 = 'secondary'
 F3 = 'secondary'
 
-
 ### App-Workspace assignment ### 
 # These apps seems to end up bottom-up
-# e.g., since agenda is listed first, it will be at the bottom (or right if built-in monitor) of workspace F1
+# e.g., since agenda is listed first, it will be at the bottom of workspace F1 (if vertical)
+# if horizontal.... dunno
+
 [[on-window-detected]]
 if.app-id = 'com.momenta.agenda.macos'
 run = 'move-node-to-workspace F1'
 
 [[on-window-detected]]
+if.app-id = 'com.anthropic.claudefordesktop' # has issues
+if.during-aerospace-startup = true # so quick entry works
+run = 'move-node-to-workspace F1'
+
+[[on-window-detected]]
 if.app-id = 'com.lukilabs.lukiapp' # Craft...
-run = 'move-node-to-workspace F1'
-
-[[on-window-detected]]
-if.app-id = 'com.anthropic.claudefordesktop'
-run = 'move-node-to-workspace F1'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.finder'
 run = 'move-node-to-workspace F2'
 
 [[on-window-detected]]
@@ -197,6 +195,10 @@ if.app-id = 'io.readwise.read'
 run = 'move-node-to-workspace F2'
 
 # F3 is kinda the misc space 
+
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'move-node-to-workspace F3'
 
 [[on-window-detected]]
 if.app-id = 'com.mimestream.Mimestream'
@@ -210,9 +212,11 @@ run = 'move-node-to-workspace F3'
 if.app-id = 'com.apple.Music'
 run = 'move-node-to-workspace F3'
 
-# force even floating windows to be tiled, so they dont show up behind
-# WARN: don't do this, this makes some things like claude's quick entry be tiled too...
+# Misc 
 
-# [[on-window-detected]]
-# check-further-callbacks = true
-# run = 'layout tiling'
+# fix tabs being considered as separate windows
+[[on-window-detected]]
+if.app-id="com.mitchellh.ghostty"
+run= [
+  "layout tiling",
+]

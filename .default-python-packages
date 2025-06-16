@@ -1,0 +1,9 @@
+pynvim
+jupyter_client
+jupytext
+ipython
+ipykernel
+ipywidgets
+tqdm
+ruff
+pylatexenc
