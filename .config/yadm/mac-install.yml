@@ -169,6 +169,7 @@
           - nikitabobko/tap/aerospace
           - jordanbaird-ice
           - pixelsnap2
+          - rustdesk
         state: latest
 
     # - name: "Homebrew: Start Services"

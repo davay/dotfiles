@@ -1,0 +1,13 @@
+{
+  "Reveal.js New Slide": {
+    "prefix": "newslide",
+    "body": [
+      "<section>",
+      "\t<section data-auto-animate>",
+      "\t\t<h2>$0</h2>",
+      "\t</section>",
+      "</section>"
+    ],
+    "description": "Create a new slide for a reveal.js slide"
+  }
+}

@@ -1,6 +1,7 @@
 fish_add_path /opt/homebrew/bin
 fish_add_path ~/.cargo/bin
 fish_add_path /opt/homebrew/opt/ruby/bin
+fish_add_path ~/.config/yadm/path-scripts
 
 # remove fish greeting
 set fish_greeting

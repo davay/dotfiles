@@ -1,13 +1,10 @@
 -- Required Python packages: pynvim, jupyter_client, ipykernel
 local is_kitty = os.getenv("KITTY_WINDOW_ID") ~= nil
-local is_wezterm = os.getenv("WEZTERM_EXECUTABLE") ~= nil
 local is_ghostty = os.getenv("GHOSTTY_BIN_DIR") ~= nil
 
 local deps = {}
 if is_kitty or is_ghostty then
   deps = { "3rd/image.nvim" }
-elseif is_wezterm then
-  deps = { "wezterm.nvim" }
 end
 
 return {
@@ -16,7 +13,6 @@ return {
     dependencies = deps,
     ft = "markdown",
     build = ":UpdateRemotePlugins",
-    branch = "push-otzqzrqwlkzu",
     init = function()
       -- I find auto open annoying, keep in mind setting this option will require setting
       -- a keybind for `:noautocmd MoltenEnterOutput` to open the output again
@@ -24,9 +20,7 @@ return {
 
       -- none or image.nvim or wezterm (install wezterm.nvim)
       -- if kitty/wezterm use image.nvim, otherwise dont load images
-      if is_wezterm then
-        vim.g.molten_image_provider = "wezterm"
-      elseif is_kitty or is_ghostty then
+      if is_kitty or is_ghostty then
         vim.g.molten_image_provider = "image.nvim"
       else
         vim.g.molten_image_provider = "none"

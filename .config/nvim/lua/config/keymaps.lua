@@ -1,0 +1,74 @@
+-- Keymaps are automatically loaded on the VeryLazy event
+-- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
+-- Add any additional keymaps here
+--
+-- leetcode
+vim.keymap.set("n", "<localleader>lr", "<cmd>Leet run<CR>", { desc = "Leetcode: Run", silent = true })
+vim.keymap.set("n", "<localleader>ls", "<cmd>Leet submit<CR>", { desc = "Leetcode: Submit", silent = true })
+vim.keymap.set("n", "<localleader>lm", "<cmd>Leet<CR>", { desc = "Leetcode: Menu", silent = true })
+vim.keymap.set("n", "<localleader>lc", "<cmd>Leet console<CR>", { desc = "Leetcode: Console", silent = true })
+
+-- quarto
+local runner = require("quarto.runner")
+vim.keymap.set("n", "<localleader>jc", runner.run_cell, { desc = "Quarto: Run Cell", silent = true })
+vim.keymap.set("n", "<localleader>ja", runner.run_above, { desc = "Quarto: Run Cell and Above", silent = true })
+vim.keymap.set("n", "<localleader>jA", runner.run_all, { desc = "Quarto: Run All Cells", silent = true })
+vim.keymap.set("n", "<localleader>jl", runner.run_line, { desc = "Quarto: Run Line", silent = true })
+vim.keymap.set("v", "<localleader>j", runner.run_range, { desc = "Quarto: Run Visual Range", silent = true })
+
+-- molten
+vim.keymap.set("n", "<localleader>jR", "<cmd>MoltenRestart<CR>", { desc = "Molten: Restart Kernel", silent = true })
+vim.keymap.set(
+  "n",
+  "<localleader>jr",
+  "<cmd>MoltenRestart!<CR>",
+  { desc = "Molten: Restart Kernel and Clear All", silent = true }
+)
+vim.keymap.set("n", "<localleader>ji", "<cmd>MoltenInterrupt<CR>", { desc = "Molten: Interrupt", silent = true })
+
+-- enter/exit molten output
+-- also use q or esc to exit
+vim.keymap.set("n", "<localleader>je", function()
+  if vim.bo.filetype == "molten_output" then
+    vim.cmd("MoltenHideOutput")
+  else
+    vim.cmd("noautocmd MoltenEnterOutput")
+    vim.keymap.set(
+      "n",
+      "q",
+      "<cmd>MoltenHideOutput<CR>",
+      { buffer = true, desc = "Molten: Exit Output", silent = true }
+    )
+    vim.keymap.set(
+      "n",
+      "<Esc>",
+      "<cmd>MoltenHideOutput<CR>",
+      { buffer = true, desc = "Molten: Exit Output", silent = true }
+    )
+  end
+end, { desc = "Molten: Toggle Output", silent = true })
+
+vim.keymap.set(
+  "n",
+  "]]",
+  "<cmd>TSTextobjectGotoNextStart @code_cell.inner | norm! zz<CR>",
+  { desc = "TS: Next Code Block", silent = true, buffer = true }
+)
+vim.keymap.set(
+  "n",
+  "[[",
+  "<cmd>TSTextobjectGotoPreviousStart @code_cell.inner | norm! zz<CR>",
+  { desc = "TS: Prev Code Block", silent = true, buffer = true }
+)
+vim.keymap.set(
+  { "x", "o" },
+  "ib",
+  "<cmd>TSTextobjectSelect @code_cell.inner<CR>",
+  { desc = "TS: Select Inner Block", silent = true, buffer = true }
+)
+vim.keymap.set(
+  { "x", "o" },
+  "ab",
+  "<cmd>TSTextobjectSelect @code_cell.outer<CR>",
+  { desc = "TS: Select Around Block", silent = true, buffer = true }
+)
