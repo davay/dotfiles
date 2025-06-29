@@ -1,12 +1,24 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
---
+
 -- leetcode
 vim.keymap.set("n", "<localleader>lr", "<cmd>Leet run<CR>", { desc = "Leetcode: Run", silent = true })
 vim.keymap.set("n", "<localleader>ls", "<cmd>Leet submit<CR>", { desc = "Leetcode: Submit", silent = true })
 vim.keymap.set("n", "<localleader>lm", "<cmd>Leet<CR>", { desc = "Leetcode: Menu", silent = true })
 vim.keymap.set("n", "<localleader>lc", "<cmd>Leet console<CR>", { desc = "Leetcode: Console", silent = true })
+
+-- vimtex
+vim.keymap.set("n", "<localleader>vv", "<cmd>VimtexView<CR>", { desc = "Vimtex: View / Forward Search", silent = true })
+vim.keymap.set("n", "<localleader>vt", "<cmd>VimtexTocToggle<CR>", { desc = "Vimtex: Toggle TOC", silent = true })
+vim.keymap.set(
+  "n",
+  "<localleader>vc",
+  "<cmd>VimtexCompile<CR>",
+  { desc = "Vimtex: Compile Continuously", silent = true }
+)
+vim.keymap.set("n", "<localleader>vs", "<cmd>VimtexCompile<CR>", { desc = "Vimtex: Stop Compilation", silent = true })
+vim.keymap.set("n", "<localleader>vw", "<cmd>VimtexCountWords<CR>", { desc = "Vimtex: Count Words", silent = true })
 
 -- quarto
 local runner = require("quarto.runner")
@@ -72,3 +84,27 @@ vim.keymap.set(
   "<cmd>TSTextobjectSelect @code_cell.outer<CR>",
   { desc = "TS: Select Around Block", silent = true, buffer = true }
 )
+
+-- xcodebuiild
+vim.keymap.set("n", "<localleader>xs", "<cmd>XcodebuildSetup<cr>", { desc = "Xcode: Setup" })
+vim.keymap.set("n", "<localleader>xl", "<cmd>XcodebuildToggleLogs<cr>", { desc = "Xcode: Toggle Logs" })
+vim.keymap.set("n", "<localleader>xb", "<cmd>XcodebuildBuild<cr>", { desc = "Xcode: Build Project" })
+vim.keymap.set("n", "<localleader>xr", "<cmd>XcodebuildBuildRun<cr>", { desc = "Xcode: Build & Run Project" })
+vim.keymap.set("n", "<localleader>xt", "<cmd>XcodebuildTest<cr>", { desc = "Xcode: Run Tests" })
+vim.keymap.set("n", "<localleader>xT", "<cmd>XcodebuildTestClass<cr>", { desc = "Xcode: Run This Test Class" })
+vim.keymap.set("n", "<localleader>X", "<cmd>XcodebuildPicker<cr>", { desc = "Xcode: Show All Actions" })
+vim.keymap.set("n", "<localleader>xd", "<cmd>XcodebuildSelectDevice<cr>", { desc = "Xcode: Select Device" })
+vim.keymap.set("n", "<localleader>xp", "<cmd>XcodebuildSelectTestPlan<cr>", { desc = "Xcode: Select Test Plan" })
+vim.keymap.set(
+  "n",
+  "<localleader>xc",
+  "<cmd>XcodebuildToggleCodeCoverage<cr>",
+  { desc = "Xcode: Toggle Code Coverage" }
+)
+vim.keymap.set(
+  "n",
+  "<localleader>xC",
+  "<cmd>XcodebuildShowCodeCoverageReport<cr>",
+  { desc = "Xcode: Show Code Coverage Report" }
+)
+vim.keymap.set("n", "<localleader>xq", "<cmd>Telescope quickfix<cr>", { desc = "Xcode: Show QuickFix List" })

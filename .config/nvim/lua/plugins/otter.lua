@@ -18,7 +18,7 @@ return {
     vim.api.nvim_create_autocmd({ "FileType" }, {
       pattern = { "markdown" },
       callback = function()
-        otter.activate()
+        otter.activate({ "python" })
       end,
     })
   end,

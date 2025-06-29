@@ -4,12 +4,12 @@ return {
     "jmbuhr/otter.nvim",
     "nvim-treesitter/nvim-treesitter",
   },
-  ft = { "quarto", "markdown" },
+  ft = { "markdown" },
   opts = {
     lspFeatures = {
       enabled = true,
       chunks = "all",
-      languages = { "r", "python" },
+      languages = { "python" },
       diagnostics = {
         enabled = true,
         triggers = { "BufWritePost" },

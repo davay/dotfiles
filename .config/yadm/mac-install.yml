@@ -87,6 +87,10 @@
           - gitui
           - mise
           - xo/xo/usql
+          - xcode-build-server # for nvim xcode
+          - swiftformat
+          - swiftlint
+          - xcbeautify
         state: latest
         update_homebrew: yes
 
@@ -167,16 +171,15 @@
           - logi-options+
           - claude
           - nikitabobko/tap/aerospace
-          - jordanbaird-ice
           - pixelsnap2
           - rustdesk
         state: latest
 
     # - name: "Homebrew: Start Services"
     #   community.general.homebrew_services:
-    #     name: 
+    #     name:
     #       # yabai & skhd has their own yabai --start-service, not sure if same
-    #       # - yabai 
+    #       # - yabai
     #       # - skhd
     #       # - sketchybar # started by aerospace
     #       # - ollama
@@ -219,7 +222,7 @@
         type: int
         value: 0
         state: present
-    
+
     - name: "osx_defaults: Enable Key Repeat"
       community.general.osx_defaults:
         domain: NSGlobalDomain
@@ -322,7 +325,7 @@
         type: bool
         value: true
         state: present
-    
+
     - name: "osx_defaults: Enable 'Group windows by application', for AeroSpace"
       community.general.osx_defaults:
         domain: com.apple.dock
@@ -330,7 +333,7 @@
         type: bool
         value: true
         state: present
-    
+
     - name: "osx_defaults: Disables 'Displays have separate Spaces', for Aerospace"
       community.general.osx_defaults:
         domain: com.apple.spaces
