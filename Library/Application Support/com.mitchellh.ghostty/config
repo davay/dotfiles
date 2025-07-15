@@ -13,7 +13,9 @@ clipboard-write = allow
 quick-terminal-autohide = false
 
 ### UI ###
-theme = GruvboxDark
+# theme = GruvboxDark
+theme = catppuccin-macchiato
 # theme = zenbones_light
 
 #custom-shader = ghostty-shaders/in-game-crt.glsl
+keybind = shift+enter=text:\n

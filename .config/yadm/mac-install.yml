@@ -87,10 +87,11 @@
           - gitui
           - mise
           - xo/xo/usql
-          - xcode-build-server # for nvim xcode
+          - xcode-build-server # these 4 for nvim xcode
           - swiftformat
           - swiftlint
           - xcbeautify
+          - insta360-link-controller
         state: latest
         update_homebrew: yes
 

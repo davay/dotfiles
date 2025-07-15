@@ -4,7 +4,18 @@ return {
     ft = { "markdown", "python" },
     opts = {
       servers = {
-        sourcekit = {},
+        sourcekit = {
+          -- Enable file watching to automatically reload LSP when Package.swift or compile_commands.json changes
+          -- Without this, LSP won't work after updating package manifest or adding new files until Neovim restart
+          -- See: https://www.swift.org/documentation/articles/zero-to-swift-nvim.html
+          capabilities = {
+            workspace = {
+              didChangeWatchedFiles = {
+                dynamicRegistration = true,
+              },
+            },
+          },
+        },
         marksman = {
           on_attach = function(client, bufnr)
             -- Disable rename capability only when otter is active

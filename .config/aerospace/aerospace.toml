@@ -6,7 +6,8 @@ after-login-command = []
 # HACK: conditional layout based on monitor setup
 after-startup-command = [
   'exec-and-forget sketchybar',
-  'exec-and-forget borders active_color=0xffa9b665 inactive_color=0xff292828 width=4',
+  'exec-and-forget borders active_color=0xff8aadf4 inactive_color=0xff363a4f width=4', # Catppuccin Macchiato: Blue active, Surface0 inactive
+  # 'exec-and-forget borders active_color=0xffa9b665 inactive_color=0xff292828 width=4', # Gruvbox Dark
   'exec-and-forget ~/.config/aerospace/startup.sh',
 ] # You can use it to add commands that run after AeroSpace startup.
 # 'after-startup-command' is run after 'after-login-command'
@@ -182,8 +183,8 @@ if.app-id = 'com.momenta.agenda.macos'
 run = 'move-node-to-workspace F1'
 
 [[on-window-detected]]
-if.app-id = 'com.anthropic.claudefordesktop' # has issues
-if.during-aerospace-startup = true # so quick entry works
+if.app-id = 'com.anthropic.claudefordesktop'
+if.during-aerospace-startup = true           # so quick entry works
 run = 'move-node-to-workspace F1'
 
 [[on-window-detected]]
@@ -194,11 +195,11 @@ run = 'move-node-to-workspace F2'
 if.app-id = 'io.readwise.read'
 run = 'move-node-to-workspace F2'
 
-# F3 is kinda the misc space 
-
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
-run = 'move-node-to-workspace F3'
+run = 'move-node-to-workspace F2'
+
+# F3 is kinda the misc space 
 
 [[on-window-detected]]
 if.app-id = 'com.mimestream.Mimestream'
@@ -211,12 +212,3 @@ run = 'move-node-to-workspace F3'
 [[on-window-detected]]
 if.app-id = 'com.apple.Music'
 run = 'move-node-to-workspace F3'
-
-# Misc 
-
-# fix tabs being considered as separate windows
-[[on-window-detected]]
-if.app-id="com.mitchellh.ghostty"
-run= [
-  "layout tiling",
-]

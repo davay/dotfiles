@@ -2,6 +2,14 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+-- always close no matter how many buffers/windows/tabs
+vim.keymap.set("c", "q<CR>", "qa<CR>", { desc = "Vim: Alias q to qa", silent = true })
+vim.keymap.set("c", "q!<CR>", "qa!<CR>", { desc = "Vim: Alias q! to qa!", silent = true })
+
+---- use tab to switch to next/prev pane, should supersede all other hotkeys (e.g., file explorer)
+vim.keymap.set("n", "<Tab>", "<C-w>w", { desc = "Vim: Next Pane", silent = true, noremap = true, buffer = false })
+vim.keymap.set("n", "<S-Tab>", "<C-w>W", { desc = "Vim: Prev Pane", silent = true, noremap = true, buffer = false })
+
 -- leetcode
 vim.keymap.set("n", "<localleader>lr", "<cmd>Leet run<CR>", { desc = "Leetcode: Run", silent = true })
 vim.keymap.set("n", "<localleader>ls", "<cmd>Leet submit<CR>", { desc = "Leetcode: Submit", silent = true })
@@ -92,7 +100,7 @@ vim.keymap.set("n", "<localleader>xb", "<cmd>XcodebuildBuild<cr>", { desc = "Xco
 vim.keymap.set("n", "<localleader>xr", "<cmd>XcodebuildBuildRun<cr>", { desc = "Xcode: Build & Run Project" })
 vim.keymap.set("n", "<localleader>xt", "<cmd>XcodebuildTest<cr>", { desc = "Xcode: Run Tests" })
 vim.keymap.set("n", "<localleader>xT", "<cmd>XcodebuildTestClass<cr>", { desc = "Xcode: Run This Test Class" })
-vim.keymap.set("n", "<localleader>X", "<cmd>XcodebuildPicker<cr>", { desc = "Xcode: Show All Actions" })
+vim.keymap.set("n", "<localleader>xx", "<cmd>XcodebuildPicker<cr>", { desc = "Xcode: Show All Actions" })
 vim.keymap.set("n", "<localleader>xd", "<cmd>XcodebuildSelectDevice<cr>", { desc = "Xcode: Select Device" })
 vim.keymap.set("n", "<localleader>xp", "<cmd>XcodebuildSelectTestPlan<cr>", { desc = "Xcode: Select Test Plan" })
 vim.keymap.set(
@@ -108,3 +116,8 @@ vim.keymap.set(
   { desc = "Xcode: Show Code Coverage Report" }
 )
 vim.keymap.set("n", "<localleader>xq", "<cmd>Telescope quickfix<cr>", { desc = "Xcode: Show QuickFix List" })
+
+-- codewindow
+local codewindow = require("codewindow")
+vim.keymap.set("n", "<leader>mf", codewindow.toggle_focus, { desc = "Codewindow: Focus", silent = true })
+vim.keymap.set("n", "<leader>mm", codewindow.toggle_minimap, { desc = "Codewindow: Toggle", silent = true })
