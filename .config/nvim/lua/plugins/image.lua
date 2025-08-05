@@ -8,5 +8,12 @@ return {
   end,
   opts = {
     processor = "magick_cli",
+    max_height_window_percentage = 30,
+    integrations = {
+      markdown = {
+        only_render_image_at_cursor = true,
+        -- clear_in_insert_mode = true,
+      },
+    },
   },
 }

@@ -163,7 +163,7 @@ alt-shift-e = 'move-node-to-workspace --focus-follows-window next'
 alt-w = 'focus-monitor --wrap-around next'
 alt-shift-w = 'move-node-to-monitor --focus-follows-window --wrap-around next'
 ctrl-space = 'layout floating tiling'
-alt-shift-r = 'reload-config'
+# alt-shift-r = 'reload-config' # used for swap display
 
 [workspace-to-monitor-force-assignment]
 1 = 'main'

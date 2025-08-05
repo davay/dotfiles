@@ -8,7 +8,6 @@ volume_slider=(
   slider.knob=􀀁
   slider.knob.drawing=off
   slider.knob.y_offset=0
-  slider.padding_right=0
 )
 
 volume_icon=(

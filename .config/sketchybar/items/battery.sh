@@ -6,6 +6,7 @@ battery=(
 )
 
 sketchybar --add event battery_update \
-           --add item battery right \
-           --set battery "${battery[@]}" \
-           --subscribe battery battery_update power_source_change system_woke
+  --add item battery right \
+  --set battery "${battery[@]}" \
+  --subscribe battery battery_update power_source_change system_woke
+

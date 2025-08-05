@@ -7,8 +7,8 @@ vim.keymap.set("c", "q<CR>", "qa<CR>", { desc = "Vim: Alias q to qa", silent = t
 vim.keymap.set("c", "q!<CR>", "qa!<CR>", { desc = "Vim: Alias q! to qa!", silent = true })
 
 ---- use tab to switch to next/prev pane, should supersede all other hotkeys (e.g., file explorer)
-vim.keymap.set("n", "<Tab>", "<C-w>w", { desc = "Vim: Next Pane", silent = true, noremap = true, buffer = false })
-vim.keymap.set("n", "<S-Tab>", "<C-w>W", { desc = "Vim: Prev Pane", silent = true, noremap = true, buffer = false })
+-- vim.keymap.set("n", "<Tab>", "<C-w>w", { desc = "Vim: Next Pane", silent = true, noremap = true, buffer = false })
+-- vim.keymap.set("n", "<S-Tab>", "<C-w>W", { desc = "Vim: Prev Pane", silent = true, noremap = true, buffer = false })
 
 -- leetcode
 vim.keymap.set("n", "<localleader>lr", "<cmd>Leet run<CR>", { desc = "Leetcode: Run", silent = true })

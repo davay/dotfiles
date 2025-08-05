@@ -1,7 +1,7 @@
-fish_add_path /opt/homebrew/bin
+fish_add_path ~/.config/yadm/path-scripts
 fish_add_path ~/.cargo/bin
 fish_add_path /opt/homebrew/opt/ruby/bin
-fish_add_path ~/.config/yadm/path-scripts
+fish_add_path -m /opt/homebrew/bin # highest priority, important for tree-sitter-cli, easier to keep updated
 
 # remove fish greeting
 set fish_greeting
@@ -38,6 +38,7 @@ alias csu="c ~/Drive/usa/school/su"
 alias cleetcode="c ~/Repos/Personal/leetcode"
 alias cdownloads="c ~/Downloads"
 alias cusa="c ~/Drive/usa/"
+alias cstudy="c ~/Drive/usa/study"
 alias cmutagen="c ~/Mutagen"
 alias caerospace="c ~/.config/aerospace"
 alias cfish="c ~/.config/fish"
@@ -56,6 +57,7 @@ alias fishc="vim ~/.config/fish/config.fish"
 
 # Misc aliases
 alias leetcode="nvim leetcode.nvim"
+alias reignore="git rm -r --cached . && git add ." # if you updated gitignore after committing
 
 if status is-interactive
     # Commands to run in interactive sessions can go here

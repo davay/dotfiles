@@ -2,7 +2,7 @@ BATTERY_INFO="$(pmset -g batt)"
 PERCENTAGE=$(echo "$BATTERY_INFO" | grep -Eo "\d+%" | cut -d% -f1)
 CHARGING=$(pmset -g batt | grep 'AC Power')
 
-if [ -z $PERCENTAGE = "" ]; then
+if [ -z "$PERCENTAGE" ]; then
   exit 0
 fi
 

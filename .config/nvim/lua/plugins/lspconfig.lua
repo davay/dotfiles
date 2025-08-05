@@ -3,6 +3,7 @@ return {
     "neovim/nvim-lspconfig",
     ft = { "markdown", "python" },
     opts = {
+      inlay_hints = { enabled = false },
       servers = {
         sourcekit = {
           -- Enable file watching to automatically reload LSP when Package.swift or compile_commands.json changes

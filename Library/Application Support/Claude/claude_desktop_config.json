@@ -1,0 +1,28 @@
+{
+  "globalShortcut": "Cmd+F1",
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/davay/Drive/usa/study/deeplearning.ai/mcp"
+      ]
+    },
+    "fetch": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-fetch"
+      ]
+    },
+    "research": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Users/davay/Drive/usa/study/deeplearning.ai/mcp",
+        "run",
+        "research_server.py"
+      ]
+    }
+  }
+}

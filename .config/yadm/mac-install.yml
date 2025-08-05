@@ -92,6 +92,7 @@
           - swiftlint
           - xcbeautify
           - insta360-link-controller
+          - tree-sitter-cli # this keeps treesitter/-cli updated, otherwise swift ts can't be installed
         state: latest
         update_homebrew: yes
 
@@ -174,6 +175,7 @@
           - nikitabobko/tap/aerospace
           - pixelsnap2
           - rustdesk
+          - excalidrawz
         state: latest
 
     # - name: "Homebrew: Start Services"
@@ -319,13 +321,14 @@
         value: true
         state: present
 
-    - name: "osx_defaults: Enable dragging any part of window with ctrl + cmd"
-      community.general.osx_defaults:
-        domain: NSGlobalDomain
-        key: NSWindowShouldDragOnGesture
-        type: bool
-        value: true
-        state: present
+    # conflicts with Xcode swiftui inspector cmd+ctrl+click
+    # - name: "osx_defaults: Enable dragging any part of window with ctrl + cmd"
+    #   community.general.osx_defaults:
+    #     domain: NSGlobalDomain
+    #     key: NSWindowShouldDragOnGesture
+    #     type: bool
+    #     value: true
+    #     state: present
 
     - name: "osx_defaults: Enable 'Group windows by application', for AeroSpace"
       community.general.osx_defaults:

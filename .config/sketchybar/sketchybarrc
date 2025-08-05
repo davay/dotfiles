@@ -115,7 +115,7 @@ sketchybar --add item separator_brew right \
 # brackets
 ## left
 source "$BRACKET_DIR/apple.sh"
-source "$BRACKET_DIR/aerospace.sh"
+# aerospace bracket not necessary
 #source "$BRACKET_DIR/space.sh"
 #source "$BRACKET_DIR/window_title.sh"
 #source "$BRACKET_DIR/cava.sh"
