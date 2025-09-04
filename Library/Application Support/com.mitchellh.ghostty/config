@@ -19,4 +19,6 @@ theme = catppuccin-macchiato
 
 #custom-shader = ghostty-shaders/in-game-crt.glsl
 keybind = shift+enter=text:\n
-keybind = cmd+shift+/=equalize_splits
+keybind = cmd+/=equalize_splits
+keybind = cmd+h=goto_split:previous
+keybind = cmd+l=goto_split:previous

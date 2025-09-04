@@ -24,6 +24,7 @@
                     },
                     {
                         "description": "Disable Cmd+H Hide (rev 2)",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "description": "",

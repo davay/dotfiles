@@ -107,7 +107,7 @@ outer.right = 8
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
-alt-comma = 'layout accordion horizontal vertical'
+alt-shift-slash = 'layout accordion horizontal vertical'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
 alt-h = 'focus --boundaries all-monitors-outer-frame left'
@@ -174,13 +174,8 @@ F2 = 'secondary'
 F3 = 'secondary'
 
 ### App-Workspace assignment ### 
-# These apps seems to end up bottom-up
-# e.g., since agenda is listed first, it will be at the bottom of workspace F1 (if vertical)
+# These apps seems to be opened bottom-up -- whichever is listed first in a workspace ends up at the bottom
 # if horizontal.... dunno
-
-[[on-window-detected]]
-if.app-id = 'com.momenta.agenda.macos'
-run = 'move-node-to-workspace F1'
 
 [[on-window-detected]]
 if.app-id = 'com.anthropic.claudefordesktop'
@@ -196,10 +191,14 @@ if.app-id = 'io.readwise.read'
 run = 'move-node-to-workspace F2'
 
 [[on-window-detected]]
-if.app-id = 'com.apple.finder'
+if.app-id = 'com.momenta.agenda.macos'
 run = 'move-node-to-workspace F2'
 
 # F3 is kinda the misc space 
+
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'move-node-to-workspace F3'
 
 [[on-window-detected]]
 if.app-id = 'com.mimestream.Mimestream'

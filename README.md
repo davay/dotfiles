@@ -54,6 +54,8 @@ brew install yadm && yadm clone https://github.com/davay/dotfiles.git
 
 - This may or may not be needed in the future: https://github.com/luckman212/screencapture-nag-remover
 
+- xcodebuild.nvim: setup debugger https://github.com/wojciech-kulik/xcodebuild.nvim/wiki/Integrations#-debugger
+
 ### 4. Where are hotkeys set 
 
 | App | Action | Hotkey |

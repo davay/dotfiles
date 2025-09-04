@@ -93,7 +93,7 @@ vim.keymap.set(
   { desc = "TS: Select Around Block", silent = true, buffer = true }
 )
 
--- xcodebuiild
+-- xcodebuild
 vim.keymap.set("n", "<localleader>xs", "<cmd>XcodebuildSetup<cr>", { desc = "Xcode: Setup" })
 vim.keymap.set("n", "<localleader>xl", "<cmd>XcodebuildToggleLogs<cr>", { desc = "Xcode: Toggle Logs" })
 vim.keymap.set("n", "<localleader>xb", "<cmd>XcodebuildBuild<cr>", { desc = "Xcode: Build Project" })
@@ -116,6 +116,20 @@ vim.keymap.set(
   { desc = "Xcode: Show Code Coverage Report" }
 )
 vim.keymap.set("n", "<localleader>xq", "<cmd>Telescope quickfix<cr>", { desc = "Xcode: Show QuickFix List" })
+
+-- xcodebuild + dap (debugger)
+local xcodebuild = require("xcodebuild.integrations.dap")
+local codelldbPath = os.getenv("HOME") .. "/.config/yadm/tools/codelldb/extension/adapter/codelldb"
+
+xcodebuild.setup(codelldbPath)
+
+vim.keymap.set("n", "<localleader>dd", xcodebuild.build_and_debug, { desc = "Build & Debug" })
+vim.keymap.set("n", "<localleader>dr", xcodebuild.debug_without_build, { desc = "Debug Without Building" })
+vim.keymap.set("n", "<localleader>dt", xcodebuild.debug_tests, { desc = "Debug Tests" })
+vim.keymap.set("n", "<localleader>dT", xcodebuild.debug_class_tests, { desc = "Debug Class Tests" })
+vim.keymap.set("n", "<localleader>b", xcodebuild.toggle_breakpoint, { desc = "Toggle Breakpoint" })
+vim.keymap.set("n", "<localleader>B", xcodebuild.toggle_message_breakpoint, { desc = "Toggle Message Breakpoint" })
+vim.keymap.set("n", "<localleader>dx", xcodebuild.terminate_session, { desc = "Terminate Debugger" })
 
 -- codewindow
 local codewindow = require("codewindow")
