@@ -14,7 +14,7 @@ quick-terminal-autohide = false
 
 ### UI ###
 # theme = GruvboxDark
-theme = catppuccin-macchiato
+theme = Catppuccin Macchiato
 # theme = zenbones_light
 
 #custom-shader = ghostty-shaders/in-game-crt.glsl

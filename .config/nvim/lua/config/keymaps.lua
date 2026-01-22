@@ -119,9 +119,7 @@ vim.keymap.set("n", "<localleader>xq", "<cmd>Telescope quickfix<cr>", { desc = "
 
 -- xcodebuild + dap (debugger)
 local xcodebuild = require("xcodebuild.integrations.dap")
-local codelldbPath = os.getenv("HOME") .. "/.config/yadm/tools/codelldb/extension/adapter/codelldb"
-
-xcodebuild.setup(codelldbPath)
+xcodebuild.setup()
 
 vim.keymap.set("n", "<localleader>dd", xcodebuild.build_and_debug, { desc = "Build & Debug" })
 vim.keymap.set("n", "<localleader>dr", xcodebuild.debug_without_build, { desc = "Debug Without Building" })
@@ -131,7 +129,7 @@ vim.keymap.set("n", "<localleader>b", xcodebuild.toggle_breakpoint, { desc = "To
 vim.keymap.set("n", "<localleader>B", xcodebuild.toggle_message_breakpoint, { desc = "Toggle Message Breakpoint" })
 vim.keymap.set("n", "<localleader>dx", xcodebuild.terminate_session, { desc = "Terminate Debugger" })
 
--- codewindow
-local codewindow = require("codewindow")
-vim.keymap.set("n", "<leader>mf", codewindow.toggle_focus, { desc = "Codewindow: Focus", silent = true })
-vim.keymap.set("n", "<leader>mm", codewindow.toggle_minimap, { desc = "Codewindow: Toggle", silent = true })
+-- -- codewindow
+-- local codewindow = require("codewindow")
+-- vim.keymap.set("n", "<leader>mf", codewindow.toggle_focus, { desc = "Codewindow: Focus", silent = true })
+-- vim.keymap.set("n", "<leader>mm", codewindow.toggle_minimap, { desc = "Codewindow: Toggle", silent = true })

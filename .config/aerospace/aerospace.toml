@@ -174,8 +174,14 @@ F2 = 'secondary'
 F3 = 'secondary'
 
 ### App-Workspace assignment ### 
-# These apps seems to be opened bottom-up -- whichever is listed first in a workspace ends up at the bottom
-# if horizontal.... dunno
+# To find the app-ids: `aerospace list-apps`
+# These apps seems to be opened bottom-up -- whichever is listed first 
+#   in a workspace ends up at the bottom
+#   if horizontal.... dunno
+
+[[on-window-detected]]
+if.app-id = 'company.thebrowser.Browser'
+run = 'move-node-to-workspace F1'
 
 [[on-window-detected]]
 if.app-id = 'com.anthropic.claudefordesktop'

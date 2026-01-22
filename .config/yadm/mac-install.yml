@@ -151,7 +151,6 @@
           - quarto
           - reader
           - background-music
-          - craft
           - zoom
           - 1password-cli
           - bettertouchtool
@@ -215,6 +214,7 @@
           - 1276493162 # reMarkable
           - 1541862561 # FireShot for Safari
           - 1351639930 # Gifski
+          - 1487937127 # Craft
         state: latest
 
     # Mac Defaults
