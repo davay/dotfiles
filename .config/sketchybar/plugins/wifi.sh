@@ -1,5 +1,13 @@
-# The wifi_change event supplies a $INFO variable in which the current SSID is passed to the script.
-# WIFI=${INFO:-"Not Connected"}
+source "$CONFIG_DIR/colors.sh"
 
-WIFI="$(/System/Library/PrivateFrameworks/Apple80211.framework/Resources/airport -I  | awk -F' SSID: '  '/ SSID: / {print $2}')"
-sketchybar --set $NAME label="${WIFI}"
+# Check if wifi is connected by looking for an SSID in the network info
+WIFI_INTERFACE=$(networksetup -listallhardwareports | awk '/Wi-Fi|AirPort/{getline; print $NF}')
+WIFI_STATUS=$(ipconfig getsummary "$WIFI_INTERFACE" 2>/dev/null | grep '  SSID : ')
+
+if [ -n "$WIFI_STATUS" ]; then
+  # Connected
+  sketchybar --set $NAME icon.color=$ICON_COLOR label.drawing=off
+else
+  # Disconnected
+  sketchybar --set $NAME icon.color=$GREY label.drawing=off
+fi

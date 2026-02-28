@@ -129,17 +129,20 @@ alt-equal = 'resize smart +50'
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
 alt-f1 = 'workspace F1'
 alt-f2 = 'workspace F2'
 alt-f3 = 'workspace F3'
+alt-f4 = 'workspace F4'
 
 # See: https://nikitatbobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace --focus-follows-window 1'
 alt-shift-2 = 'move-node-to-workspace --focus-follows-window 2'
 alt-shift-3 = 'move-node-to-workspace --focus-follows-window 3'
+alt-shift-4 = 'move-node-to-workspace --focus-follows-window 4'
 alt-shift-f1 = 'move-node-to-workspace --focus-follows-window F1'
 alt-shift-f2 = 'move-node-to-workspace --focus-follows-window F2'
-alt-shift-f3 = 'move-node-to-workspace --focus-follows-window F3'
+alt-shift-f4 = 'move-node-to-workspace --focus-follows-window F4'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
@@ -163,15 +166,17 @@ alt-shift-e = 'move-node-to-workspace --focus-follows-window next'
 alt-w = 'focus-monitor --wrap-around next'
 alt-shift-w = 'move-node-to-monitor --focus-follows-window --wrap-around next'
 ctrl-space = 'layout floating tiling'
-# alt-shift-r = 'reload-config' # used for swap display
+alt-r = 'workspace-back-and-forth'
 
 [workspace-to-monitor-force-assignment]
 1 = 'main'
 2 = 'main'
 3 = 'main'
+4 = 'main'
 F1 = 'secondary'
 F2 = 'secondary'
 F3 = 'secondary'
+F4 = 'secondary'
 
 ### App-Workspace assignment ### 
 # To find the app-ids: `aerospace list-apps`
@@ -181,12 +186,16 @@ F3 = 'secondary'
 
 [[on-window-detected]]
 if.app-id = 'company.thebrowser.Browser'
-run = 'move-node-to-workspace F1'
+run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
 if.app-id = 'com.anthropic.claudefordesktop'
 if.during-aerospace-startup = true           # so quick entry works
 run = 'move-node-to-workspace F1'
+
+[[on-window-detected]]
+if.app-id = 'com.momenta.agenda.macos'
+run = 'move-node-to-workspace F2'
 
 [[on-window-detected]]
 if.app-id = 'com.lukilabs.lukiapp' # Craft...
@@ -195,12 +204,6 @@ run = 'move-node-to-workspace F2'
 [[on-window-detected]]
 if.app-id = 'io.readwise.read'
 run = 'move-node-to-workspace F2'
-
-[[on-window-detected]]
-if.app-id = 'com.momenta.agenda.macos'
-run = 'move-node-to-workspace F2'
-
-# F3 is kinda the misc space 
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
@@ -216,4 +219,4 @@ run = 'move-node-to-workspace F3'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Music'
-run = 'move-node-to-workspace F3'
+run = 'move-node-to-workspace F4'

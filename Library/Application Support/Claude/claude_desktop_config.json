@@ -5,6 +5,9 @@
     "quickEntryShortcut": {
       "accelerator": "Cmd+F1"
     },
-    "quickEntryDictationShortcut": "off"
+    "quickEntryDictationShortcut": "off",
+    "coworkScheduledTasksEnabled": false,
+    "sidebarMode": "chat",
+    "coworkWebSearchEnabled": true
   }
 }
