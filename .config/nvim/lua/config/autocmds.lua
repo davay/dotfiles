@@ -8,6 +8,19 @@
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
+-- override lazyvim's resize_splits to skip leetcode.nvim (causes window duplication)
+-- see: https://github.com/kawre/leetcode.nvim/issues/141
+vim.api.nvim_del_augroup_by_name("lazyvim_resize_splits")
+vim.api.nvim_create_autocmd("VimResized", {
+  callback = function()
+    if "leetcode.nvim" ~= vim.fn.argv(0, -1) then
+      local current_tab = vim.fn.tabpagenr()
+      vim.cmd("tabdo wincmd =")
+      vim.cmd("tabnext " .. current_tab)
+    end
+  end,
+})
+
 -- MOLTEN
 -- automatically import output chunks from a jupyter notebook
 -- tries to find a kernel that matches the kernel in the jupyter notebook

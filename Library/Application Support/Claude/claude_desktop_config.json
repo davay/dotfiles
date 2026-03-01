@@ -6,7 +6,7 @@
       "accelerator": "Cmd+F1"
     },
     "quickEntryDictationShortcut": "off",
-    "coworkScheduledTasksEnabled": false,
+    "coworkScheduledTasksEnabled": true,
     "sidebarMode": "chat",
     "coworkWebSearchEnabled": true
   }
