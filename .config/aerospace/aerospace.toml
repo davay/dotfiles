@@ -203,10 +203,6 @@ run = 'move-node-to-workspace F2'
 
 [[on-window-detected]]
 if.app-id = 'io.readwise.read'
-run = 'move-node-to-workspace F2'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.finder'
 run = 'move-node-to-workspace F3'
 
 [[on-window-detected]]
@@ -214,8 +210,12 @@ if.app-id = 'com.mimestream.Mimestream'
 run = 'move-node-to-workspace F3'
 
 [[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'move-node-to-workspace F4'
+
+[[on-window-detected]]
 if.app-id = 'com.apple.MobileSMS'
-run = 'move-node-to-workspace F3'
+run = 'move-node-to-workspace F4'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Music'

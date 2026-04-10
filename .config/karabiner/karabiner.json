@@ -23,20 +23,6 @@
                         ]
                     },
                     {
-                        "description": "Disable Cmd+H Hide (rev 2)",
-                        "enabled": false,
-                        "manipulators": [
-                            {
-                                "description": "",
-                                "from": {
-                                    "key_code": "h",
-                                    "modifiers": { "mandatory": ["command"] }
-                                },
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Command + Shift + v does special paste without formatting, equivalent to. cmd+opt+shift+v.",
                         "manipulators": [
                             {
