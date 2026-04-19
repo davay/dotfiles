@@ -58,6 +58,7 @@ alias fishc="vim ~/.config/fish/config.fish"
 # Misc aliases
 alias leetcode="nvim leetcode.nvim"
 alias reignore="git rm -r --cached . && git add ." # if you updated gitignore after committing
+alias lg="lazygit"
 
 if status is-interactive
     # Commands to run in interactive sessions can go here

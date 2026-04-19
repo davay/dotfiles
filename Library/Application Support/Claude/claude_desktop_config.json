@@ -7,8 +7,9 @@
     },
     "quickEntryDictationShortcut": "off",
     "coworkScheduledTasksEnabled": true,
+    "ccdScheduledTasksEnabled": true,
     "sidebarMode": "chat",
     "coworkWebSearchEnabled": true,
-    "ccdScheduledTasksEnabled": true
+    "floatingAtollActive": true
   }
 }
