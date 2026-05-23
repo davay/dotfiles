@@ -38,7 +38,7 @@
           - code-minimap
           - imagemagick
           - pidof
-          - neofetch
+          - fastfetch
           - pandoc
           - ripgrep
           - fd

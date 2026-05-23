@@ -13,7 +13,7 @@ clipboard-write = allow
 quick-terminal-autohide = false
 
 ### UI ###
-# theme = GruvboxDark
+# theme = Gruvbox Dark
 theme = Catppuccin Macchiato
 # theme = zenbones_light
 
