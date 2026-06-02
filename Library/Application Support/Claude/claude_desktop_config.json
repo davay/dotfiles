@@ -9,7 +9,11 @@
     "coworkScheduledTasksEnabled": true,
     "ccdScheduledTasksEnabled": true,
     "sidebarMode": "chat",
+    "bypassPermissionsGateByAccount": {
+      "b1709c03-caa0-49ef-b535-6fa9a06b42ce": false
+    },
     "coworkWebSearchEnabled": true,
+    "remoteToolsDeviceName": "da-mac",
     "epitaxyPrefs": {
       "starred-local-code-sessions": [],
       "starred-cowork-spaces": [],
@@ -19,7 +23,7 @@
         "customGroupAssignments": {},
         "customGroupOrder": {}
       }
-    },
-    "remoteToolsDeviceName": "da-mac"
-  }
+    }
+  },
+  "coworkUserFilesPath": "/Users/davay/Claude"
 }

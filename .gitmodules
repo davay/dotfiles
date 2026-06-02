@@ -4,3 +4,6 @@
 [submodule "Library/Application Support/com.mitchellh.ghostty/ghostty-shaders"]
 	path = Library/Application Support/com.mitchellh.ghostty/ghostty-shaders
 	url = https://github.com/hackr-sh/ghostty-shaders.git
+[submodule "Library/Application Support/FreeCAD/Mod/OpenTheme"]
+	path = Library/Application Support/FreeCAD/Mod/OpenTheme
+	url = https://github.com/obelisk79/OpenTheme

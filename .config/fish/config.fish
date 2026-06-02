@@ -42,6 +42,7 @@ alias cstudy="c ~/Drive/usa/study"
 alias cmutagen="c ~/Mutagen"
 alias caerospace="c ~/.config/aerospace"
 alias cfish="c ~/.config/fish"
+alias cfreecad="c ~/Library/Application\ Support/FreeCAD/"
 
 # Config aliases
 alias yadmc="vim ~/.config/yadm/bootstrap"
@@ -56,6 +57,7 @@ alias aerospacec="vim ~/.config/aerospace/aerospace.toml"
 alias fishc="vim ~/.config/fish/config.fish"
 
 # Misc aliases
+# We also have fish functions, in the fish folder
 alias leetcode="nvim leetcode.nvim"
 alias reignore="git rm -r --cached . && git add ." # if you updated gitignore after committing
 alias lg="lazygit"

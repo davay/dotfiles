@@ -162,7 +162,8 @@
           - mactex
           - kindavim
           - wooshy
-          - freecad # 3d-printing
+          - freecad # 3d printing -- dont forget to install addons
+          - whatcable # diagnostics on usbc ports lol
           - kicad # pcb
           - tuist # Xcode
           - mimestream # gmail
