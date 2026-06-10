@@ -176,6 +176,7 @@
           - pixelsnap2
           - rustdesk
           - excalidrawz
+          - blender
         state: latest
 
     # - name: "Homebrew: Start Services"

@@ -8,5 +8,5 @@ function submodule
         return 1
     end
     echo "Found URL: $url"
-    fish -c "cd ~ && yadm rm --cached -f '$rel_path' && yadm submodule add $url '$rel_path'"
+    fish -c "cd ~ && yadm rm --cached -f '$rel_path'; yadm submodule add $url '$rel_path'"
 end

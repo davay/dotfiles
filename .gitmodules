@@ -7,3 +7,9 @@
 [submodule "Library/Application Support/FreeCAD/Mod/OpenTheme"]
 	path = Library/Application Support/FreeCAD/Mod/OpenTheme
 	url = https://github.com/obelisk79/OpenTheme
+[submodule "Library/Application Support/FreeCAD/Mod/Channels"]
+	path = Library/Application Support/FreeCAD/Mod/Channels
+	url = https://github.com/mnesarco/Channels.git
+[submodule "Library/Application Support/FreeCAD/v1-1/Mod/Channels"]
+	path = Library/Application Support/FreeCAD/v1-1/Mod/Channels
+	url = https://github.com/mnesarco/Channels.git

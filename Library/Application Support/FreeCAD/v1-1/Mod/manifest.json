@@ -1,0 +1,15 @@
+{
+  "OpenTheme": {
+    "addon_id": "OpenTheme",
+    "migrated": false,
+    "first_installed": "2026-06-03T01:37:27.718317+00:00",
+    "last_updated": "2026-06-03T01:37:27.718328+00:00",
+    "branch_display_name": "main",
+    "extra_files": [],
+    "freecad_version": [
+      "1",
+      "1",
+      "1"
+    ]
+  }
+}

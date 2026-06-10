@@ -1,6 +1,7 @@
 {
   "globalShortcut": "Cmd+F1",
   "mcpServers": {},
+  "coworkUserFilesPath": "/Users/davay/Claude",
   "preferences": {
     "quickEntryShortcut": {
       "accelerator": "Cmd+F1"
@@ -23,7 +24,9 @@
         "customGroupAssignments": {},
         "customGroupOrder": {}
       }
+    },
+    "coworkModelAutoFallbackByAccount": {
+      "b1709c03-caa0-49ef-b535-6fa9a06b42ce": true
     }
-  },
-  "coworkUserFilesPath": "/Users/davay/Claude"
+  }
 }

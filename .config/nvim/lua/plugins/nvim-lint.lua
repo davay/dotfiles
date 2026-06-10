@@ -4,5 +4,11 @@ return {
     linters_by_ft = {
       swift = { "swiftlint" },
     },
+    linters = {
+      ["markdownlint-cli2"] = {
+        prepend_args = { "--config", vim.fn.stdpath("config") .. "/.markdownlint.yaml", "--" },
+      },
+    },
   },
 }
+
