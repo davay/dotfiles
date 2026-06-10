@@ -6,9 +6,8 @@ return {
     },
     linters = {
       ["markdownlint-cli2"] = {
-        prepend_args = { "--config", vim.fn.stdpath("config") .. "/.markdownlint.yaml", "--" },
+        prepend_args = { "--config", vim.fn.expand("~/.markdownlint.yaml"), "--" },
       },
     },
   },
 }
-

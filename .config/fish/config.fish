@@ -43,6 +43,7 @@ alias cmutagen="c ~/Mutagen"
 alias caerospace="c ~/.config/aerospace"
 alias cfish="c ~/.config/fish"
 alias cfreecad="c ~/Library/Application\ Support/FreeCAD/"
+alias cclaude="c ~/.claude/"
 
 # Config aliases
 alias yadmc="vim ~/.config/yadm/bootstrap"
@@ -55,6 +56,7 @@ alias kittyc="vim ~/.config/kitty/kitty.conf"
 alias ghosttyc="vim ~/Library/Application\ Support/com.mitchellh.ghostty/config"
 alias aerospacec="vim ~/.config/aerospace/aerospace.toml"
 alias fishc="vim ~/.config/fish/config.fish"
+alias claudec="vim ~/.claude/CLAUDE.md"
 
 # Misc aliases
 # We also have fish functions, in the fish folder
