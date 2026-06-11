@@ -129,6 +129,11 @@ vim.keymap.set("n", "<localleader>b", xcodebuild.toggle_breakpoint, { desc = "To
 vim.keymap.set("n", "<localleader>B", xcodebuild.toggle_message_breakpoint, { desc = "Toggle Message Breakpoint" })
 vim.keymap.set("n", "<localleader>dx", xcodebuild.terminate_session, { desc = "Terminate Debugger" })
 
+-- wrapping
+vim.keymap.set("n", "<localleader>ws", function() require("wrapping").soft_wrap_mode() end, { desc = "Wrap: Soft Mode", silent = true })
+vim.keymap.set("n", "<localleader>wh", function() require("wrapping").hard_wrap_mode() end, { desc = "Wrap: Hard Mode", silent = true })
+vim.keymap.set("n", "<localleader>wt", function() require("wrapping").toggle_wrap_mode() end, { desc = "Wrap: Toggle", silent = true })
+
 -- -- codewindow
 -- local codewindow = require("codewindow")
 -- vim.keymap.set("n", "<leader>mf", codewindow.toggle_focus, { desc = "Codewindow: Focus", silent = true })

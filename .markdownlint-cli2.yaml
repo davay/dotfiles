@@ -4,11 +4,15 @@ config:
   # Enable all rules by default
   default: true
 
-  # Note: Auto-fix is done by making this linter a formatter in conform.lua
+  # Note: Auto-fix is done by making this linter a formatter in conform.lua.
   # This is because, if we set it here, even though the linter fixes the file
-  #   on disk, nvim doesn't automatically reload the buffer
+  #   on disk, nvim doesn't automatically reload the buffer.
 
-  # Note 2:
+  # Note 2: We tried using prettier and mdformat for auto hard wrapping, but its a headache.
+  # Only concern is because of molten.nvim image bug (well this is more image.nvim which is used by molten),
+  #   but theres a new plugin called pyrola.nvim that I can try.
+  # Alternatively, apparently folke/snacks fixed this with their pictures in markdown not shifting, but
+  #   not sure how it works with molten.
 
   # Line length
   MD013:

@@ -7,6 +7,7 @@ return {
       { "<localleader>j", group = "jupyter" },
       { "<localleader>x", group = "xcode" },
       { "<localleader>d", group = "debug" },
+      { "<localleader>w", group = "wrap" },
     },
   },
 }

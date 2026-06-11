@@ -63,6 +63,8 @@ alias claudec="vim ~/.claude/CLAUDE.md"
 alias leetcode="nvim leetcode.nvim"
 alias reignore="git rm -r --cached . && git add ." # if you updated gitignore after committing
 alias lg="lazygit"
+alias ylg="lazygit --git-dir=$HOME/.local/share/yadm/repo.git --work-tree=$HOME"
+alias cpwd="pwd | pbcopy"
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
