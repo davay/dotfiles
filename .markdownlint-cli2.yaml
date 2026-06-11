@@ -1,0 +1,21 @@
+fix: true
+
+config:
+  # Enable all rules by default
+  default: true
+
+  # Note: Auto-fix is done by making this linter a formatter in conform.lua
+  # This is because, if we set it here, even though the linter fixes the file
+  #   on disk, nvim doesn't automatically reload the buffer
+
+  # Note 2:
+
+  # Line length
+  MD013:
+    # Max line length
+    line_length: 120
+
+    # Common things to go over limit
+    code_blocks: false
+    tables: false
+    headings: false
