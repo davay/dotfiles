@@ -9,11 +9,13 @@
 
   tasks:
     - name: "Homebrew: Add taps"
+      # WARNING: Homebrew 6.0.0 added trusts and all of these must be trusted manually now, TODO
       community.general.homebrew_tap:
         name:
           - koekeishiya/formulae
           - felixkratz/formulae
           - hashicorp/tap
+          - eigenwallet/eigenwallet
 
     - name: "Homebrew: Install packages"
       community.general.homebrew:
@@ -93,6 +95,9 @@
           - xcbeautify
           - insta360-link-controller
           - tree-sitter-cli # this keeps treesitter/-cli updated, otherwise swift ts can't be installed
+          - fastfetch # replaces deprecated neofetch
+          # - eigenwallet # need to trust: `brew trust eigenwallet/eigenwallet`
+          - adguard
         state: latest
         update_homebrew: yes
 
@@ -142,7 +147,6 @@
           - iina
           - pycharm
           - tableau
-          - alt-tab
           - slack
           - webcatalog
           - copilot
@@ -175,8 +179,14 @@
           - nikitabobko/tap/aerospace
           - pixelsnap2
           - rustdesk
-          - excalidrawz
           - blender
+          - signal
+          - whatsapp
+          - omnifocus
+          - heptabase
+          - openscad@snapshot
+          - twine-app
+          - naps2
         state: latest
 
     # - name: "Homebrew: Start Services"
@@ -192,7 +202,7 @@
     - name: "Cargo: Install Rust Packages"
       community.general.cargo:
         name:
-          - wallust
+          - wallust # might be unused now
           - tree-sitter-cli # To auto install TS parsers
 
     - name: "Mac App Store: Install apps"
@@ -217,6 +227,10 @@
           - 1541862561 # FireShot for Safari
           - 1351639930 # Gifski
           - 1487937127 # Craft
+          - 775737590 # iA Writer
+          - 6636493997 # ExcalidrawZ
+          - 6746414429 # iA Presenter
+          - 640199958 # Apple Developer
         state: latest
 
     # Mac Defaults

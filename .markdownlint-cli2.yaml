@@ -15,11 +15,15 @@ config:
   #   not sure how it works with molten.
 
   # Line length
-  MD013:
-    # Max line length
-    line_length: 120
+  MD013: false
 
-    # Common things to go over limit
-    code_blocks: false
-    tables: false
-    headings: false
+  # # Max line length
+  # line_length: 120
+  #
+  # # Common things to go over limit
+  # code_blocks: false
+  # tables: false
+  # headings: false
+
+  # Ordered list item prefix (breaks if there's a gap in a list)
+  MD029: false

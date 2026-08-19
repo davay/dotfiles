@@ -130,19 +130,28 @@ alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
 alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
 alt-f1 = 'workspace F1'
 alt-f2 = 'workspace F2'
 alt-f3 = 'workspace F3'
 alt-f4 = 'workspace F4'
+alt-f5 = 'workspace F5'
+alt-f6 = 'workspace F6'
 
 # See: https://nikitatbobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace --focus-follows-window 1'
 alt-shift-2 = 'move-node-to-workspace --focus-follows-window 2'
 alt-shift-3 = 'move-node-to-workspace --focus-follows-window 3'
 alt-shift-4 = 'move-node-to-workspace --focus-follows-window 4'
+alt-shift-5 = 'move-node-to-workspace --focus-follows-window 5'
+alt-shift-6 = 'move-node-to-workspace --focus-follows-window 6'
 alt-shift-f1 = 'move-node-to-workspace --focus-follows-window F1'
 alt-shift-f2 = 'move-node-to-workspace --focus-follows-window F2'
+alt-shift-f3 = 'move-node-to-workspace --focus-follows-window F3'
 alt-shift-f4 = 'move-node-to-workspace --focus-follows-window F4'
+alt-shift-f5 = 'move-node-to-workspace --focus-follows-window F5'
+alt-shift-f6 = 'move-node-to-workspace --focus-follows-window F6'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
@@ -164,6 +173,7 @@ alt-shift-q = 'move-node-to-workspace --focus-follows-window prev'
 alt-e = 'workspace next'
 alt-shift-e = 'move-node-to-workspace --focus-follows-window next'
 alt-w = 'focus-monitor --wrap-around next'
+alt-esc = 'focus-monitor --wrap-around next'
 alt-shift-w = 'move-node-to-monitor --focus-follows-window --wrap-around next'
 ctrl-space = 'layout floating tiling'
 alt-r = 'workspace-back-and-forth'
@@ -173,10 +183,14 @@ alt-r = 'workspace-back-and-forth'
 2 = 'main'
 3 = 'main'
 4 = 'main'
+5 = 'main'
+6 = 'main'
 F1 = 'secondary'
 F2 = 'secondary'
 F3 = 'secondary'
 F4 = 'secondary'
+F5 = 'secondary'
+F6 = 'secondary'
 
 ### App-Workspace assignment ### 
 # To find the app-ids: `aerospace list-apps`
@@ -184,9 +198,13 @@ F4 = 'secondary'
 #   in a workspace ends up at the bottom
 #   if horizontal.... dunno
 
+# [[on-window-detected]]
+# if.app-id = 'company.thebrowser.Browser'
+# run = 'move-node-to-workspace 1'
+
 [[on-window-detected]]
-if.app-id = 'company.thebrowser.Browser'
-run = 'move-node-to-workspace 1'
+if.app-id = 'com.momenta.agenda.macos'
+run = 'move-node-to-workspace F1'
 
 [[on-window-detected]]
 if.app-id = 'com.anthropic.claudefordesktop'
@@ -194,29 +212,34 @@ if.during-aerospace-startup = true           # so quick entry works
 run = 'move-node-to-workspace F1'
 
 [[on-window-detected]]
-if.app-id = 'com.momenta.agenda.macos'
-run = 'move-node-to-workspace F2'
-
-[[on-window-detected]]
-if.app-id = 'com.lukilabs.lukiapp' # Craft...
+if.app-id = 'com.omnigroup.OmniFocus4' 
 run = 'move-node-to-workspace F2'
 
 [[on-window-detected]]
 if.app-id = 'io.readwise.read'
-run = 'move-node-to-workspace F3'
+run = 'move-node-to-workspace F2'
+
 
 [[on-window-detected]]
 if.app-id = 'com.mimestream.Mimestream'
-run = 'move-node-to-workspace F3'
+run = 'move-node-to-workspace F4'
 
 [[on-window-detected]]
-if.app-id = 'com.apple.finder'
-run = 'move-node-to-workspace F4'
+if.app-id = 'com.hnc.Discord'
+run = 'move-node-to-workspace F5'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.MobileSMS'
-run = 'move-node-to-workspace F4'
+run = 'move-node-to-workspace F5'
+
+[[on-window-detected]]
+if.app-id = 'net.whatsapp.WhatsApp'
+run = 'move-node-to-workspace F5'
+
+[[on-window-detected]]
+if.app-id = 'org.whispersystems.signal-desktop'
+run = 'move-node-to-workspace F5'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Music'
-run = 'move-node-to-workspace F4'
+run = 'move-node-to-workspace F6'

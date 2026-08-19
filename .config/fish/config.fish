@@ -44,6 +44,7 @@ alias caerospace="c ~/.config/aerospace"
 alias cfish="c ~/.config/fish"
 alias cfreecad="c ~/Library/Application\ Support/FreeCAD/"
 alias cclaude="c ~/.claude/"
+alias cwriter="c /Users/davay/Library/Mobile\ Documents/27N4MQEA55~pro~writer/Documents/"
 
 # Config aliases
 alias yadmc="vim ~/.config/yadm/bootstrap"
@@ -57,6 +58,12 @@ alias ghosttyc="vim ~/Library/Application\ Support/com.mitchellh.ghostty/config"
 alias aerospacec="vim ~/.config/aerospace/aerospace.toml"
 alias fishc="vim ~/.config/fish/config.fish"
 alias claudec="vim ~/.claude/CLAUDE.md"
+
+# Read aliases -- to open certain files we sometimes need specific programs, hard to remember
+
+# NOTE: TUI OPTION IS BUGGED WITH WRAP - NO WRAPPING
+# FIX SUPER SOON TO BE RELESAED, CHECKED IN
+alias readmd="glow -w 100"
 
 # Misc aliases
 # We also have fish functions, in the fish folder

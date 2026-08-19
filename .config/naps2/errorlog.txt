@@ -1,0 +1,4 @@
+2026-08-19 12:21:59.5336 7847 An error occurred when trying to save the file. System.ArgumentException: Could not infer file format from extension: 2026-08-19_122159_scan
+   at bool NAPS2.ImportExport.Images.SaveImagesOperation.Start(string fileName, Placeholders placeholders, IList<ProcessedImage> images, ImageSettings imageSettings, string overwriteFile, bool batch)+() => { } [0]
+2026-08-19 12:22:40.9052 10421 An error occurred when trying to save the file. System.ArgumentException: Could not infer file format from extension: 2026-08-19_122240_scan
+   at bool NAPS2.ImportExport.Images.SaveImagesOperation.Start(string fileName, Placeholders placeholders, IList<ProcessedImage> images, ImageSettings imageSettings, string overwriteFile, bool batch)+() => { } [0]

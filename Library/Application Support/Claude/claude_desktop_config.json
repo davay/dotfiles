@@ -3,17 +3,29 @@
   "mcpServers": {},
   "coworkUserFilesPath": "/Users/davay/Claude",
   "preferences": {
+    "chromeExtensionEnabled": true,
     "quickEntryShortcut": {
       "accelerator": "Cmd+F1"
     },
     "quickEntryDictationShortcut": "off",
+    "launchPreviewPersistedWorkspaces": [],
+    "launchPreviewSessionScopedSessions": [],
+    "allowAllBrowserActions": true,
+    "dispatchCodeTasksPermissionMode": "default",
     "coworkScheduledTasksEnabled": true,
+    "coworkHipaaRestricted": false,
     "ccdScheduledTasksEnabled": true,
     "sidebarMode": "chat",
     "bypassPermissionsGateByAccount": {
       "b1709c03-caa0-49ef-b535-6fa9a06b42ce": false
     },
     "coworkWebSearchEnabled": true,
+    "coworkModelAutoFallbackByAccount": {
+      "b1709c03-caa0-49ef-b535-6fa9a06b42ce": true
+    },
+    "keepAwakeEnabled": true,
+    "coworkOnboardingResumeStep": null,
+    "chicagoEnabled": true,
     "remoteToolsDeviceName": "da-mac",
     "epitaxyPrefs": {
       "starred-local-code-sessions": [],
@@ -21,12 +33,24 @@
       "starred-session-groups": [],
       "dframe-local-slice": {
         "pinnedOrder": [],
-        "customGroupAssignments": {},
-        "customGroupOrder": {}
-      }
-    },
-    "coworkModelAutoFallbackByAccount": {
-      "b1709c03-caa0-49ef-b535-6fa9a06b42ce": true
+        "homeProjectsPinnedOrder": []
+      },
+      "desktop-frame.paneStore.v1": {
+        "state": {
+          "extraPanesByMode": {},
+          "colWeightsByMode": {},
+          "rowSplit": 0.5,
+          "draftNonce": 0
+        },
+        "version": 4
+      },
+      "ccd-sessions-filter": {
+        "state": {
+          "selectedProjects": []
+        },
+        "version": 0
+      },
+      "dframe-group-scopes": {}
     }
   }
 }

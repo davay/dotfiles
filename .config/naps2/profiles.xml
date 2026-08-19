@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfScanProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ScanProfile>
+    <Version>2</Version>
+    <Device>
+      <ID>e3248000-80ce-11db-8000-3c2af48bc4b7</ID>
+      <Name>Brother MFC-L2750DW series (192.168.4.48)</Name>
+      <IconUri>http://BRW802BF99FB895.local./icons/device-icons-128.png</IconUri>
+      <ConnectionUri>http://BRW802BF99FB895.local:80/eSCL</ConnectionUri>
+    </Device>
+    <Caps>
+      <PaperSources>Glass,Feeder,Duplex</PaperSources>
+      <FeederCheck>true</FeederCheck>
+      <Glass>
+        <ScanArea>8.5x11.69 in</ScanArea>
+        <Resolutions>100,200,300,600</Resolutions>
+      </Glass>
+      <Feeder>
+        <ScanArea>8.5x14 in</ScanArea>
+        <Resolutions>100,200,300,600</Resolutions>
+      </Feeder>
+      <Duplex>
+        <ScanArea>8.5x14 in</ScanArea>
+        <Resolutions>100,200,300,600</Resolutions>
+      </Duplex>
+    </Caps>
+    <DriverName>escl</DriverName>
+    <DisplayName>Brother MFC-L2750DW (ESCL, Glass, A6, 1200 DPI)</DisplayName>
+    <IconID>0</IconID>
+    <MaxQuality>false</MaxQuality>
+    <IsDefault>true</IsDefault>
+    <UseNativeUI>false</UseNativeUI>
+    <AfterScanScale>OneToOne</AfterScanScale>
+    <Brightness>0</Brightness>
+    <Contrast>0</Contrast>
+    <BitDepth>C24Bit</BitDepth>
+    <PageAlign>Right</PageAlign>
+    <PageSize>Custom</PageSize>
+    <CustomPageSizeName>A6</CustomPageSizeName>
+    <CustomPageSize>
+      <Width>4.134</Width>
+      <Height>5.827</Height>
+      <Unit>Inch</Unit>
+    </CustomPageSize>
+    <Resolution>Dpi1200</Resolution>
+    <PaperSource>Glass</PaperSource>
+    <EnableAutoSave>true</EnableAutoSave>
+    <AutoSaveSettings>
+      <FilePath>$(YYYY)-$(MM)-$(DD)_$(hh)$(mm)$(ss)_scan</FilePath>
+      <PromptForFilePath>false</PromptForFilePath>
+      <ClearImagesAfterSaving>false</ClearImagesAfterSaving>
+      <Separator>FilePerScan</Separator>
+    </AutoSaveSettings>
+    <Quality>75</Quality>
+    <AutoDeskew>false</AutoDeskew>
+    <RotateDegrees>0</RotateDegrees>
+    <BrightnessContrastAfterScan>false</BrightnessContrastAfterScan>
+    <ForcePageSize>false</ForcePageSize>
+    <ForcePageSizeCrop>false</ForcePageSizeCrop>
+    <TwainImpl>Default</TwainImpl>
+    <TwainProgress>false</TwainProgress>
+    <ExcludeBlankPages>false</ExcludeBlankPages>
+    <BlankPageWhiteThreshold>70</BlankPageWhiteThreshold>
+    <BlankPageCoverageThreshold>15</BlankPageCoverageThreshold>
+    <WiaOffsetWidth>false</WiaOffsetWidth>
+    <WiaRetryOnFailure>false</WiaRetryOnFailure>
+    <WiaDelayBetweenScans>false</WiaDelayBetweenScans>
+    <WiaDelayBetweenScansSeconds>2</WiaDelayBetweenScansSeconds>
+    <WiaVersion>Default</WiaVersion>
+    <FlipDuplexedPages>false</FlipDuplexedPages>
+    <KeyValueOptions xsi:nil="true" />
+  </ScanProfile>
+</ArrayOfScanProfile>
