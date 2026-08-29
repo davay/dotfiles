@@ -45,6 +45,7 @@ alias cfish="c ~/.config/fish"
 alias cfreecad="c ~/Library/Application\ Support/FreeCAD/"
 alias cclaude="c ~/.claude/"
 alias cwriter="c /Users/davay/Library/Mobile\ Documents/27N4MQEA55~pro~writer/Documents/"
+alias crecycle="c ~/Recycle"
 
 # Config aliases
 alias yadmc="vim ~/.config/yadm/bootstrap"
@@ -71,7 +72,15 @@ alias leetcode="nvim leetcode.nvim"
 alias reignore="git rm -r --cached . && git add ." # if you updated gitignore after committing
 alias lg="lazygit"
 alias ylg="lazygit --git-dir=$HOME/.local/share/yadm/repo.git --work-tree=$HOME"
-alias cpwd="pwd | pbcopy"
+
+# Clipboard aliases
+alias pbpwd="pwd | pbcopy"
+
+function pbfile
+    realpath $argv | pbcopy
+end
+
+# 
 
 if status is-interactive
     # Commands to run in interactive sessions can go here

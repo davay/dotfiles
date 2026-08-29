@@ -8,6 +8,8 @@
       "accelerator": "Cmd+F1"
     },
     "quickEntryDictationShortcut": "off",
+    "coworkBrowserToolsEnabled": true,
+    "coworkPreferredBrowser": "built_in",
     "launchPreviewPersistedWorkspaces": [],
     "launchPreviewSessionScopedSessions": [],
     "allowAllBrowserActions": true,
@@ -51,6 +53,7 @@
         "version": 0
       },
       "dframe-group-scopes": {}
-    }
+    },
+    "orgWorkAcrossAppsDisabled": false
   }
 }

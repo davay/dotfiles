@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+#
+# check-repos.sh — report which subfolders (git repos) have pending changes.
+#
+# "Pending" means any of:
+#   - uncommitted changes (modified/staged/untracked files)
+#   - local commits not yet pushed to the upstream branch
+#
+# Usage:
+#   ./check-repos.sh            # check subfolders of the current directory
+#   ./check-repos.sh <dir>      # check subfolders of <dir>
+
+set -u
+
+root="${1:-.}"
+
+# Colors (only if stdout is a terminal)
+if [ -t 1 ]; then
+  red=$'\e[31m'; green=$'\e[32m'; yellow=$'\e[33m'; dim=$'\e[2m'; reset=$'\e[0m'
+else
+  red=''; green=''; yellow=''; dim=''; reset=''
+fi
+
+dirty_count=0
+clean_count=0
+
+for dir in "$root"/*/; do
+  [ -d "$dir" ] || continue
+  name=$(basename "$dir")
+
+  if [ ! -d "$dir/.git" ]; then
+    printf '%s%-24s not a git repo%s\n' "$dim" "$name" "$reset"
+    continue
+  fi
+
+  # Collect reasons this repo is "pending".
+  reasons=()
+
+  # Uncommitted / untracked changes
+  if [ -n "$(git -C "$dir" status --porcelain 2>/dev/null)" ]; then
+    reasons+=("uncommitted changes")
+  fi
+
+  # Unpushed commits (only if an upstream is configured)
+  if git -C "$dir" rev-parse --abbrev-ref --symbolic-full-name '@{upstream}' >/dev/null 2>&1; then
+    ahead=$(git -C "$dir" rev-list --count '@{upstream}..HEAD' 2>/dev/null)
+    if [ "${ahead:-0}" -gt 0 ]; then
+      reasons+=("$ahead unpushed commit(s)")
+    fi
+  fi
+
+  if [ ${#reasons[@]} -gt 0 ]; then
+    dirty_count=$((dirty_count + 1))
+    printf '%s%-24s %s%s\n' "$yellow" "$name" "$(IFS=', '; echo "${reasons[*]}")" "$reset"
+  else
+    clean_count=$((clean_count + 1))
+    printf '%s%-24s clean%s\n' "$green" "$name" "$reset"
+  fi
+done
+
+echo
+if [ "$dirty_count" -gt 0 ]; then
+  printf '%s%d repo(s) with pending changes%s, %d clean.\n' "$red" "$dirty_count" "$reset" "$clean_count"
+else
+  printf '%sAll %d repo(s) clean.%s\n' "$green" "$clean_count" "$reset"
+fi

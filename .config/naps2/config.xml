@@ -6,7 +6,67 @@
   <Version>3</Version>
   <FormStates>
     <FormState>
+      <Name>PageSizeForm</Name>
+      <Location>
+        <X>1104</X>
+        <Y>316</Y>
+      </Location>
+      <Size>
+        <Width>0</Width>
+        <Height>0</Height>
+      </Size>
+      <Maximized>false</Maximized>
+    </FormState>
+    <FormState>
+      <Name>PlaceholdersForm</Name>
+      <Location>
+        <X>1232</X>
+        <Y>530</Y>
+      </Location>
+      <Size>
+        <Width>0</Width>
+        <Height>0</Height>
+      </Size>
+      <Maximized>false</Maximized>
+    </FormState>
+    <FormState>
+      <Name>AutoSaveSettingsForm</Name>
+      <Location>
+        <X>1157</X>
+        <Y>317</Y>
+      </Location>
+      <Size>
+        <Width>0</Width>
+        <Height>0</Height>
+      </Size>
+      <Maximized>false</Maximized>
+    </FormState>
+    <FormState>
       <Name>ChooseDeviceForm</Name>
+      <Location>
+        <X>0</X>
+        <Y>0</Y>
+      </Location>
+      <Size>
+        <Width>0</Width>
+        <Height>0</Height>
+      </Size>
+      <Maximized>false</Maximized>
+    </FormState>
+    <FormState>
+      <Name>EditProfileForm</Name>
+      <Location>
+        <X>-827</X>
+        <Y>-231</Y>
+      </Location>
+      <Size>
+        <Width>484</Width>
+        <Height>427</Height>
+      </Size>
+      <Maximized>false</Maximized>
+    </FormState>
+    <FormState>
+      <Name>RotateForm</Name>
       <Location>
         <X>0</X>
         <Y>0</Y>
@@ -30,80 +90,32 @@
       <Maximized>false</Maximized>
     </FormState>
     <FormState>
-      <Name>PageSizeForm</Name>
+      <Name>MacPreviewForm</Name>
       <Location>
-        <X>1104</X>
-        <Y>316</Y>
+        <X>8</X>
+        <Y>16</Y>
       </Location>
       <Size>
-        <Width>0</Width>
-        <Height>0</Height>
-      </Size>
-      <Maximized>false</Maximized>
-    </FormState>
-    <FormState>
-      <Name>PlaceholdersForm</Name>
-      <Location>
-        <X>0</X>
-        <Y>0</Y>
-      </Location>
-      <Size>
-        <Width>0</Width>
-        <Height>0</Height>
+        <Width>2544</Width>
+        <Height>1340</Height>
       </Size>
       <Maximized>false</Maximized>
     </FormState>
     <FormState>
       <Name>MacDesktopForm</Name>
       <Location>
-        <X>1284</X>
+        <X>1296</X>
         <Y>40</Y>
       </Location>
       <Size>
-        <Width>1268</Width>
-        <Height>1391</Height>
+        <Width>600</Width>
+        <Height>1068</Height>
       </Size>
-      <Maximized>false</Maximized>
-    </FormState>
-    <FormState>
-      <Name>AutoSaveSettingsForm</Name>
-      <Location>
-        <X>1157</X>
-        <Y>317</Y>
-      </Location>
-      <Size>
-        <Width>0</Width>
-        <Height>0</Height>
-      </Size>
-      <Maximized>false</Maximized>
-    </FormState>
-    <FormState>
-      <Name>EditProfileForm</Name>
-      <Location>
-        <X>1091</X>
-        <Y>251</Y>
-      </Location>
-      <Size>
-        <Width>484</Width>
-        <Height>428</Height>
-      </Size>
-      <Maximized>false</Maximized>
-    </FormState>
-    <FormState>
-      <Name>MacPreviewForm</Name>
-      <Location>
-        <X>887</X>
-        <Y>220</Y>
-      </Location>
-      <Size>
-        <Width>0</Width>
-        <Height>0</Height>
-      </Size>
-      <Maximized>false</Maximized>
+      <Maximized>true</Maximized>
     </FormState>
   </FormStates>
   <SidebarWidth>328</SidebarWidth>
-  <LastCustomResolution>1200</LastCustomResolution>
+  <LastCustomResolution>150</LastCustomResolution>
   <CustomPageSizePresets>
     <NamedPageSize>
       <Name>A6</Name>
@@ -124,4 +136,5 @@
   <BackgroundOperations>
     <String>ScanOperation</String>
   </BackgroundOperations>
+  <ThumbnailSize>907</ThumbnailSize>
 </UserConfig>

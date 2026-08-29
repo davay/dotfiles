@@ -16,8 +16,9 @@ quick-terminal-autohide = false
 # theme = Gruvbox Dark
 theme = Catppuccin Macchiato
 # theme = zenbones_light
+# theme = Retro
 
-#custom-shader = ghostty-shaders/in-game-crt.glsl
+# custom-shader = ghostty-shaders/in-game-crt.glsl
 keybind = shift+enter=text:\n
 keybind = cmd+/=equalize_splits
 keybind = cmd+h=goto_split:previous

@@ -2,3 +2,21 @@
    at bool NAPS2.ImportExport.Images.SaveImagesOperation.Start(string fileName, Placeholders placeholders, IList<ProcessedImage> images, ImageSettings imageSettings, string overwriteFile, bool batch)+() => { } [0]
 2026-08-19 12:22:40.9052 10421 An error occurred when trying to save the file. System.ArgumentException: Could not infer file format from extension: 2026-08-19_122240_scan
    at bool NAPS2.ImportExport.Images.SaveImagesOperation.Start(string fileName, Placeholders placeholders, IList<ProcessedImage> images, ImageSettings imageSettings, string overwriteFile, bool batch)+() => { } [0]
+2026-08-19 12:30:58.3350 13299 An error occurred when trying to save the file. System.ArgumentException: Could not infer file format from extension: 2026-08-19_123058_scan
+   at bool NAPS2.ImportExport.Images.SaveImagesOperation.Start(string fileName, Placeholders placeholders, IList<ProcessedImage> images, ImageSettings imageSettings, string overwriteFile, bool batch)+() => { } [0]
+2026-08-19 12:32:45.7415 13299 An error occurred when trying to save the file. System.ArgumentException: Could not infer file format from extension: /Users/davay/Desktop/2026-08-19_123245_scan
+   at bool NAPS2.ImportExport.Images.SaveImagesOperation.Start(string fileName, Placeholders placeholders, IList<ProcessedImage> images, ImageSettings imageSettings, string overwriteFile, bool batch)+() => { } [0]
+2026-08-19 12:33:39.8188 13299 An error occurred when trying to save the file. System.ArgumentException: Could not infer file format from extension: "/Users/davay/Desktop/2026-08-19_123339_scan"
+   at bool NAPS2.ImportExport.Images.SaveImagesOperation.Start(string fileName, Placeholders placeholders, IList<ProcessedImage> images, ImageSettings imageSettings, string overwriteFile, bool batch)+() => { } [0]
+2026-08-19 12:35:19.5291 13299 An error occurred when trying to save the file. System.ArgumentException: Could not infer file format from extension: /Users/davay/Desktop/2026-08-19_123519_scan
+   at bool NAPS2.ImportExport.Images.SaveImagesOperation.Start(string fileName, Placeholders placeholders, IList<ProcessedImage> images, ImageSettings imageSettings, string overwriteFile, bool batch)+() => { } [0]
+2026-08-19 12:40:40.2041 16066 An error occurred when trying to save the file. System.ArgumentException: Could not infer file format from extension: /Users/davay/Desktop/2026-08-19_124040_scan
+   at bool NAPS2.ImportExport.Images.SaveImagesOperation.Start(string fileName, Placeholders placeholders, IList<ProcessedImage> images, ImageSettings imageSettings, string overwriteFile, bool batch)+() => { } [0]
+2026-08-19 12:59:47.6128 16066 An error occurred when trying to save the file. System.ArgumentException: Could not infer file format from extension: /Users/davay/Desktop/2026-08-19_125947_scan
+   at bool NAPS2.ImportExport.Images.SaveImagesOperation.Start(string fileName, Placeholders placeholders, IList<ProcessedImage> images, ImageSettings imageSettings, string overwriteFile, bool batch)+() => { } [0]
+2026-08-19 13:00:30.3574 16066 An error occurred when trying to save the file. System.ArgumentException: Could not infer file format from extension: /Users/davay/Desktop/2026-08-19_130030_scan
+   at bool NAPS2.ImportExport.Images.SaveImagesOperation.Start(string fileName, Placeholders placeholders, IList<ProcessedImage> images, ImageSettings imageSettings, string overwriteFile, bool batch)+() => { } [0]
+2026-08-20 15:09:51.8055 70628 An error occurred when trying to save the file. System.ArgumentException: Could not infer file format from extension: /Users/davay/Desktop/2026-08-20_150951_scan
+   at bool NAPS2.ImportExport.Images.SaveImagesOperation.Start(string fileName, Placeholders placeholders, IList<ProcessedImage> images, ImageSettings imageSettings, string overwriteFile, bool batch)+() => { } [0]
+2026-08-20 15:10:29.5983 70628 An error occurred when trying to save the file. System.ArgumentException: Could not infer file format from extension: /Users/davay/Desktop/2026-08-20_151029_scan
+   at bool NAPS2.ImportExport.Images.SaveImagesOperation.Start(string fileName, Placeholders placeholders, IList<ProcessedImage> images, ImageSettings imageSettings, string overwriteFile, bool batch)+() => { } [0]
