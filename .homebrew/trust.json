@@ -1,0 +1,25 @@
+{
+  "trustedtaps": [
+    "asmvik/formulae",
+    "azure/functions",
+    "eigenwallet/eigenwallet",
+    "jesseduffield/lazygit",
+    "joshfrench/arduino-language-server",
+    "visidata/vd"
+  ],
+  "trustedformulae": [
+    "azure/functions/azure-functions-core-tools@4",
+    "charmbracelet/tap/mods",
+    "felixkratz/formulae/borders",
+    "felixkratz/formulae/sketchybar",
+    "hashicorp/tap/terraform",
+    "mutagen-io/mutagen/mutagen",
+    "oven-sh/bun/bun",
+    "xo/xo/usql"
+  ],
+  "trustedcasks": [
+    "he3-app/he3/he3",
+    "nikitabobko/tap/aerospace",
+    "shaunsingh/sfmono-nerd-font-ligaturized/font-sf-mono-nerd-font-ligaturized"
+  ]
+}

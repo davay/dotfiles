@@ -1,49 +1,43 @@
 #!/bin/sh -x
 set -e # exit on any error
 
-# Because Git submodule commands cannot operate without a work tree, they must
-# be run from within $HOME (assuming this is the root of your dotfiles)
-cd $HOME
+# because git submodule commands can't operate without a work tree, they must be run from within $HOME
+cd "$HOME"
+
+# Cache sudo credentials (on MacOS.. ~5 mins?)
+# - refreshes cache every 60s
+# - self-terminates once this script ($$) exits
+sudo -v
+while true; do
+  sudo -n true
+  sleep 60
+  kill -0 "$$" 2>/dev/null || exit
+done &
+SUDO_KEEPALIVE_PID=$!
+
+### Automated Section ###
+
 echo "Init submodules"
 yadm submodule update --recursive --init
-
-# Rosetta
-yes A | softwareupdate --install-rosetta
+yes A | softwareupdate --install-rosetta # still needed once in a while
 
 # Ansible
 brew install ansible
 ansible-galaxy install -r ~/.config/yadm/requirements.yml
-ansible-playbook -vv ~/.config/yadm/mac-install.yml -i ~/.config/yadm/inventory --ask-become-pass
-
-# Import defaults, I don't think just backing them up works
-for plist in ~/.config/yadm/plist/*.plist; do
-    if [ -f "$plist" ]; then
-        filename=$(basename "$plist")
-        domain="${filename%.*}"
-        defaults import "$domain" "$plist"
-        echo "Imported defaults for $domain"
-    fi
-done
+ansible-playbook -vv ~/.config/yadm/mac-install.yml -i ~/.config/yadm/inventory
 
 # Disable sound effects on boot
 sudo nvram StartupMute=%01
 
 # Fonts
-# sudo cp ~/.config/yadm/fonts/* /Library/Fonts/.
 brew search '/font-.*-nerd-font/' | awk '{ print $1 }' | xargs -I{} brew install --cask {} || true
+sudo cp ~/.config/yadm/fonts/* /Library/Fonts/.
 
 # Create the option to allow apps from anywhere in settings
-# ""|| true" so script doesn't exit, 
+# ""|| true" so script doesn't exit,
 # Since this always throws an error saying:
 # "Globally disabling the assessment system needs to be confirmed in System Settings."
 sudo spctl --global-disable || true
-
-# catpuccin warp themes
-mkdir -p ~/.warp/themes/
-curl --output-dir ~/.warp/themes -LO https://raw.githubusercontent.com/catppuccin/warp/refs/heads/main/themes/catppuccin_latte.yml
-curl --output-dir ~/.warp/themes -LO https://raw.githubusercontent.com/catppuccin/warp/refs/heads/main/themes/catppuccin_frappe.yml
-curl --output-dir ~/.warp/themes -LO https://raw.githubusercontent.com/catppuccin/warp/refs/heads/main/themes/catppuccin_macchiato.yml
-curl --output-dir ~/.warp/themes -LO https://raw.githubusercontent.com/catppuccin/warp/refs/heads/main/themes/catppuccin_mocha.yml
 
 # Install Nix package manager, mostly for lazy-lsp.nvim
 yes | curl -L https://nixos.org/nix/install | sh
@@ -52,37 +46,38 @@ yes | curl -L https://nixos.org/nix/install | sh
 sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
 
 # Set hostnames
-sudo scutil --set HostName da-mac # Primary hostnmae (e.g. user@hostname)
+sudo scutil --set HostName da-mac      # Primary hostname (e.g. user@hostname)
 sudo scutil --set LocalHostName da-mac # Bonjour local network hostname (e.g. hostname.local)
-sudo scutil --set ComputerName da-mac # Friendly name (e.g. in Finder)
+sudo scutil --set ComputerName da-mac  # Friendly name (e.g. in Finder)
 dscacheutil -flushcache
 
-# Backblaze
-backblaze_path="/opt/homebrew/Caskroom/backblaze"
-backblaze_version=$(\ls $backblaze_path | sort -V | tail -n 1) # escape alias-ed ls
-open $backblaze_path/$backblaze_version/Backblaze\ Installer.app
-
-conda create -n py311 python=3.11 -c conda-forge pynvim jupyter_client numpy pandas ruff-lsp jupyterthemes altair
+# No longer using conda, now using mise
+# conda create -n py311 python=3.11 -c conda-forge pynvim jupyter_client numpy pandas ruff-lsp jupyterthemes altair
+mise install
 
 # To get Altstore AltJit working
 # sudo /Applications/Xcode.app/Contents/Developer/usr/bin/python3 -m pip install construct==2.10.69 qh3==0.15.1
-#
 
-# no longer using conda, now using mise
-mise install
+### Manual Section ###
+kill "$SUDO_KEEPALIVE_PID" 2>/dev/null # stop the sudo keep-alive loop
 
-# KDE Connect... hopefully better than synergy
-curl -L -o ~/Downloads/kdeconnect.dmg "https://cdn.kde.org/ci-builds/network/kdeconnect-kde/master/macos-arm64/kdeconnect-kde-master-4652-macos-clang-arm64.dmg" && \
-hdiutil attach ~/Downloads/kdeconnect.dmg && \
-cp -R /Volumes/kdeconnect*/kdeconnect-indicator.app /Applications/ && \
-hdiutil detach /Volumes/kdeconnect*
+# Backblaze (opens the GUI installer - needs manual click-through)
+backblaze_path="/opt/homebrew/Caskroom/backblaze"
+backblaze_version=$(\ls $backblaze_path | sort -V | tail -n 1) # escape alias-ed ls
+open "$backblaze_path/$backblaze_version/Backblaze\ Installer.app"
 
-
-# Finishing touch
+# gh auth login (interactive browser/device flow)
 gh auth login
-cat << EOF
+
+# [C] cfprefsd owns macOS preferences and caches each domain's values in memory,
+# periodically (and on logout) writing that cache back to disk, which can clobber
+# a plist yadm just checked out. Killing it clears the cache; it respawns empty,
+# so the next read of each domain loads fresh from the on-disk file (our tracked
+# version) — making the in-place plists take effect on the upcoming restart.
+killall cfprefsd || true
+
+cat <<EOF
 -----------------------------------
-END OF INSTALLATION, PLEASE RESTART 
+END OF INSTALLATION, PLEASE RESTART
 -----------------------------------
 EOF
-

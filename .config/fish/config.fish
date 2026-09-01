@@ -1,7 +1,7 @@
 fish_add_path ~/.config/yadm/path-scripts
-fish_add_path ~/.cargo/bin
 fish_add_path /opt/homebrew/opt/ruby/bin
 fish_add_path -m /opt/homebrew/bin # highest priority, important for tree-sitter-cli, easier to keep updated
+fish_add_path -m ~/.cargo/bin # ahead of homebrew: cargo now provides tree-sitter-cli (brew one removed)
 
 # remove fish greeting
 set fish_greeting

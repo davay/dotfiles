@@ -9,13 +9,21 @@
 
   tasks:
     - name: "Homebrew: Add taps"
-      # WARNING: Homebrew 6.0.0 added trusts and all of these must be trusted manually now, TODO
+      # [C] Homebrew 6.0.0 requires non-official taps/formulae/casks to be trusted before
+      # loading. This is automated via ~/.homebrew/trust.json, tracked in yadm and checked
+      # out before this playbook runs, so no manual `brew trust` is needed.
       community.general.homebrew_tap:
         name:
           - koekeishiya/formulae
           - felixkratz/formulae
           - hashicorp/tap
           - eigenwallet/eigenwallet
+          - nikitabobko/tap
+          - oven-sh/bun
+          - charmbracelet/tap
+          - mutagen-io/mutagen
+          - xo/xo
+          - LucasPickering/tap # slumber API client
 
     - name: "Homebrew: Install packages"
       community.general.homebrew:
@@ -40,7 +48,6 @@
           - code-minimap
           - imagemagick
           - pidof
-          - fastfetch
           - pandoc
           - ripgrep
           - fd
@@ -48,20 +55,18 @@
           - webpack
           - sketchybar
           - pipes-sh
-          - mdcat
-          - git-lfs
-          - openjdk
+          - mdcat # markdown cat
           - docker-compose
           - luarocks
-          - cava
+          - cava # this is tied to background-music for visualizer
           - powerlevel10k
           - lsd
           - bat
           - bat-extras
-          - oven-sh/bun/bun
-          - jesseduffield/lazygit/lazygit
-          - saulpw/vd/visidata
-          - xsv
+          - bun
+          - lazygit
+          - visidata
+          - xsv # terminal csv viewer
           - skim # pdf viewer for latex in nvim
           - zsh-vi-mode # oh-my-zsh
           - zsh-autosuggestions # oh-my-zsh
@@ -75,29 +80,29 @@
           - yazi
           - mosh
           - abduco
-          - xh
+          - xh # "is a friendly and fast tool for sending HTTP requests"
           - bruno-cli
-          - charmbracelet/tap/mods
-          - hashicorp/tap/terraform
+          - mods
+          - terraform
           - ollama
-          - mutagen-io/mutagen/mutagen
+          - mutagen
           - stats
           - devutils
-          - uv
           - pastel
           - borders
           - gitui
-          - mise
-          - xo/xo/usql
+          - mise # manages python system-wide
+          - uv # manages python packages in a repo
+          - usql # "Universal command-line interface for SQL databases"
           - xcode-build-server # these 4 for nvim xcode
           - swiftformat
           - swiftlint
           - xcbeautify
           - insta360-link-controller
-          - tree-sitter-cli # this keeps treesitter/-cli updated, otherwise swift ts can't be installed
           - fastfetch # replaces deprecated neofetch
-          # - eigenwallet # need to trust: `brew trust eigenwallet/eigenwallet`
+          - eigenwallet
           - adguard
+          - slumber
         state: latest
         update_homebrew: yes
 
@@ -119,8 +124,6 @@
         name:
           - steam
           - discord
-          - google-cloud-sdk
-          - visual-studio-code
           - docker
           - karabiner-elements
           - sf-symbols
@@ -132,29 +135,21 @@
           - affinity-designer
           - affinity-photo
           - affinity-publisher
-          - postman
           - arc
           - backblaze
           - parallels
-          - rectangle-pro
-          - atext
-          - dotnet-sdk
+          # - rectangle-pro # 2026-09-01 - Useful for stage manager, trying to make it work with aerospace
           - raycast
-          - microsoft-teams
           - google-drive
           - gpg-suite
           - iterm2
           - iina
-          - pycharm
-          - tableau
-          - slack
-          - webcatalog
-          - copilot
+          - webcatalog # 2026-09-01 - I forgot this existed, should revisit -- can be quite useful actually
           - altserver
-          - unified-remote
-          - quarto
+          - unified-remote # 2026-09-01 - This was very useful back then, should revisit
+          - quarto # 2026-09-01 - Mostly for jupyter in nvim stuff
           - reader
-          - background-music
+          - background-music # 2026-09-01 - AAAA I really want this to work again for visualizer on sketchybar, and I haven't used it in ages,
           - zoom
           - 1password-cli
           - bettertouchtool
@@ -162,7 +157,6 @@
           - keyclu
           - obs
           - lunar
-          - hstracker # hearthstone
           - mactex
           - kindavim
           - wooshy
@@ -171,12 +165,10 @@
           - kicad # pcb
           - tuist # Xcode
           - mimestream # gmail
-          - piphero
           - balenaetcher
-          - bruno
           - logi-options+
           - claude
-          - nikitabobko/tap/aerospace
+          - aerospace
           - pixelsnap2
           - rustdesk
           - blender
@@ -189,14 +181,10 @@
           - naps2
         state: latest
 
+    # This is unused now but leaving it here anyway
     # - name: "Homebrew: Start Services"
     #   community.general.homebrew_services:
     #     name:
-    #       # yabai & skhd has their own yabai --start-service, not sure if same
-    #       # - yabai
-    #       # - skhd
-    #       # - sketchybar # started by aerospace
-    #       # - ollama
     #     state: present
 
     - name: "Cargo: Install Rust Packages"
@@ -208,23 +196,23 @@
     - name: "Mac App Store: Install apps"
       community.general.mas:
         id:
-          - 1440147259 # Adguard for Safari
-          - 1601151613 # Baking Soda for Safari
-          - 1592917505 # Noir for Safari
-          - 1480933944 # Vimari for Safari
-          - 6471380298 # StopTheMadness for Safari
-          - 1622835804 # Kagi for Safari
-          - 1519867270 # RefinedGithub for Safari
-          - 1552641506 # GhostText for Safari
-          - 1520333300 # Wappalyzer for Safari
-          - 6738274497 # Raycast Companion for Safari
+          - 1440147259 # [Safari] Adguard
+          - 1601151613 # [Safari] Baking Soda
+          - 1592917505 # [Safari] Noir
+          - 1480933944 # [Safari] Vimari
+          - 6471380298 # [Safari] StopTheMadness
+          - 1622835804 # [Safari] Kagi
+          - 1519867270 # [Safari] RefinedGithub
+          - 1552641506 # [Safari] GhostText
+          - 1520333300 # [Safari] Wappalyzer
+          - 6738274497 # [Safari] Raycast Companion
+          - 1541862561 # [Safari] FireShot
           - 937984704 # Amphetamine
           - 409183694 # Keynote
           - 409203825 # Numbers
           - 409201541 # Pages
           - 1448648921 # Seashore
           - 1276493162 # reMarkable
-          - 1541862561 # FireShot for Safari
           - 1351639930 # Gifski
           - 1487937127 # Craft
           - 775737590 # iA Writer
@@ -278,7 +266,7 @@
         # 25%: 0.4723665
         value: 0.6065307
 
-    - name: "osx_defaults: Disable spaces autoreordering"
+    - name: "osx_defaults: Autohide menu bar"
       community.general.osx_defaults:
         domain: NSGlobalDomain
         key: _HIHideMenuBar
@@ -286,7 +274,7 @@
         value: 1
         state: present
 
-    - name: "osx_defaults: Autohide menu bar"
+    - name: "osx_defaults: Disable spaces autoreordering" # initially this was required for yabai, but, I like it better this way anyway?
       community.general.osx_defaults:
         domain: com.apple.dock
         key: mru-spaces
@@ -354,7 +342,7 @@
         value: true
         state: present
 
-    - name: "osx_defaults: Disables 'Displays have separate Spaces', for Aerospace"
+    - name: "osx_defaults: Disable 'Displays have separate Spaces', for Aerospace"
       community.general.osx_defaults:
         domain: com.apple.spaces
         key: spans-displays

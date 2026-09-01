@@ -8,6 +8,7 @@
 ## Code editing
 
 - Never remove existing comments unless explicitly asked to.
+- Always prefix any comment you (Claude) add to code with `[C]` — e.g. `# [C] ...`, `// [C] ...`. No exceptions. Add it once per comment block (on the first line), not on every wrapped line.
 
 ## Markdown style
 
