@@ -5,6 +5,8 @@
     "eigenwallet/eigenwallet",
     "jesseduffield/lazygit",
     "joshfrench/arduino-language-server",
+    "lucaspickering/tap",
+    "mutagen-io/mutagen",
     "visidata/vd"
   ],
   "trustedformulae": [

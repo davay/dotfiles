@@ -47,7 +47,6 @@
           - rust
           - code-minimap
           - imagemagick
-          - pidof
           - pandoc
           - ripgrep
           - fd
@@ -66,7 +65,6 @@
           - bun
           - lazygit
           - visidata
-          - xsv # terminal csv viewer
           - skim # pdf viewer for latex in nvim
           - zsh-vi-mode # oh-my-zsh
           - zsh-autosuggestions # oh-my-zsh
@@ -82,7 +80,6 @@
           - abduco
           - xh # "is a friendly and fast tool for sending HTTP requests"
           - bruno-cli
-          - mods
           - terraform
           - ollama
           - mutagen
