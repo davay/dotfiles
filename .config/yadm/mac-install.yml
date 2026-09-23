@@ -24,9 +24,20 @@
           - xo/xo
           - LucasPickering/tap # slumber API client
 
+    - name: "Homebrew: Update"
+      # [C] Run brew update once here so the per-package loop below doesn't re-run it every item
+      community.general.homebrew:
+        update_homebrew: yes
+
     - name: "Homebrew: Install packages"
       community.general.homebrew:
-        name:
+        name: "{{ item }}"
+        state: latest
+      register: pkg_result
+      until: pkg_result is succeeded
+      retries: 3
+      delay: 15
+      loop:
           - nvim
           - zsh
           - fish
@@ -97,8 +108,6 @@
           - fastfetch # replaces deprecated neofetch
           - eigenwallet
           - slumber
-        state: latest
-        update_homebrew: yes
 
     - name: "Add Fish shell to /etc/shells"
       ansible.builtin.lineinfile:
@@ -115,7 +124,14 @@
 
     - name: "Homebrew: Install casks"
       community.general.homebrew_cask:
-        name:
+        name: "{{ item }}"
+        state: latest
+      # [C] Cask downloads are occasionally flaky (connection reset); retry each cask a few times
+      register: cask_result
+      until: cask_result is succeeded
+      retries: 3
+      delay: 15
+      loop:
           - steam
           - discord
           - docker
@@ -175,7 +191,6 @@
           - naps2
           - adguard
           - insta360-link-controller
-        state: latest
 
     # This is unused now but leaving it here anyway
     # - name: "Homebrew: Start Services"
@@ -218,7 +233,7 @@
         state: latest
 
     # [C] Root system settings (moved out of the bootstrap bash script). These run
-    # via become; bootstrap passes --ask-become-pass so Ansible has the sudo password.
+    # via become; bootstrap installs a temporary NOPASSWD sudoers drop-in for the run.
 
     - name: "Disable startup sound"
       ansible.builtin.command: nvram StartupMute=%01

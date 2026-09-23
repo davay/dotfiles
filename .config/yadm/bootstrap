@@ -1,4 +1,4 @@
-#!/bin/sh -x
+#!/bin/sh
 set -e # exit on any error
 
 # because git submodule commands can't operate without a work tree, they must be run from within $HOME
@@ -35,7 +35,6 @@ yes A | softwareupdate --install-rosetta || true # [C] || true: non-zero once al
 # change, system settings and osx_defaults. Root steps use the NOPASSWD rule above.
 brew install ansible
 
-printf '\a\033[7;1;31m  >>> ENTER SUDO PASSWORD (for Ansible) <<<  \033[0m\n'
 ansible-galaxy install -r ~/.config/yadm/requirements.yml
 ansible-playbook -vv ~/.config/yadm/mac-install.yml -i ~/.config/yadm/inventory
 
