@@ -113,6 +113,17 @@
         shell: /opt/homebrew/bin/fish
       become: yes
 
+    - name: "Pre-create a user-owned /usr/local/bin"
+      # [C] docker-desktop's cask does `sudo mkdir -p /usr/local/bin` when it's missing,
+      # which fails under Ansible (brew's internal sudo has no TTY/password). Creating it
+      # user-owned here — via become, which has the password — means brew never sudos.
+      ansible.builtin.file:
+        path: /usr/local/bin
+        state: directory
+        owner: "{{ lookup('env', 'USER') }}"
+        mode: "0755"
+      become: yes
+
     - name: "Homebrew: Install casks"
       community.general.homebrew_cask:
         name:
