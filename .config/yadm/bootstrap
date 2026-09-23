@@ -4,15 +4,25 @@ set -e # exit on any error
 # because git submodule commands can't operate without a work tree, they must be run from within $HOME
 cd "$HOME"
 
-# Cache sudo credentials for the run (refreshes every 60s, self-terminates with $$).
-# Used by the pkg-casks and the Nix installer below, which sudo from this terminal.
-sudo -v
-while true; do
-  sudo -n true
-  sleep 60
-  kill -0 "$$" 2>/dev/null || exit
-done &
-SUDO_KEEPALIVE_PID=$!
+# Temporary passwordless sudo for the whole bootstrap run, removed on exit.
+#
+# Why: Homebrew's cask installer and Ansible's `become` both invoke sudo
+# non-interactively (no TTY). macOS uses per-TTY sudo tickets, so neither can reuse
+# a ticket we cache here -> "sudo: a password is required". We first tried a
+# `Defaults timestamp_type=global` drop-in + keep-alive so one cached ticket would
+# cover both; it silently had no effect on Ansible's become. A NOPASSWD rule is
+# unconditional (no ticket/TTY involved) and just works. Scoped to this run only.
+SUDOERS_DROPIN=/etc/sudoers.d/yadm-bootstrap
+cleanup() { sudo rm -f "$SUDOERS_DROPIN" 2>/dev/null || true; }
+trap cleanup EXIT INT TERM
+
+sudo -v # prompt once, up front
+# Validate in a temp file before installing — a malformed drop-in could lock sudo out.
+dropin_tmp=$(mktemp)
+printf '%s ALL=(ALL) NOPASSWD: ALL\n' "$USER" >"$dropin_tmp"
+sudo visudo -cf "$dropin_tmp"
+sudo install -m 440 -o root -g wheel "$dropin_tmp" "$SUDOERS_DROPIN"
+rm -f "$dropin_tmp"
 
 ### Automated Section ###
 
@@ -20,26 +30,11 @@ echo "Init submodules"
 yadm submodule update --recursive --init
 yes A | softwareupdate --install-rosetta || true # [C] || true: non-zero once already installed
 
-# Ansible does the heavy lifting: packages, casks, MAS apps, the fish shell change,
-# system settings and osx_defaults.
-#
-# [C] --ask-become-pass is REQUIRED and prompts a second time (separate from `sudo -v`
-# above). We first tried to avoid it by installing a `Defaults timestamp_type=global`
-# sudoers drop-in + keep-alive so Ansible's become could reuse a cached ticket — the
-# idea being one credential would cover both Ansible and Homebrew. It did NOT work:
-# macOS defaults to per-TTY sudo tickets and the drop-in had no effect (Ansible's
-# TTY-less become sudo never saw the ticket -> "sudo: a password is required"). So we
-# just hand Ansible the password directly, which pipes it to `sudo -S` and always works.
+# Ansible does everything: packages, casks (incl. pkg-casks), MAS apps, the fish shell
+# change, system settings and osx_defaults. Root steps use the NOPASSWD rule above.
 brew install ansible
 ansible-galaxy install -r ~/.config/yadm/requirements.yml
-ansible-playbook -vv ~/.config/yadm/mac-install.yml -i ~/.config/yadm/inventory --ask-become-pass
-
-# [C] pkg-based casks: their installer(8) step needs root, and Homebrew's internal sudo
-# can't get Ansible's become password (brew won't run under become) — so they can't live
-# in the playbook. Run here, attached to this terminal, where brew's sudo uses the
-# keep-alive ticket. install ensures presence; upgrade brings them current (state:latest).
-brew install --cask adguard insta360-link-controller
-brew upgrade --cask adguard insta360-link-controller
+ansible-playbook -vv ~/.config/yadm/mac-install.yml -i ~/.config/yadm/inventory
 
 # Install Nix package manager, mostly for lazy-lsp.nvim
 yes | curl -L https://nixos.org/nix/install | sh || true # [C] || true: non-zero if already present
@@ -51,7 +46,8 @@ mise install
 # To get Altstore AltJit working
 # sudo /Applications/Xcode.app/Contents/Developer/usr/bin/python3 -m pip install construct==2.10.69 qh3==0.15.1
 
-kill "$SUDO_KEEPALIVE_PID" 2>/dev/null # stop the sudo keep-alive loop
+cleanup # remove the NOPASSWD drop-in before the interactive tail
+trap - EXIT INT TERM
 
 ### Manual Section ###
 
