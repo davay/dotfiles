@@ -250,9 +250,9 @@
       become: yes
       changed_when: false
       loop:
-        - HostName      # [C] Primary (user@hostname)
+        - HostName # [C] Primary (user@hostname)
         - LocalHostName # [C] Bonjour (.local)
-        - ComputerName  # [C] Friendly name (Finder)
+        - ComputerName # [C] Friendly name (Finder)
 
     - name: "Flush DNS cache"
       ansible.builtin.command: dscacheutil -flushcache
@@ -350,8 +350,9 @@
       community.general.osx_defaults:
         domain: .GlobalPreferences
         key: com.apple.mouse.scaling
-        type: int
-        value: -1
+        # to verify type: defaults read-type <domain> <key*>
+        type: float
+        value: -1.0
         state: present
 
     ### https://apple.stackexchange.com/questions/59556/is-there-a-way-to-completely-disable-dock
