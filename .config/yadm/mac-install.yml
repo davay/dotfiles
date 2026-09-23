@@ -108,10 +108,8 @@
       become: yes
 
     - name: "Change default shell to Fish"
-      # [C] lookup('env','USER') instead of the ansible_user_id fact, since this
-      # play runs with gather_facts: false (fact would be undefined).
       ansible.builtin.user:
-        name: "{{ lookup('env', 'USER') }}"
+        name: "{{ lookup('env', 'USER') }}" # [C] env lookup, not ansible_user_id fact (gather_facts is off)
         shell: /opt/homebrew/bin/fish
       become: yes
 
@@ -175,11 +173,7 @@
           - openscad@snapshot
           - twine-app
           - naps2
-          # [C] pkg-based casks — their installer(8) step needs root. Works in
-          # Ansible because bootstrap enables a global sudo timestamp for the run,
-          # so Homebrew's internal (TTY-less) sudo can see the keep-alive ticket.
-          - adguard
-          - insta360-link-controller
+          # [C] adguard + insta360-link-controller are pkg-based casks — see bootstrap.
         state: latest
 
     # This is unused now but leaving it here anyway
@@ -222,9 +216,8 @@
           - 640199958 # Apple Developer
         state: latest
 
-    # [C] System settings that need root. These moved out of the bootstrap bash
-    # script; they work here because bootstrap enables a global sudo timestamp for
-    # the playbook run, so Ansible's become can reuse the keep-alive's ticket.
+    # [C] Root system settings (moved out of the bootstrap bash script). These run
+    # via become; bootstrap passes --ask-become-pass so Ansible has the sudo password.
 
     - name: "Disable startup sound"
       ansible.builtin.command: nvram StartupMute=%01
@@ -232,34 +225,31 @@
       changed_when: false
 
     - name: "Allow apps from anywhere (Gatekeeper)"
-      # [C] Always errors asking to confirm in System Settings, so ignore failure.
       ansible.builtin.command: spctl --global-disable
       become: yes
       changed_when: false
       failed_when: false
 
     - name: "Load locate database daemon"
-      # [C] failed_when:false so an already-loaded daemon (re-run) isn't fatal.
       ansible.builtin.command: launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
       become: yes
       changed_when: false
-      failed_when: false
+      failed_when: false # [C] already-loaded on re-run is fine
 
     - name: "Set hostnames to da-mac"
       ansible.builtin.command: "scutil --set {{ item }} da-mac"
       become: yes
       changed_when: false
       loop:
-        - HostName # [C] Primary (user@hostname)
-        - LocalHostName # [C] Bonjour (.local)
-        - ComputerName # [C] Friendly name (Finder)
+        - HostName
+        - LocalHostName
+        - ComputerName
 
     - name: "Flush DNS cache"
       ansible.builtin.command: dscacheutil -flushcache
       changed_when: false
 
     - name: "Install all Nerd Fonts"
-      # [C] no root needed; bulk-installs every font-*-nerd-font cask
       ansible.builtin.shell: >
         brew search '/font-.*-nerd-font/' | awk '{ print $1 }'
         | xargs -I{} brew install --cask {}
@@ -267,21 +257,17 @@
       failed_when: false
 
     - name: "Copy custom fonts to /Library/Fonts"
-      # [C] src is relative to this playbook's dir (~/.config/yadm/fonts/)
       ansible.builtin.copy:
-        src: fonts/
+        src: fonts/ # [C] relative to this playbook's dir (~/.config/yadm/fonts/)
         dest: /Library/Fonts/
       become: yes
 
     # Mac Defaults
 
     - name: "Reload cfprefsd before writing defaults"
-      # [C] cfprefsd caches each domain in memory and flushes to disk periodically
-      # (and on logout), which can clobber a plist yadm just checked out. Killing it
-      # here — BEFORE the osx_defaults writes below — makes it respawn and reload the
-      # tracked plists fresh; the osx_defaults writes then land on top and win for any
-      # overlapping keys (e.g. NSGlobalDomain), instead of being reverted by a later
-      # reload. failed_when:false since killall exits non-zero if none are running.
+      # [C] Kill cfprefsd BEFORE the osx_defaults writes so it reloads the yadm-tracked
+      # plists fresh and the writes below land on top (win) instead of being clobbered
+      # by a later reload. failed_when:false — killall exits non-zero if none running.
       ansible.builtin.command: killall cfprefsd
       changed_when: false
       failed_when: false

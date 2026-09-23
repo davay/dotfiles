@@ -4,38 +4,9 @@ set -e # exit on any error
 # because git submodule commands can't operate without a work tree, they must be run from within $HOME
 cd "$HOME"
 
-# [C] This run needs root for several steps and — crucially — so does Homebrew's
-# internal installer(8) sudo when Ansible installs pkg-based casks. macOS defaults
-# to per-TTY sudo tickets (tty_tickets), which Ansible's TTY-less `become` and
-# brew's internal sudo can't see. So for the duration of THIS run we enable a
-# GLOBAL sudo timestamp via a sudoers drop-in, keep it warm with the loop below,
-# and remove it on exit (trap) so daily-use sudo reverts to per-TTY tickets.
-SUDOERS_DROPIN=/etc/sudoers.d/yadm-bootstrap
-SUDO_KEEPALIVE_PID=""
-
-cleanup() {
-  # [C] Remove the drop-in while the keep-alive ticket is still warm (-n never
-  # prompts), clear any cached global ticket, then stop the keep-alive loop.
-  sudo -n rm -f "$SUDOERS_DROPIN" 2>/dev/null || true
-  sudo -k 2>/dev/null || true
-  kill "$SUDO_KEEPALIVE_PID" 2>/dev/null || true
-}
-trap cleanup EXIT INT TERM
-
-sudo -v # [C] prompt once, up front
-
-# [C] Validate the drop-in in a temp file BEFORE installing it — a malformed file
-# in /etc/sudoers.d could lock sudo out entirely.
-dropin_tmp=$(mktemp)
-printf 'Defaults timestamp_type=global\n' >"$dropin_tmp"
-sudo visudo -cf "$dropin_tmp"
-sudo install -m 440 -o root -g wheel "$dropin_tmp" "$SUDOERS_DROPIN"
-rm -f "$dropin_tmp"
-sudo -v # [C] re-validate so a global-scoped ticket record now exists
-
-# Keep the (now global) sudo ticket warm:
-# - refreshes cache every 60s
-# - self-terminates once this script ($$) exits
+# Cache sudo credentials for the run (refreshes every 60s, self-terminates with $$).
+# Used by the pkg-casks and the Nix installer below, which sudo from this terminal.
+sudo -v
 while true; do
   sudo -n true
   sleep 60
@@ -47,18 +18,31 @@ SUDO_KEEPALIVE_PID=$!
 
 echo "Init submodules"
 yadm submodule update --recursive --init
-yes A | softwareupdate --install-rosetta || true # [C] || true: no-op/non-zero once already installed
+yes A | softwareupdate --install-rosetta || true # [C] || true: non-zero once already installed
 
-# Ansible does the heavy lifting: formulae, casks (incl. pkg-casks), MAS apps, the
-# fish shell change, system settings (nvram/spctl/locate/hostnames/fonts) and
-# osx_defaults. All root steps reuse the global sudo ticket established above.
+# Ansible does the heavy lifting: packages, casks, MAS apps, the fish shell change,
+# system settings and osx_defaults.
+#
+# [C] --ask-become-pass is REQUIRED and prompts a second time (separate from `sudo -v`
+# above). We first tried to avoid it by installing a `Defaults timestamp_type=global`
+# sudoers drop-in + keep-alive so Ansible's become could reuse a cached ticket — the
+# idea being one credential would cover both Ansible and Homebrew. It did NOT work:
+# macOS defaults to per-TTY sudo tickets and the drop-in had no effect (Ansible's
+# TTY-less become sudo never saw the ticket -> "sudo: a password is required"). So we
+# just hand Ansible the password directly, which pipes it to `sudo -S` and always works.
 brew install ansible
 ansible-galaxy install -r ~/.config/yadm/requirements.yml
-ansible-playbook -vv ~/.config/yadm/mac-install.yml -i ~/.config/yadm/inventory
+ansible-playbook -vv ~/.config/yadm/mac-install.yml -i ~/.config/yadm/inventory --ask-become-pass
+
+# [C] pkg-based casks: their installer(8) step needs root, and Homebrew's internal sudo
+# can't get Ansible's become password (brew won't run under become) — so they can't live
+# in the playbook. Run here, attached to this terminal, where brew's sudo uses the
+# keep-alive ticket. install ensures presence; upgrade brings them current (state:latest).
+brew install --cask adguard insta360-link-controller
+brew upgrade --cask adguard insta360-link-controller
 
 # Install Nix package manager, mostly for lazy-lsp.nvim
-# [C] || true: the installer exits non-zero if Nix is already present (re-run)
-yes | curl -L https://nixos.org/nix/install | sh || true
+yes | curl -L https://nixos.org/nix/install | sh || true # [C] || true: non-zero if already present
 
 # No longer using conda, now using mise
 # conda create -n py311 python=3.11 -c conda-forge pynvim jupyter_client numpy pandas ruff-lsp jupyterthemes altair
@@ -67,19 +51,16 @@ mise install
 # To get Altstore AltJit working
 # sudo /Applications/Xcode.app/Contents/Developer/usr/bin/python3 -m pip install construct==2.10.69 qh3==0.15.1
 
+kill "$SUDO_KEEPALIVE_PID" 2>/dev/null # stop the sudo keep-alive loop
+
 ### Manual Section ###
-# [C] Tear down the global sudo ticket + keep-alive now: nothing below needs root,
-# and gh auth login can block for a while — no reason to hold a root ticket open.
-cleanup
-trap - EXIT INT TERM
 
 # Backblaze (opens the GUI installer - needs manual click-through)
 backblaze_path="/opt/homebrew/Caskroom/backblaze"
 backblaze_version=$(\ls $backblaze_path | sort -V | tail -n 1) # escape alias-ed ls
 open "$backblaze_path/$backblaze_version/Backblaze Installer.app"
 
-# gh auth login (interactive browser/device flow)
-gh auth login
+gh auth login # interactive browser/device flow
 
 cat <<EOF
 -----------------------------------
