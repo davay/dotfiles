@@ -4,10 +4,38 @@ set -e # exit on any error
 # because git submodule commands can't operate without a work tree, they must be run from within $HOME
 cd "$HOME"
 
-# Cache sudo credentials (on MacOS.. ~5 mins?)
+# [C] This run needs root for several steps and — crucially — so does Homebrew's
+# internal installer(8) sudo when Ansible installs pkg-based casks. macOS defaults
+# to per-TTY sudo tickets (tty_tickets), which Ansible's TTY-less `become` and
+# brew's internal sudo can't see. So for the duration of THIS run we enable a
+# GLOBAL sudo timestamp via a sudoers drop-in, keep it warm with the loop below,
+# and remove it on exit (trap) so daily-use sudo reverts to per-TTY tickets.
+SUDOERS_DROPIN=/etc/sudoers.d/yadm-bootstrap
+SUDO_KEEPALIVE_PID=""
+
+cleanup() {
+  # [C] Remove the drop-in while the keep-alive ticket is still warm (-n never
+  # prompts), clear any cached global ticket, then stop the keep-alive loop.
+  sudo -n rm -f "$SUDOERS_DROPIN" 2>/dev/null || true
+  sudo -k 2>/dev/null || true
+  kill "$SUDO_KEEPALIVE_PID" 2>/dev/null || true
+}
+trap cleanup EXIT INT TERM
+
+sudo -v # [C] prompt once, up front
+
+# [C] Validate the drop-in in a temp file BEFORE installing it — a malformed file
+# in /etc/sudoers.d could lock sudo out entirely.
+dropin_tmp=$(mktemp)
+printf 'Defaults timestamp_type=global\n' >"$dropin_tmp"
+sudo visudo -cf "$dropin_tmp"
+sudo install -m 440 -o root -g wheel "$dropin_tmp" "$SUDOERS_DROPIN"
+rm -f "$dropin_tmp"
+sudo -v # [C] re-validate so a global-scoped ticket record now exists
+
+# Keep the (now global) sudo ticket warm:
 # - refreshes cache every 60s
 # - self-terminates once this script ($$) exits
-sudo -v
 while true; do
   sudo -n true
   sleep 60
@@ -19,45 +47,18 @@ SUDO_KEEPALIVE_PID=$!
 
 echo "Init submodules"
 yadm submodule update --recursive --init
-yes A | softwareupdate --install-rosetta # still needed once in a while
+yes A | softwareupdate --install-rosetta || true # [C] || true: no-op/non-zero once already installed
 
-# Ansible
+# Ansible does the heavy lifting: formulae, casks (incl. pkg-casks), MAS apps, the
+# fish shell change, system settings (nvram/spctl/locate/hostnames/fonts) and
+# osx_defaults. All root steps reuse the global sudo ticket established above.
 brew install ansible
 ansible-galaxy install -r ~/.config/yadm/requirements.yml
 ansible-playbook -vv ~/.config/yadm/mac-install.yml -i ~/.config/yadm/inventory
 
-# [C] pkg-based casks need root via installer(8). Run them here — attached to this
-# terminal, so the sudo keep-alive's ticket applies — rather than in Ansible,
-# whose TTY-less modules can't satisfy Homebrew's internal sudo prompt.
-# [C] install ensures they're present; upgrade brings them current (mirrors the
-# playbook's state:latest, since `brew install` alone won't upgrade an existing cask).
-brew install --cask adguard insta360-link-controller
-brew upgrade --cask adguard insta360-link-controller
-
-# Disable sound effects on boot
-sudo nvram StartupMute=%01
-
-# Fonts
-brew search '/font-.*-nerd-font/' | awk '{ print $1 }' | xargs -I{} brew install --cask {} || true
-sudo cp ~/.config/yadm/fonts/* /Library/Fonts/.
-
-# Create the option to allow apps from anywhere in settings
-# ""|| true" so script doesn't exit,
-# Since this always throws an error saying:
-# "Globally disabling the assessment system needs to be confirmed in System Settings."
-sudo spctl --global-disable || true
-
 # Install Nix package manager, mostly for lazy-lsp.nvim
-yes | curl -L https://nixos.org/nix/install | sh
-
-# Populate locate db, if after this db is still not crated, try "sudo /usr/libexec/locate.updatedb"
-sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
-
-# Set hostnames
-sudo scutil --set HostName da-mac      # Primary hostname (e.g. user@hostname)
-sudo scutil --set LocalHostName da-mac # Bonjour local network hostname (e.g. hostname.local)
-sudo scutil --set ComputerName da-mac  # Friendly name (e.g. in Finder)
-dscacheutil -flushcache
+# [C] || true: the installer exits non-zero if Nix is already present (re-run)
+yes | curl -L https://nixos.org/nix/install | sh || true
 
 # No longer using conda, now using mise
 # conda create -n py311 python=3.11 -c conda-forge pynvim jupyter_client numpy pandas ruff-lsp jupyterthemes altair
@@ -67,22 +68,18 @@ mise install
 # sudo /Applications/Xcode.app/Contents/Developer/usr/bin/python3 -m pip install construct==2.10.69 qh3==0.15.1
 
 ### Manual Section ###
-kill "$SUDO_KEEPALIVE_PID" 2>/dev/null # stop the sudo keep-alive loop
+# [C] Tear down the global sudo ticket + keep-alive now: nothing below needs root,
+# and gh auth login can block for a while — no reason to hold a root ticket open.
+cleanup
+trap - EXIT INT TERM
 
 # Backblaze (opens the GUI installer - needs manual click-through)
 backblaze_path="/opt/homebrew/Caskroom/backblaze"
 backblaze_version=$(\ls $backblaze_path | sort -V | tail -n 1) # escape alias-ed ls
-open "$backblaze_path/$backblaze_version/Backblaze\ Installer.app"
+open "$backblaze_path/$backblaze_version/Backblaze Installer.app"
 
 # gh auth login (interactive browser/device flow)
 gh auth login
-
-# [C] cfprefsd owns macOS preferences and caches each domain's values in memory,
-# periodically (and on logout) writing that cache back to disk, which can clobber
-# a plist yadm just checked out. Killing it clears the cache; it respawns empty,
-# so the next read of each domain loads fresh from the on-disk file (our tracked
-# version) — making the in-place plists take effect on the upcoming restart.
-killall cfprefsd || true
 
 cat <<EOF
 -----------------------------------
