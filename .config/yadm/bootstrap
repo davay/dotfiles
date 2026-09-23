@@ -16,6 +16,7 @@ SUDOERS_DROPIN=/etc/sudoers.d/yadm-bootstrap
 cleanup() { sudo rm -f "$SUDOERS_DROPIN" 2>/dev/null || true; }
 trap cleanup EXIT INT TERM
 
+printf '\a\033[7;1;31m  >>> ENTER SUDO PASSWORD (creates a temporary sudoers dropin to install certain casks) <<<  \033[0m\n'
 sudo -v # prompt once, up front
 # Validate in a temp file before installing — a malformed drop-in could lock sudo out.
 dropin_tmp=$(mktemp)
@@ -33,6 +34,8 @@ yes A | softwareupdate --install-rosetta || true # [C] || true: non-zero once al
 # Ansible does everything: packages, casks (incl. pkg-casks), MAS apps, the fish shell
 # change, system settings and osx_defaults. Root steps use the NOPASSWD rule above.
 brew install ansible
+
+printf '\a\033[7;1;31m  >>> ENTER SUDO PASSWORD (for Ansible) <<<  \033[0m\n'
 ansible-galaxy install -r ~/.config/yadm/requirements.yml
 ansible-playbook -vv ~/.config/yadm/mac-install.yml -i ~/.config/yadm/inventory
 
