@@ -38,76 +38,98 @@
       retries: 3
       delay: 15
       loop:
-          - nvim
-          - zsh
-          - fish
-          - gh
-          - python
-          - mas
-          - tree
-          - sl
-          - htop
-          - fzf
-          - coreutils
-          - jq
-          - node
-          - lua
-          - moreutils
-          - gnu-sed
-          - rust
-          - code-minimap
-          - imagemagick
-          - pandoc
-          - ripgrep
-          - fd
-          - thefuck
-          - webpack
-          - sketchybar
-          - pipes-sh
-          - mdcat # markdown cat
-          - docker-compose
-          - luarocks
-          - cava # this is tied to background-music for visualizer
-          - powerlevel10k
-          - lsd
-          - bat
-          - bat-extras
-          - bun
-          - lazygit
-          - visidata
-          - skim # pdf viewer for latex in nvim
-          - zsh-vi-mode # oh-my-zsh
-          - zsh-autosuggestions # oh-my-zsh
-          - zsh-syntax-highlighting # oh-my-zsh
-          - zsh-autocomplete # oh-my-zsh
-          - arduino-cli
-          - platformio
-          - go
-          - ffmpeg
-          - ghostty
-          - yazi
-          - mosh
-          - abduco
-          - xh # "is a friendly and fast tool for sending HTTP requests"
-          - bruno-cli
-          - terraform
-          - ollama
-          - mutagen
-          - stats
-          - devutils
-          - pastel
-          - borders
-          - gitui
-          - mise # manages python system-wide
-          - uv # manages python packages in a repo
-          - usql # "Universal command-line interface for SQL databases"
-          - xcode-build-server # these 4 for nvim xcode
-          - swiftformat
-          - swiftlint
-          - xcbeautify
-          - fastfetch # replaces deprecated neofetch
-          - eigenwallet
-          - slumber
+        ### Shell ###
+        - zsh
+        - fish
+        - powerlevel10k
+        - zsh-vi-mode # oh-my-zsh
+        - zsh-autosuggestions # oh-my-zsh
+        - zsh-syntax-highlighting # oh-my-zsh
+        - zsh-autocomplete # oh-my-zsh
+
+        ### Languages & Runtimes ###
+        - python
+        - node
+        - bun
+        - lua
+        - luarocks
+        - rust
+        - go
+        - mise # manages python system-wide
+        - uv # manages python packages in a repo
+
+        ### Editor & Terminal ###
+        - nvim
+        - ghostty
+        - abduco
+
+        ### Dev Tools ###
+        - gh
+        - lazygit
+        - gitui
+        - docker-compose
+        - mutagen
+        - devutils
+        - webpack
+        - terraform
+        - slumber
+
+        ### Swift / Xcode ###
+        - xcode-build-server # these 4 for nvim xcode
+        - swiftformat
+        - swiftlint
+        - xcbeautify
+
+        ### CLI Utilities ###
+        - mas
+        - tree
+        - htop
+        - fzf
+        - coreutils
+        - jq
+        - moreutils
+        - gnu-sed
+        - ripgrep
+        - fd
+        - lsd
+        - bat
+        - bat-extras
+        - mdcat # markdown cat
+        - yazi
+        - visidata
+        - stats
+        - code-minimap
+
+        ### Media & Documents ###
+        - imagemagick
+        - pandoc
+        - ffmpeg
+        - skim # pdf viewer for latex in nvim
+
+        ### Networking & Databases ###
+        - mosh
+        - xh # "is a friendly and fast tool for sending HTTP requests"
+        - usql # "Universal command-line interface for SQL databases"
+
+        ### Embedded & Hardware ###
+        - arduino-cli
+        - platformio
+
+        ### AI ###
+        - ollama
+
+        ### Ricing ###
+        - sketchybar
+        - borders
+        - pastel
+        - cava # this is tied to background-music for visualizer
+
+        ### Misc & Fun ###
+        - sl
+        - pipes-sh
+        - thefuck
+        - fastfetch # replaces deprecated neofetch
+        - eigenwallet
 
     - name: "Add Fish shell to /etc/shells"
       ansible.builtin.lineinfile:
@@ -132,65 +154,154 @@
       retries: 3
       delay: 15
       loop:
-          - steam
-          - discord
-          - docker
-          - karabiner-elements
-          - sf-symbols
-          - linearmouse
-          - shottr
-          - 1password
-          - mullvadvpn
-          - figma
-          - affinity-designer
-          - affinity-photo
-          - affinity-publisher
-          - arc
-          - backblaze
-          - parallels
-          # - rectangle-pro # 2026-09-01 - Useful for stage manager, trying to make it work with aerospace
-          - raycast
-          - google-drive
-          - gpg-suite
-          - iterm2
-          - iina
-          - webcatalog # 2026-09-01 - I forgot this existed, should revisit -- can be quite useful actually
-          - altserver
-          - unified-remote # 2026-09-01 - This was very useful back then, should revisit
-          - quarto # 2026-09-01 - Mostly for jupyter in nvim stuff
-          - reader
-          - background-music # 2026-09-01 - AAAA I really want this to work again for visualizer on sketchybar, and I haven't used it in ages,
-          - zoom
-          - 1password-cli
-          - bettertouchtool
-          - bambu-studio
-          - keyclu
-          - obs
-          - lunar
-          - mactex
-          - kindavim
-          - wooshy
-          - freecad # 3d printing -- dont forget to install addons
-          - whatcable # diagnostics on usbc ports lol
-          - kicad # pcb
-          - tuist # Xcode
-          - mimestream # gmail
-          - balenaetcher
-          - logi-options+
-          - claude
-          - aerospace
-          - pixelsnap2
-          - rustdesk
-          - blender
-          - signal
-          - whatsapp
-          - omnifocus
-          - heptabase
-          - openscad@snapshot
-          - twine-app
-          - naps2
-          - adguard
-          - insta360-link-controller
+        ### Browsers & Communication ###
+        - arc
+        - discord
+        - zoom
+        - signal
+        - whatsapp
+        - mimestream # gmail
+
+        ### Security & Privacy ###
+        - 1password
+        - 1password-cli
+        - gpg-suite
+        - mullvadvpn
+        - adguard
+
+        ### Development ###
+        - docker
+        # [C] parallels installed separately below — its post-install chowns its
+        # [C] own bundle to root:wheel, which needs the terminal's "App Management"
+        # [C] (or Full Disk Access) TCC permission. See the dedicated task after
+        # [C] this loop so a privacy block warns instead of aborting the run.
+        - tuist # Xcode
+        - claude
+
+        ### Design & Creative ###
+        - figma
+        - affinity-designer
+        - affinity-photo
+        - affinity-publisher
+        - sf-symbols
+        - pixelsnap2
+        - blender
+
+        ### Media ###
+        - iina
+        - obs
+        - background-music # 2026-09-01 - AAAA I really want this to work again for visualizer on sketchybar, and I haven't used it in ages,
+
+        ### 3D Printing, CAD & Electronics ###
+        - bambu-studio
+        - freecad # 3d printing -- dont forget to install addons
+        - openscad@snapshot
+        - kicad # pcb
+        - whatcable # diagnostics on usbc ports lol
+
+        ### Productivity & Writing ###
+        - reader
+        - omnifocus
+        - heptabase
+        - quarto # 2026-09-01 - Mostly for jupyter in nvim stuff
+        - mactex
+        - twine-app
+        - naps2
+
+        ### System Utilities ###
+        - karabiner-elements
+        - linearmouse
+        - shottr
+        - backblaze
+        - raycast
+        - google-drive
+        - webcatalog # 2026-09-01 - I forgot this existed, should revisit -- can be quite useful actually
+        - altserver
+        - unified-remote # 2026-09-01 - This was very useful back then, should revisit
+        - bettertouchtool
+        - keyclu
+        - lunar
+        - kindavim
+        - wooshy
+        - balenaetcher
+        - logi-options+
+        - rustdesk
+        - insta360-link-controller
+
+        ### Ricing ###
+        # - rectangle-pro # 2026-09-01 - Useful for stage manager, trying to make it work with aerospace
+        - aerospace
+
+        ### Games ###
+        - steam
+
+    # [C] Parallels is split out of the cask loop: its post-install runs
+    # [C] inittool/pdfm-bootstrap, which chowns "/Applications/Parallels Desktop.app"
+    # [C] to root:wheel. That requires the terminal running this play to hold
+    # [C] "App Management" (or Full Disk Access) under System Settings ->
+    # [C] Privacy & Security. Without it every chown returns "Operation not
+    # [C] permitted", the cask errors, and (in the loop) it would spray retries
+    # [C] and abort. macOS cannot be granted this permission from a script (that
+    # [C] is the whole point of TCC), so we install it in a block/rescue: on a
+    # [C] privacy block we pause with instructions instead of failing the run.
+    # [C] The .app itself is already usable and re-initializes (with an admin
+    # [C] prompt) on first launch, so continuing is safe.
+    - name: "Homebrew: Install Parallels (needs App Management TCC permission)"
+      block:
+        - name: "Homebrew: Install Parallels cask"
+          community.general.homebrew_cask:
+            name: parallels
+            state: latest
+          register: parallels_result
+          until: parallels_result is succeeded
+          retries: 3
+          delay: 15
+      rescue:
+        # [C] Post-install was blocked by TCC (App Management). We can't grant
+        # [C] the permission from a script, but we can open the exact pane, let
+        # [C] the user toggle it live, then retry the install in the same run.
+        - name: "Open the App Management privacy pane"
+          ansible.builtin.command:
+            cmd: open "x-apple.systempreferences:com.apple.preference.security?Privacy_AppBundles"
+          changed_when: false
+          failed_when: false # [C] non-fatal: pause below still explains what to do
+
+        - name: "Pause: grant terminal App Management, then retry"
+          ansible.builtin.pause:
+            prompt: |
+              Parallels' post-install was blocked by macOS (App Management).
+              I just opened System Settings -> Privacy & Security -> App Management.
+
+                1. Toggle ON your terminal app in that list (it's already listed
+                   since the block just happened).
+                2. If macOS offers "Quit & Reopen", DON'T — that kills this run.
+                   Just leave the terminal open.
+
+              Then press ENTER and I'll retry the Parallels install.
+
+        # [C] Retry in a nested block/rescue: if it still fails, App Management
+        # [C] likely needs the terminal relaunched, so we tell the user to
+        # [C] relaunch + re-run rather than aborting the whole play.
+        - name: "Retry Parallels after granting permission"
+          block:
+            - name: "Homebrew: Retry Parallels cask"
+              community.general.homebrew_cask:
+                name: parallels
+                state: latest
+              register: parallels_retry
+              until: parallels_retry is succeeded
+              retries: 2
+              delay: 10
+          rescue:
+            - name: "Parallels still blocked — relaunch terminal and re-run"
+              ansible.builtin.debug:
+                msg: >-
+                  Parallels post-install still failed. macOS may require your
+                  terminal to be quit & reopened for the new App Management
+                  permission to take effect. Relaunch the terminal, then re-run
+                  this playbook. (Parallels also finishes initializing, with an
+                  admin prompt, the first time you launch it — so this is safe
+                  to skip.)
 
     # This is unused now but leaving it here anyway
     # - name: "Homebrew: Start Services"
@@ -231,9 +342,6 @@
           - 6746414429 # iA Presenter
           - 640199958 # Apple Developer
         state: latest
-
-    # [C] Root system settings (moved out of the bootstrap bash script). These run
-    # via become; bootstrap installs a temporary NOPASSWD sudoers drop-in for the run.
 
     - name: "Disable startup sound"
       ansible.builtin.command: nvram StartupMute=%01
