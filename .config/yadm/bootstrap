@@ -26,6 +26,14 @@ brew install ansible
 ansible-galaxy install -r ~/.config/yadm/requirements.yml
 ansible-playbook -vv ~/.config/yadm/mac-install.yml -i ~/.config/yadm/inventory
 
+# [C] pkg-based casks need root via installer(8). Run them here — attached to this
+# terminal, so the sudo keep-alive's ticket applies — rather than in Ansible,
+# whose TTY-less modules can't satisfy Homebrew's internal sudo prompt.
+# [C] install ensures they're present; upgrade brings them current (mirrors the
+# playbook's state:latest, since `brew install` alone won't upgrade an existing cask).
+brew install --cask adguard insta360-link-controller
+brew upgrade --cask adguard insta360-link-controller
+
 # Disable sound effects on boot
 sudo nvram StartupMute=%01
 

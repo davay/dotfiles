@@ -12,11 +12,14 @@
     "coworkPreferredBrowser": "built_in",
     "launchPreviewPersistedWorkspaces": [],
     "launchPreviewSessionScopedSessions": [],
+    "coworkLegacyRootGrantsPruned": true,
     "allowAllBrowserActions": true,
     "dispatchCodeTasksPermissionMode": "default",
     "coworkScheduledTasksEnabled": true,
     "coworkHipaaRestricted": false,
+    "orgWorkAcrossAppsDisabled": false,
     "ccdScheduledTasksEnabled": true,
+    "hybridDetectLatched": true,
     "sidebarMode": "chat",
     "bypassPermissionsGateByAccount": {
       "b1709c03-caa0-49ef-b535-6fa9a06b42ce": false
@@ -42,7 +45,8 @@
           "extraPanesByMode": {},
           "colWeightsByMode": {},
           "rowSplit": 0.5,
-          "draftNonce": 0
+          "draftNonce": 0,
+          "lastPrimaryCodeSession": null
         },
         "version": 4
       },
@@ -54,6 +58,6 @@
       },
       "dframe-group-scopes": {}
     },
-    "orgWorkAcrossAppsDisabled": false
+    "earlyWindowShowLatched": true
   }
 }

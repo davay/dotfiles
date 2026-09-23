@@ -28,7 +28,7 @@
     <DisplayName>MFC-L2750DW (ESCL, Glass, A6, 1200 DPI)</DisplayName>
     <IconID>0</IconID>
     <MaxQuality>false</MaxQuality>
-    <IsDefault>true</IsDefault>
+    <IsDefault>false</IsDefault>
     <UseNativeUI>false</UseNativeUI>
     <AfterScanScale>OneToOne</AfterScanScale>
     <Brightness>0</Brightness>
@@ -94,7 +94,7 @@
     <DisplayName>MFC-L2750DW (Apple, Feeder, Letter, 300 DPI)</DisplayName>
     <IconID>0</IconID>
     <MaxQuality>false</MaxQuality>
-    <IsDefault>false</IsDefault>
+    <IsDefault>true</IsDefault>
     <UseNativeUI>false</UseNativeUI>
     <AfterScanScale>OneToOne</AfterScanScale>
     <Brightness>0</Brightness>
@@ -104,7 +104,7 @@
     <PageSize>Letter</PageSize>
     <CustomPageSizeName xsi:nil="true" />
     <CustomPageSize xsi:nil="true" />
-    <Resolution>Dpi150</Resolution>
+    <Resolution>Dpi300</Resolution>
     <PaperSource>Feeder</PaperSource>
     <EnableAutoSave>true</EnableAutoSave>
     <AutoSaveSettings>

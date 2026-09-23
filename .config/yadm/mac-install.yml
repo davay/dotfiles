@@ -14,7 +14,6 @@
       # out before this playbook runs, so no manual `brew trust` is needed.
       community.general.homebrew_tap:
         name:
-          - koekeishiya/formulae
           - felixkratz/formulae
           - hashicorp/tap
           - eigenwallet/eigenwallet
@@ -95,11 +94,13 @@
           - swiftformat
           - swiftlint
           - xcbeautify
-          - insta360-link-controller
           - fastfetch # replaces deprecated neofetch
           - eigenwallet
-          - adguard
           - slumber
+          # [C] insta360-link-controller and adguard are pkg-based casks that need
+          # root via installer(8). They can't install through Ansible (its modules
+          # run without a TTY, so Homebrew's internal sudo can't prompt) — they're
+          # installed directly in bootstrap instead, attached to the terminal.
         state: latest
         update_homebrew: yes
 

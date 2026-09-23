@@ -104,14 +104,14 @@
     <FormState>
       <Name>MacDesktopForm</Name>
       <Location>
-        <X>1296</X>
+        <X>1284</X>
         <Y>40</Y>
       </Location>
       <Size>
-        <Width>600</Width>
-        <Height>1068</Height>
+        <Width>1268</Width>
+        <Height>1391</Height>
       </Size>
-      <Maximized>true</Maximized>
+      <Maximized>false</Maximized>
     </FormState>
   </FormStates>
   <SidebarWidth>328</SidebarWidth>
