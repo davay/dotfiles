@@ -1,10 +1,10 @@
 # Description
 
-A [yadm](https://yadm.io/) + [Ansible](https://docs.ansible.com/ansible/latest/user_guide/index.html#getting-started) instant setup for fresh OS installs. 
+A [yadm](https://yadm.io/) + [Ansible](https://docs.ansible.com/ansible/latest/user_guide/index.html#getting-started) instant setup for fresh OS installs.
 
 NOTE: Main branch is brand new -- Mac only for now. Old combined Linux + Mac setup is in archive branch. Yabai, skhd, and sketchybar are all preinstalled along with configs, but manual setup is required, instructions not here. Config for SIP-enabled yabai is in yabai.bak + skhd.bak. Otherwise, the configs present are for non-SIP yabai (mostly to focus display)
 
-## Screenshot 
+## Screenshot
 
 ![Worfklow Example](/.config/yadm/dotfiles.png)
 
@@ -19,7 +19,7 @@ NOTE: Main branch is brand new -- Mac only for now. Old combined Linux + Mac set
 ### 2. yadm + Ansible
 
 ```
-brew install yadm && yadm clone https://github.com/davay/dotfiles.git
+brew install yadm && yadm clone --bootstrap https://github.com/davay/dotfiles.git
 ```
 
 ### 3. Manual Steps
@@ -50,13 +50,13 @@ brew install yadm && yadm clone https://github.com/davay/dotfiles.git
 
 - Yabai + Skhd: Start service (they don't use brew services, do `yabai/skhd --start-service`)
 
-- Skim: Set headless config to sync with nvim https://github.com/benbrastmckie/.config
+- Skim: Set headless config to sync with nvim <https://github.com/benbrastmckie/.config>
 
-- This may or may not be needed in the future: https://github.com/luckman212/screencapture-nag-remover
+- This may or may not be needed in the future: <https://github.com/luckman212/screencapture-nag-remover>
 
-- xcodebuild.nvim: setup debugger https://github.com/wojciech-kulik/xcodebuild.nvim/wiki/Integrations#-debugger
+- xcodebuild.nvim: setup debugger <https://github.com/wojciech-kulik/xcodebuild.nvim/wiki/Integrations#-debugger>
 
-### 4. Where are hotkeys set 
+### 4. Where are hotkeys set
 
 | App | Action | Hotkey |
 | --------------- | --------------- | --------------- |

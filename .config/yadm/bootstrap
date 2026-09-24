@@ -53,7 +53,7 @@ dbanner yellow "ANSIBLE"
 if command -v ansible >/dev/null 2>&1; then
   dsay "Ansible already installed."
 else
-  brew install ansible
+  NONINTERACTIVE=1 brew install ansible
 fi
 
 ansible-galaxy install -r ~/.config/yadm/requirements.yml
