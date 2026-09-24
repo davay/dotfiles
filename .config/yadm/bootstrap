@@ -20,7 +20,7 @@ cleanup() { sudo rm -f "$SUDOERS_DROPIN" 2>/dev/null || true; }
 trap cleanup EXIT INT TERM
 
 printf '\a' # bell — the password prompt needs your attention
-dbanner red "ENTER SUDO PASSWORD (creates a temporary sudoers dropin, mostly for Ansible and some root-requiring casks)"
+dbanner red "ENTER SUDO PASSWORD to create a temporary sudoers dropin for noninteractivity"
 
 sudo -v # prompt once for this whole thing
 
@@ -35,7 +35,7 @@ dsay "Sudoers drop-in created in $SUDOERS_DROPIN"
 ### Automated Section ###
 
 dbanner yellow "YADM"
-dsay "Initializing submodules (nested git repos in these dotfiles)"
+dsay "Initializing submodules (nested git repos in these dotfiles)" # ... technically a risk?
 yadm submodule update --recursive --init
 
 dbanner yellow "ROSETTA"
@@ -60,19 +60,19 @@ ansible-galaxy install -r ~/.config/yadm/requirements.yml
 ansible-playbook -vv ~/.config/yadm/mac-install.yml -i ~/.config/yadm/inventory
 
 dbanner yellow "NIX"
-# Nix is the package backend for lazy-lsp.nvim: it runs language servers straight from
-# nixpkgs on demand, so you get hundreds of LSPs without installing each one manually.
+# nix is the package backend for lazy-lsp.nvim: it runs language servers straight from
+# nixpkgs on demand, so you get hundreds of LSPs without installing each one manually / without needing to maintain a list
 yes | curl -L https://nixos.org/nix/install | sh || true # [C] || true: non-zero if already present
 
 dbanner yellow "MISE"
-# No longer using conda, now using mise
+# no longer using conda, now using mise to manage global python env/installations
 # conda create -n py311 python=3.11 -c conda-forge pynvim jupyter_client numpy pandas ruff-lsp jupyterthemes altair
 mise install
 
-# To get Altstore AltJit working
+# To get Altstore AltJit working -- 2026-09-23: this is old, maybe it's fixed now?
 # sudo /Applications/Xcode.app/Contents/Developer/usr/bin/python3 -m pip install construct==2.10.69 qh3==0.15.1
 
-cleanup # there's already a trap for cleanup, but this just cleans the sudoers drop-in earlier -- not needed to proceed with below
+cleanup # there's already a trap for cleanup, but this cleans earlier as soon as it's not needed -- not technically needed to proceed
 dsay "Sudoers drop-in removed."
 
 ### Manual Section ###
@@ -85,4 +85,4 @@ open "$backblaze_path/$backblaze_version/Backblaze Installer.app"
 
 gh auth login # interactive browser/device flow
 
-dbanner green "END OF INSTALLATION — PLEASE RESTART"
+dbanner green "END OF INSTALLATION, please restart"
