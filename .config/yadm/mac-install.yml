@@ -317,34 +317,38 @@
 
     - name: "Mac App Store: Install apps"
       community.general.mas:
-        id:
-          - 1440147259 # [Safari] Adguard
-          - 1601151613 # [Safari] Baking Soda
-          - 1592917505 # [Safari] Noir
-          - 1480933944 # [Safari] Vimari
-          - 6471380298 # [Safari] StopTheMadness
-          - 1622835804 # [Safari] Kagi
-          - 1519867270 # [Safari] RefinedGithub
-          - 1552641506 # [Safari] GhostText
-          - 1520333300 # [Safari] Wappalyzer
-          - 6738274497 # [Safari] Raycast Companion
-          - 1541862561 # [Safari] FireShot
-          - 937984704 # Amphetamine
-          - 409183694 # Keynote
-          - 409203825 # Numbers
-          - 409201541 # Pages
-          - 1448648921 # Seashore
-          - 1276493162 # reMarkable
-          - 1351639930 # Gifski
-          - 1487937127 # Craft
-          - 775737590 # iA Writer
-          - 6636493997 # ExcalidrawZ
-          - 6746414429 # iA Presenter
-          - 640199958 # Apple Developer
+        id: "{{ item }}"
         state: latest
+      failed_when: false
+      loop:
+        - 1440147259 # [Safari] Adguard
+        - 1601151613 # [Safari] Baking Soda
+        - 1592917505 # [Safari] Noir
+        - 1480933944 # [Safari] Vimari
+        - 6471380298 # [Safari] StopTheMadness
+        - 1622835804 # [Safari] Kagi
+        - 1519867270 # [Safari] RefinedGithub
+        - 1552641506 # [Safari] GhostText
+        - 1520333300 # [Safari] Wappalyzer
+        - 6738274497 # [Safari] Raycast Companion
+        - 1541862561 # [Safari] FireShot
+        - 937984704 # Amphetamine
+        - 1448648921 # Seashore
+        - 1276493162 # reMarkable
+        - 1351639930 # Gifski
+        - 1487937127 # Craft
+        - 775737590 # iA Writer
+        - 6636493997 # ExcalidrawZ
+        - 6746414429 # iA Presenter
+        - 640199958 # Apple Developer
 
     - name: "Disable startup sound"
       ansible.builtin.command: nvram StartupMute=%01
+      become: yes
+      changed_when: false
+
+    - name: "Never sleep on AC power"
+      ansible.builtin.command: pmset -c sleep 0 # [C] -c = charger/AC power, sleep 0 = never
       become: yes
       changed_when: false
 

@@ -19,7 +19,7 @@
     "coworkHipaaRestricted": false,
     "orgWorkAcrossAppsDisabled": false,
     "ccdScheduledTasksEnabled": true,
-    "hybridDetectLatched": true,
+    "earlyWindowShowLatched": true,
     "sidebarMode": "chat",
     "bypassPermissionsGateByAccount": {
       "b1709c03-caa0-49ef-b535-6fa9a06b42ce": false
@@ -58,6 +58,6 @@
       },
       "dframe-group-scopes": {}
     },
-    "earlyWindowShowLatched": true
+    "storeReadCacheLatched": true
   }
 }
