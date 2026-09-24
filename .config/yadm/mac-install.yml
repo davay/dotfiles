@@ -18,6 +18,7 @@
       until: tap_result is succeeded
       retries: 3
       delay: 15
+      ignore_errors: true
       loop:
         - felixkratz/formulae
         - hashicorp/tap
