@@ -1,11 +1,11 @@
-fish_add_path ~/.config/yadm/path-scripts
+fish_add_path ~/.config/yadm/bin
 fish_add_path /opt/homebrew/opt/ruby/bin
 fish_add_path -m /opt/homebrew/bin # highest priority, important for tree-sitter-cli, easier to keep updated
 fish_add_path -m ~/.cargo/bin # ahead of homebrew: cargo now provides tree-sitter-cli (brew one removed)
 
 # [C] Load the POSIX color dictionary (dcolors) into fish by converting NAME=val -> set,
 # live on startup so $D_RED etc. stay in sync with the one source of truth. Writes nothing.
-sed -E 's/^([A-Za-z_][A-Za-z0-9_]*)=/set -gx \1 /' ~/.config/yadm/path-scripts/dcolors | source
+sed -E 's/^([A-Za-z_][A-Za-z0-9_]*)=/set -gx \1 /' ~/.config/yadm/bin/dcolors | source
 
 # remove fish greeting
 set fish_greeting

@@ -5,7 +5,7 @@ set -e # exit on any error
 cd "$HOME"
 
 # [C] Ensure our scripts (dbanner, etc.) are found even on a fresh machine mid-bootstrap
-PATH="$HOME/.config/yadm/path-scripts:$PATH"
+PATH="$HOME/.config/yadm/bin:$PATH"
 
 # [C] Temporary passwordless sudo for the whole bootstrap run, removed on exit.
 #

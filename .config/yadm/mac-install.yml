@@ -6,6 +6,7 @@
 
   vars:
     ansible_python_interpreter: /usr/bin/python3
+    wallpaper: "{{ playbook_dir }}/wallpapers/default.png"
 
   tasks:
     - name: "Homebrew: Add taps"
@@ -16,7 +17,7 @@
         name: "{{ item }}"
       register: tap_result
       until: tap_result is succeeded
-      retries: 3
+      retries: 2
       delay: 15
       ignore_errors: true
       loop:
@@ -28,10 +29,8 @@
         - charmbracelet/tap
         - mutagen-io/mutagen
         - xo/xo
-        - LucasPickering/tap # slumber API client
 
     - name: "Homebrew: Update"
-      # [C] Run brew update once here so the per-package loop below doesn't re-run it every item
       community.general.homebrew:
         update_homebrew: yes
 
@@ -41,7 +40,7 @@
         state: latest
       register: pkg_result
       until: pkg_result is succeeded
-      retries: 3
+      retries: 2
       delay: 15
       loop:
         ### Shell ###
@@ -78,7 +77,7 @@
         - devutils
         - webpack
         - terraform
-        - slumber
+        - slumber # API platform; testing
 
         ### Swift / Xcode ###
         - xcode-build-server # these 4 for nvim xcode
@@ -157,11 +156,11 @@
       # [C] Cask downloads are occasionally flaky (connection reset); retry each cask a few times
       register: cask_result
       until: cask_result is succeeded
-      retries: 3
+      retries: 2
       delay: 15
       loop:
         ### Browsers & Communication ###
-        - arc
+        - zen
         - discord
         - zoom
         - signal
@@ -183,6 +182,7 @@
         # [C] this loop so a privacy block warns instead of aborting the run.
         - tuist # Xcode
         - claude
+        - claude-code
 
         ### Design & Creative ###
         - figma
@@ -237,6 +237,7 @@
         ### Ricing ###
         # - rectangle-pro # 2026-09-01 - Useful for stage manager, trying to make it work with aerospace
         - aerospace
+        - desktoppr
 
         ### Games ###
         - steam
@@ -260,7 +261,7 @@
             state: latest
           register: parallels_result
           until: parallels_result is succeeded
-          retries: 3
+          retries: 2
           delay: 15
       rescue:
         # [C] Post-install was blocked by TCC (App Management). We can't grant
@@ -401,6 +402,10 @@
         dest: /Library/Fonts/
       become: yes
 
+    - name: "Set wallpaper on all screens"
+      ansible.builtin.command: /usr/local/bin/desktoppr all "{{ wallpaper }}"
+      changed_when: false
+
     # Mac Defaults
 
     - name: "Reload cfprefsd before writing defaults"
@@ -513,6 +518,38 @@
         key: no-bouncing
         type: bool
         value: true
+        state: present
+
+    - name: "osx_defaults: Empty the pinned apps in dock"
+      community.general.osx_defaults:
+        domain: com.apple.dock
+        key: persistent-apps
+        type: array
+        value: []
+        state: present
+
+    - name: "osx_defaults: Hide recent apps section in dock"
+      community.general.osx_defaults:
+        domain: com.apple.dock
+        key: show-recents
+        type: bool
+        value: false
+        state: present
+
+    - name: "osx_defaults: Remove recent directory next to trash"
+      community.general.osx_defaults:
+        domain: com.apple.dock
+        key: persistent-others
+        type: array
+        value: []
+        state: present
+
+    - name: "osx_defaults: Move dock vertical to the right"
+      community.general.osx_defaults:
+        domain: com.apple.dock
+        key: orientation
+        type: string
+        value: right
         state: present
 
     # conflicts with Xcode swiftui inspector cmd+ctrl+click

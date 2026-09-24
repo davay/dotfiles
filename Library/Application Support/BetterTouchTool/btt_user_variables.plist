@@ -3,8 +3,8 @@
 <plist version="1.0">
 <dict>
 	<key>BTTCurrentAudioInputDevice</key>
-	<string>MK 4 digital</string>
+	<string>MacBook Pro Microphone</string>
 	<key>BTTCurrentAudioOutputDevice</key>
-	<string>Schiit Modi 3</string>
+	<string>MacBook Pro Speakers</string>
 </dict>
 </plist>

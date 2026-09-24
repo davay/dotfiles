@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# [C] Hex codes come from the terminal itself via OSC 4 ("ESC ] 4 ; N ; ? ST").
+# Replies arrive on stdin, so all 16 queries are fired at once with /dev/tty in
+# raw mode and drained in a single pass — one integer timeout for the whole lot,
+# since /bin/bash on macOS is 3.2 and rejects fractional `read -t`. Terminals
+# that stay silent just cost one second and print without hex.
+
+declare -a hex
+
+query_palette() {
+  [ -e /dev/tty ] || return
+  local saved
+  saved=$(stty -g 2>/dev/null </dev/tty) || return
+  trap 'stty "$saved" </dev/tty 2>/dev/null' EXIT
+  stty raw -echo </dev/tty
+
+  local i c blob= seen=0
+  for i in {0..15}; do
+    printf '\033]4;%d;?\033\\' "$i" >/dev/tty
+  done
+  while [ $seen -lt 16 ] && IFS= read -rsn1 -t 1 c </dev/tty; do
+    if [ "$c" = $'\a' ] || [ "$c" = $'\\' ]; then
+      seen=$((seen + 1))
+      blob+=$'\n'
+    else
+      blob+=$c
+    fi
+  done
+
+  stty "$saved" </dev/tty
+  trap - EXIT
+
+  local re='4;([0-9]+);rgb:([0-9a-fA-F]+)/([0-9a-fA-F]+)/([0-9a-fA-F]+)'
+  while IFS= read -r line; do
+    [[ $line =~ $re ]] || continue
+    hex[${BASH_REMATCH[1]}]="#${BASH_REMATCH[2]:0:2}${BASH_REMATCH[3]:0:2}${BASH_REMATCH[4]:0:2}"
+  done <<<"$blob"
+}
+
+query_palette
+
+for i in {0..15}; do
+  printf "\e[48;5;%sm  %2d  \e[0m %-8s" $i $i "${hex[i]}"
+  [ $((($i + 1) % 4)) -eq 0 ] && printf "\n"
+done

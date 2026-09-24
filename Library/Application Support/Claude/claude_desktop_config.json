@@ -20,6 +20,7 @@
     "orgWorkAcrossAppsDisabled": false,
     "ccdScheduledTasksEnabled": true,
     "earlyWindowShowLatched": true,
+    "storeReadCacheLatched": true,
     "sidebarMode": "chat",
     "bypassPermissionsGateByAccount": {
       "b1709c03-caa0-49ef-b535-6fa9a06b42ce": false
@@ -56,8 +57,9 @@
         },
         "version": 0
       },
-      "dframe-group-scopes": {}
-    },
-    "storeReadCacheLatched": true
+      "dframe-group-scopes": {},
+      "epitaxy-transcript-links-in-preview": false,
+      "epitaxy-transcript-links-chooser-seen": true
+    }
   }
 }

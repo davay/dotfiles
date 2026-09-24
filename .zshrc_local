@@ -119,11 +119,10 @@ alias yreset="yadm reset --hard HEAD"
 alias ynuke="yadm clean -dfx && yadm reset --hard HEAD"
 
 # SSH alias
-alias synchetzner="syncssh root@hetzner.devinl.im"
+alias synchetzner="sync_ssh root@hetzner.devinl.im"
 
-# custom scripts 
-alias colortest="~/.config/yadm/scripts/colortest.sh"
-alias syncssh="~/.config/yadm/scripts/sync_ssh.sh"
+# custom scripts
+export PATH="$HOME/.config/yadm/bin:$PATH"
 
 syncvim() {
  rsync -av ~/.config/nvim $1:~/.config
