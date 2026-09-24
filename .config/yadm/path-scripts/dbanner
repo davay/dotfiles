@@ -1,0 +1,10 @@
+#!/bin/sh
+# dbanner <color> <text> — print a colored section banner.
+
+# colors come from dcolors dictionary
+. "$(dirname "$0")/dcolors"
+
+name=$(printf '%s' "$1" | tr -cd '[:alnum:]_' | tr '[:lower:]' '[:upper:]')
+shift
+eval "d=\${D_$name:-$D_RESET}"
+printf '\n\033[%sm======== [ %s ] ========\033[0m\n' "$d" "$*"

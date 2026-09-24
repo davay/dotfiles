@@ -1,0 +1,6 @@
+#!/bin/sh
+# dsay <text> — a narrator / runner line (the script speaking), visually distinct from
+# the tool output around it. Uses the shared dcolors palette.
+. "$(dirname "$0")/dcolors"
+
+printf '\033[%sm» %s\033[0m\n' "$D_BLUE" "$*"

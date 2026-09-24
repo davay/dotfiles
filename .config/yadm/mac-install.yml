@@ -13,16 +13,21 @@
       # loading. This is automated via ~/.homebrew/trust.json, tracked in yadm and checked
       # out before this playbook runs, so no manual `brew trust` is needed.
       community.general.homebrew_tap:
-        name:
-          - felixkratz/formulae
-          - hashicorp/tap
-          - eigenwallet/eigenwallet
-          - nikitabobko/tap
-          - oven-sh/bun
-          - charmbracelet/tap
-          - mutagen-io/mutagen
-          - xo/xo
-          - LucasPickering/tap # slumber API client
+        name: "{{ item }}"
+      register: tap_result
+      until: tap_result is succeeded
+      retries: 3
+      delay: 15
+      loop:
+        - felixkratz/formulae
+        - hashicorp/tap
+        - eigenwallet/eigenwallet
+        - nikitabobko/tap
+        - oven-sh/bun
+        - charmbracelet/tap
+        - mutagen-io/mutagen
+        - xo/xo
+        - LucasPickering/tap # slumber API client
 
     - name: "Homebrew: Update"
       # [C] Run brew update once here so the per-package loop below doesn't re-run it every item
@@ -311,9 +316,14 @@
 
     - name: "Cargo: Install Rust Packages"
       community.general.cargo:
-        name:
-          - wallust # might be unused now
-          - tree-sitter-cli # To auto install TS parsers
+        name: "{{ item }}"
+      register: cargo_result
+      until: cargo_result is succeeded
+      retries: 3
+      delay: 15
+      loop:
+        - wallust # might be unused now
+        - tree-sitter-cli # To auto install TS parsers
 
     - name: "Mac App Store: Install apps"
       community.general.mas:

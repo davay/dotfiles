@@ -4,46 +4,67 @@ set -e # exit on any error
 # because git submodule commands can't operate without a work tree, they must be run from within $HOME
 cd "$HOME"
 
-# Temporary passwordless sudo for the whole bootstrap run, removed on exit.
+# [C] Ensure our scripts (dbanner, etc.) are found even on a fresh machine mid-bootstrap
+PATH="$HOME/.config/yadm/path-scripts:$PATH"
+
+# [C] Temporary passwordless sudo for the whole bootstrap run, removed on exit.
 #
 # Why: Homebrew's cask installer and Ansible's `become` both invoke sudo
 # non-interactively (no TTY). macOS uses per-TTY sudo tickets, so neither can reuse
 # a ticket we cache here -> "sudo: a password is required". We first tried a
 # `Defaults timestamp_type=global` drop-in + keep-alive so one cached ticket would
 # cover both; it silently had no effect on Ansible's become. A NOPASSWD rule is
-# unconditional (no ticket/TTY involved) and just works. Scoped to this run only.
+# unconditional (no ticket/TTY involved) and just works.
 SUDOERS_DROPIN=/etc/sudoers.d/yadm-bootstrap
 cleanup() { sudo rm -f "$SUDOERS_DROPIN" 2>/dev/null || true; }
 trap cleanup EXIT INT TERM
 
-printf '\a\033[7;1;31m  >>> ENTER SUDO PASSWORD (creates a temporary sudoers dropin, mostly for Ansible and some root-requiring casks) <<<  \033[0m\n'
-sudo -v # prompt once, up front
-# Validate in a temp file before installing — a malformed drop-in could lock sudo out.
-dropin_tmp=$(mktemp)
-printf '%s ALL=(ALL) NOPASSWD: ALL\n' "$USER" >"$dropin_tmp"
-sudo visudo -cf "$dropin_tmp"
-sudo install -m 440 -o root -g wheel "$dropin_tmp" "$SUDOERS_DROPIN"
-rm -f "$dropin_tmp"
+printf '\a' # bell — the password prompt needs your attention
+dbanner red "ENTER SUDO PASSWORD (creates a temporary sudoers dropin, mostly for Ansible and some root-requiring casks)"
+
+sudo -v # prompt once for this whole thing
+
+# [C] Validate in a temp file before installing — a malformed drop-in could lock sudo out.
+tmp_dropin=$(mktemp)
+printf '%s ALL=(ALL) NOPASSWD: ALL\n' "$USER" >"$tmp_dropin"
+sudo visudo -cf "$tmp_dropin"
+sudo install -m 440 -o root -g wheel "$tmp_dropin" "$SUDOERS_DROPIN"
+rm -f "$tmp_dropin"
+dsay "Sudoers drop-in created in $SUDOERS_DROPIN"
 
 ### Automated Section ###
 
-echo "Init submodules"
+dbanner yellow "YADM"
+dsay "Initializing submodules (nested git repos in these dotfiles)"
 yadm submodule update --recursive --init
+
+dbanner yellow "ROSETTA"
 # [C] arch -x86_64 /usr/bin/true returns 1 (Bad CPU type) unless Rosetta is installed
-if [ "$(uname -m)" = arm64 ] && ! arch -x86_64 /usr/bin/true 2>/dev/null; then
+if [ "$(uname -m)" != arm64 ]; then
+  dsay "Intel Mac; Rosetta not needed."
+elif arch -x86_64 /usr/bin/true 2>/dev/null; then
+  dsay "Rosetta already installed; skipping."
+else
   softwareupdate --install-rosetta --agree-to-license || true
 fi
 
-# Ansible does everything: packages, casks (incl. pkg-casks), MAS apps, the fish shell
-# change, system settings and osx_defaults. Root steps use the NOPASSWD rule above.
-brew install ansible
+dbanner yellow "ANSIBLE"
+
+if command -v ansible >/dev/null 2>&1; then
+  dsay "Ansible already installed."
+else
+  brew install ansible
+fi
 
 ansible-galaxy install -r ~/.config/yadm/requirements.yml
 ansible-playbook -vv ~/.config/yadm/mac-install.yml -i ~/.config/yadm/inventory
 
-# Install Nix package manager, mostly for lazy-lsp.nvim
+dbanner yellow "NIX"
+# Nix is the package backend for lazy-lsp.nvim: it runs language servers straight from
+# nixpkgs on demand, so you get hundreds of LSPs without installing each one manually.
 yes | curl -L https://nixos.org/nix/install | sh || true # [C] || true: non-zero if already present
 
+dbanner yellow "MISE"
 # No longer using conda, now using mise
 # conda create -n py311 python=3.11 -c conda-forge pynvim jupyter_client numpy pandas ruff-lsp jupyterthemes altair
 mise install
@@ -51,9 +72,11 @@ mise install
 # To get Altstore AltJit working
 # sudo /Applications/Xcode.app/Contents/Developer/usr/bin/python3 -m pip install construct==2.10.69 qh3==0.15.1
 
-cleanup # remove the NOPASSWD drop-in before the interactive tail
+cleanup # there's already a trap for cleanup, but this just cleans the sudoers drop-in earlier -- not needed to proceed with below
+dsay "Sudoers drop-in removed."
 
 ### Manual Section ###
+dbanner yellow "MANUAL"
 
 # Backblaze (opens the GUI installer - needs manual click-through)
 backblaze_path="/opt/homebrew/Caskroom/backblaze"
@@ -62,8 +85,4 @@ open "$backblaze_path/$backblaze_version/Backblaze Installer.app"
 
 gh auth login # interactive browser/device flow
 
-cat <<EOF
------------------------------------
-END OF INSTALLATION, PLEASE RESTART
------------------------------------
-EOF
+dbanner green "END OF INSTALLATION — PLEASE RESTART"

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# check-repos.sh — report which subfolders (git repos) have pending changes.
+# [C] check-repos.sh — report which subfolders (git repos) have pending changes.
 #
 # "Pending" means any of:
 #   - uncommitted changes (modified/staged/untracked files)
@@ -16,9 +16,17 @@ root="${1:-.}"
 
 # Colors (only if stdout is a terminal)
 if [ -t 1 ]; then
-  red=$'\e[31m'; green=$'\e[32m'; yellow=$'\e[33m'; dim=$'\e[2m'; reset=$'\e[0m'
+  red=$'\e[31m'
+  green=$'\e[32m'
+  yellow=$'\e[33m'
+  dim=$'\e[2m'
+  reset=$'\e[0m'
 else
-  red=''; green=''; yellow=''; dim=''; reset=''
+  red=''
+  green=''
+  yellow=''
+  dim=''
+  reset=''
 fi
 
 dirty_count=0
@@ -51,7 +59,10 @@ for dir in "$root"/*/; do
 
   if [ ${#reasons[@]} -gt 0 ]; then
     dirty_count=$((dirty_count + 1))
-    printf '%s%-24s %s%s\n' "$yellow" "$name" "$(IFS=', '; echo "${reasons[*]}")" "$reset"
+    printf '%s%-24s %s%s\n' "$yellow" "$name" "$(
+      IFS=', '
+      echo "${reasons[*]}"
+    )" "$reset"
   else
     clean_count=$((clean_count + 1))
     printf '%s%-24s clean%s\n' "$green" "$name" "$reset"
